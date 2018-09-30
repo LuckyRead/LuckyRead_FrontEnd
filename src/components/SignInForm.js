@@ -16,7 +16,7 @@ class SignInForm extends Component {
             <div className="form-group row">
               <label for="inputName" className="col-sm-5 col-form-label">Nombres</label>
               <div className="col-sm-7">
-                <input type="text" className="form-control" id="inputName" placeholder="¿Cómo te llamas?" />
+                <input type="text" className="form-control" id="inputName" placeholder="Nombres" />
               </div>
             </div>
             <div className="form-group row">
@@ -51,7 +51,7 @@ class SignInForm extends Component {
             <div className="form-group row">
               <label for="inputRepeatPassword" className="col-sm-5 col-form-label">Repetir Contraseña</label>
               <div className="col-sm-7">
-                <input type="password" className="form-control" id="inputRepeatPassword" placeholder="Repite tu contraseña" />
+                <input type="password" className="form-control" id="inputRepeatPassword" placeholder="Confirma tu Contraseña" />
               </div>
             </div>
             <div id= "center"><button type="submit" className="btn btn-primary">Registrarme</button>
