@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LogIn from './LogIn'
-import logo from '../resources/white_logo_luckyread.png';
+import { Button } from 'reactstrap';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -31,7 +31,7 @@ class Navigation extends React.Component {
                     <Collapse isOpen = { this.state.collapse } navbar>
                         <NavbarNav left>
                           <NavItem active>
-                              <NavLink to="#">Home</NavLink>
+                              <NavLink to="./">Home</NavLink>
                           </NavItem>
                           <NavItem>
                               <NavLink to="#">Ayuda</NavLink>
@@ -44,7 +44,8 @@ class Navigation extends React.Component {
                         <NavbarNav left>
                           <NavItem>
                             <form className="form-inline md-form mt-0">
-                              <input className="form-control mr-sm-2 mb-0 text-black" type="text" placeholder="Busca entre categorias o fragmentos" aria-label="Search"/>
+                              <Button className="Search-button" outline color="secondary">Buscar</Button>
+                              <input className="form-control mr-sm-2 mb-0 text-black" type="text" placeholder="Introduce tu busqueda" aria-label="Search"/>
                             </form>
                           </NavItem>
                           </NavbarNav>
@@ -53,7 +54,7 @@ class Navigation extends React.Component {
                           <NavItem>
                             <Dropdown >
                                 <DropdownToggle nav caret>Iniciar Sesion</DropdownToggle>
-                              <DropdownMenu >
+                              <DropdownMenu className="DropdownMenu" >
                                     <LogIn></LogIn>
                                 </DropdownMenu>
                             </Dropdown>

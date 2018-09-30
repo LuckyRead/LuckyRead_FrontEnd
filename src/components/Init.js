@@ -6,24 +6,30 @@ import '../styles/navbar.css';
 import { Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import Navigation from './Navigation'
+import logo from '../resources/white_logo_luckyread.png';
 
 
 
 class Init extends Component {
+
+
   constructor() {
     super();
   }
 
   render(){
     return(
-
-      <div className="container-fluid" >
-        <Navigation></Navigation>
-
-        <h1 className="Init-title">Bienvenido a LuckyRead</h1>
-      <Button tag={Link} to="/signIn" className="Init-button-back"></Button>{' '}
-      <h3 className="Init-info">Encontraras fragmentos de texto interesantes </h3>
-
+  <div className="container-fluid">
+      <Navigation/>
+    <div className="jumbotron" id="Init-panel" >
+        <strong><h1 className="Init-title">Bienvenido a LuckyRead</h1></strong>
+      <h3 className="Init-subtitle"><p>¿Quieres leer algo pero no sabes qué?
+Aquí te ofrecemos textos interesantes al azar según tus gustos.
+¡Podrás interactuar con otros usuarios y aprender algo nuevo cada día!</p></h3>
+      <div className="Init-button">
+          <Button tag={Link} to="/signIn" className="Init-button" className="btn btn-info">Haz clic para empezar</Button>
+      </div>
+    </div>
       </div>
     )
   }

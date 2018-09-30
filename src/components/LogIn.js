@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { SocialIcon } from 'react-social-icons';
-import Navigation from './Navigation'
+import Navigation from './Navigation';
+import '../styles/LogIn.css';
 
 
 class LogIn extends Component {
@@ -12,7 +13,7 @@ class LogIn extends Component {
       return (
         <form>
           <div className="col-sm-12" id = "Form">
-          <h2 className="text-center"> Ingresa a LuckyRead </h2>
+          <h2 className="text-center" className="Login-title"> Ingresa a LuckyRead </h2>
             <div className="form-group row">
               <label for="inputName" className="col-sm-5 col-form-label">Nombre de usuario</label>
               <div className="col-sm-7">
