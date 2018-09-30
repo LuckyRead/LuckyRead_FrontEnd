@@ -11,13 +11,12 @@ class SignIn extends Component {
   render(){
     return(
 
-      <div class="container-fluid" className ="SingIn">
+      <div className="container-fluid" >
         <Navigation></Navigation>
         <div className="col-sm-4" id="RegistrationForm">
           <SignInForm></SignInForm>
-        </div>
       </div>
-
+      </div>
     )
   }
 
