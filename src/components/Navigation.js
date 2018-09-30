@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LogIn from './LogIn'
+import logo from '../resources/white_logo_luckyread.png';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -19,6 +21,7 @@ class Navigation extends React.Component {
     }
     render() {
         return (
+          <div className="row" className="Navbar-init">
             <Router>
                 <Navbar color="indigo" dark expand="md" scrolling>
                     <NavbarBrand href="/">
@@ -41,20 +44,17 @@ class Navigation extends React.Component {
                         <NavbarNav left>
                           <NavItem>
                             <form className="form-inline md-form mt-0">
-                              <input className="form-control mr-sm-2 mb-0 text-black" type="text" placeholder="Search" aria-label="Search"/>
+                              <input className="form-control mr-sm-2 mb-0 text-black" type="text" placeholder="Busca entre categorias o fragmentos" aria-label="Search"/>
                             </form>
                           </NavItem>
                           </NavbarNav>
 
-                        <NavbarNav right>
+                        <NavbarNav left >
                           <NavItem>
-                            <Dropdown>
+                            <Dropdown >
                                 <DropdownToggle nav caret>Iniciar Sesion</DropdownToggle>
-                                <DropdownMenu>
-                                    <DropdownItem href="#">Action</DropdownItem>
-                                    <DropdownItem href="#">Another Action</DropdownItem>
-                                    <DropdownItem href="#">Something else here</DropdownItem>
-                                    <DropdownItem href="#">Something else here</DropdownItem>
+                              <DropdownMenu >
+                                    <LogIn></LogIn>
                                 </DropdownMenu>
                             </Dropdown>
                           </NavItem>
@@ -62,6 +62,7 @@ class Navigation extends React.Component {
                     </Collapse>
                 </Navbar>
             </Router>
+            </div>
         );
     }
 }

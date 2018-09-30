@@ -1,7 +1,11 @@
 .Init {
-
-  color: white;
-  text-align: center;
+  background: black;
+  display: table;
+  margin: 0 auto;
+  margin-top: 2%;
+  border-radius: 5px;
+  border-style: none;
+  float: none;
 }
 
 .Init-title {
@@ -11,29 +15,29 @@
   text-align: center;
 }
 
-.Init-book {
-  height: 10em;
-  left: 0;
-  bottom: 0;
-}
-
-
-.Init-resume {
-  color: #ffffff;
-}
 
 .Init-info {
-  padding-left: 20px;
-  align: center;
+  color: black;
+  padding-top: 20px;
+  text-align: center;
 }
 
-.Init-Button {
+
+
+.Init-button-back {
+  height: 200px;
+  width: 200px;
+  background-color: none;
+  background-image: url("../resources/open_book.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
   text-align: center;
-  padding: 10px;
-  background-color: #FFE087;
+  display: table;
+  margin: 0 auto;
+  margin-top: 2%;
+  border-radius: 5px;
+  border-style: none;
   font-family: 'Times New Roman';
-  font-size: 3em;
-  height: 3em;
   animation: MoveUpDown 5s linear infinite;
   position: relative;
 }

@@ -4,7 +4,7 @@
     margin: 0 auto;
     margin-top: 2%;
     border-radius: 5px;
-    border-style: double;
+    border-style: none;
 }
 #Form {
   display: table;
@@ -17,5 +17,5 @@
 }
 
 .SingIn{
-  
+
 }
