@@ -1,0 +1,17 @@
+#RegistrationForm {
+    background: white;
+    display: table;
+    margin: 0 auto;
+    margin-top: 2%;
+    border-radius: 5px;
+    border-style: double;
+}
+#Form {
+  display: table;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+#center{
+  text-align: center;
+}
