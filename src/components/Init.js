@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import book from '../resources/black_book.png';
 import '../styles/Init.css';
 import { Button } from 'reactstrap';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
