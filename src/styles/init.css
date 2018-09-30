@@ -1,50 +1,44 @@
-
-.Init-book {
-
-
-  height: 10em;
-  left: 0;
-  bottom: 0;
-}
-
-.LuckyRead-logo {
-  position: relative;
-  height: 4em;
-  left: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-.bar {
-  background-color: #ffd480;
-
-}
-
-
-.Init-header {
-  text-align: center;
+.Init {
   padding: 20px;
   color: white;
+  text-align: center;
 }
 
 .Init-title {
   font-family: 'Times New Roman';
   font-size: 5em;
+  color: white;
+  text-align: center;
 }
+
+.Init-book {
+  height: 10em;
+  left: 0;
+  bottom: 0;
+}
+
 
 .Init-resume {
   color: #ffffff;
 }
 
+.Init-info {
+  padding-left: 20px;
+  align: center;
+}
+
 .Init-Button {
+  text-align: center;
+  padding: 10px;
+  background-color: #FFE087;
   font-family: 'Times New Roman';
   font-size: 3em;
   height: 3em;
-  animation: MoveUpDown 3s linear infinite;
+  animation: MoveUpDown 5s linear infinite;
   position: relative;
-  background-color: #E7CE6A;
-
 }
+
+
 
 @keyframes MoveUpDown {
   0%, 100% {
