@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import Init from './components/Init';
+import App from './components/Init';
+import SignIn from './components/SignIn';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter, Route} from 'react-router-dom'
 
 ReactDOM.render(
   <BrowserRouter>
          <div>
-             <Route exact path='/' component={Init} />
+             <Route exact path='/' component={App} />
+             <Route  path='/signIn' component={SignIn} />
          </div>
   </BrowserRouter>
-  , document.getElementById('root')
-);
-
+  , document.getElementById('root'));
 registerServiceWorker();
