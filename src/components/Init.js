@@ -22,7 +22,7 @@ class Init extends Component {
             <h3 >Encontraras una lectura interesante.</h3>
           </div>
           <div class="row">
-            <Button className="Init-Button" color="warning">
+            <Button className="Init-Button" color="warning" tag={Link} to="/signIn">
               Haz clic para empezar
             </Button>{' '}
           </div>
