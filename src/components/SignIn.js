@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignInForm from './SignInForm';
 import '../styles/SignIn.css';
+import Navigation from './Navigation'
 
 class SignIn extends Component {
   constructor() {
@@ -9,11 +10,14 @@ class SignIn extends Component {
 
   render(){
     return(
-      <div className ="SingIn">
+
+      <div class="container-fluid" className ="SingIn">
+        <Navigation></Navigation>
         <div className="col-sm-4" id="RegistrationForm">
           <SignInForm></SignInForm>
         </div>
       </div>
+
     )
   }
 

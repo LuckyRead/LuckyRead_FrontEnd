@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { SocialIcon } from 'react-social-icons';
+import Navigation from './Navigation'
 
 
 class SignInForm extends Component {
