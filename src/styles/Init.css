@@ -1,28 +1,56 @@
-.Init {
-  text-align: center;
+
+.Init-book {
+
+
+  height: 10em;
+  left: 0;
+  bottom: 0;
 }
 
-.Init-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.LuckyRead-logo {
+  position: relative;
+  height: 4em;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
 }
+
+.bar {
+  background-color: #ffd480;
+
+}
+
 
 .Init-header {
-  background-color: #222;
-  height: 150px;
+  text-align: center;
   padding: 20px;
   color: white;
 }
 
 .Init-title {
-  font-size: 1.5em;
+  font-family: 'Times New Roman';
+  font-size: 5em;
 }
 
-.Init-intro {
-  font-size: large;
+.Init-resume {
+  color: #ffffff;
 }
 
-@keyframes Init-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Init-Button {
+  font-family: 'Times New Roman';
+  font-size: 3em;
+  height: 3em;
+  animation: MoveUpDown 3s linear infinite;
+  position: relative;
+  background-color: #E7CE6A;
+
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 30px;
+  }
 }
