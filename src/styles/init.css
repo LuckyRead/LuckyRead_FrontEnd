@@ -1,0 +1,95 @@
+.Init {
+  background: black;
+  display: table;
+  margin: 0 auto;
+  margin-top: 2%;
+  border-radius: 5px;
+  border-style: none;
+  float: none;
+}
+
+
+#Init-left-panel{
+  align-self: center;
+  background: white;
+  display: table;
+  margin: 0 auto;
+  margin-top: 2%;
+  border-radius: 5px;
+  border-style: none;
+  width: 100%;
+  height: 100%;
+
+}
+
+#Init-panel{
+  background-image: url("../resources/paper.jpg");
+  align-self: center;
+  display: table;
+  margin: 0 auto;
+  margin-top: 2%;
+  border-radius: 5px;
+  border-style: none;
+  height: 500px;
+}
+
+
+.Init-title {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 5em;
+  color: #0E8A80;
+  text-align: center;
+}
+
+.LuckyRead-logo {
+  text-align: center;
+  height: 3em;
+  left: 0;
+  bottom: 0;
+  align: center;
+  align-content: center;
+}
+
+
+.Init-subtitle {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2em;
+  color: #000;
+  text-align: center;
+    height: 100px;
+}
+
+
+.Div-button{
+  background-color: red;
+}
+
+
+.Init-button {
+  background-color: #51AFAD;
+  width: 200px;
+  color: white;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 10px;
+  font-size: 2em;
+  display: block;
+  border-style: none;
+  position: relative;
+    animation: MoveUpDown 5s linear infinite;
+}
+
+
+
+.InitButton onClick{
+
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 30px;
+  }
+}
