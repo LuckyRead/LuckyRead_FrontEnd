@@ -66,21 +66,24 @@
 
 
 .Init-button {
-  height: 80px;
-  vertical-align: center;
-  text-align: center;
-  display: table;
-  margin: 0 auto;
-  margin-top: 2%;
-  border-radius: 5px;
+  background-color: #51AFAD;
+  width: 200px;
+  color: white;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 10px;
+  font-size: 2em;
+  display: block;
   border-style: none;
-  font-family: 'Times New Roman';
-  animation: MoveUpDown 5s linear infinite;
   position: relative;
-  height: 50px;
+    animation: MoveUpDown 5s linear infinite;
 }
 
 
+
+.InitButton onClick{
+
+}
 
 @keyframes MoveUpDown {
   0%, 100% {

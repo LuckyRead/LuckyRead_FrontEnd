@@ -31,7 +31,7 @@ class Navigation extends React.Component {
                     <Collapse isOpen = { this.state.collapse } navbar>
                         <NavbarNav left>
                           <NavItem active>
-                              <NavLink to="./">Home</NavLink>
+                              <a class="nav-link" href="/">Inicio</a>
                           </NavItem>
                           <NavItem>
                               <NavLink to="#">Ayuda</NavLink>
@@ -44,8 +44,8 @@ class Navigation extends React.Component {
                         <NavbarNav left>
                           <NavItem>
                             <form className="form-inline md-form mt-0">
-                              <Button className="Search-button" outline color="secondary">Buscar</Button>
                               <input className="form-control mr-sm-2 mb-0 text-black" type="text" placeholder="Introduce tu busqueda" aria-label="Search"/>
+                            <Button className="Search-button" outline color="secondary">Buscar</Button>
                             </form>
                           </NavItem>
                           </NavbarNav>

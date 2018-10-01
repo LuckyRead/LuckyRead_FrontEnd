@@ -12,3 +12,10 @@
 .DropdownMenu{
   width: 300px;
 }
+
+.Search-button{
+  padding-left: 10px;
+  background-color: #70B75B;
+  color: white;
+
+}
