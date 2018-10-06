@@ -5,8 +5,9 @@
   bottom: 0;
 }
 
-.Navbar-init{
-  background-color: rgba(57, 57, 57, 0.7);;
+.Navbar{
+  background-color: rgba(67, 67, 67, 0.7);
+  color: black;
 }
 
 .DropdownMenu{

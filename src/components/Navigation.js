@@ -21,9 +21,9 @@ class Navigation extends React.Component {
     }
     render() {
         return (
-          <div className="row" className="Navbar-init">
+          <div className="row" className="Navbar">
             <Router>
-                <Navbar color="indigo" dark expand="md" scrolling>
+                <Navbar dark expand="md" scrolling>
                     <NavbarBrand href="/">
                         <strong>LuckyRead</strong>
                     </NavbarBrand>

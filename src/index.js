@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './components/Init';
+import Init from './components/Init';
 import SignIn from './components/SignIn';
 import CategoriesPage from './components/CategoriesPage';
 import HomepageWithOutLogin from './components/HomepageWithOutLogin';
@@ -18,7 +18,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 ReactDOM.render(
   <BrowserRouter>
          <div>
-             <Route exact path='/' component={App} />
+             <Route exact path='/' component={Init} />
              <Route  path='/signIn' component={SignIn} />
       	     <Route  path='/categoriesPage' component={CategoriesPage} />
       	     <Route  path='/homepageWithOutLogin' component={HomepageWithOutLogin} />
