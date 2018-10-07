@@ -17,5 +17,11 @@
   },
   "devDependencies": {
     "react-social-icons": "^3.0.0"
-  }
+  },
+  "engines": {
+    "node": "8.10.0",
+    "npm": "6.4.1"
+  },
+
+  "react-scripts": "1.1.5"
 }
