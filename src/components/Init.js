@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import book from '../resources/black_book.png';
-import SignInForm from './SignInForm';
+
 import '../styles/init.css';
 import '../styles/navbar.css';
 import { Button } from 'reactstrap';
