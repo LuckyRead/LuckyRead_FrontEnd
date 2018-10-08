@@ -1,0 +1,44 @@
+
+.Init-SignUp {
+  margin: 0 auto;
+  border-style: none;
+}
+
+.SignUp-Title{
+  color: #2B5275;
+  text-align: center;
+}
+
+#RegistrationForm {
+    background: white;
+    display: table;
+    margin: 0 auto;
+    margin-top: 2%;
+    border-radius: 5px;
+    border-style: none;
+}
+
+#Form {
+  display: table;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+#center{
+  text-align: center;
+}
+
+.SingIn{
+
+}
+
+.FormErrors{
+  text-align: center;
+  color: #D16647;
+}
+
+
+
+.SignUp-Button{
+  text-align: center;
+}

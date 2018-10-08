@@ -1,4 +1,6 @@
+//Dependencies
 import React, { Component } from 'react';
+
 import book from '../resources/black_book.png';
 import '../styles/init.css';
 import '../styles/navbar.css';
@@ -6,6 +8,8 @@ import { Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import Navigation from './Navigation'
 import logo from '../resources/white_logo_luckyread.png';
+
+import SignUp from './SignUp'
 
 
 
@@ -24,7 +28,8 @@ class InitCenter extends Component {
   <h3 className="Init-subtitle"><p>¿Quieres leer algo pero no sabes qué?
     Aquí te ofrecemos textos interesantes al azar según tus gustos.
     ¡Podrás interactuar con otros usuarios y aprender algo nuevo cada día!</p></h3>
-  <Link to="/SignIn">
+
+  <Link to="/SignUp">
   <button type="button" className="Init-button">
   <strong>Empezar</strong>
   </button>
