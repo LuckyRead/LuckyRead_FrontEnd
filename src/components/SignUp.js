@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 //Components
 import Navigation from './Navigation';
-import Form from './Form';
+import SignUpForm from './SignUpForm';
 
 //Styles
 
@@ -21,7 +21,7 @@ class SignUp extends Component {
       <div className="Init-SignUp">
         <Navigation/>
         <div className="col-sm-4" id="RegistrationForm">
-        <Form />
+        <SignUpForm />
       </div>
           </div>
 
