@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
-import '../styles/preferences.css';
+import { Button, ButtonGroup } from 'reactstrap';
 
 class Preferences extends Component {
-  constructor() {
-    super();
+  constructor (props) {
+    super(props);
+
+    this.state = { cSelected: [] };
+
+    this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
+    this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
   }
 
-  handleCheckBox(){
-    console.log('click');
+  onRadioBtnClick(rSelected) {
+    this.setState({ rSelected });
   }
 
-  render(){
-    return(
-            <div className="toggle-button toggle-button--vesi">
-                <input id="toggleButton5" type="checkbox" />
-                <label htmlFor="toggleButton5" data-on-text={this.props.name} data-off-text={this.props.name}></label>
-                <div className="toggle-button__icon"></div>
-            </div>
-
-    )
+  onCheckboxBtnClick(selected) {
+    const index = this.state.cSelected.indexOf(selected);
+    if (index < 0) {
+      this.state.cSelected.push(selected);
+    } else {
+      this.state.cSelected.splice(index, 1);
+    }
+    this.setState({ cSelected: [...this.state.cSelected] });
   }
 
+  render() {
+    return (
+      <div>
+          <Button color="info" onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>{this.props.name}</Button>
+
+      </div>
+
+    );
+  }
 }
 
-export default Preferences
+export default Preferences;
