@@ -11,19 +11,22 @@ class SignUpForm extends Component {
   constructor (props) {
     super(props);
     this.state = {
+      username: '',
       nombre: '',
       apellido: '',
       email: '',
       password: '',
+      confirmpassword: '',
+      formErrors: {username: '', nombre: '', apellido: '', email: '', password: '', confirmpassword: ''},
 
-      formErrors: {nombre: '', apellido: '', email: '', password: ''},
-
+      usernameValid: false,
       namesValid: false,
       lastnameValid: false,
       emailValid: false,
       passwordValid: false,
-
+      confirmpasswordValid: true,
       formValid: false,
+      confirmPass: false
     }
   }
 
@@ -36,16 +39,19 @@ class SignUpForm extends Component {
 
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
-
+    let usernameValid=this.state.namesValid;
     let namesValid =this.state.namesValid;
     let lastnameValid =this.state.lastnameValid;
     let emailValid = this.state.emailValid;
     let passwordValid = this.state.passwordValid;
-
+    let confirmpasswordValid = this.state.confirmpasswordValid;
 
     switch(fieldName) {
 
-
+      case 'username':
+      usernameValid = value.length <= 15 ;
+      fieldValidationErrors.username =  usernameValid ? '' : 'debe tener maximo 15 caracteres';
+      break;
 
       case 'nombre':
       namesValid = value.length >= 3;
@@ -63,10 +69,20 @@ class SignUpForm extends Component {
         passwordValid = value.length >= 6;
         fieldValidationErrors.password = passwordValid ? '': ' is too short';
 
+        confirmpasswordValid= (this.state.password==this.state.confirmpassword || passwordValid==false)
+        fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'las contrasenas no coinciden';
 
         break;
 
-
+      case 'confirmpassword':
+      if(this.state.password==this.state.confirmpassword){
+        confirmpasswordValid= true;
+      }
+      else{
+        confirmpasswordValid=false;
+      }
+          fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'las contrasenas no coinciden';
+          break;
 
 
       default:
@@ -75,17 +91,17 @@ class SignUpForm extends Component {
 
 
     this.setState({formErrors: fieldValidationErrors,
-
+                    usernameValid: usernameValid,
                     namesValid: namesValid,
                     lastnameValid: lastnameValid,
                     emailValid: emailValid,
                     passwordValid: passwordValid,
-
+                    confirmpasswordValid: confirmpasswordValid
                   }, this.validateForm);
   }
 
   validateForm() {
-    this.setState({formValid: this.state.namesValid && this.state.emailValid && this.state.passwordValid});
+    this.setState({formValid: this.state.usernameValid && this.state.namesValid && this.state.emailValid && this.state.passwordValid && this.state.confirmpasswordValid});
   }
 
 
@@ -102,6 +118,21 @@ class SignUpForm extends Component {
           <FormErrors formErrors={this.state.formErrors} />
         </div>
 
+
+        <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
+          <label htmlFor="username">Usuario</label>
+
+            <div className="input-group">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="inputGroupPrepend2">@</span>
+          </div>
+        <input type="text" required className="form-control" name="username"
+            placeholder="Nombre de usuario"
+            value={this.state.username}
+            onChange={this.handleUserInput}  />
+          </div>
+
+        </div>
 
 
         <div className="form-group row">
@@ -141,6 +172,17 @@ class SignUpForm extends Component {
             onChange={this.handleUserInput}  />
         </div>
 
+        { this.state.passwordValid ?
+          <div className={`form-group ${this.errorClass(this.state.formErrors.confirmpassword)}`}>
+            <label htmlFor="confirmpassword">Repite tu contraseña</label>
+          <input type="password" className="form-control" name="confirmpassword"
+              placeholder="Repite tu contraseña"
+              value={this.state.confirmpassword}
+              onChange={this.handleUserInput}  />
+          </div>
+
+
+          : null }
 
 
       <div className="SignUp-Button">
