@@ -1,24 +1,17 @@
 //Dependencies
 import React, { Component } from 'react';
 
-import book from '../resources/black_book.png';
 import '../styles/init.css';
 import '../styles/navbar.css';
-import { Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
-import Navigation from './Navigation'
-import logo from '../resources/white_logo_luckyread.png';
 
-import SignUp from './SignUp'
 
 
 
 class InitCenter extends Component {
 
 
-  constructor() {
-    super();
-  }
+
 
   render(){
     return(

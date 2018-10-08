@@ -5,7 +5,7 @@ import Init from './components/Init';
 import SignUp from './components/SignUp';
 import CategoriesPage from './components/CategoriesPage';
 import HomepageWithOutLogin from './components/HomepageWithOutLogin';
-import Homepage from './components/Homepage';
+import Home from './components/Home';
 import AllFragment from './components/AllFragment';
 import Account from './components/Account';
 import Community from './components/Community';
@@ -22,7 +22,7 @@ ReactDOM.render(
              <Route  path='/SignUp' component={SignUp} />
       	     <Route  path='/categoriesPage' component={CategoriesPage} />
       	     <Route  path='/homepageWithOutLogin' component={HomepageWithOutLogin} />
-      	     <Route  path='/hompage' component={Homepage} />
+      	     <Route  path='/Home' component={Home} />
       	     <Route  path='/allFragment' component={AllFragment} />
       	     <Route  path='/account' component={Account} />
       	     <Route  path='/community' component={Community} />
