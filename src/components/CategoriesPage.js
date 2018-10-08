@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Navigation from './Navigation';
+import Preferences from './Preferences';
 
 class CategoriesPage extends Component {
   constructor() {
@@ -7,7 +9,13 @@ class CategoriesPage extends Component {
 
   render(){
     return(
-      <h1><font color = "white"> Aquí se eligen los gustos </font></h1>
+      <div className="CategoriesPage">
+        <Navigation/>
+        <Preferences name = "Arte"/>
+        <br/>
+        <Preferences name = "Ciencia"/>
+        <br/>
+      </div>
     )
   }
 
