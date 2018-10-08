@@ -7,7 +7,7 @@ class Community extends Component {
 
   render(){
     return(
-        <h1><font color = "white"> Esta es la comunidad </font></h1>
+        <h1><font color = "white"> Seccion comunidad </font></h1>
     )
   }
 

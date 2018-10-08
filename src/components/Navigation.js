@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import LogIn from './LogIn'
-import { Button } from 'reactstrap';
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
+import LogInForm from './LogInForm'
+import { Button , Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -55,7 +57,7 @@ class Navigation extends React.Component {
                             <Dropdown >
                                 <DropdownToggle nav caret>Iniciar Sesion</DropdownToggle>
                               <DropdownMenu className="DropdownMenu" >
-                                    <LogIn></LogIn>
+                                    <LogInForm/>
                                 </DropdownMenu>
                             </Dropdown>
                           </NavItem>
