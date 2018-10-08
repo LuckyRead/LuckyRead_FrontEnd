@@ -1,3 +1,14 @@
+
+.Init-SignUp {
+  margin: 0 auto;
+  border-style: none;
+}
+
+.SignUp-Title{
+  color: #2B5275;
+  text-align: center;
+}
+
 #RegistrationForm {
     background: white;
     display: table;
@@ -6,6 +17,7 @@
     border-radius: 5px;
     border-style: none;
 }
+
 #Form {
   display: table;
   margin: 0 auto;
@@ -18,4 +30,15 @@
 
 .SingIn{
 
+}
+
+.FormErrors{
+  text-align: center;
+  color: #D16647;
+}
+
+
+
+.SignUp-Button{
+  text-align: center;
 }

@@ -1,12 +1,18 @@
+//Dependencies
 import React, { Component } from 'react';
-import book from '../resources/black_book.png';
-import SignInForm from './SignInForm';
-import '../styles/init.css';
-import '../styles/navbar.css';
 import { Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
+
+//Components
 import Navigation from './Navigation';
 import InitCenter from './InitCenter';
+//styles
+import '../styles/init.css';
+
+//Data
+//import items from '../data/menu.js'
+
+
 
 import logo from '../resources/white_logo_luckyread.png';
 
