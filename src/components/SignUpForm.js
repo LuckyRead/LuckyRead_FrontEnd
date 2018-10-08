@@ -24,7 +24,7 @@ class SignUpForm extends Component {
       lastnameValid: false,
       emailValid: false,
       passwordValid: false,
-      confirmpasswordValid: true,
+      confirmpasswordValid: false,
       formValid: false,
       confirmPass: false
     }
@@ -38,6 +38,7 @@ class SignUpForm extends Component {
   }
 
   validateField(fieldName, value) {
+
     let fieldValidationErrors = this.state.formErrors;
     let usernameValid=this.state.namesValid;
     let namesValid =this.state.namesValid;
@@ -50,27 +51,27 @@ class SignUpForm extends Component {
 
       case 'username':
       usernameValid = value.length <= 15 ;
-      fieldValidationErrors.username =  usernameValid ? '' : 'debe tener maximo 15 caracteres';
+      fieldValidationErrors.username =  usernameValid ? '' : 'Tu nombre de usuario no debe exceder los 15 caracteres';
       break;
 
       case 'nombre':
-      namesValid = value.length >= 3;
-      fieldValidationErrors.nombre =  namesValid ? '' : 'debe ser de mas de 3 caracteres';
+      namesValid = value.length >= 2;
+      fieldValidationErrors.nombre =  namesValid ? '' : 'Nombre invalido';
       break;
 
 
       case 'email':
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+        fieldValidationErrors.email = emailValid ? '' : 'Email invalido';
         break;
 
       case 'password':
 
-        passwordValid = value.length >= 6;
-        fieldValidationErrors.password = passwordValid ? '': ' is too short';
+        passwordValid = value.length >= 8;
+        fieldValidationErrors.password = passwordValid ? '': 'Tu contrasena debe tener al menos 8 caracteres';
 
         confirmpasswordValid= (this.state.password==this.state.confirmpassword || passwordValid==false)
-        fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'las contrasenas no coinciden';
+        fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'Las contrasenas no coinciden';
 
         break;
 
@@ -81,7 +82,7 @@ class SignUpForm extends Component {
       else{
         confirmpasswordValid=false;
       }
-          fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'las contrasenas no coinciden';
+          fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'Las contrasenas no coinciden';
           break;
 
 
@@ -114,6 +115,8 @@ class SignUpForm extends Component {
       <div className="col-sm-12" id = "Form">
       <form className="demoForm">
         <h2 className="SignUp-Title" >Crea tu cuenta</h2>
+
+
         <div className="panel panel-default">
           <FormErrors formErrors={this.state.formErrors} />
         </div>
