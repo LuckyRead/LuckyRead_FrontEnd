@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation';
 import Preferences from './Preferences';
+import RegistrationPopUp from './RegistrationPopUp';
 import { Container, Row, Col } from 'reactstrap';
 
 class CategoriesPage extends Component {
@@ -12,6 +13,8 @@ class CategoriesPage extends Component {
     return(
     <div>
       <Navigation/>
+      <br/>
+      <h1 className="text-white"><strong>&nbsp;Elige tus gustos... </strong></h1>
       <Container fluid>
       <br/>
         <Row className="row justify-content-center">
@@ -70,7 +73,14 @@ class CategoriesPage extends Component {
           <Col sm="auto"><Preferences name = "Guías de estudio y repaso"/></Col>
           <Col sm="auto"><Preferences name = "Literatura y ficción"/></Col>
         </Row>
+        <br/>
+        <br/>
+        <Row className="row justify-content-end">
+          <Col sm="auto"><RegistrationPopUp/></Col>
+        </Row>
       </Container>
+
+
       </div>
     )
   }
