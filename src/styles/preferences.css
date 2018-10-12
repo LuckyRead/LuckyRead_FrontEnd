@@ -1,9 +1,3 @@
-.btn-blue{
-  background: #2b5275;
-}
-.btn-blue input:checked{
-  background: #ffff;
-}
-.btn-blue input:focus{
-  background: #ffff;
+.btn-outline-info{
+  border-width: medium;
 }

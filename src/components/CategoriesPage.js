@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation';
 import Preferences from './Preferences';
+import { Container, Row, Col } from 'reactstrap';
 
 class CategoriesPage extends Component {
   constructor() {
@@ -9,64 +10,67 @@ class CategoriesPage extends Component {
 
   render(){
     return(
-      <div className="CategoriesPage">
-        <Navigation/>
+    <div>
+      <Navigation/>
+      <Container fluid>
+      <br/>
+        <Row className="row justify-content-center">
+          <Col sm="auto"><Preferences name = "Hogar, manualidades y estilos de vida"/></Col>
+          <Col sm="auto"><Preferences name = "Salud, familia y desarrollo personal"/></Col>
+          <Col sm="auto"><Preferences name = "Biografías, diarios y hechos reales"/></Col>
+        </Row>
         <br/>
-        <Preferences name = "Arte, cine y fotografía"/>
+        <Row className="row justify-content-center">
+          <br/>
+          <Col sm="auto"><Preferences name = "Religión"/></Col>
+          <Col sm="1"></Col>
+          <Col sm="auto"><Preferences name = "Política"/></Col>
+          <Col sm="1"></Col>
+          <Col sm="auto"><Preferences name = "Infantil"/></Col>
+          <Col sm="1"></Col>
+          <Col sm="auto"><Preferences name = "Historia"/></Col>
+          <Col sm="1"></Col>
+          <Col sm="auto"><Preferences name = "Consulta"/></Col>
+        </Row>
         <br/>
-        <Preferences name = "Biografías, diarios y hechos reales"/>
+        <Row className="row justify-content-between">
+          <Col sm="auto"><Preferences name = "Libros universitarios y de estudios superiores"/></Col>
+          <Col sm="auto"><Preferences name = "Humor"/></Col>
+          <Col sm="auto"><Preferences name = "Romántica"/></Col>
+          <Col sm="auto"><Preferences name = "Informática, internet y medios digitales"/></Col>
+        </Row>
         <br/>
-        <Preferences name = "Calendarios y agendas"/>
+        <Row className="row justify-content-around">
+          <Col sm="auto"><Preferences name = "Derecho"/></Col>
+          <Col sm="auto"><Preferences name = "Juvenil"/></Col>
+          <Col sm="auto"><Preferences name = "Deporte"/></Col>
+        </Row>
         <br/>
-        <Preferences name = "Ciencias, tecnología y medicina"/>
+        <Row className="row justify-content-center">
+          <Col sm="auto"><Preferences name = "Ciencias, tecnología y medicina"/></Col>
+          <Col sm="auto"><Preferences name = "Lengua, lingüística y redacción"/></Col>
+          <Col sm="auto"><Preferences name = "Libros y guías de viaje"/></Col>
+          <Col sm="auto"><Preferences name = "Arte, cine y fotografía"/></Col>
+        </Row>
         <br/>
-        <Preferences name = "Consulta"/>
+        <Row className="row justify-content-center">
+          <Col sm="auto"><Preferences name = "Policíaca, negra y suspense"/></Col>
+          <Col sm="auto"><Preferences name = "Sociedad y ciencias sociales"/></Col>
+        </Row>
         <br/>
-        <Preferences name = "Cómics y manga"/>
+        <Row className="row justify-content-between">
+          <Col sm="auto"><Preferences name = "Cómics y manga"/></Col>
+          <Col sm="auto"><Preferences name = "Libros de texto"/></Col>
+          <Col sm="auto"><Preferences name = "Economía y empresa"/></Col>
+        </Row>
         <br/>
-        <Preferences name = "Deporte"/>
-        <br/>
-        <Preferences name = "Derecho"/>
-        <br/>
-        <Preferences name = "Economía y empresa"/>
-        <br/>
-        <Preferences name = "Fantasía y ciencia ficción"/>
-        <br/>
-        <Preferences name = "Guías de estudio y repaso"/>
-        <br/>
-        <Preferences name = "Historia"/>
-        <br/>
-        <Preferences name = "Hogar, manualidades y estilos de vida"/>
-        <br/>
-        <Preferences name = "Humor"/>
-        <br/>
-        <Preferences name = "Infantil"/>
-        <br/>
-        <Preferences name = "Informática, internet y medios digitales"/>
-        <br/>
-        <Preferences name = "Juvenil"/>
-        <br/>
-        <Preferences name = "Lengua, lingüística y redacción"/>
-        <br/>
-        <Preferences name = "Libros de texto"/>
-        <br/>
-        <Preferences name = "Libros universitarios y de estudios superiores"/>
-        <br/>
-        <Preferences name = "Libros y guías de viaje"/>
-        <br/>
-        <Preferences name = "Literatura y ficción"/>
-        <br/>
-        <Preferences name = "Policíaca, negra y suspense"/>
-        <br/>
-        <Preferences name = "Política"/>
-        <br/>
-        <Preferences name = "Religión"/>
-        <br/>
-        <Preferences name = "Romántica"/>
-        <br/>
-        <Preferences name = "Salud, familia y desarrollo personal"/>
-        <br/>
-        <Preferences name = "Sociedad y ciencias sociales"/>
+        <Row className="row justify-content-around">
+          <Col sm="auto"><Preferences name = "Fantasía y ciencia ficción"/></Col>
+          <Col sm="auto"><Preferences name = "Calendarios y agendas"/></Col>
+          <Col sm="auto"><Preferences name = "Guías de estudio y repaso"/></Col>
+          <Col sm="auto"><Preferences name = "Literatura y ficción"/></Col>
+        </Row>
+      </Container>
       </div>
     )
   }

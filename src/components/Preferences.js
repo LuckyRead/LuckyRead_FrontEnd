@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup } from 'reactstrap';
+import '../styles/preferences.css';
 
 class Preferences extends Component {
   constructor (props) {
@@ -28,8 +29,7 @@ class Preferences extends Component {
   render() {
     return (
       <div>
-          <Button color="info" onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>{this.props.name}</Button>
-
+          <Button outline color="info" onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>{this.props.name}</Button>
       </div>
 
     );
