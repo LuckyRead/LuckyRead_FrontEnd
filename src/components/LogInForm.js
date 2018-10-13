@@ -1,7 +1,7 @@
 //Dependencies
 
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import { FormErrors } from './FormErrors';
 import { SocialIcon } from 'react-social-icons';
 
@@ -11,15 +11,17 @@ class LogInForm extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: '',
-      formErrors: {username: '', password: ''},
+      formErrors: {email: '', password: ''},
 
-      usernameValid: false,
+      emailValid: false,
       passwordValid: false,
       formValid: false,
     }
   }
+
+
 
   handleUserInput = (e) => {
     const name = e.target.name;
@@ -30,14 +32,14 @@ class LogInForm extends Component {
 
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
-    let usernameValid=this.state.namesValid;
+    let emailValid=this.state.emailValid;
     let passwordValid = this.state.passwordValid;
 
     switch(fieldName) {
 
-      case 'username':
-      usernameValid = value.length >= 0 ;
-      fieldValidationErrors.username =  usernameValid ? '' : 'debe tener maximo 15 caracteres';
+      case 'email':
+      emailValid = value.length >= 0 ;
+      fieldValidationErrors.email =  emailValid ? '' : 'debe tener maximo 15 caracteres';
       break;
 
       case 'password':
@@ -53,13 +55,13 @@ class LogInForm extends Component {
 
 
     this.setState({formErrors: fieldValidationErrors,
-                    usernameValid: usernameValid,
+                    emailValid: emailValid,
                     passwordValid: passwordValid,
                   }, this.validateForm);
   }
 
   validateForm() {
-    this.setState({formValid: this.state.usernameValid && this.state.passwordValid});
+    this.setState({formValid: this.state.emailValid && this.state.passwordValid});
   }
 
 
@@ -67,25 +69,40 @@ class LogInForm extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const credentials = {
+      email: this.state.username,
+      password: this.state.nombre,
+    };
+
+    axios.post(`http://localhost:3000/login`, { credentials })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
+
+
+
+
+
   render () {
     return (
       <div className="col-sm-12" id = "Form">
-      <form className="demoForm">
+      <form className="demoForm" onSubmit={this.handleSubmit}>
         <h2 className="LogIn-Title" >Ingresa</h2>
         <div className="panel panel-default">
           <FormErrors formErrors={this.state.formErrors} />
         </div>
 
-
-        <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
-          <label htmlFor="username">Usuario</label>
+        <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
+          <label htmlFor="email">Correo</label>
             <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="inputGroupPrepend2">@</span>
-          </div>
-        <input type="text" required className="form-control" name="username"
-            placeholder="Nombre de usuario"
-            value={this.state.username}
+        <input type="text" required className="form-control" name="email"
+            placeholder="Ejemplo:luckyread@example.com"
+            value={this.state.email}
             onChange={this.handleUserInput}  />
           </div>
 
@@ -102,7 +119,7 @@ class LogInForm extends Component {
 
 
       <div className="LogIn-Button">
-        <button  type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Iniciar Sesion</button>
+        <button  type="submit" className="btn btn-primary" >Iniciar Sesion</button>
         <br/>
         <h6></h6>
         <h8>O ingresa con tus redes sociales</h8> &nbsp;
