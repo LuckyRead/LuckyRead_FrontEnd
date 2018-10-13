@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup } from 'reactstrap';
 import '../styles/preferences.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Preferences extends Component {
   constructor (props) {
@@ -10,8 +11,8 @@ class Preferences extends Component {
 
   render() {
     return (
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-info active">
+      <div className="btn-group-toggle" data-toggle="buttons">
+        <label className="btn btn-primary ">
           <input type="checkbox" autocomplete="off"/> {this.props.name}
         </label>
       </div>
