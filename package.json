@@ -6,6 +6,7 @@
     "mdbreact": "^4.8.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
     "reactstrap": "^6.4.0"
   },
@@ -22,6 +23,5 @@
     "node": "8.10.0",
     "npm": "6.4.1"
   },
-
   "react-scripts": "1.1.5"
 }

@@ -72,14 +72,15 @@ class LogInForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const credentials = {
-      email: this.state.username,
-      password: this.state.nombre,
+    const auth = {
+      email: this.state.email,
+      password: this.state.password,
     };
 
-    axios.post(`http://localhost:3000/login`, { credentials })
+    axios.post(`http://localhost:3000/login`, { auth })
       .then(res => {
         console.log(res);
+        console.log(res.data);
         console.log(res.data);
       })
   }
