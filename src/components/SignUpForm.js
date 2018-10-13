@@ -1,11 +1,13 @@
 //Dependencies
 
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import { FormErrors } from './FormErrors';
 import { SocialIcon } from 'react-social-icons';
 
 import '../styles/sign-up.css';
+
+
 
 class SignUpForm extends Component {
   constructor (props) {
@@ -70,13 +72,13 @@ class SignUpForm extends Component {
         passwordValid = value.length >= 8;
         fieldValidationErrors.password = passwordValid ? '': 'Tu contrasena debe tener al menos 8 caracteres';
 
-        confirmpasswordValid= (this.state.password==this.state.confirmpassword || passwordValid==false)
+        confirmpasswordValid= (this.state.password===this.state.confirmpassword || passwordValid===false)
         fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'Las contrasenas no coinciden';
 
         break;
 
       case 'confirmpassword':
-      if(this.state.password==this.state.confirmpassword){
+      if(this.state.password===this.state.confirmpassword){
         confirmpasswordValid= true;
       }
       else{
@@ -110,10 +112,29 @@ class SignUpForm extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const user = {
+      username: this.state.username,
+      name: this.state.nombre,
+      lastname: this.state.apellido,
+      email: this.state.email,
+      password: this.state.password,
+      cities_id: 1
+    };
+
+    axios.post(`http://localhost:3000/signin`, { user })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
+
   render () {
     return (
       <div className="col-sm-12" id = "Form">
-      <form className="demoForm">
+      <form className="demoForm" onSubmit={this.handleSubmit}>
         <h2 className="SignUp-Title" >Crea tu cuenta</h2>
 
 
