@@ -1,7 +1,5 @@
 //Dependencies
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import {Link} from 'react-router-dom';
 
 //Components
 import Navigation from './Navigation';
@@ -14,15 +12,7 @@ import '../styles/init.css';
 
 
 
-import logo from '../resources/white_logo_luckyread.png';
-
-
-
 class Init extends Component {
-
-  constructor() {
-    super();
-  }
 
   render(){
     return(

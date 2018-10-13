@@ -2,7 +2,13 @@
   "name": "luckyread_frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+  "/api": {
+    "target": "http://localhost:3000"
+  }
+  },
   "dependencies": {
+    "axios": "^0.18.0",
     "mdbreact": "^4.8.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -22,6 +28,5 @@
     "node": "8.10.0",
     "npm": "6.4.1"
   },
-
   "react-scripts": "1.1.5"
 }
