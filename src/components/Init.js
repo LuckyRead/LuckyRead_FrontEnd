@@ -1,7 +1,6 @@
 //Dependencies
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import {Link} from 'react-router-dom';
+
 
 //Components
 import Navigation from './Navigation';
@@ -11,10 +10,6 @@ import '../styles/init.css';
 
 //Data
 //import items from '../data/menu.js'
-
-
-
-import logo from '../resources/white_logo_luckyread.png';
 
 
 

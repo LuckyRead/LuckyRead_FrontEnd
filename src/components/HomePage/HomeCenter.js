@@ -5,33 +5,30 @@ import {Link} from 'react-router-dom';
 
 //Components
 //styles
-import '../styles/home.css';
+import '../../styles/home.css';
 
 //Data
 //import items from '../data/menu.js'
-import HomeCategories from './HomeCategories';
-import HomeFragment from './HomeFragment';
-import HomeCommunity from './HomeCommunity';
-
 
 class HomeCenter extends Component {
 
-  constructor() {
-    super();
-  }
+  state ={
+    category: 'Historia',
+    subcategorie: 'Edad media'
+}
 
   render(){
     return(
     <div className="row" >
     <div className="col-md-4" id="Categories">
-    <HomeCategories/>
-    
+      <p>{this.state.category}</p>
+
       </div>
     <div className="col-md-4" id="Categories">
-    <HomeFragment/>  
+Fragmento
       </div>
     <div className="col-md-4" id="Categories">
-    <HomeCommunity/>     
+comunidad
       </div>
       </div>
     )
