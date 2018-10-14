@@ -24,7 +24,7 @@ class HomePage_Categories_List extends Component {
   render(){
     return(
   <div className="row">
-    <div className="col-sm-12" className="HomePage_Categories_List">
+    <div className="col-sm-12" id="HomePage_Categories_List">
       <HomePage_Categorie categories={this.state.categories}/>
       </div>
       </div>

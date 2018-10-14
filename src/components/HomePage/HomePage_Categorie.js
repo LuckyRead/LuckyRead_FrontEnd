@@ -11,16 +11,25 @@ import '../../styles/home.css';
 
 class HomePage_Categorie extends Component {
 
+  handleClick = (e) => {
+    console.log('holi');
+  }
+
+  handleMouseOver= (e) => {
+
+
+  }
 
   render(){
 
     const{categories}=this.props;
     const categorieList = categories.map (categorie => {
       return(
-        <div className="HomePage_Categorie">
+        <div className="categorie">
         <div className="row">
           <div className="col-sm-12" >
-          <div>{categorie.name}</div>
+          <button onClick={this.handleClick} id="CategoryButton"
+            onMouseOver={this.handleMouseOver}>{categorie.name}</button>
           </div>
           </div>
           </div>

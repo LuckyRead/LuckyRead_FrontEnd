@@ -18,10 +18,10 @@ class HomePage extends Component {
 
   render(){
     return(
-  <div className="HomePage">
+  <div id="HomePage">
     <Navigation/>
-    <div className="col-sm-12" >
-        <HomeCenter />
+    <div >
+      <HomeCenter />
       </div>
       </div>
     )

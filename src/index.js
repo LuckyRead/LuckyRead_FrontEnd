@@ -22,8 +22,8 @@ ReactDOM.render(
              <Route exact path='/' component={Init} />
              <Route  path='/SignUp' component={SignUp} />
       	     <Route  path='/categoriesPage' component={CategoriesPage} />
-           <Route  path='/HomePage' component={HomePage} />
-         <Route  path='/HomePage_Categories_List' component={HomePage_Categories_List} />
+             <Route  path='/HomePage' component={HomePage} />
+             <Route  path='/HomePage_Categories_List' component={HomePage_Categories_List} />
       	     <Route  path='/allFragment' component={AllFragment} />
       	     <Route  path='/account' component={Account} />
       	     <Route  path='/community' component={Community} />
