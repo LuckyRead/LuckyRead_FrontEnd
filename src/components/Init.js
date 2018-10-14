@@ -19,6 +19,7 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { faSmile } from '@fortawesome/free-solid-svg-icons'
 import { faMeh } from '@fortawesome/free-solid-svg-icons'
 import { faFrown } from '@fortawesome/free-solid-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -41,5 +42,6 @@ library.add(faExclamationTriangle)
 library.add(faSmile)
 library.add(faMeh)
 library.add(faFrown)
+library.add(faCheck)
 
 export default Init
