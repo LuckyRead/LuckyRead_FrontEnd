@@ -1,15 +1,28 @@
 //Dependencies
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import book from '../resources/black_book.png';
+=======
+
+>>>>>>> feature/17-home-view
 import '../styles/init.css';
 import '../styles/navbar.css';
-import { Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> feature/17-home-view
 
 
 class InitCenter extends Component {
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> feature/17-home-view
   render(){
     return(
   <div className="InitCenter">

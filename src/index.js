@@ -5,8 +5,7 @@ import './styles/index.css';
 import Init from './components/Init';
 import SignUp from './components/SignUp';
 import CategoriesPage from './components/CategoriesPage';
-import HomepageWithOutLogin from './components/HomepageWithOutLogin';
-import Homepage from './components/Homepage';
+import HomePage from './components/HomePage/HomePage';
 import AllFragment from './components/AllFragment';
 import Account from './components/Account';
 import FragmentCreation from './components/FragmentCreation';
@@ -22,8 +21,7 @@ ReactDOM.render(
              <Route exact path='/' component={Init} />
              <Route  path='/SignUp' component={SignUp} />
       	     <Route  path='/categoriesPage' component={CategoriesPage} />
-      	     <Route  path='/homepageWithOutLogin' component={HomepageWithOutLogin} />
-      	     <Route  path='/hompage' component={Homepage} />
+           <Route  path='/HomePage' component={HomePage} />
       	     <Route  path='/allFragment' component={AllFragment} />
       	     <Route  path='/account' component={Account} />
       	     <Route  path='/fragmentCreation' component={FragmentCreation} />

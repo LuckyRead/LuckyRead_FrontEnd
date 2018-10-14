@@ -12,6 +12,10 @@ import '../styles/sign-up.css';
 
 
 class SignUp extends Component {
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/17-home-view
 
   render(){
     return(
