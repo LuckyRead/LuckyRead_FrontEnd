@@ -1,7 +1,5 @@
 //Dependencies
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import {Link} from 'react-router-dom';
 
 //Components
 import Navigation from '../Navigation';
@@ -14,15 +12,9 @@ import '../../styles/home.css';
 
 
 
-import logo from '../../resources/white_logo_luckyread.png';
 
+class HomePage extends Component {
 
-
-class Home extends Component {
-
-  constructor() {
-    super();
-  }
 
   render(){
     return(
@@ -37,4 +29,4 @@ class Home extends Component {
 
 }
 
-export default Home
+export default HomePage

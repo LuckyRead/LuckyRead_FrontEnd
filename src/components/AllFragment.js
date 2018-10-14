@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 class AllFragment extends Component {
-  constructor() {
-    super();
-  }
 
   render(){
     return(

@@ -15,10 +15,6 @@ import '../styles/init.css';
 
 class Init extends Component {
 
-  constructor() {
-    super();
-  }
-
   render(){
     return(
   <div className="Init">
