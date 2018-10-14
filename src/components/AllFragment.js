@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import fragment from "../fragment.json";
 //Components
 import Navigation from './Navigation';
 import FragmentContainer from './FragmentContainer';
@@ -10,16 +10,16 @@ class AllFragment extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      title: '',
-      content: ''
+      fragment
     }
   }
   render(){
+    console.log(fragment);
     return(
       <div>
         <Navigation/>
         <br/>
-        <FragmentContainer/>
+        <FragmentContainer title = {fragment.title} introduction = {fragment.introduction} content = {fragment.content} image = {fragment.image}/>
         <br/>
         <Reactions/>
       </div>

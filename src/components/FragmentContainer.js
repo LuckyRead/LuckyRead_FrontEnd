@@ -14,13 +14,15 @@ class FragmentContainer extends Component {
   render(){
     return(
       <div className="container">
+        <div className="row text-center" id="title_fragment">
+          <h2><strong>{this.props.title}</strong></h2>
+        </div>
         <div className="row" id="container_fragment">
           <div className="col-4" id="image">
-          Imagen
+            <img src={this.props.image} alt="Jack el Destripador"/>
           </div>
           <div className="col-8" id="text">
-            <h1>{this.props.title}</h1>
-            <p>{this.props.fragment}</p>
+            <p className = "text-justify">{this.props.content}</p>
           </div>
         </div>
       </div>

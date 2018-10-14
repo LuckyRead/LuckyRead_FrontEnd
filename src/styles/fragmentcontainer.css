@@ -18,12 +18,16 @@
 }
 
 #image{
-  background-color: #1234;
+  background-color: #ffff;
+}
+#title_fragment{
+  background-color: #ffff;
+  text-align: center;
+  padding: 10px;
 }
 #container_fragment{
   height: 500px;
   background-color: #ffff;
-
 }
 #text{
   overflow-y: scroll;
@@ -39,4 +43,8 @@
 }
 #selected{
   color: blue;
+}
+#image img{
+  width: 100%;
+  height: auto;
 }
