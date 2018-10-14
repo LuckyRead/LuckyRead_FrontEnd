@@ -31,7 +31,7 @@ class Navigation extends React.Component {
                     <Collapse isOpen = { this.state.collapse } navbar>
                         <NavbarNav left>
                           <NavItem active>
-                              <a class="nav-link" href="/">Inicio</a>
+                              <a className="nav-link" href="/">Inicio</a>
                           </NavItem>
                           <NavItem>
                               <NavLink to="#">Ayuda</NavLink>
