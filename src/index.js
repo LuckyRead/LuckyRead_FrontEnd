@@ -1,14 +1,14 @@
+import App from './components/App';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import Init from './components/Init';
-import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 import CategoriesPage from './components/CategoriesPage';
 import HomepageWithOutLogin from './components/HomepageWithOutLogin';
 import Homepage from './components/Homepage';
 import AllFragment from './components/AllFragment';
 import Account from './components/Account';
-import Community from './components/Community';
 import FragmentCreation from './components/FragmentCreation';
 import EventCreation from './components/EventCreation';
 import Help from './components/Help';
@@ -18,14 +18,14 @@ import {BrowserRouter, Route} from 'react-router-dom'
 ReactDOM.render(
   <BrowserRouter>
          <div>
+           <Route exact path='/App' component={App} />
              <Route exact path='/' component={Init} />
-             <Route  path='/signIn' component={SignIn} />
+             <Route  path='/SignUp' component={SignUp} />
       	     <Route  path='/categoriesPage' component={CategoriesPage} />
       	     <Route  path='/homepageWithOutLogin' component={HomepageWithOutLogin} />
       	     <Route  path='/hompage' component={Homepage} />
       	     <Route  path='/allFragment' component={AllFragment} />
       	     <Route  path='/account' component={Account} />
-      	     <Route  path='/community' component={Community} />
       	     <Route  path='/fragmentCreation' component={FragmentCreation} />
       	     <Route  path='/eventCreation' component={EventCreation} />
       	     <Route  path='/help' component={Help} />

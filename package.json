@@ -2,12 +2,21 @@
   "name": "luckyread_frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+  "/api": {
+    "target": "http://localhost:3000"
+  }
+  },
   "dependencies": {
+<<<<<<< HEAD
     "@fortawesome/fontawesome-free": "^5.4.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
     "@fortawesome/free-solid-svg-icons": "^5.4.1",
     "@fortawesome/react-fontawesome": "^0.1.3",
     "i": "^0.3.6",
+=======
+    "axios": "^0.18.0",
+>>>>>>> 9a09a9668c63fa1c64a75026c66f7d53c8634596
     "mdbreact": "^4.8.0",
     "npm": "^6.4.1",
     "react": "^16.5.2",
@@ -16,7 +25,7 @@
     "reactstrap": "^6.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=4200 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

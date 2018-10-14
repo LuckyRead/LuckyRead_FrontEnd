@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 class EventCreation extends Component {
-  constructor() {
-    super();
-  }
+
 
   render(){
     return(

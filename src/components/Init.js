@@ -1,4 +1,6 @@
+//Dependencies
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import book from '../resources/black_book.png';
 import SignInForm from './SignInForm';
 import '../styles/init.css';
@@ -12,16 +14,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
+=======
 
-import logo from '../resources/white_logo_luckyread.png';
+//Components
+import Navigation from './Navigation';
+import InitCenter from './InitCenter';
+//styles
+import '../styles/init.css';
+>>>>>>> 9a09a9668c63fa1c64a75026c66f7d53c8634596
+
+//Data
+//import items from '../data/menu.js'
 
 
 
 class Init extends Component {
-
-  constructor() {
-    super();
-  }
 
   render(){
     return(

@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { SocialIcon } from 'react-social-icons';
-import Navigation from './Navigation';
 import '../styles/LogIn.css';
 
 
 class LogIn extends Component {
-    constructor () {
-      super();
-    }
-
+  
     render() {
       return (
         <form>
