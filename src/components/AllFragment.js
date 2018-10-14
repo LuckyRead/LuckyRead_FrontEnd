@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 
-class AllFragment extends Component {
+//Components
+import Navigation from './Navigation';
+import FragmentContainer from './FragmentContainer';
+import Reactions from './Reactions';
 
+
+class AllFragment extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      title: '',
+      content: ''
+    }
+  }
   render(){
     return(
-        <h1><font color = "white"> Aquí se puede visualizar en su totalidad el fragmento, incluidos comentarios </font></h1>
+      <div>
+        <Navigation/>
+        <br/>
+        <FragmentContainer/>
+        <br/>
+        <Reactions/>
+      </div>
     )
   }
 

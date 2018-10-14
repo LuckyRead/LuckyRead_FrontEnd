@@ -15,6 +15,13 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
 //Data
 //import items from '../data/menu.js'
+//Icons
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSmile } from '@fortawesome/free-solid-svg-icons'
+import { faMeh } from '@fortawesome/free-solid-svg-icons'
+import { faFrown } from '@fortawesome/free-solid-svg-icons'
+
 
 
 
@@ -33,5 +40,8 @@ class Init extends Component {
 
 library.add(faAngleRight)
 library.add(faExclamationTriangle)
+library.add(faSmile)
+library.add(faMeh)
+library.add(faFrown)
 
 export default Init

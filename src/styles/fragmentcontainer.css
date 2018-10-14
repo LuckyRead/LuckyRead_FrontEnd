@@ -1,0 +1,42 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#image{
+  background-color: #1234;
+}
+#container_fragment{
+  height: 500px;
+  background-color: #ffff;
+
+}
+#text{
+  overflow-y: scroll;
+}
+#smile{
+  color: #77FF33;
+}
+#meh{
+  color: #F8DE00;
+}
+#frown{
+  color: #F80000;
+}
+#selected{
+  color: blue;
+}
