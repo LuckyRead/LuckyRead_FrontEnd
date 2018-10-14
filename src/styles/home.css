@@ -1,12 +1,36 @@
-  .home{
+  .HomePage{
       margin: 0 auto;
       border-style: none;
+      background: #a8ff78;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #78ffd6, #a8ff78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      width: 100%;
+      height: 100%;
   }
 
-  
-  #HomeCenter {
+.HomePage_Categorie{
+
+  background: #3a6186;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #89253e, #3a6186);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #89253e, #3a6186); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%;
+  margin: 0 auto;
+  border-style: none;
+
+}
+
+.HomePage_Categories_List{
+  margin: 0 auto;
+  border-style: none;
+  width: 100%;
+  text-align: center;
+}
+
+
+#HomeCenter {
     background-color: rgba(255, 255, 255, 0.7);
-    display: table;
+
     margin: 0 auto;
     margin-top: 2%;
     border-radius: 5px;

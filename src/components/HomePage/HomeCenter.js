@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 //Components
+import HomePage_Categories_List from './HomePage_Categories_List';
 //styles
 import '../../styles/home.css';
 
@@ -34,17 +35,19 @@ handleCopy= (e) => {
 
   render(){
     return(
-    <div className="row" >
-    <div className="col-md-4" id="Categories">
+    <div className="row" id='HomeCenter' >
+    <div className="col-md-4">
       <p>{this.state.category}</p>
     <button onClick={this.handleClick} >Agregar categoria</button>
   <button onMouseOver={this.handleMouseOver}>Hover me</button>
 <p onCopy={this.handleCopy}>What we think, we become</p>
-      </div>
-    <div className="col-md-4" id="Categories">
+<HomePage_Categories_List/>
+
+  </div>
+    <div className="col-md-4">
 Fragmento
       </div>
-    <div className="col-md-4" id="Categories">
+    <div className="col-md-4">
 comunidad
       </div>
       </div>
