@@ -12,6 +12,7 @@ import '../styles/sign-up.css';
 
 
 class SignUp extends Component {
+
   render(){
     return(
       <div className="Init-SignUp">

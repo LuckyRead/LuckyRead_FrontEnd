@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import LogIn from './LogIn'
 import { Button } from 'reactstrap';
-
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu } from 'mdbreact';
-
 import { BrowserRouter as Router } from 'react-router-dom';
 
 class Navigation extends React.Component {

@@ -7,7 +7,6 @@ import Reactions from './Reactions';
 
 
 class AllFragment extends Component {
-
   constructor (props) {
     super(props);
     this.state = {
