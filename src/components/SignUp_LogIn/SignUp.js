@@ -1,15 +1,13 @@
 //Dependencies
 
 import React, { Component } from 'react';
-import axios from 'axios';
+
 import { FormErrors } from './FormErrors';
 import { SocialIcon } from 'react-social-icons';
 
-import '../styles/sign-up.css';
+import '../../styles/sign-up.css';
 
-
-
-class SignUpForm extends Component {
+class SignUp extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -112,29 +110,13 @@ class SignUpForm extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-
-    const user = {
-      username: this.state.username,
-      name: this.state.nombre,
-      lastname: this.state.apellido,
-      email: this.state.email,
-      password: this.state.password,
-      cities_id: 1
-    };
-
-    axios.post(`http://localhost:3000/signin`, { user })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-  }
-
   render () {
     return (
+      <div className="Init-SignUp">
+        <div className="col-sm-4" id="RegistrationForm">
+
       <div className="col-sm-12" id = "Form">
-      <form className="demoForm" onSubmit={this.handleSubmit}>
+      <form className="demoForm">
         <h2 className="SignUp-Title" >Crea tu cuenta</h2>
 
 
@@ -222,8 +204,10 @@ class SignUpForm extends Component {
       </div>
       </form>
     </div>
+  </div>
+      </div>
     )
   }
 }
 
-export default SignUpForm;
+export default SignUp;

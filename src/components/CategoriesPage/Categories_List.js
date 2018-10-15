@@ -9,7 +9,7 @@ import '../../styles/homepage.css';
 
 //Data
 
-class HomePage_Categories_List extends Component {
+class Categories_List extends Component {
 
   state ={
     topics: [
@@ -50,7 +50,7 @@ class HomePage_Categories_List extends Component {
   render(){
     return(
   <div className="row">
-    <div className="col-sm-12" id="HomePage_Categories_List">
+    <div className="col-sm-12" id="Categories_List">
       <HomePage_Category deleteTopic={this.deleteTopic} topics={this.state.topics}/>
     <AddTopic addTopic={this.addTopic} />
       </div>
@@ -60,4 +60,4 @@ class HomePage_Categories_List extends Component {
 
 }
 
-export default HomePage_Categories_List
+export default Categories_List

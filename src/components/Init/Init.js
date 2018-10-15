@@ -1,39 +1,29 @@
-//Dependencies
-import React, { Component } from 'react';
+import React from 'react'
+import {Link} from 'react-router-dom';
 import '../../styles/init.css';
-import '../../styles/navbar.css';
-
-import { Link } from 'react-router-dom';
-import Navigation from '../Navigation';
-import InitCenter from './InitCenter';
-
-//Data
-//import items from '../data/menu.js'
-//Icons
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
-import { faSmile } from '@fortawesome/free-solid-svg-icons'
-import { faMeh } from '@fortawesome/free-solid-svg-icons'
-import { faFrown } from '@fortawesome/free-solid-svg-icons'
-
 
 
 const Init = () => {
-    return(
-  <div className="Init">
-    <Navigation/>
-  <InitCenter/>
+  return (
+    <div>
+      <div className="container-fluid">
+        <div className="InitCenter">
+        <div className="jumbotron" id="Init-panel" >
+        <strong><h1 className="Init-title">Bienvenido a LuckyRead</h1></strong>
+        <h3 className="Init-subtitle"><p>¿Quieres leer algo pero no sabes qué?
+          Aquí te ofrecemos textos interesantes al azar según tus gustos.
+          ¡Podrás interactuar con otros usuarios y aprender algo nuevo cada día!</p></h3>
+
+        <Link to="/SignUp">
+        <button type="button" className="Init-button">
+        <strong>Empezar</strong>
+        </button>
+        </Link>
+          </div>
+            </div>
       </div>
-    )
-
+    </div>
+  )
 }
-
-library.add(faAngleRight)
-library.add(faExclamationTriangle)
-library.add(faSmile)
-library.add(faMeh)
-library.add(faFrown)
 
 export default Init
