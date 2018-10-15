@@ -45,10 +45,10 @@ class Navigation extends React.Component {
                         </NavbarNav>
                         <NavbarNav left>
                           <NavItem>
-                            <form className="form-inline md-form mt-0">
-                              <input className="form-control mr-sm-2 mb-0 text-black" type="text" placeholder="Introduce tu búsqueda" aria-label="Search"/>
+                            {/* <form className="form-inline md-form mt-0">
+                              <input className="form-control mr-sm-2 mb-0 text-black" type="text" placeholder="Introduce tu busqueda" aria-label="Search"/>
                             <Button className="Search-button" outline color="secondary">Buscar</Button>
-                            </form>
+                            </form> */}
                           </NavItem>
                           </NavbarNav>
 
