@@ -6,7 +6,7 @@ import { FormErrors } from './FormErrors';
 import { SocialIcon } from 'react-social-icons';
 
 import '../styles/sign-up.css';
-
+import {Link} from 'react-router-dom';
 
 
 class SignUpForm extends Component {
@@ -32,7 +32,7 @@ class SignUpForm extends Component {
     }
   }
 
-  handleUserInput = (e) => {
+  handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({[name]: value},
@@ -153,7 +153,7 @@ class SignUpForm extends Component {
         <input type="text" required className="form-control" name="username"
             placeholder="Nombre de usuario"
             value={this.state.username}
-            onChange={this.handleUserInput}  />
+            onChange={this.handleChange}  />
           </div>
 
         </div>
@@ -166,7 +166,7 @@ class SignUpForm extends Component {
         <input type="text" required className="form-control" name="nombre"
             placeholder="Nombres"
             value={this.state.nombre}
-            onChange={this.handleUserInput}  />
+            onChange={this.handleChange}  />
         </div>
         </div>
           <div className="col-sm-6">
@@ -175,7 +175,7 @@ class SignUpForm extends Component {
         <input type="text" required className="form-control" name="apellido"
             placeholder="Apellidos"
             value={this.state.apellido}
-            onChange={this.handleUserInput}  />
+            onChange={this.handleChange}  />
         </div>
         </div>
         </div>
@@ -186,14 +186,14 @@ class SignUpForm extends Component {
           <input type="email" required className="form-control" name="email"
             placeholder="Ingresa tu correo"
             value={this.state.email}
-            onChange={this.handleUserInput}  />
+            onChange={this.handleChange}  />
         </div>
         <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
           <label htmlFor="password">Contraseña</label>
           <input type="password" className="form-control" name="password"
             placeholder="Ingresa tu contraseña"
             value={this.state.password}
-            onChange={this.handleUserInput}  />
+            onChange={this.handleChange}  />
         </div>
 
         { this.state.passwordValid ?
@@ -202,7 +202,7 @@ class SignUpForm extends Component {
           <input type="password" className="form-control" name="confirmpassword"
               placeholder="Repite tu contraseña"
               value={this.state.confirmpassword}
-              onChange={this.handleUserInput}  />
+              onChange={this.handleChange}  />
           </div>
 
 
@@ -210,7 +210,9 @@ class SignUpForm extends Component {
 
 
       <div className="SignUp-Button">
+          <Link to="/HomePage">
         <button  type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Registrarme</button>
+          </Link>
         <br/>
         <h6></h6>
         <h8>O ingresa con tus redes sociales</h8> &nbsp;
