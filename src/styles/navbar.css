@@ -1,3 +1,9 @@
 #nav{
   color: white;
 }
+
+#paperplane img{
+  width: 50px;
+  height: 40px;
+  opacity: 0.6;
+}
