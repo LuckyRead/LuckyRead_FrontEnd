@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import HomePage_Categories_List from './HomePage_Categories_List';
 import HomePage_Fragment from './HomePage_Fragment';
 //styles
-import '../../styles/home.css';
+import '../../styles/homepage.css';
 
 //Data
 //import items from '../data/menu.js'
@@ -24,6 +24,7 @@ class HomeCenter extends Component {
       <div id="FragmentSectionTitle">Hemos seleccionado un fragmento para ti</div>
     <HomePage_Fragment/>
       </div>
+
     <div className="col-md-2">
 comunidad
       </div>

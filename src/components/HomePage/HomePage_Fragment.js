@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 //Components
 
 //styles
-import '../../styles/home.css';
+import '../../styles/homepage.css';
 
 //Data
 //import items from '../data/menu.js'
@@ -24,10 +24,33 @@ class HomePage_Fragment extends Component {
   render(){
     return(
       <div className="col-md-12" id="HomePage_Fragment">
-
       <p id='FragmentTitle'>{this.state.title}</p>
-    <p>{this.state.introduction}</p>
-  <button className="btn btn-primary">Leer este fragmento</button>
+    <div className="row">
+      <div className="col-md-4" >
+        <div id="FragmentImage">
+          im
+        </div>
+        </div>
+        <div className="col-md-8">
+          <p id='FragmentIntro'>{this.state.introduction}</p>
+          <div className="row" id="FragmentButtons">
+            <div className="col-md-12">
+                <button className="btn btn-primary" id="ButtonRead">Leer este fragmento</button>
+            </div>
+          </div>
+
+          <div className="row" id="FragmentButtons">
+            <div className="col-md-12">
+              <button className="btn btn-primary" id="ButtonNext">Muestrame otro fragmento</button>
+              </div>
+          </div>
+          </div>
+
+
+    </div>
+
+
+
 
       </div>
     )

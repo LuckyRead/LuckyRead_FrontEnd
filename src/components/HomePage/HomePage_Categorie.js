@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Navigation from '../Navigation';
 import HomeCenter from './HomeCenter';
 //styles
-import '../../styles/home.css';
+import '../../styles/homepage.css';
 
 //Data
 

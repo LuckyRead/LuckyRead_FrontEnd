@@ -14,7 +14,7 @@
       border-radius: 5px;
       border-style: none;
       width: 100%;
-      height: 550px;
+      height: 500px;
   }
 
   #CategoriesTitle{
@@ -76,7 +76,7 @@
   border-style: none;
   border-radius: 10px;
   width: 100%;
-  height: 100%;
+  height: 80%;
   text-align: center;
 }
 
@@ -86,4 +86,37 @@
     font-family: 'Open Sans';
   text-align: center;
   font-size: 3em;
+}
+
+#FragmentIntro{
+  text-align:justify;
+}
+
+#FragmentImage{
+  margin: auto;
+  background-color: black;
+width: auto;
+height: 100%;
+  background-image: url("../resources/flower.jpg");
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+  background-position: center;
+  background-size:cover;
+}
+
+#FragmentButtons{
+  margin: auto;
+  margin-top: 5px;
+}
+
+#ButtonRead{
+  background-color: #83BC46;
+  margin: auto;
+  margin-top: 5px;
+  border-style: none;
+  width: 50%;
+}
+
+#ButtonNext{
+  width: 50%;
 }
