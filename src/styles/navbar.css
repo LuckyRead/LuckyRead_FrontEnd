@@ -6,7 +6,7 @@
 }
 
 .Navbar{
-  background-color: rgba(67, 67, 67, 0.7);
+  background-color: rgba(0, 73, 82, 1.0);
   color: black;
 }
 
@@ -19,4 +19,8 @@
   background-color: #70B75B;
   color: white;
 
+}
+
+nav{
+  background-color: inherit;
 }
