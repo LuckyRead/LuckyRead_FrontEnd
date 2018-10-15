@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 
 import { FormErrors } from './FormErrors';
 import { SocialIcon } from 'react-social-icons';
-
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 import '../../styles/sign-up.css';
 
 class SignUp extends Component {
@@ -110,6 +111,25 @@ class SignUp extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const user = {
+      username: this.state.username,
+      name: this.state.nombre,
+      lastname: this.state.apellido,
+      email: this.state.email,
+      password: this.state.password,
+      cities_id: 1
+    };
+
+    axios.post(`http://localhost:3000/signin`, { user })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
+
   render () {
     return (
       <div className="Init-SignUp">
@@ -197,7 +217,7 @@ class SignUp extends Component {
           </Link>
         <br/>
         <h6></h6>
-        <h8>O ingresa con tus redes sociales</h8> &nbsp;
+      <h6>O ingresa con tus redes sociales</h6> &nbsp;
         <br/>
         <h6></h6>
         <SocialIcon url="http://facebook.com/" /> &emsp;

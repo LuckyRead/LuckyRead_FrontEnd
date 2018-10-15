@@ -4,9 +4,6 @@ import '../../styles/login.css';
 
 
 class LogIn extends Component {
-    constructor () {
-      super();
-    }
 
     render() {
       return (
