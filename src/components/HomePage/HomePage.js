@@ -1,6 +1,6 @@
 //Dependencies
 import React, { Component } from 'react';
-
+import Rainbow from "../../hoc/Rainbow";
 //Components
 
 import HomePage_Fragment from './HomePage_Fragment';
