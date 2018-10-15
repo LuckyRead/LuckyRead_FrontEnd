@@ -9,6 +9,11 @@ import FragmentsPage from './components/FragmentsPage/FragmentsPage';
 import CategoriesPage from './components/CategoriesPage/CategoriesPage';
 import Fragment from './components/FragmentsPage/Fragment';
 import {Route, BrowserRouter, Switch} from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSmile } from '@fortawesome/free-solid-svg-icons'
+import { faMeh } from '@fortawesome/free-solid-svg-icons'
+import { faFrown } from '@fortawesome/free-solid-svg-icons'
 
 
 class App extends Component {
@@ -30,5 +35,11 @@ class App extends Component {
     </BrowserRouter>);
   }
 }
+
+library.add(faSmile);
+library.add(faMeh);
+library.add(faFrown);
+
+
 
 export default App;
