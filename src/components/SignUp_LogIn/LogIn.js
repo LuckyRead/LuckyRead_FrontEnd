@@ -1,33 +1,126 @@
 import React, { Component } from 'react';
 import { SocialIcon } from 'react-social-icons';
+import axios from 'axios';
 import '../../styles/login.css';
-
+import { FormErrors } from './FormErrors';
 
 class LogIn extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      formErrors: {email: '', password: ''},
+
+      emailValid: false,
+      passwordValid: false,
+      formValid: false,
+    }
+  }
+
+
+
+  handleUserInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({[name]: value},
+                  () => { this.validateField(name, value) });
+  }
+
+  validateField(fieldName, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    let emailValid=this.state.emailValid;
+    let passwordValid = this.state.passwordValid;
+
+    switch(fieldName) {
+
+      case 'email':
+      emailValid = value.length >= 0 ;
+      fieldValidationErrors.email =  emailValid ? '' : 'debe tener maximo 15 caracteres';
+      break;
+
+      case 'password':
+
+        passwordValid = value.length >= 0;
+        fieldValidationErrors.password = passwordValid ? '': ' is too short';
+
+        break;
+
+      default:
+        break;
+    }
+
+
+    this.setState({formErrors: fieldValidationErrors,
+                    emailValid: emailValid,
+                    passwordValid: passwordValid,
+                  }, this.validateForm);
+  }
+
+  validateForm() {
+    this.setState({formValid: this.state.emailValid && this.state.passwordValid});
+  }
+
+
+  errorClass(error) {
+    return(error.length === 0 ? '' : 'has-error');
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const auth = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    axios.post(`http://localhost:3000/login`, { auth })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        console.log(res.data);
+      })
+  }
+
+
+
+
 
     render() {
       return (
         <div className="Init-SignUp">
           <div className="col-sm-4" id="RegistrationForm">
 
-        <div className="col-sm-12" id = "Form">
-        <form>
-          <div className="col-sm-12" id = "Form">
-          <h2 className="text-center" className="Login-title"> Ingresa a LuckyRead </h2>
-            <div className="form-group row">
-              <label for="inputName" className="col-sm-5 col-form-label">Nombre de usuario</label>
-              <div className="col-sm-7">
-                <input type="text" className="form-control" id="inputName" placeholder="ej: lraf581" />
+            <div className="col-sm-12" id = "Form">
+            <form className="demoForm" onSubmit={this.handleSubmit}>
+              <h2 className="LogIn-Title" >Ingresa</h2>
+              <div className="panel panel-default">
+                <FormErrors formErrors={this.state.formErrors} />
               </div>
-            </div>
-            <div className="form-group row">
-              <label for="inputEmail" className="col-sm-5 col-form-label">Contrasena</label>
-              <div className="col-sm-7">
-                <input type="email" className="form-control" id="inputEmail" placeholder="*****" />
-              </div>
-            </div>
 
-            <div id= "center"><button type="submit" className="btn btn-primary">Iniciar Sesion</button>
+              <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
+                <label htmlFor="email">Correo</label>
+                  <div className="input-group">
+              <input type="text" required className="form-control" name="email"
+                  placeholder="Ejemplo:luckyread@example.com"
+                  value={this.state.email}
+                  onChange={this.handleUserInput}  />
+                </div>
+
+              </div>
+
+
+              <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+                <label htmlFor="password">Contraseña</label>
+                <input type="password" className="form-control" name="password"
+                  placeholder="Ingresa tu contraseña"
+                  value={this.state.password}
+                  onChange={this.handleUserInput}  />
+              </div>
+
+
+            <div className="LogIn-Button">
+              <button  type="submit" className="btn btn-primary" >Iniciar Sesion</button>
               <br/>
               <h6></h6>
               <h8>O ingresa con tus redes sociales</h8> &nbsp;
@@ -37,9 +130,8 @@ class LogIn extends Component {
               <SocialIcon url="http://twitter.com/" /> &emsp;
               <SocialIcon url="http://google.com/" /> &emsp;
             </div>
+            </form>
           </div>
-        </form>
-            </div>
                       </div>
                                 </div>
     )

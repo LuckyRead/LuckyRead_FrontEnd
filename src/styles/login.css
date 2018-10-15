@@ -16,7 +16,12 @@
   text-align: center;
 }
 
-.Login-title{
-  color: #0E8A80;
+
+.LogIn-Title{
+  color: #2B5275;
+  text-align: center;
+}
+
+.LogIn-Button{
   text-align: center;
 }
