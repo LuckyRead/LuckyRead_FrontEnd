@@ -2,8 +2,6 @@
 import React from 'react';
 
 //Components
-import Navigation from '../Navigation';
-import HomeCenter from './HomeCenter';
 //styles
 import '../../styles/homepage.css';
 

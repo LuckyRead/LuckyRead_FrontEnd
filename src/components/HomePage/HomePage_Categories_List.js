@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 
 //Components
-import Navigation from '../Navigation';
-import HomeCenter from './HomeCenter';
 import HomePage_Category from './HomePage_Category';
 import AddTopic from './AddTopic';
 //styles
@@ -39,6 +37,14 @@ class HomePage_Categories_List extends Component {
    this.setState({
      topics: topics
    });
+ }
+
+ componentDidMount(){
+   console.log('component mounted');
+ }
+ componentDidUpdate(prevProps, prevState, snapshot){
+   console.log('component updated');
+   console.log(prevProps, prevState);
  }
 
   render(){

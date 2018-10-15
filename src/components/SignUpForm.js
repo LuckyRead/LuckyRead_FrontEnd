@@ -70,13 +70,13 @@ class SignUpForm extends Component {
         passwordValid = value.length >= 8;
         fieldValidationErrors.password = passwordValid ? '': 'Tu contrasena debe tener al menos 8 caracteres';
 
-        confirmpasswordValid= (this.state.password==this.state.confirmpassword || passwordValid==false)
+        confirmpasswordValid= (this.state.password===this.state.confirmpassword || passwordValid===false)
         fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'Las contrasenas no coinciden';
 
         break;
 
       case 'confirmpassword':
-      if(this.state.password==this.state.confirmpassword){
+      if(this.state.password===this.state.confirmpassword){
         confirmpasswordValid= true;
       }
       else{
