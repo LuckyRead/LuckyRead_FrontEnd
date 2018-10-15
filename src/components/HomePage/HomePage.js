@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 
 //Components
-import Navigation from '../Navigation';
-import HomeCenter from './HomeCenter';
+
+import HomePage_Fragment from './HomePage_Fragment';
 //styles
 import '../../styles/homepage.css';
 
@@ -19,9 +19,14 @@ class HomePage extends Component {
   render(){
     return(
   <div id="HomePage">
-    <Navigation/>
     <div >
-      <HomeCenter />
+      <div className="row" id='HomeCenter' >
+      <div className="col-sm-10" id="HomePage_Fragment_Section">
+        <div id="FragmentSectionTitle">Hemos seleccionado un fragmento para ti</div>
+      <HomePage_Fragment/>
+        </div>
+
+        </div>
       </div>
       </div>
     )

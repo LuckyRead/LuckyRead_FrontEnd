@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
 import { SocialIcon } from 'react-social-icons';
-import '../styles/LogIn.css';
+import '../../styles/login.css';
 
 
 class LogIn extends Component {
+    constructor () {
+      super();
+    }
 
     render() {
       return (
+        <div className="Init-SignUp">
+          <div className="col-sm-4" id="RegistrationForm">
+
+        <div className="col-sm-12" id = "Form">
         <form>
           <div className="col-sm-12" id = "Form">
           <h2 className="text-center" className="Login-title"> Ingresa a LuckyRead </h2>
             <div className="form-group row">
-              <label htmlFor="inputName" className="col-sm-5 col-form-label">Nombre de usuario</label>
+              <label for="inputName" className="col-sm-5 col-form-label">Nombre de usuario</label>
               <div className="col-sm-7">
                 <input type="text" className="form-control" id="inputName" placeholder="ej: lraf581" />
               </div>
             </div>
             <div className="form-group row">
-              <label htmlFor="inputEmail" className="col-sm-5 col-form-label">Contrasena</label>
+              <label for="inputEmail" className="col-sm-5 col-form-label">Contrasena</label>
               <div className="col-sm-7">
                 <input type="email" className="form-control" id="inputEmail" placeholder="*****" />
               </div>
@@ -35,6 +42,9 @@ class LogIn extends Component {
             </div>
           </div>
         </form>
+            </div>
+                      </div>
+                                </div>
     )
   }
 }
