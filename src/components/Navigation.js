@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import LogIn from './LogIn'
 import { Button } from 'reactstrap';
-<<<<<<< HEAD
+
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu } from 'mdbreact';
-=======
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu} from 'mdbreact';
->>>>>>> feature/17-home-view
+
 import { BrowserRouter as Router } from 'react-router-dom';
 
 class Navigation extends React.Component {
