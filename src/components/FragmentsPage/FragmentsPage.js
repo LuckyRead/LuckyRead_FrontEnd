@@ -1,7 +1,8 @@
 //Dependencies
 import React, {Component} from 'react';
-import {Link} from "react-router-dom"
-import axios from 'axios'
+import {Link} from "react-router-dom";
+import axios from 'axios';
+
 //Components
 
 //styles
@@ -39,7 +40,9 @@ class FragmentsPage extends Component {
     const {posts} = this.state
     const postList = posts.length
       ? (posts.map(post => {
-        return (<div className="col-md-12" id="HomePage_Fragment" key={post.id}>
+        return (
+          <div className="col-md-12" id="HomePage_Fragment" key={post.id}>
+
           <p id='FragmentTitle'>{post.title}</p>
           <div className="row">
             <div className="col-md-4" id="image">

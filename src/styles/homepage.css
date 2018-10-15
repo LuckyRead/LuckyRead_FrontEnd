@@ -80,6 +80,14 @@
   text-align: center;
 }
 
+.paperplane img{
+  position: relative;
+  top:20px;
+  left: -100px;
+  opacity: 0.6;
+}
+
+
 #FragmentTitle {
   color: #2B5275;
   font-family: 'Open Sans';
