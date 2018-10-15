@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -17,35 +18,54 @@
     background: #555;
 }
 
-#image{
-  background-color: #ffff;
+#container_fragment{
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 10px;
 }
+
 #title_fragment{
-  background-color: #ffff;
+  background-color: red;
   text-align: center;
   padding: 10px;
+  background: rgba(255, 255, 255, 0);
 }
-#container_fragment{
-  height: 500px;
-  background-color: #ffff;
-  padding: 5px;
+#title_fragment h2 {
+  font-family: 'Open Sans';
+  color: #2B5275;
+  font-size: 3em;
+}
+h4{
+  color: #2B5275;
 }
 #text{
-  overflow-y: scroll;
+  overflow-y: auto;
+  height:500px;
+  background: rgba(255, 255, 255, 1.0);
+  padding: 10px;
+  margin-bottom: 5px;
 }
-#smile{
-  color: #77FF33;
+
+#image{
+  height: 500px;
+  background-color: #ffff;
+  padding: 10px;
+  padding-top: 0px;
+  background: rgba(255, 255, 255, 0);
+
 }
-#meh{
-  color: #F8DE00;
-}
-#frown{
-  color: #F80000;
-}
-#selected{
-  color: blue;
-}
+
 #image img{
   width: 100%;
   height: auto;
+}
+
+#smile{
+  color: #009AFF;
+}
+#meh{
+  color: #FF5733;
+}
+#frown{
+  color: #900C3F;
 }

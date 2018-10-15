@@ -18,7 +18,6 @@ ReactDOM.render(
   <BrowserRouter>
 
          <div>
-           <Route exact path='/App' component={App} />
              <Route exact path='/' component={Init} />
              <Route  path='/SignUp' component={SignUp} />
       	     <Route  path='/categoriesPage' component={CategoriesPage} />
