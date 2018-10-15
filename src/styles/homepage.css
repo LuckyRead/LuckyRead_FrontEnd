@@ -1,4 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+
+
+
+
+
 #HomePage{
       margin: 0 auto;
       border-style: none;
@@ -26,9 +31,8 @@
     }
 
   #FragmentSectionTitle{
-  font-family: URW Chancery L, cursive;
       font-size: 2em;
-      color: black;
+      color:   #2B5275;;
       border-style: none;
       }
 
@@ -47,7 +51,6 @@
   background: #141E30;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-family:sans-serif;
   font-size: 20px;
   color: white;
   margin: 0 auto;
@@ -60,13 +63,14 @@
 
 #HomePage_Fragment_Section{
   padding-top: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
   margin: 0 auto;
   border-style: none;
   border-radius: 10px;
   width: 100%;
   height: 100%;
   text-align: center;
+    font-family: 'Open Sans';
 }
 
 #HomePage_Fragment{
