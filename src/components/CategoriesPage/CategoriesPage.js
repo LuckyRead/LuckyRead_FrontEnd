@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navigation from './Navigation';
 import Preferences from './Preferences';
 import RegistrationPopUp from './RegistrationPopUp';
 import { Container, Row, Col } from 'reactstrap';
@@ -8,7 +7,6 @@ class CategoriesPage extends Component {
   render(){
     return(
     <div>
-      <Navigation/>
       <br/>
       <h1 className="text-white"><strong>&nbsp;Elige tus gustos... </strong></h1>
       <Container fluid>

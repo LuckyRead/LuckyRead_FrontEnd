@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //Styles
-import '../styles/fragmentcontainer.css'
+import '../../styles/fragmentcontainer.css'
 
 
 class FragmentContainer extends Component {

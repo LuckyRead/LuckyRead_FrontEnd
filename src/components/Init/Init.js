@@ -14,7 +14,7 @@ const Init = () => {
           Aquí te ofrecemos textos interesantes al azar según tus gustos.
           ¡Podrás interactuar con otros usuarios y aprender algo nuevo cada día!</p></h3>
 
-        <Link to="/SignUp">
+        <Link to="/CategoriesPage">
         <button type="button" className="Init-button">
         <strong>Empezar</strong>
         </button>

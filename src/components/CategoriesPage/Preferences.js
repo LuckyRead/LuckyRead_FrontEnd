@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup } from 'reactstrap';
-import '../styles/preferences.css';
+import '../../styles/preferences.css';
 
 //Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

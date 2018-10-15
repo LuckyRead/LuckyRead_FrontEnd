@@ -29,8 +29,8 @@ class RegistrationPopUp extends React.Component {
           Si deseas que se guarden tus preferencias, por favor registrate.
           </ModalBody>
           <ModalFooter>
-            <Button color="link" onClick={this.toggle} size="xs" tag={Link} to="/homePageWithOutLogin">Continuar sin registrar</Button>
-            <Button color="primary" onClick={this.toggle} tag={Link} to="/signIn">Registrarse</Button>{' '}
+            <Button color="link" onClick={this.toggle} size="xs" tag={Link} to="/homepage">Continuar sin registrar</Button>
+          <Button color="primary" onClick={this.toggle} tag={Link} to="/signup">Registrarse</Button>{' '}
           </ModalFooter>
         </Modal>
       </div>
