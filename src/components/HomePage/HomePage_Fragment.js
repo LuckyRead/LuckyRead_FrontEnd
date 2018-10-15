@@ -28,7 +28,7 @@ class HomePage_Fragment extends Component {
     <div className="row">
       <div className="col-md-4" >
         <div id="FragmentImage">
-          im
+
         </div>
         </div>
         <div className="col-md-8">
