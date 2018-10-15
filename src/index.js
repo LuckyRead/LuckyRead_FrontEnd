@@ -1,10 +1,9 @@
-import App from './components/App';
 
 import './styles/index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Init from './components/Init';
+import Init from './components/Init/Init';
 import SignUp from './components/SignUp';
 import CategoriesPage from './components/CategoriesPage';
 import HomePage from './components/HomePage/HomePage';
@@ -21,7 +20,6 @@ ReactDOM.render(
   <BrowserRouter>
 
          <div>
-           <Route exact path='/App' component={App} />
              <Route exact path='/' component={Init} />
              <Route  path='/SignUp' component={SignUp} />
       	     <Route  path='/categoriesPage' component={CategoriesPage} />
