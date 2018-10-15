@@ -2,11 +2,15 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import '../../styles/fragmentcontainer.css';
 import {connect} from 'react-redux';
+import { deletePost } from '../../actions/fragmentActions'
 
 class Fragment extends Component {
-
+  handleClick = () => {
+    this.props.deletePost(this.props.post.id);
+    this.props.history.push('/fragmentspage');
+  }
   render() {
-
+    console.log(this.props)
     const post = this.props.post ? (
       <div className="container" id="container">
         <div className="row" id="container_fragment">
@@ -24,6 +28,11 @@ class Fragment extends Component {
                 <br/>
                 <h4><strong>Contenido</strong></h4>
                 <p className = "text-justify">{this.props.post.content}</p>
+              </div>
+              <div className="center">
+                <button className="btn grey" onClick={this.handleClick}>
+                  Delete post
+                </button>
               </div>
             </div>
           </div>
@@ -48,4 +57,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(Fragment)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deletePost: (id) => dispatch(deletePost(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Fragment)
