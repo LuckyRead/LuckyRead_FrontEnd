@@ -1,33 +1,31 @@
 //Dependencies
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import {Link} from 'react-router-dom';
 
 //Components
+import HomePage_Categories_List from './HomePage_Categories_List';
+import HomePage_Fragment from './HomePage_Fragment';
 //styles
-import '../../styles/home.css';
+import '../../styles/homepage.css';
 
 //Data
 //import items from '../data/menu.js'
 
 class HomeCenter extends Component {
 
-  state ={
-    category: 'Historia',
-    subcategorie: 'Edad media'
-}
 
   render(){
     return(
-    <div className="row" >
-    <div className="col-md-4" id="Categories">
-      <p>{this.state.category}</p>
+    <div className="row" id='HomeCenter' >
+    <div className="col-md-2"  id='HomePage_Categories_List'>
+      <div id="CategoriesTitle">Categorias</div>
+    <HomePage_Categories_List/>
+    </div>
+    <div className="col-sm-8" id="HomePage_Fragment_Section">
+      <div id="FragmentSectionTitle">Hemos seleccionado un fragmento para ti</div>
+    <HomePage_Fragment/>
+      </div>
 
-      </div>
-    <div className="col-md-4" id="Categories">
-Fragmento
-      </div>
-    <div className="col-md-4" id="Categories">
+    <div className="col-md-2">
 comunidad
       </div>
       </div>

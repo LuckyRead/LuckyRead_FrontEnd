@@ -7,12 +7,16 @@ import Reactions from './Reactions';
 
 
 class AllFragment extends Component {
+<<<<<<< HEAD
   constructor (props) {
     super(props);
     this.state = {
       fragment
     }
   }
+=======
+
+>>>>>>> 4203fe63930110c1bd702a2a77a17a21d0152d56
   render(){
     console.log(fragment);
     return(

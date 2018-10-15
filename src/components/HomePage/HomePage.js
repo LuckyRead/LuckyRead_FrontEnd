@@ -1,35 +1,27 @@
 //Dependencies
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import {Link} from 'react-router-dom';
 
 //Components
 import Navigation from '../Navigation';
 import HomeCenter from './HomeCenter';
 //styles
-import '../../styles/home.css';
+import '../../styles/homepage.css';
 
 //Data
 //import items from '../data/menu.js'
 
 
 
-import logo from '../../resources/white_logo_luckyread.png';
 
+class HomePage extends Component {
 
-
-class Home extends Component {
-
-  constructor() {
-    super();
-  }
 
   render(){
     return(
-  <div className="Home">
-  <Navigation/>
-        <div className="col-sm-12" id="HomeCenter">
-        <HomeCenter />
+  <div id="HomePage">
+    <Navigation/>
+    <div >
+      <HomeCenter />
       </div>
       </div>
     )
@@ -37,4 +29,4 @@ class Home extends Component {
 
 }
 
-export default Home
+export default HomePage

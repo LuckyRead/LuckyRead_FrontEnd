@@ -5,7 +5,6 @@ import RegistrationPopUp from './RegistrationPopUp';
 import { Container, Row, Col } from 'reactstrap';
 
 class CategoriesPage extends Component {
-
   render(){
     return(
     <div>
