@@ -8,7 +8,7 @@ import SignUp from './components/SignUp_LogIn/SignUp';
 import LogIn from './components/SignUp_LogIn/LogIn';
 import HomePage from './components/HomePage/HomePage';
 import CategoriesPage from './components/CategoriesPage/CategoriesPage';
-
+import AllFragment from './components/FragmentsPage/AllFragment';
 
 class App extends Component {
   render() {
@@ -23,6 +23,8 @@ class App extends Component {
           <Route exact path='/login' component={LogIn}/>
           <Route exact path='/homepage' component={HomePage}/>
           <Route exact path='/categoriespage' component={CategoriesPage}/>
+          <Route exact path='/FragmentsPage' component={AllFragment}/>
+
         </div>
       </BrowserRouter>
     );

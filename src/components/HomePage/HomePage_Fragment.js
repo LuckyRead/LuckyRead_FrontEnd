@@ -1,6 +1,6 @@
 //Dependencies
 import React, { Component } from 'react';
-
+import { Link } from "react-router-dom"
 //Components
 
 //styles
@@ -35,7 +35,10 @@ class HomePage_Fragment extends Component {
           <p id='FragmentIntro'>{this.state.introduction}</p>
           <div className="row" id="FragmentButtons">
             <div className="col-md-12">
+
+          <Link to="/FragmentsPage">
                 <button className="btn btn-primary" id="ButtonRead">Leer este fragmento</button>
+                        </Link>
             </div>
           </div>
 

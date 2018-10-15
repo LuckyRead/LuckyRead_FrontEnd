@@ -1,26 +1,3 @@
-
-.LuckyRead-logo {
-  height: 3em;
-  left: 0;
-  bottom: 0;
-}
-
-.Navbar{
-  background-color: rgba(0, 73, 82, 1.0);
-  color: black;
-}
-
-.DropdownMenu{
-  width: 300px;
-}
-
-.Search-button{
-  padding-left: 10px;
-  background-color: #70B75B;
+#nav{
   color: white;
-
-}
-
-nav{
-  background-color: inherit;
 }
