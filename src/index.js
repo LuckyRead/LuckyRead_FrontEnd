@@ -1,8 +1,9 @@
-import App from './components/App';
+
+import './styles/index.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
-import Init from './components/Init';
+import Init from './components/Init/Init';
 import SignUp from './components/SignUp';
 import CategoriesPage from './components/CategoriesPage';
 import HomepageWithOutLogin from './components/HomepageWithOutLogin';
