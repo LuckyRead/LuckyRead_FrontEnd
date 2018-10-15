@@ -1,7 +1,7 @@
 //Dependencies
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import axios from 'axios';
+import {connect} from 'react-redux';
 
 //Components
 
@@ -12,32 +12,9 @@ import '../../styles/homepage.css';
 //import items from '../data/menu.js'
 
 class FragmentsPage extends Component {
-
-  state = {
-    posts: []
-  }
-
-  componentDidMount() {
-    axios.get('http://localhost:3000/fragments')
-    .then(res => {
-      this.setState({
-        posts: res.data.slice(0, 1)
-      });
-    })
-  }
-
-  handleChange = (e) => {
-    axios.get('http://localhost:3000/fragments/')
-      .then(res => {
-        this.setState({
-          posts: res.data.slice(0, 2)
-        });
-      });
-  }
-
-
   render() {
-    const {posts} = this.state
+    console.log(this.props)
+    const {posts} = this.props
     const postList = posts.length
       ? (posts.map(post => {
         return (
@@ -60,7 +37,7 @@ class FragmentsPage extends Component {
 
               <div className="row" id="FragmentButtons">
                 <div className="col-md-12">
-                  <button className="btn btn-primary" id="ButtonNext" onClick={this.handleChange}>Muestrame otro fragmento</button>
+                  <button className="btn btn-primary" id="ButtonNext" >Muestrame otro fragmento</button>
                 </div>
               </div>
             </div>
@@ -84,4 +61,11 @@ class FragmentsPage extends Component {
 }
 }
 
-export default FragmentsPage
+const mapStateToProps=(state) => {
+  return {
+    posts: state.posts
+  }
+}
+
+
+export default connect(mapStateToProps)(FragmentsPage)
