@@ -7,9 +7,17 @@ import '../styles/init.css';
 import '../styles/navbar.css';
 import {Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
+<<<<<<< HEAD
 
 class InitCenter extends Component {
 
+=======
+import { Button } from 'reactstrap';
+
+class InitCenter extends Component {
+
+
+>>>>>>> a85bf432e12ee65f951f24dc5740cc7e4032c5b0
   render(){
     return(
   <div className="InitCenter">
