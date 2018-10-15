@@ -9,7 +9,7 @@ import '../../styles/homepage.css';
 
 //Data
 
-const HomePage_Categorie =({topics}) => {
+const HomePage_Categorie =({topics, deleteTopic}) => {
     // const topicList = topics.map (topic => {
     //   if(topic.id==1){
     //   return(
@@ -33,8 +33,8 @@ const HomePage_Categorie =({topics}) => {
             <div className="topic" key={topic.id}>
             <div className="row">
               <div className="col-sm-12" >
-              <button onClick={this.handleClick} id="CategoryButton"
-                onMouseOver={this.handleMouseOver}>{topic.name}</button>
+              <button id="CategoryButton">{topic.name}</button>
+            <button onClick={() => deleteTopic(topic.id)}>Eliminar categoria</button>
               </div>
               </div>
               </div>

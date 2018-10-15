@@ -18,9 +18,9 @@ class HomePage_Categories_List extends Component {
       {id: '1', name: 'Historia'},
       {id: '2', name: 'Ciencia'},
       {id: '3', name: 'Tema 3'},
-      {id: '3', name: 'Misterio'},
-      {id: '3', name: 'Biografias'},
-      {id: '3', name: 'Emprendimiento'},
+      {id: '4', name: 'Misterio'},
+      {id: '5', name: 'Biografias'},
+      {id: '6', name: 'Emprendimiento'},
     ]
   }
 
@@ -32,11 +32,20 @@ class HomePage_Categories_List extends Component {
    });
  }
 
+ deleteTopic = (id) => {
+   let topics = this.state.topics.filter(topic => {
+     return topic.id !== id
+   });
+   this.setState({
+     topics: topics
+   });
+ }
+
   render(){
     return(
   <div className="row">
     <div className="col-sm-12" id="HomePage_Categories_List">
-      <HomePage_Category topics={this.state.topics}/>
+      <HomePage_Category deleteTopic={this.deleteTopic} topics={this.state.topics}/>
     <AddTopic addTopic={this.addTopic} />
       </div>
       </div>
