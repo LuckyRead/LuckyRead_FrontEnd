@@ -6,6 +6,7 @@ import '../styles/init.css';
 import '../styles/navbar.css';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+
 import Navigation from './Navigation';
 import InitCenter from './InitCenter';
 
@@ -20,7 +21,6 @@ import { faSmile } from '@fortawesome/free-solid-svg-icons'
 import { faMeh } from '@fortawesome/free-solid-svg-icons'
 import { faFrown } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
-
 
 
 

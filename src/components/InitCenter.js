@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import book from '../resources/black_book.png';
 import '../styles/init.css';
 import '../styles/navbar.css';
-import { Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
+import { Button } from 'reactstrap';
+
 
 
 class InitCenter extends Component {

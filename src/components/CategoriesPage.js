@@ -5,7 +5,6 @@ import RegistrationPopUp from './RegistrationPopUp';
 import { Container, Row, Col } from 'reactstrap';
 
 class CategoriesPage extends Component {
-
   render(){
     return(
     <div>
@@ -33,7 +32,7 @@ class CategoriesPage extends Component {
           <Col sm="auto"><Preferences name = "Consulta"/></Col>
         </Row>
         <br/>
-        <Row className="row justify-content-between">
+        <Row className="row justify-content-around">
           <Col sm="auto"><Preferences name = "Libros universitarios y de estudios superiores"/></Col>
           <Col sm="auto"><Preferences name = "Humor"/></Col>
           <Col sm="auto"><Preferences name = "Romántica"/></Col>
@@ -58,7 +57,7 @@ class CategoriesPage extends Component {
           <Col sm="auto"><Preferences name = "Sociedad y ciencias sociales"/></Col>
         </Row>
         <br/>
-        <Row className="row justify-content-between">
+        <Row className="row justify-content-around">
           <Col sm="auto"><Preferences name = "Cómics y manga"/></Col>
           <Col sm="auto"><Preferences name = "Libros de texto"/></Col>
           <Col sm="auto"><Preferences name = "Economía y empresa"/></Col>

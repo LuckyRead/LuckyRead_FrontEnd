@@ -6,25 +6,22 @@ import '../styles/fragmentcontainer.css'
 //Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const divStyle = {
-  color: 'blue'
-};
+
 
 class Reactions extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      clicked_reaction: ''
+
     }
 
   }
 
 
-
-  handleClick(props){
-    
-    console.log('clic');
-  }
+/*  handleClick = (e) => {
+    const reaction = e.target
+    reaction.style.color= 'red';
+ }*/
   render(){
     return(
       <div className="container">
