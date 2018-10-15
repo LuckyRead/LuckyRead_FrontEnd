@@ -28,6 +28,7 @@
 #container_fragment{
   height: 500px;
   background-color: #ffff;
+  padding: 5px;
 }
 #text{
   overflow-y: scroll;

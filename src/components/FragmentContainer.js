@@ -7,9 +7,7 @@ import '../styles/fragmentcontainer.css'
 class FragmentContainer extends Component {
   constructor (props) {
     super(props);
-    this.state = {
 
-    };
   }
   render(){
     return(
@@ -22,6 +20,10 @@ class FragmentContainer extends Component {
             <img src={this.props.image} alt="Jack el Destripador"/>
           </div>
           <div className="col-8" id="text">
+            <h4><strong>Introducción</strong></h4>
+            <p className = "text-justify">{this.props.introduction}</p>
+            <br/>
+            <h4><strong>Contenido</strong></h4>
             <p className = "text-justify">{this.props.content}</p>
           </div>
         </div>
