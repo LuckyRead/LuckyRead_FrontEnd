@@ -212,7 +212,7 @@ class SignUp extends Component {
 
 
       <div className="SignUp-Button">
-          <Link to="/HomePage">
+          <Link to="/homepage">
         <button  type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Registrarme</button>
           </Link>
         <br/>
