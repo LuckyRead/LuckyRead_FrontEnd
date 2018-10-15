@@ -1,17 +1,12 @@
 //Dependencies
 import React, { Component } from 'react';
-<<<<<<< HEAD
+
 import book from '../resources/black_book.png';
 import SignUpForm from './SignUpForm';
 import '../styles/init.css';
 import '../styles/navbar.css';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-=======
-
-
-//Components
->>>>>>> feature/17-home-view
 import Navigation from './Navigation';
 import InitCenter from './InitCenter';
 
@@ -28,10 +23,6 @@ import { faFrown } from '@fortawesome/free-solid-svg-icons'
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> feature/17-home-view
 class Init extends Component {
 
   render(){
