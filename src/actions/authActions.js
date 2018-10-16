@@ -21,7 +21,7 @@ export function logout() {
 
 export function login(auth) {
   return dispatch => {
-    return axios.post('http://localhost:3000/api/login', auth).then(res => {
+    return axios.post('http://10.203.2.224:3000/api/login', auth).then(res => {
       console.log(res)
       const token = res.data.jwt;
       console.log('mmmm')
