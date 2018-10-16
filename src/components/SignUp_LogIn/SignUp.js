@@ -1,12 +1,13 @@
 //Dependencies
 
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import { FormErrors } from './FormErrors';
 import { SocialIcon } from 'react-social-icons';
-import {Link} from 'react-router-dom';
-import axios from 'axios';
+
 import '../../styles/sign-up.css';
+
+
 
 class SignUp extends Component {
   constructor (props) {
@@ -31,9 +32,7 @@ class SignUp extends Component {
     }
   }
 
-  handleChange = (e) => {
-        console.log(this.state);
-
+  handleUserInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({[name]: value},
@@ -113,10 +112,9 @@ class SignUp extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
-  handleSubmit = (event) => {
-    console.log('submited');
+  handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+
     const user = {
       username: this.state.username,
       name: this.state.nombre,
@@ -125,21 +123,21 @@ class SignUp extends Component {
       password: this.state.password,
       city_id: 1
     };
+    console.log(user);
 
     axios.post(`http://localhost:3000/api/signup`, { user })
       .then(res => {
         console.log(res);
         console.log(res.data);
-      });
+      })
   }
 
   render () {
     return (
       <div className="Init-SignUp">
         <div className="col-sm-4" id="RegistrationForm">
-
       <div className="col-sm-12" id = "Form">
-      <form className="white" onSubmit={this.handleSubmit}>
+      <form className="demoForm" onSubmit={this.handleSubmit}>
         <h2 className="SignUp-Title" >Crea tu cuenta</h2>
 
 
@@ -152,10 +150,11 @@ class SignUp extends Component {
           <label htmlFor="username">Usuario</label>
 
             <div className="input-group">
+
         <input type="text" required className="form-control" name="username"
             placeholder="Nombre de usuario"
             value={this.state.username}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
           </div>
 
         </div>
@@ -168,7 +167,7 @@ class SignUp extends Component {
         <input type="text" required className="form-control" name="nombre"
             placeholder="Nombres"
             value={this.state.nombre}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
         </div>
         </div>
           <div className="col-sm-6">
@@ -177,7 +176,7 @@ class SignUp extends Component {
         <input type="text" required className="form-control" name="apellido"
             placeholder="Apellidos"
             value={this.state.apellido}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
         </div>
         </div>
         </div>
@@ -188,15 +187,14 @@ class SignUp extends Component {
           <input type="email" required className="form-control" name="email"
             placeholder="Ingresa tu correo"
             value={this.state.email}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
         </div>
-
         <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
           <label htmlFor="password">Contraseña</label>
           <input type="password" className="form-control" name="password"
             placeholder="Ingresa tu contraseña"
             value={this.state.password}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
         </div>
 
         { this.state.passwordValid ?
@@ -205,27 +203,28 @@ class SignUp extends Component {
           <input type="password" className="form-control" name="confirmpassword"
               placeholder="Repite tu contraseña"
               value={this.state.confirmpassword}
-              onChange={this.handleChange}  />
-          </div> : null }
+              onChange={this.handleUserInput}  />
+          </div>
+
+
+          : null }
 
 
       <div className="SignUp-Button">
-          <Link to="/fragmentspage">
         <button  type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Registrarme</button>
-          </Link>
         <br/>
         <h6></h6>
-      <h6>O ingresa con tus redes sociales</h6>
+      <h6>O ingresa con tus redes sociales</h6> &nbsp;
         <br/>
         <h6></h6>
-        <SocialIcon url="http://facebook.com/" />
-        <SocialIcon url="http://twitter.com/" />
-        <SocialIcon url="http://google.com/" />
+        <SocialIcon url="http://facebook.com/" /> &emsp;
+        <SocialIcon url="http://twitter.com/" /> &emsp;
+        <SocialIcon url="http://google.com/" /> &emsp;
       </div>
       </form>
     </div>
-  </div>
-      </div>
+    </div>
+        </div>
     )
   }
 }
