@@ -74,10 +74,9 @@ class LogIn extends Component {
       password: this.state.password,
     };
 
-    axios.post(`http://localhost:3000/login`, { auth })
+    axios.post(`http://localhost:3000/api/login`, { auth })
       .then(res => {
         console.log(res);
-        console.log(res.data);
         console.log(res.data);
       })
   }
@@ -123,7 +122,7 @@ class LogIn extends Component {
               <button  type="submit" className="btn btn-primary" >Iniciar Sesion</button>
               <br/>
               <h6></h6>
-              <h8>O ingresa con tus redes sociales</h8> &nbsp;
+            <h6>O ingresa con tus redes sociales</h6> &nbsp;
               <br/>
               <h6></h6>
               <SocialIcon url="http://facebook.com/" /> &emsp;
