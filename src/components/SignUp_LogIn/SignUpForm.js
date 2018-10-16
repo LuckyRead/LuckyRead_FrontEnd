@@ -1,15 +1,17 @@
+
 //Dependencies
 
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { FormErrors } from './FormErrors';
 import { SocialIcon } from 'react-social-icons';
-
+// import TextFieldGroup from '../../common/TextFieldGroup'
+import PropTypes from 'prop-types';
 import '../../styles/sign-up.css';
 
 
 
-class SignUp extends Component {
+class SignUpForm extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -125,17 +127,27 @@ class SignUp extends Component {
     };
     console.log(user);
 
-    axios.post(`http://localhost:3000/api/signup`, { user })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
+    this.props.userSignupRequest({user});
+    // this.props.userSignupRequest(user).then(
+    //   () => {
+    //     this.props.addFlashMessage({
+    //       type: 'success',
+    //       text: 'You signed up successfully. Welcome!'
+    //     });
+    //     this.context.router.push('/fragmentspage');
+    //   },
+    //   (err) => this.setState({ errors: err.response.data, isLoading: false })
+    // );
+    // axios.post(`http://localhost:3000/api/signup`, { user })
+    //   .then(res => {
+    //     console.log(res);
+    //     console.log(res.data);
+    //   })
   }
 
   render () {
     return (
-      <div className="Init-SignUp">
-        <div className="col-sm-4" id="RegistrationForm">
+
       <div className="col-sm-12" id = "Form">
       <form className="demoForm" onSubmit={this.handleSubmit}>
         <h2 className="SignUp-Title" >Crea tu cuenta</h2>
@@ -223,10 +235,18 @@ class SignUp extends Component {
       </div>
       </form>
     </div>
-    </div>
-        </div>
+
     )
   }
 }
 
-export default SignUp;
+SignUpForm.propTypes = {
+  userSignupRequest: PropTypes.func.isRequired﻿
+
+}
+
+// SignUpForm.contextTypes = {
+//   router: React.PropTypes.object.isRequired
+// }
+
+export default SignUpForm;

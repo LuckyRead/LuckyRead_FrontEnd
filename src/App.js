@@ -3,7 +3,7 @@ import Navbar from './components/layout/Navbar';
 import Init from './components/Init/Init';
 import About from './components/About/AboutPage';
 import Contact from './components/Contact/Contact';
-import SignUp from './components/SignUp_LogIn/SignUp';
+import SignUp from './components/SignUp_LogIn/SignUpPage';
 import LogIn from './components/SignUp_LogIn/LogIn';
 import FragmentsPage from './components/FragmentsPage/FragmentsPage';
 import CategoriesPage from './components/CategoriesPage/CategoriesPage';
