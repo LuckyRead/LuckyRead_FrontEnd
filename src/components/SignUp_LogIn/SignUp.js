@@ -1,12 +1,13 @@
 //Dependencies
 
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import { FormErrors } from './FormErrors';
 import { SocialIcon } from 'react-social-icons';
-import {Link} from 'react-router-dom';
-import axios from 'axios';
+
 import '../../styles/sign-up.css';
+
+
 
 class SignUp extends Component {
   constructor (props) {
@@ -31,7 +32,7 @@ class SignUp extends Component {
     }
   }
 
-  handleChange = (e) => {
+  handleUserInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({[name]: value},
@@ -120,10 +121,11 @@ class SignUp extends Component {
       lastname: this.state.apellido,
       email: this.state.email,
       password: this.state.password,
-      cities_id: 1
+      city_id: 1
     };
+    console.log(user);
 
-    axios.post(`http://localhost:3000/signin`, { user })
+    axios.post(`http://localhost:3000/api/signup`, { user })
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -134,9 +136,8 @@ class SignUp extends Component {
     return (
       <div className="Init-SignUp">
         <div className="col-sm-4" id="RegistrationForm">
-
       <div className="col-sm-12" id = "Form">
-      <form className="demoForm">
+      <form className="demoForm" onSubmit={this.handleSubmit}>
         <h2 className="SignUp-Title" >Crea tu cuenta</h2>
 
 
@@ -149,13 +150,11 @@ class SignUp extends Component {
           <label htmlFor="username">Usuario</label>
 
             <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="inputGroupPrepend2">@</span>
-          </div>
+
         <input type="text" required className="form-control" name="username"
             placeholder="Nombre de usuario"
             value={this.state.username}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
           </div>
 
         </div>
@@ -168,7 +167,7 @@ class SignUp extends Component {
         <input type="text" required className="form-control" name="nombre"
             placeholder="Nombres"
             value={this.state.nombre}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
         </div>
         </div>
           <div className="col-sm-6">
@@ -177,7 +176,7 @@ class SignUp extends Component {
         <input type="text" required className="form-control" name="apellido"
             placeholder="Apellidos"
             value={this.state.apellido}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
         </div>
         </div>
         </div>
@@ -188,14 +187,14 @@ class SignUp extends Component {
           <input type="email" required className="form-control" name="email"
             placeholder="Ingresa tu correo"
             value={this.state.email}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
         </div>
         <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
           <label htmlFor="password">Contraseña</label>
           <input type="password" className="form-control" name="password"
             placeholder="Ingresa tu contraseña"
             value={this.state.password}
-            onChange={this.handleChange}  />
+            onChange={this.handleUserInput}  />
         </div>
 
         { this.state.passwordValid ?
@@ -204,7 +203,7 @@ class SignUp extends Component {
           <input type="password" className="form-control" name="confirmpassword"
               placeholder="Repite tu contraseña"
               value={this.state.confirmpassword}
-              onChange={this.handleChange}  />
+              onChange={this.handleUserInput}  />
           </div>
 
 
@@ -212,9 +211,7 @@ class SignUp extends Component {
 
 
       <div className="SignUp-Button">
-          <Link to="/homepage">
         <button  type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Registrarme</button>
-          </Link>
         <br/>
         <h6></h6>
       <h6>O ingresa con tus redes sociales</h6> &nbsp;
@@ -226,8 +223,8 @@ class SignUp extends Component {
       </div>
       </form>
     </div>
-  </div>
-      </div>
+    </div>
+        </div>
     )
   }
 }

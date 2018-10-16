@@ -22,14 +22,14 @@ class App extends Component {
       <div className="App">
         <Navbar/>
       <Switch>
-        <Route exact="exact" path='/' component={Init}/>
+        <Route exact path='/' component={Init}/>
         <Route path='/about' component={About}/>
         <Route path='/contact' component={Contact}/>
-        <Route exact="exact" path='/signup' component={SignUp}/>
-        <Route exact="exact" path='/login' component={LogIn}/>
-        <Route exact="exact" path='/FragmentsPage' component={FragmentsPage}/>
+        <Route path='/signup' component={SignUp}/>
+        <Route path='/login' component={LogIn}/>
+        {/* <Route exact="exact" path='/FragmentsPage' component={FragmentsPage}/>
         <Route exact="exact" path='/categoriespage' component={CategoriesPage}/>
-      <Route path='/:fragment_id' component={Fragment}/>
+      <Route path='/:fragment_id' component={Fragment}/> */}
     </Switch>
       </div>
     </BrowserRouter>);
