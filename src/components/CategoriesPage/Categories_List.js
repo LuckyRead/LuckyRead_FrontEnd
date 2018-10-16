@@ -15,58 +15,53 @@ class Categories_List extends Component {
   constructor(props){
     super(props);
     this.state = {
-        topics : [],
-        preferences: []
+        topics : []
     };
   }
 
   componentWillMount(){
-        /*axios({
-            method:'get',
-            url:'https://jsonplaceholder.typicode.com/posts',
-        })
-        .then(response => {
+        axios({
+            method:'post',
+            url: 'http://localhost:3000/api/users/preferences_topic',
+            headers: {
+              'Authorization': "Bearer "+ "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk3NjA4MDEsInN1YiI6MTgzfQ.QhIW5m1xG_IXdpniQ9AQi2xobxJs3G7adV_dcFhlwsw"
+            },
+            data: {
+              username: 'lauram'
+            },
+        }).then(response => {
             const topics = response.data;
-            this.setState({ topics });
+            this.setState({ topics: topics });
         })
         .catch(function (error) {
-        });*/
-
-        var config = {
-          headers: {'Authorization': "Bearer " + token}
-         };
-
-        axios.post(
-            'http://localhost:3000/api/users/preferences_topic',
-            config
-        ).then((response) => {
-            console.log(response)
-        }).catch((error) => {
-            console.log(error)
         });
-
   }
 
-  addTopic() {
+  /*addTopic() {
     console.log('entro aquí');
-  }
+  }*/
 
 
   handleClic = (e) => {
     const checked = e.target.checked
     if (checked){
-        addTopic
+
     }else{
 
     }
   }
+
   render(){
-    const domTopics = this.state.topics.map(topic => {
-            return <Category id={topic.id} title={topic.title}/>;
-    });
+    console.log(this.state.topics)
+    var topics2 = this.state.topics.topics;
+    console.log(topics2);
+    console.log(topics2[0]);
+    /*const domTopics = topics2.map(topic => {
+        return <Category topic_id={topic.topic_id} topic_name={topic.topic_name}/>;
+    });*/
     return(
       <div>
-            <div onClick={this.handleClic}>{domTopics}</div>
+            <div onClick={this.handleClic}>Hola</div>
       </div>
 
     );
@@ -76,6 +71,34 @@ class Categories_List extends Component {
 
 export default Categories_List
 
+/*axios({
+    method:'get',
+    url:'https://jsonplaceholder.typicode.com/posts',
+})
+.then(response => {
+    const topics = response.data;
+    this.setState({ topics });
+})
+.catch(function (error) {
+});*/
+
+/*const config = {
+  headers: {'Authorization': "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk3NjA4MDEsInN1YiI6MTgzfQ.QhIW5m1xG_IXdpniQ9AQi2xobxJs3G7adV_dcFhlwsw"}
+};
+
+const bodyParameters = {
+  username: "lauram"
+}*/
+
+
+/*axios.post( 'http://localhost:3000/api/users/preferences_topic', { bodyParameters }, { config })
+  .then((response) => {
+      const topics = response.data;
+      this.setState({ topics });
+      console.log(response)
+  }).catch((error) => {
+      console.log(error)
+  });*/
 
 /*
 state ={

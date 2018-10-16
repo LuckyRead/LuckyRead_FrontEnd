@@ -123,6 +123,7 @@ class SignUp extends Component {
       cities_id: 1
     };
 
+
     axios.post(`http://localhost:3000/signin`, { user })
       .then(res => {
         console.log(res);
