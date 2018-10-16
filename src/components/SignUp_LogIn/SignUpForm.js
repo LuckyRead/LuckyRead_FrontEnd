@@ -129,14 +129,8 @@ class SignUpForm extends Component {
     //
     // this.props.userSignupRequest({user});
     this.props.userSignupRequest({user}).then(
-      () => {
-        this.props.addFlashMessage({
-          type: 'success',
-          text: 'You signed up successfully. Welcome!'
-        });
-        // this.context.router.push('/fragmentspage');
-      },
-      (err) => this.setState({ errors: err.response.data, isLoading: false })
+      (res) => this.context.router.history.push('/FragmentsPage'),
+      (err) => console.log('')
     );
     // axios.post(`http://localhost:3000/api/signup`, { user })
     //   .then(res => {

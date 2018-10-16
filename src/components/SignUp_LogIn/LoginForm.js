@@ -79,7 +79,7 @@ class LoginForm extends Component {
 
     event.preventDefault();
       this.props.login({auth}).then(
-        (res) => console.log('Autorizado'),
+        (res) => this.context.router.history.push('/FragmentsPage'),
         (err) => console.log('')
       );
 
