@@ -3,5 +3,8 @@
   color: #fff !important;
   background-color: #3338b7 !important;
   border-color: #3338b7 !important;
+}
 
+.btn-primary{
+  width: 100%;
 }

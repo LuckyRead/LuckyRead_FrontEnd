@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import HomePage_Category from './HomePage_Category';
 import AddTopic from './AddTopic';
 import Category from './Category';
+import Preferences from './Preferences';
 //styles
 import '../../styles/homepage.css';
 
@@ -22,12 +23,12 @@ class Categories_List extends Component {
   componentWillMount(){
         axios({
             method:'post',
-            url: 'http://localhost:3000/api/users/preferences_topic',
+            url: 'http://10.203.2.224:3000/api/users/preferences_topic',
             headers: {
-              'Authorization': "Bearer "+ "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk3NjA4MDEsInN1YiI6MTgzfQ.QhIW5m1xG_IXdpniQ9AQi2xobxJs3G7adV_dcFhlwsw"
+              'Authorization': "Bearer "+ "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk3OTQzODEsInN1YiI6MTgxfQ.aMsTfzztbdTReqAxuJ04tNtu5_9TXWLhuYwahaPvehg"
             },
             data: {
-              username: 'lauram'
+              username: 'daescobarp'
             },
         }).then(response => {
             const topics = response.data;
@@ -53,15 +54,13 @@ class Categories_List extends Component {
 
   render(){
     console.log(this.state.topics)
-    var topics2 = this.state.topics.topics;
-    console.log(topics2);
-    console.log(topics2[0]);
-    /*const domTopics = topics2.map(topic => {
-        return <Category topic_id={topic.topic_id} topic_name={topic.topic_name}/>;
-    });*/
+    const domTopics = this.state.topics.map(topic => {
+        return <Preferences id={topic.topic_id} name={topic.topic_name}/>;
+    });
     return(
       <div>
-            <div onClick={this.handleClic}>Hola</div>
+            <br/>
+            <div onClick={this.handleClic}>{domTopics}</div>
       </div>
 
     );

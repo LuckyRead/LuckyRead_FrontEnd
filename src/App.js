@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSmile } from '@fortawesome/free-solid-svg-icons'
 import { faMeh } from '@fortawesome/free-solid-svg-icons'
 import { faFrown } from '@fortawesome/free-solid-svg-icons'
-
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 class App extends Component {
   render() {
@@ -39,7 +39,7 @@ class App extends Component {
 library.add(faSmile);
 library.add(faMeh);
 library.add(faFrown);
-
+library.add(faCheck);
 
 
 export default App;

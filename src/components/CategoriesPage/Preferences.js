@@ -33,6 +33,7 @@ class Preferences extends Component {
             <FontAwesomeIcon icon="check" size ="sm" hidden = {this.state.hidden}/>&nbsp;<input type="checkbox" autocomplete="off"/> {this.props.name}
           </label>
         </div>
+        <br/>
       </div>
     );
   }
