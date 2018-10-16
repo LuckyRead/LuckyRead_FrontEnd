@@ -1,52 +1,47 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom';
-import {Button} from 'reactstrap';
-import Reactions from './Reactions'
 import axios from 'axios'
 import '../../styles/fragmentcontainer.css';
-import {connect} from 'react-redux';
-import { deletePost } from '../../actions/fragmentActions'
 
 class Fragment extends Component {
+  state = {
+    post: null
+  }
+  componentDidMount(){
 
-  handleClick = () => {
-    this.props.deletePost(this.props.post.id);
-    this.props.history.push('/fragmentspage');  }
+    console.log("fghjkl");
+    let id = this.props.match.params.fragment_id;
+    axios.get('http://10.203.2.224:3000/fragments' + id)
+      .then(res => {
+        this.setState({
+          post: res.data
+        });
+        //console.log(res.data);
+        console.log("source")
+        console.log(this.props.source)
+      });
+  }
   render() {
-    console.log(this.props)
-    const post = this.props.post ? (
+
+    const post = this.state.post ? (
       <div className="container" id="container">
-      <br/>
         <div className="row" id="container_fragment">
           <div className="text-center" id="title_fragment">
-            <h2><strong>{this.props.post.title}</strong></h2>
+            <h2><strong>{this.state.post.title}</strong></h2>
             <br/>
             <div className = "row justify-content-center" id="content">
               <div className="col-4" id="image">
-                <img src={this.props.post.source} alt="Imagen de referencia"/>
+                <img src={this.state.post.source} alt="Imagen de referencia"/>
+
               </div>
               <div className="col-8" id="text">
                 <h4><strong>Introducción</strong></h4>
-              <p className = "text-justify">{this.props.post.introduction}</p>
+              <p className = "text-justify">{this.state.post.introduction}</p>
                 <br/>
                 <h4><strong>Contenido</strong></h4>
-
-                <p className = "text-justify">{this.props.post.content}</p>
-              </div>
-              <div className="center">
-                <button className="btn grey" onClick={this.handleClick}>
-                  Delete post
-                </button>
-                <p className = "text-justify">{this.props.post.content}</p>
-                <br/>
-                <h6><strong>Fuente</strong></h6><p>{this.props.post.source}</p>
+                <p className = "text-justify">{this.state.post.content}</p>
               </div>
             </div>
           </div>
-          <Reactions/>
-        </div>
-        <div className="row justify-content-center" id="button">
-          <Button color="primary" tag={Link} to="/FragmentsPage">Volver</Button>{' '}
         </div>
       </div>
     ) : (
@@ -61,17 +56,4 @@ class Fragment extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  let id = ownProps.match.params.fragment_id;
-  return {
-    post: state.posts.find(post => post.id === id)
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    deletePost: (id) => dispatch(deletePost(id))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Fragment)
+export default Fragment
