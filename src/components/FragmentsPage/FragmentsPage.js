@@ -2,14 +2,12 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
+import { deletePost} from '../../actions/fragmentActions.js';
 
 //Components
 
 //styles
 import '../../styles/homepage.css';
-
-//Data
-//import items from '../data/menu.js'
 
 class FragmentsPage extends Component {
   render() {

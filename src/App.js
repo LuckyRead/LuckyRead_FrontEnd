@@ -28,8 +28,8 @@ class App extends Component {
         <Route path='/signup' component={SignUp}/>
         <Route path='/login' component={LoginPage}/>
       <Route  path='/fragmentspage' component={FragmentsPage}/>
-        {/* <Route exact="exact" path='/categoriespage' component={CategoriesPage}/>
-      <Route path='/:fragment_id' component={Fragment}/> */}
+        {/* <Route exact="exact" path='/categoriespage' component={CategoriesPage}/> */}
+      <Route path='/:fragment_id' component={Fragment}/>
     </Switch>
       </div>
     </BrowserRouter>);
