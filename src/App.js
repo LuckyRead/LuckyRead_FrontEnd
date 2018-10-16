@@ -3,8 +3,8 @@ import Navbar from './components/layout/Navbar';
 import Init from './components/Init/Init';
 import About from './components/About/AboutPage';
 import Contact from './components/Contact/Contact';
-import SignUp from './components/SignUp_LogIn/SignUp';
-import LogIn from './components/SignUp_LogIn/LogIn';
+import SignUp from './components/SignUp_LogIn/SignUpPage';
+import LoginPage from './components/SignUp_LogIn/LoginPage';
 import FragmentsPage from './components/FragmentsPage/FragmentsPage';
 import CategoriesPage from './components/CategoriesPage/CategoriesPage';
 import Fragment from './components/FragmentsPage/Fragment';
@@ -26,10 +26,10 @@ class App extends Component {
         <Route path='/about' component={About}/>
         <Route path='/contact' component={Contact}/>
         <Route path='/signup' component={SignUp}/>
-        <Route path='/login' component={LogIn}/>
-        {/* <Route exact="exact" path='/FragmentsPage' component={FragmentsPage}/>
-        <Route exact="exact" path='/categoriespage' component={CategoriesPage}/>
-      <Route path='/:fragment_id' component={Fragment}/> */}
+        <Route path='/login' component={LoginPage}/>
+      <Route  path='/fragmentspage' component={FragmentsPage}/>
+        {/* <Route exact="exact" path='/categoriespage' component={CategoriesPage}/> */}
+      <Route path='/:fragment_id' component={Fragment}/>
     </Switch>
       </div>
     </BrowserRouter>);

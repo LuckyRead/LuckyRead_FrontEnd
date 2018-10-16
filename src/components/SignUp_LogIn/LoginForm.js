@@ -3,8 +3,12 @@ import { SocialIcon } from 'react-social-icons';
 import axios from 'axios';
 import '../../styles/login.css';
 import { FormErrors } from './FormErrors';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { login } from '../../actions/authActions';
+import TextFieldGroup from '../../common/TextFieldGroup';
 
-class LogIn extends Component {
+class LoginForm extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -68,17 +72,22 @@ class LogIn extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
     const auth = {
       email: this.state.email,
       password: this.state.password,
     };
 
-    axios.post(`http://localhost:3000/api/login`, { auth })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
+    event.preventDefault();
+      this.props.login({auth}).then(
+        (res) => console.log('Autorizado'),
+        (err) => console.log('')
+      );
+
+    // axios.post(`http://localhost:3000/api/login`, { auth })
+    //   .then(res => {
+    //     console.log(res);
+    //     console.log(res.data);
+    //   })
   }
 
 
@@ -87,9 +96,6 @@ class LogIn extends Component {
 
     render() {
       return (
-        <div className="Init-SignUp">
-          <div className="col-sm-4" id="RegistrationForm">
-
             <div className="col-sm-12" id = "Form">
             <form className="demoForm" onSubmit={this.handleSubmit}>
               <h2 className="LogIn-Title" >Ingresa</h2>
@@ -131,9 +137,17 @@ class LogIn extends Component {
             </div>
             </form>
           </div>
-                      </div>
-                                </div>
     )
   }
 }
-export default LogIn;
+
+
+LoginForm.propTypes = {
+  login: PropTypes.func.isRequired
+}
+
+LoginForm.contextTypes = {
+  router: PropTypes.object.isRequired
+}
+
+export default connect(null, { login })(LoginForm);
