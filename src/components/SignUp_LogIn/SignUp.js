@@ -32,6 +32,8 @@ class SignUp extends Component {
   }
 
   handleChange = (e) => {
+        console.log(this.state);
+
     const name = e.target.name;
     const value = e.target.value;
     this.setState({[name]: value},
@@ -111,23 +113,24 @@ class SignUp extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
+    console.log('submited');
     event.preventDefault();
-
+    console.log(this.state);
     const user = {
       username: this.state.username,
       name: this.state.nombre,
       lastname: this.state.apellido,
       email: this.state.email,
       password: this.state.password,
-      cities_id: 1
+      city_id: 1
     };
 
-    axios.post(`http://localhost:3000/signin`, { user })
+    axios.post(`http://localhost:3000/api/signup`, { user })
       .then(res => {
         console.log(res);
         console.log(res.data);
-      })
+      });
   }
 
   render () {
@@ -136,7 +139,7 @@ class SignUp extends Component {
         <div className="col-sm-4" id="RegistrationForm">
 
       <div className="col-sm-12" id = "Form">
-      <form className="demoForm">
+      <form className="white" onSubmit={this.handleSubmit}>
         <h2 className="SignUp-Title" >Crea tu cuenta</h2>
 
 
@@ -149,9 +152,6 @@ class SignUp extends Component {
           <label htmlFor="username">Usuario</label>
 
             <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="inputGroupPrepend2">@</span>
-          </div>
         <input type="text" required className="form-control" name="username"
             placeholder="Nombre de usuario"
             value={this.state.username}
@@ -190,6 +190,7 @@ class SignUp extends Component {
             value={this.state.email}
             onChange={this.handleChange}  />
         </div>
+
         <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
           <label htmlFor="password">Contraseña</label>
           <input type="password" className="form-control" name="password"
@@ -205,24 +206,21 @@ class SignUp extends Component {
               placeholder="Repite tu contraseña"
               value={this.state.confirmpassword}
               onChange={this.handleChange}  />
-          </div>
-
-
-          : null }
+          </div> : null }
 
 
       <div className="SignUp-Button">
-          <Link to="/homepage">
+          <Link to="/fragmentspage">
         <button  type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Registrarme</button>
           </Link>
         <br/>
         <h6></h6>
-      <h6>O ingresa con tus redes sociales</h6> &nbsp;
+      <h6>O ingresa con tus redes sociales</h6>
         <br/>
         <h6></h6>
-        <SocialIcon url="http://facebook.com/" /> &emsp;
-        <SocialIcon url="http://twitter.com/" /> &emsp;
-        <SocialIcon url="http://google.com/" /> &emsp;
+        <SocialIcon url="http://facebook.com/" />
+        <SocialIcon url="http://twitter.com/" />
+        <SocialIcon url="http://google.com/" />
       </div>
       </form>
     </div>
