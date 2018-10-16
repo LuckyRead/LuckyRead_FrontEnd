@@ -6,7 +6,7 @@ import Contact from './components/Contact/Contact';
 import SignUp from './components/SignUp_LogIn/SignUp';
 import LogIn from './components/SignUp_LogIn/LogIn';
 import FragmentsPage from './components/FragmentsPage/FragmentsPage';
-import CategoriesPage from './components/CategoriesPage/CategoriesPage';
+import Categories_List from './components/CategoriesPage/Categories_List';
 import Fragment from './components/FragmentsPage/Fragment';
 import {Route, BrowserRouter, Switch} from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -28,7 +28,7 @@ class App extends Component {
         <Route exact="exact" path='/signup' component={SignUp}/>
         <Route exact="exact" path='/login' component={LogIn}/>
         <Route exact="exact" path='/FragmentsPage' component={FragmentsPage}/>
-        <Route exact="exact" path='/categoriespage' component={CategoriesPage}/>
+        <Route exact="exact" path='/categoriespage' component={Categories_List}/>
       <Route path='/:fragment_id' component={Fragment}/>
     </Switch>
       </div>
