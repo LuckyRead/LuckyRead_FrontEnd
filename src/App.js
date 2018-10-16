@@ -18,19 +18,20 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 class App extends Component {
   render() {
-    return (<BrowserRouter>
+    return (
+    <BrowserRouter>
       <div className="App">
         <Navbar/>
-      <Switch>
-        <Route exact path='/' component={Init}/>
-        <Route path='/about' component={About}/>
-        <Route path='/contact' component={Contact}/>
-        <Route path='/signup' component={SignUp}/>
-        <Route path='/login' component={LoginPage}/>
-      <Route  path='/fragmentspage' component={FragmentsPage}/>
-        {/* <Route exact="exact" path='/categoriespage' component={CategoriesPage}/> */}
-      <Route path='/:fragment_id' component={Fragment}/>
-    </Switch>
+        <Switch>
+          <Route exact path='/' component={Init}/>
+          <Route path='/about' component={About}/>
+          <Route path='/contact' component={Contact}/>
+          <Route path='/signup' component={SignUp}/>
+          <Route path='/login' component={LoginPage}/>
+          <Route path='/fragmentspage' component={FragmentsPage}/>
+          <Route path='/categoriespage' component={Categories_List}/>
+          <Route path='/:fragment_id' component={Fragment}/>
+        </Switch>
       </div>
     </BrowserRouter>);
   }

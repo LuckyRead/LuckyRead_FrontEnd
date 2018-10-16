@@ -8,9 +8,8 @@ class Fragment extends Component {
   }
   componentDidMount(){
 
-    console.log("fghjkl");
     let id = this.props.match.params.fragment_id;
-    axios.get('http://10.203.2.224:3000/fragments' + id)
+    axios.get('http://localhost:3000/fragments' + id)
       .then(res => {
         this.setState({
           post: res.data

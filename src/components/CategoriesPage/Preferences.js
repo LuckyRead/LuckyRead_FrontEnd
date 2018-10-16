@@ -30,7 +30,7 @@ class Preferences extends Component {
       <div>
         <div className="btn-group-toggle" data-toggle="buttons">
           <label className="btn btn-primary"  id = {this.props.name} onClick = {this.myFunction}>
-            <FontAwesomeIcon icon="check" size ="sm" hidden = {this.state.hidden}/>&nbsp;<input type="checkbox" autocomplete="off"/> {this.props.name}
+            <FontAwesomeIcon icon="check" size ="sm" hidden = {this.state.hidden}/>&nbsp;<input type="checkbox" autoComplete="off"/> {this.props.name}
           </label>
         </div>
         <br/>

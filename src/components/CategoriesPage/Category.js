@@ -9,13 +9,17 @@ class Category extends Component {
     super(props);
   }
 
+  showSubCategories(){
+    console.log('subcategories');
+  }
+
 
   render() {
     return (
       <div key={this.props.topic_id}>
         <div className="custom-control custom-checkbox">
-          <input type="checkbox" className="custom-control-input" id={this.props.topic_id}/>
-          <label className="custom-control-label" htmlFor={this.props.topic_id}>{this.props.topic_name}</label>
+          <input type="checkbox" className="custom-control-input" id={this.props.id} onClick={this.showSubCategories}/>
+          <label className="custom-control-label" htmlFor={this.props.id}>{this.props.name}</label>
         </div>
       </div>
     );

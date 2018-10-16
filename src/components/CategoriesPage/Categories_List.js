@@ -19,23 +19,29 @@ class Categories_List extends Component {
         topics : []
     };
   }
-
   componentWillMount(){
+        const token = localStorage.getItem('jwtToken');
+        //const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk4MTg4ODQsInN1YiI6MTgyfQ.MLSQs_KmNy9K2pLWOlCsWRcxCOuK4PW0iZQLsD3_bS0"
+
         axios({
             method:'post',
-            url: 'http://10.203.2.224:3000/api/users/preferences_topic',
+            url: 'http://localhost:3000/api/users/preferences_topic',
             headers: {
-              'Authorization': "Bearer "+ "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk3OTQzODEsInN1YiI6MTgxfQ.aMsTfzztbdTReqAxuJ04tNtu5_9TXWLhuYwahaPvehg"
+              Authorization: "Bearer "+ token
             },
             data: {
-              username: 'daescobarp'
+              username: 'ldmolinav'
             },
         }).then(response => {
             const topics = response.data;
             this.setState({ topics: topics });
+            console.log(response);
         })
         .catch(function (error) {
+          console.log('error');
         });
+
+
   }
 
   /*addTopic() {
@@ -55,7 +61,7 @@ class Categories_List extends Component {
   render(){
     console.log(this.state.topics)
     const domTopics = this.state.topics.map(topic => {
-        return <Preferences id={topic.topic_id} name={topic.topic_name}/>;
+        return <Category key={topic.topic_id} name={topic.topic_name} id={topic.topic_id}/>;
     });
     return(
       <div>
