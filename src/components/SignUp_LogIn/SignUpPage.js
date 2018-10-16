@@ -24,9 +24,10 @@ class SignUpPage extends React.Component {
 }
 
 SignUpPage.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired﻿
-
+  userSignupRequest: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired
+  // isUserExists: React.PropTypes.func.isRequired
 }
 
-// export default connect(null, { userSignupRequest, addFlashMessage, isUserExists })(SignUpPage);
-export default connect(null, { userSignupRequest})(SignUpPage);
+
+export default connect(null, { userSignupRequest, addFlashMessage })(SignUpPage);

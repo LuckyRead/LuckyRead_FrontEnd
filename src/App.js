@@ -27,8 +27,8 @@ class App extends Component {
         <Route path='/contact' component={Contact}/>
         <Route path='/signup' component={SignUp}/>
         <Route path='/login' component={LogIn}/>
-        {/* <Route exact="exact" path='/FragmentsPage' component={FragmentsPage}/>
-        <Route exact="exact" path='/categoriespage' component={CategoriesPage}/>
+      <Route  path='/fragmentspage' component={FragmentsPage}/>
+        {/* <Route exact="exact" path='/categoriespage' component={CategoriesPage}/>
       <Route path='/:fragment_id' component={Fragment}/> */}
     </Switch>
       </div>

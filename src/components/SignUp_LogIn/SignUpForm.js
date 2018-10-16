@@ -126,18 +126,18 @@ class SignUpForm extends Component {
       city_id: 1
     };
     console.log(user);
-
-    this.props.userSignupRequest({user});
-    // this.props.userSignupRequest(user).then(
-    //   () => {
-    //     this.props.addFlashMessage({
-    //       type: 'success',
-    //       text: 'You signed up successfully. Welcome!'
-    //     });
-    //     this.context.router.push('/fragmentspage');
-    //   },
-    //   (err) => this.setState({ errors: err.response.data, isLoading: false })
-    // );
+    //
+    // this.props.userSignupRequest({user});
+    this.props.userSignupRequest({user}).then(
+      () => {
+        this.props.addFlashMessage({
+          type: 'success',
+          text: 'You signed up successfully. Welcome!'
+        });
+        // this.context.router.push('/fragmentspage');
+      },
+      (err) => this.setState({ errors: err.response.data, isLoading: false })
+    );
     // axios.post(`http://localhost:3000/api/signup`, { user })
     //   .then(res => {
     //     console.log(res);
@@ -241,12 +241,13 @@ class SignUpForm extends Component {
 }
 
 SignUpForm.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired﻿
-
+  userSignupRequest: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired
+  // isUserExists: React.PropTypes.func.isRequired
 }
 
-// SignUpForm.contextTypes = {
-//   router: React.PropTypes.object.isRequired
-// }
+SignUpForm.contextTypes = {
+  router: PropTypes.object.isRequired
+}
 
 export default SignUpForm;

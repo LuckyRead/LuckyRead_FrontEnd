@@ -8,7 +8,6 @@ export function userSignupRequest(userData) {
             console.log(res);
             console.log(res.data);
           })
-
   }
 }
 
