@@ -20,7 +20,27 @@ class FragmentsPage extends Component {
 
 
     componentDidMount() {
+
       const token = localStorage.getItem('jwtToken');
+
+      //get current user
+      axios({
+          method:'get',
+          url: 'http://localhost:3000/api/users/current',
+          headers: {
+            Authorization: "Bearer "+ token
+          }
+      }).then(response => {
+          const user_r = response.data["current_user"];
+          localStorage.setItem('current_user', user_r);
+      })
+      .catch(function (error) {
+        console.log('error');
+      });
+
+      //get fragment
+      const user = localStorage.getItem('current_user');
+
       axios({
         method: 'POST', url: 'http://localhost:3000/api/fragments/something',
         headers:
@@ -28,7 +48,7 @@ class FragmentsPage extends Component {
           Authorization: "Bearer " + token
         },
         data: {
-          username: "ldmolinav"
+          username: user
         }
       }).then(response => {
         console.log(response)

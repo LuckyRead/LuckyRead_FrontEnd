@@ -16,12 +16,13 @@ class Category extends Component {
 
   render() {
     return (
-      <div key={this.props.topic_id}>
+      <li className="list-group-item">{this.props.name}</li>
+      /*<div key={this.props.topic_id}>
         <div className="custom-control custom-checkbox">
           <input type="checkbox" className="custom-control-input" id={this.props.id} onClick={this.showSubCategories}/>
           <label className="custom-control-label" htmlFor={this.props.id}>{this.props.name}</label>
         </div>
-      </div>
+      </div>*/
     );
   }
 }
