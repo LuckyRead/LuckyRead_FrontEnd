@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import '../../styles/fragmentcontainer.css';
+import API from '../../api';
 
 class Fragment extends Component {
   state = {
@@ -9,10 +10,11 @@ class Fragment extends Component {
   componentDidMount(){
 
     let id = this.props.match.params.fragment_id;
-    axios.get('http://localhost:3000/fragments' + id)
+    API.get('/fragments/'+id)
       .then(res => {
+        console.log(res)
         this.setState({
-          post: res.data
+          post: res.data.data.attributes
         });
         //console.log(res.data);
         console.log("source")

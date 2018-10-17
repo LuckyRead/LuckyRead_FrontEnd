@@ -5,11 +5,14 @@ export function userSignupRequest(userData) {
   return dispatch => {
     return     API.post(`/api/signup`, userData)
           .then(res => {
-            console.log(res);
-            console.log(res.data);
+
           })
   }
 }
+
+
+
+
 
 // export function isUserExists(identifier) {
 //   return dispatch => {

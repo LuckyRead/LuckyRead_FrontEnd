@@ -24,9 +24,11 @@ class SignUpForm extends Component {
       formErrors: {username: '', nombre: '', apellido: '', email: '', password: '', confirmpassword: ''},
 
       usernameValid: false,
+      usernameNotExists: false,
       namesValid: false,
       lastnameValid: false,
       emailValid: false,
+      emailNotExists: false,
       passwordValid: false,
       confirmpasswordValid: false,
       formValid: false,
@@ -39,32 +41,31 @@ class SignUpForm extends Component {
     const value = e.target.value;
     this.setState({[name]: value},
                   () => { this.validateField(name, value) });
-
-
   }
 
   validateField(fieldName, value) {
 
     let fieldValidationErrors = this.state.formErrors;
-    let usernameValid=this.state.namesValid;
+    let usernameValid=this.state.usernameValid;
     let namesValid =this.state.namesValid;
     let lastnameValid =this.state.lastnameValid;
     let emailValid = this.state.emailValid;
+    let emailNotExists = this.state.emailNotExists;
     let passwordValid = this.state.passwordValid;
     let confirmpasswordValid = this.state.confirmpasswordValid;
 
     switch(fieldName) {
 
       case 'username':
-      API.post(`/api/users/user_exist`, { "username": this.state.username })
-      .then(
-        (res) => { console.log('bien');
-          usernameValid=true
-        },
-        (err) => {console.log('mal');
-          usernameValid=false}
-      );
-      fieldValidationErrors.username =  usernameValid ? 'Nombre de usuario no disponible' : 'Nombre de usuario ya existe';
+
+        API.post(`/api/users/user_exist`, { "username": this.state.username }).then(
+          (res) => {this.state.usernameValid= true
+            fieldValidationErrors.username = '' },
+            (err) => {this.state.usernameValid= false
+              fieldValidationErrors.username = 'Nombre de usuario ya existe'}
+            );
+      // fieldValidationErrors.username =  usernameValid ? '' : 'Nombre de usuario ya existe';
+
       break;
 
       case 'nombre':
@@ -74,6 +75,14 @@ class SignUpForm extends Component {
 
 
       case 'email':
+      API.post(`/api/users/email_exist`, { "email": this.state.email })
+      .then(
+        (res) => {this.state.usernameValid= true
+        fieldValidationErrors.emailNotExists = '' },
+        (err) => {this.state.usernameValid= false
+        fieldValidationErrors.emailNotExists = 'Email ya existe'}
+      )
+
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         fieldValidationErrors.email = emailValid ? '' : 'Email invalido';
         break;
@@ -109,13 +118,14 @@ class SignUpForm extends Component {
                     namesValid: namesValid,
                     lastnameValid: lastnameValid,
                     emailValid: emailValid,
+                    emailNotExists: emailNotExists,
                     passwordValid: passwordValid,
                     confirmpasswordValid: confirmpasswordValid
                   }, this.validateForm);
   }
 
   validateForm() {
-    this.setState({formValid: this.state.usernameValid && this.state.namesValid && this.state.emailValid && this.state.passwordValid && this.state.confirmpasswordValid});
+    this.setState({formValid: this.state.usernameValid && this.state.namesValid && this.state.emailValid && this.state.emailNotExists && this.state.passwordValid && this.state.confirmpasswordValid});
   }
 
 
@@ -148,6 +158,7 @@ class SignUpForm extends Component {
     //   })
   }
 
+
   render () {
     return (
 
@@ -165,6 +176,7 @@ class SignUpForm extends Component {
           <label htmlFor="username">Usuario</label>
 
             <div className="input-group">
+
 
         <input type="text" required className="form-control" name="username"
             placeholder="Nombre de usuario"
@@ -244,8 +256,7 @@ class SignUpForm extends Component {
 }
 
 SignUpForm.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired,
-  addFlashMessage: PropTypes.func.isRequired
+  userSignupRequest: PropTypes.func.isRequired
   // isUserExists: React.PropTypes.func.isRequired
 }
 
