@@ -34,7 +34,7 @@ class Fragment extends Component {
               </div>
               <div className="col-8" id="text">
                 <h4><strong>Introducción</strong></h4>
-              <p className = "text-justify">{this.state.post.introduction}</p>
+                <p className = "text-justify">{this.state.post.introduction}</p>
                 <br/>
                 <h4><strong>Contenido</strong></h4>
                 <p className = "text-justify">{this.state.post.content}</p>

@@ -9,13 +9,15 @@ import LoginPage from './components/SignUp_LogIn/LoginPage';
 import FragmentsPage from './components/FragmentsPage/FragmentsPage';
 import Categories_List from './components/CategoriesPage/Categories_List';
 import Fragment from './components/FragmentsPage/Fragment';
-import requireAuth from './utils/requireAuth';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSmile } from '@fortawesome/free-solid-svg-icons'
 import { faMeh } from '@fortawesome/free-solid-svg-icons'
 import { faFrown } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+
+
+import requireAuth from './utils/requireAuth';
 
 
 class App extends Component {
@@ -32,7 +34,7 @@ class App extends Component {
           <Route path='/login' component={LoginPage}/>
           <Route path='/fragmentspage' component={requireAuth(FragmentsPage)}/>
           <Route path='/categoriespage' component={requireAuth(Categories_List)}/>
-          <Route path='/:fragment_id' component={Fragment}/>
+          <Route path='/:fragment_id' component={requireAuth(Fragment)}/>
         </Switch>
       </div>
     </BrowserRouter>);
