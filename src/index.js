@@ -6,20 +6,25 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import {createStore, applyMiddleware } from 'redux';
-
+import {createStore, applyMiddleware  , compose } from 'redux';
 import thunk from 'redux-thunk';
-// import rootReducer from './reducers/rootReducer'
-//
-// const store = createStore(rootReducer);
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+import rootReducer from './reducers/rootReducer';
+import setAuthorizationToken from './utils/setAuthorizationToken';
+import jwtDecode from 'jwt-decode';
+import { setCurrentUser } from './actions/authActions';
 
 const store = createStore(
-  (state= {}) => state,
-  applyMiddleware(thunk)
+  rootReducer,
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
 );
+
+if (localStorage.jwtToken) {
+  setAuthorizationToken(localStorage.jwtToken);
+  store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+}
 
 
 ReactDOM.render(

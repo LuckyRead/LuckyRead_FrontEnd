@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux';
 
-import flashMessages from './reducers/flashMessages';
-import auth from './reducers/auth';
-import fragmentreducer from './reducers/fragmentreducer';
+import auth from './auth';
+import fragmentreducer from './fragmentreducer';
 
 
 export default combineReducers({
-  flashMessages,
   auth,
   fragmentreducer
 });
