@@ -20,15 +20,15 @@ class FragmentsPage extends Component {
 
 
     componentDidMount() {
-
+      const token = localStorage.getItem('jwtToken');
       axios({
-        method: 'POST', url: 'http://10.203.2.224:3000/api/fragments/something',
+        method: 'POST', url: 'http://localhost:3000/api/fragments/something',
         headers:
         {
-          Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk3OTgxMzIsInN1YiI6MTgxfQ.21lgp1YnHwAj_WrxluKH_S3_wsrepMiQmXRn2S3mHgE"
+          Authorization: "Bearer " + token
         },
         data: {
-          username: "daescobarp"
+          username: "ldmolinav"
         }
       }).then(response => {
         console.log(response)
@@ -77,7 +77,7 @@ class FragmentsPage extends Component {
   // }
 
   handleChange = (e) => {
-    axios.get('http://10.203.2.224:3000/fragments')
+    axios.get('http://localhost:3000/fragments')
       .then(res => {
         console.log(res);
         this.setState({

@@ -79,8 +79,8 @@ class LoginForm extends Component {
 
     event.preventDefault();
       this.props.login({auth}).then(
-        (res) => this.context.router.history.push('/FragmentsPage'),
-        (err) => console.log('')
+        (res) => this.context.router.history.push('/fragmentspage'),
+        (err) => console.log('error')
       );
 
     // axios.post(`http://localhost:3000/api/login`, { auth })

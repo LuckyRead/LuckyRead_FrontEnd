@@ -4,60 +4,168 @@ import React, { Component } from 'react';
 //Components
 import HomePage_Category from './HomePage_Category';
 import AddTopic from './AddTopic';
+import Category from './Category';
+import Preferences from './Preferences';
 //styles
 import '../../styles/homepage.css';
 
-//Data
+import axios from 'axios';
 
 class Categories_List extends Component {
 
-  state ={
-    topics: [
-      {id: '1', name: 'Historia'},
-      {id: '2', name: 'Ciencia'},
-      {id: '3', name: 'Tema 3'},
-      {id: '4', name: 'Misterio'},
-      {id: '5', name: 'Biografias'},
-      {id: '6', name: 'Emprendimiento'},
-    ]
+  constructor(props){
+    super(props);
+    this.state = {
+        topics : [],
+        user: ''
+    };
+  }
+  componentWillMount(){
+        const token = localStorage.getItem('jwtToken');
+
+        //const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk4MTg4ODQsInN1YiI6MTgyfQ.MLSQs_KmNy9K2pLWOlCsWRcxCOuK4PW0iZQLsD3_bS0"
+        axios({
+            method:'get',
+            url: 'http://localhost:3000/api/users/current',
+            headers: {
+              Authorization: "Bearer "+ token
+            }
+        }).then(response => {
+            const user_r = response.data["current_user"];
+            localStorage.setItem('current_user', user_r);
+        })
+        .catch(function (error) {
+          console.log('error');
+        });
+
+        const user = localStorage.getItem('current_user');
+        axios({
+            method:'post',
+            url: 'http://localhost:3000/api/users/preferences_topic',
+            headers: {
+              Authorization: "Bearer "+ token
+            },
+            data: {
+              username: user
+            },
+        }).then(response => {
+            const topics = response.data;
+            this.setState({ topics: topics });
+            console.log(response);
+        })
+        .catch(function (error) {
+          console.log('error');
+        });
+
+
   }
 
- addTopic = (topic) => {
-   topic.id = Math.random();
-   let topics = [...this.state.topics, topic];
-   this.setState({
-     topics: topics
-   });
- }
+  /*addTopic() {
+    console.log('entro aquí');
+  }*/
 
- deleteTopic = (id) => {
-   let topics = this.state.topics.filter(topic => {
-     return topic.id !== id
-   });
-   this.setState({
-     topics: topics
-   });
- }
 
- componentDidMount(){
-   console.log('component mounted');
- }
- componentDidUpdate(prevProps, prevState, snapshot){
-   console.log('component updated');
-   console.log(prevProps, prevState);
- }
+  handleClic = (e) => {
+    const checked = e.target.checked
+    if (checked){
+
+    }else{
+
+    }
+  }
 
   render(){
+    console.log(this.state.topics)
+    const domTopics = this.state.topics.map(topic => {
+        return <Category key={topic.topic_id} name={topic.topic_name} id={topic.topic_id}/>;
+    });
     return(
-  <div className="row">
-    <div className="col-sm-12" id="Categories_List">
-      <HomePage_Category deleteTopic={this.deleteTopic} topics={this.state.topics}/>
-    <AddTopic addTopic={this.addTopic} />
+      <div>
+            <br/>
+            <div onClick={this.handleClic}>{domTopics}</div>
       </div>
-      </div>
-    )
+
+    );
   }
 
 }
 
 export default Categories_List
+
+/*axios({
+    method:'get',
+    url:'https://jsonplaceholder.typicode.com/posts',
+})
+.then(response => {
+    const topics = response.data;
+    this.setState({ topics });
+})
+.catch(function (error) {
+});*/
+
+/*const config = {
+  headers: {'Authorization': "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk3NjA4MDEsInN1YiI6MTgzfQ.QhIW5m1xG_IXdpniQ9AQi2xobxJs3G7adV_dcFhlwsw"}
+};
+
+const bodyParameters = {
+  username: "lauram"
+}*/
+
+
+/*axios.post( 'http://localhost:3000/api/users/preferences_topic', { bodyParameters }, { config })
+  .then((response) => {
+      const topics = response.data;
+      this.setState({ topics });
+      console.log(response)
+  }).catch((error) => {
+      console.log(error)
+  });*/
+
+/*
+state ={
+  topics: [
+    {id: '1', name: 'Historia'},
+    {id: '2', name: 'Ciencia'},
+    {id: '3', name: 'Tema 3'},
+    {id: '4', name: 'Misterio'},
+    {id: '5', name: 'Biografias'},
+    {id: '6', name: 'Emprendimiento'},
+  ]
+}
+
+addTopic = (topic) => {
+ topic.id = Math.random();
+ let topics = [...this.state.topics, topic];
+ this.setState({
+   topics: topics
+ });
+}
+
+deleteTopic = (id) => {
+ let topics = this.state.topics.filter(topic => {
+   return topic.id !== id
+ });
+ this.setState({
+   topics: topics
+ });
+}
+
+componentDidMount(){
+ console.log('component mounted');
+}
+componentDidUpdate(prevProps, prevState, snapshot){
+ console.log('component updated');
+ console.log(prevProps, prevState);
+}
+
+render(){
+  return(
+<div className="row">
+  <div className="col-sm-12" id="Categories_List">
+    <HomePage_Category deleteTopic={this.deleteTopic} topics={this.state.topics}/>
+  <AddTopic addTopic={this.addTopic} />
+    </div>
+    </div>
+  )
+}
+*/
