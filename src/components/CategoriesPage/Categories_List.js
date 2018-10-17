@@ -17,13 +17,14 @@ class Categories_List extends Component {
     super(props);
     this.state = {
         topics : [],
+        subtopics: [],
         user: ''
     };
   }
   componentWillMount(){
         const token = localStorage.getItem('jwtToken');
 
-        //const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk4MTg4ODQsInN1YiI6MTgyfQ.MLSQs_KmNy9K2pLWOlCsWRcxCOuK4PW0iZQLsD3_bS0"
+        //get current user
         axios({
             method:'get',
             url: 'http://localhost:3000/api/users/current',
@@ -39,6 +40,27 @@ class Categories_List extends Component {
         });
 
         const user = localStorage.getItem('current_user');
+
+        //get preferences
+        axios({
+            method:'post',
+            url: 'http://localhost:3000/api/users/preferences_sub_topic',
+            headers: {
+              Authorization: "Bearer "+ token
+            },
+            data: {
+              username: user
+            },
+        }).then(response => {
+            const sub_topics = response["data"];
+            this.setState({ subtopics: sub_topics });
+            console.log(this.state.subtopics);
+        })
+        .catch(function (error) {
+          console.log('error');
+        });
+
+        //get preferences
         axios({
             method:'post',
             url: 'http://localhost:3000/api/users/preferences_topic',
@@ -54,7 +76,6 @@ class Categories_List extends Component {
             console.log(response);
         })
         .catch(function (error) {
-          console.log('error');
         });
 
 
@@ -75,14 +96,27 @@ class Categories_List extends Component {
   }
 
   render(){
-    console.log(this.state.topics)
     const domTopics = this.state.topics.map(topic => {
         return <Category key={topic.topic_id} name={topic.topic_name} id={topic.topic_id}/>;
     });
+    const domSubTopics = this.state.subtopics.map(subtopic => {
+        return <Category key={subtopic.sub_topic_id} name={subtopic.sub_topic_name} id={subtopic.sub_topic_id}/>;
+    });
     return(
       <div>
-            <br/>
-            <div onClick={this.handleClic}>{domTopics}</div>
+        <br/>
+        <div className="row justify-content-center ">
+            <h1><strong>Mis preferencias</strong></h1>
+        </div>
+        <div className="row justify-content-center ">
+            <ul className="list-group">{domTopics}</ul>
+        </div>
+        <div className="row justify-content-center ">
+            <h2><strong>Subcategorías</strong></h2>
+        </div>
+        <div className="row justify-content-center ">
+            <ul className="list-group">{domSubTopics}</ul>
+        </div>
       </div>
 
     );
@@ -90,38 +124,34 @@ class Categories_List extends Component {
 
 }
 
-export default Categories_List
+export default Categories_List;
 
-/*axios({
-    method:'get',
-    url:'https://jsonplaceholder.typicode.com/posts',
-})
-.then(response => {
-    const topics = response.data;
-    this.setState({ topics });
-})
-.catch(function (error) {
-});*/
+/*
+<div>
+      <br/>
+      <h1>Mis preferencias</h1>
+      <div onClick={this.handleClic}>{domTopics}</div>
+</div>
 
-/*const config = {
+const config = {
   headers: {'Authorization': "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk3NjA4MDEsInN1YiI6MTgzfQ.QhIW5m1xG_IXdpniQ9AQi2xobxJs3G7adV_dcFhlwsw"}
 };
 
 const bodyParameters = {
   username: "lauram"
-}*/
+}
 
 
-/*axios.post( 'http://localhost:3000/api/users/preferences_topic', { bodyParameters }, { config })
+axios.post( 'http://localhost:3000/api/users/preferences_topic', { bodyParameters }, { config })
   .then((response) => {
       const topics = response.data;
       this.setState({ topics });
       console.log(response)
   }).catch((error) => {
       console.log(error)
-  });*/
+  });
 
-/*
+
 state ={
   topics: [
     {id: '1', name: 'Historia'},
