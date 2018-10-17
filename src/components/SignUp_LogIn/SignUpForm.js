@@ -8,7 +8,7 @@ import { SocialIcon } from 'react-social-icons';
 // import TextFieldGroup from '../../common/TextFieldGroup'
 import PropTypes from 'prop-types';
 import '../../styles/sign-up.css';
-
+import API from '../../api';
 
 
 class SignUpForm extends Component {
@@ -39,6 +39,8 @@ class SignUpForm extends Component {
     const value = e.target.value;
     this.setState({[name]: value},
                   () => { this.validateField(name, value) });
+
+
   }
 
   validateField(fieldName, value) {
@@ -54,8 +56,15 @@ class SignUpForm extends Component {
     switch(fieldName) {
 
       case 'username':
-      usernameValid = value.length <= 15 ;
-      fieldValidationErrors.username =  usernameValid ? '' : 'Tu nombre de usuario no debe exceder los 15 caracteres';
+      API.post(`/api/users/user_exist`, { "username": this.state.username })
+      .then(
+        (res) => { console.log('bien');
+          usernameValid=true
+        },
+        (err) => {console.log('mal');
+          usernameValid=false}
+      );
+      fieldValidationErrors.username =  usernameValid ? 'Nombre de usuario no disponible' : 'Nombre de usuario ya existe';
       break;
 
       case 'nombre':

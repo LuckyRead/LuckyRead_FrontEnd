@@ -1,4 +1,5 @@
 import axios from 'axios';
+import API from '../api';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import { SET_CURRENT_USER } from './types';
@@ -21,7 +22,7 @@ export function logout() {
 
 export function login(auth) {
   return dispatch => {
-    return axios.post('http://10.203.2.224:3000/api/login', auth).then(res => {
+    return API.post('/api/login', auth).then(res => {
       console.log(res)
       const token = res.data.jwt;
       console.log('mmmm')
