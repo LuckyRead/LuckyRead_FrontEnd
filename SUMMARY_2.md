@@ -32,11 +32,10 @@ In this feature, it was created the protected routes
 
 * 34-consume-endpoints (Developers: Daniela Castellanos, Camilo Sánchez, Laura Molina) </br>
 
-
+* Deploying to Heroku
 
 ## Features that we would like to develop in next iteration
 
-* The Community Page 
+* The Community Page
 * Comments
 * Profile
-
