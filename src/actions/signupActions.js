@@ -5,7 +5,7 @@ export function userSignupRequest(userData) {
   return dispatch => {
     return     API.post(`/api/signup`, userData)
           .then(res => {
-
+            console.log(res)
           })
   }
 }

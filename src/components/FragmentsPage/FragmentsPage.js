@@ -30,8 +30,9 @@ class FragmentsPage extends Component {
           headers: {
             Authorization: "Bearer "+ token
           }
-      }).then(response => {
-          const user_r = response.data["current_user"];
+      }).then(
+        response => {
+          const user_r = response.data.current_user;
           localStorage.setItem('current_user', user_r);
       })
       .catch(function (error) {
@@ -42,7 +43,7 @@ class FragmentsPage extends Component {
       const user = localStorage.getItem('current_user');
 
       axios({
-        method: 'POST', url: 'http://localhost:3000/api/fragments/something',
+        method: 'POST', url: 'https://luckyread-backend.herokuapp.com/api/fragments/something',
         headers:
         {
           Authorization: "Bearer " + token

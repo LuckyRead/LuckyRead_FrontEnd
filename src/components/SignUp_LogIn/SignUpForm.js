@@ -77,7 +77,8 @@ class SignUpForm extends Component {
       case 'email':
       API.post(`/api/users/email_exist`, { "email": this.state.email })
       .then(
-        (res) => {this.state.usernameValid= true
+        (res) => {
+          this.state.usernameValid= true
         fieldValidationErrors.emailNotExists = '' },
         (err) => {this.state.usernameValid= false
         fieldValidationErrors.emailNotExists = 'Email ya existe'}
