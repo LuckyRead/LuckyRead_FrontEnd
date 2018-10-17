@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Reactions from './Reactions'
 import '../../styles/fragmentcontainer.css';
 import API from '../../api';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom'
 
 class Fragment extends Component {
   state = {
@@ -25,6 +28,7 @@ class Fragment extends Component {
 
     const post = this.state.post ? (
       <div className="container" id="container">
+      <br/>
         <div className="row" id="container_fragment">
           <div className="text-center" id="title_fragment">
             <h2><strong>{this.state.post.title}</strong></h2>
@@ -40,9 +44,15 @@ class Fragment extends Component {
                 <br/>
                 <h4><strong>Contenido</strong></h4>
                 <p className = "text-justify">{this.state.post.content}</p>
+                <h6><strong>Fuente</strong></h6>
+                <p className = "text-center">{this.state.post.source}</p>
               </div>
             </div>
           </div>
+          <Reactions/>
+        </div>
+        <div className="row justify-content-center">
+          <Button color='primary' tag={Link} to="/fragmentspage">Volver</Button>
         </div>
       </div>
     ) : (
