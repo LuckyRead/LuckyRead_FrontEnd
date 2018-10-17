@@ -16,6 +16,10 @@ import { faMeh } from '@fortawesome/free-solid-svg-icons'
 import { faFrown } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
+
+import requireAuth from './utils/requireAuth';
+
+
 class App extends Component {
   render() {
     return (
@@ -28,9 +32,9 @@ class App extends Component {
           <Route path='/contact' component={Contact}/>
           <Route path='/signup' component={SignUp}/>
           <Route path='/login' component={LoginPage}/>
-          <Route path='/fragmentspage' component={FragmentsPage}/>
-          <Route path='/categoriespage' component={Categories_List}/>
-          <Route path='/:fragment_id' component={Fragment}/>
+          <Route path='/fragmentspage' component={requireAuth(FragmentsPage)}/>
+          <Route path='/categoriespage' component={requireAuth(Categories_List)}/>
+          <Route path='/:fragment_id' component={requireAuth(Fragment)}/>
         </Switch>
       </div>
     </BrowserRouter>);
