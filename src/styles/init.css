@@ -1,25 +1,16 @@
-.Init {
-  background: black;
-  display: table;
-  margin: 0 auto;
-  margin-top: 2%;
-  border-radius: 5px;
-  border-style: none;
-  float: none;
+body
+{
+  background: #A1FFCE;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 
-#Init-left-panel{
-  align-self: center;
-  background: white;
-  display: table;
+.Init {
   margin: 0 auto;
-  margin-top: 2%;
-  border-radius: 5px;
   border-style: none;
-  width: 100%;
-  height: 100%;
-
 }
 
 #Init-panel{
@@ -35,7 +26,6 @@
 
 
 .Init-title {
-  font-family: "Times New Roman", Times, serif;
   font-size: 5em;
   color: #0E8A80;
   text-align: center;
@@ -52,7 +42,6 @@
 
 
 .Init-subtitle {
-  font-family: "Times New Roman", Times, serif;
   font-size: 2em;
   color: #000;
   text-align: center;

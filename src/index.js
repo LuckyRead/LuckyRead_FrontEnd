@@ -1,35 +1,32 @@
 import React from 'react';
+import { render } from 'react-dom';
+
+import {Provider} from 'react-redux';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './components/Init';
-import SignIn from './components/SignIn';
-import CategoriesPage from './components/CategoriesPage';
-import HomepageWithOutLogin from './components/HomepageWithOutLogin';
-import Homepage from './components/Homepage';
-import AllFragment from './components/AllFragment';
-import Account from './components/Account';
-import Community from './components/Community';
-import FragmentCreation from './components/FragmentCreation';
-import EventCreation from './components/EventCreation';
-import Help from './components/Help';
+import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import {BrowserRouter, Route} from 'react-router-dom'
+import {createStore, applyMiddleware  , compose } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers/rootReducer';
+import setAuthorizationToken from './utils/setAuthorizationToken';
+import jwtDecode from 'jwt-decode';
+import { setCurrentUser } from './actions/authActions';
+
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
+);
+
+if (localStorage.jwtToken) {
+  setAuthorizationToken(localStorage.jwtToken);
+  store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+}
+
 
 ReactDOM.render(
-  <BrowserRouter>
-         <div>
-             <Route exact path='/' component={App} />
-             <Route  path='/signIn' component={SignIn} />
-      	     <Route  path='/categoriesPage' component={CategoriesPage} />
-      	     <Route  path='/homepageWithOutLogin' component={HomepageWithOutLogin} />
-      	     <Route  path='/hompage' component={Homepage} />
-      	     <Route  path='/allFragment' component={AllFragment} />
-      	     <Route  path='/account' component={Account} />
-      	     <Route  path='/community' component={Community} />
-      	     <Route  path='/fragmentCreation' component={FragmentCreation} />
-      	     <Route  path='/eventCreation' component={EventCreation} />
-      	     <Route  path='/help' component={Help} />
-         </div>
-  </BrowserRouter>
-  , document.getElementById('root'));
+  <Provider store={store}><App/></Provider>, document.getElementById('root'));
 registerServiceWorker();

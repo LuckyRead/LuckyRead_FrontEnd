@@ -1,21 +1,9 @@
-
-.LuckyRead-logo {
-  height: 3em;
-  left: 0;
-  bottom: 0;
-}
-
-.Navbar-init{
-  background-color: rgba(57, 57, 57, 0.7);;
-}
-
-.DropdownMenu{
-  width: 300px;
-}
-
-.Search-button{
-  padding-left: 10px;
-  background-color: #70B75B;
+#nav{
   color: white;
+}
 
+#paperplane img{
+  width: 50px;
+  height: 40px;
+  opacity: 0.6;
 }
