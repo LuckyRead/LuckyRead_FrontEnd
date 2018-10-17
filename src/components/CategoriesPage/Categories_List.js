@@ -16,13 +16,29 @@ class Categories_List extends Component {
   constructor(props){
     super(props);
     this.state = {
-        topics : []
+        topics : [],
+        user: ''
     };
   }
   componentWillMount(){
         const token = localStorage.getItem('jwtToken');
-        //const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk4MTg4ODQsInN1YiI6MTgyfQ.MLSQs_KmNy9K2pLWOlCsWRcxCOuK4PW0iZQLsD3_bS0"
 
+        //const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk4MTg4ODQsInN1YiI6MTgyfQ.MLSQs_KmNy9K2pLWOlCsWRcxCOuK4PW0iZQLsD3_bS0"
+        axios({
+            method:'get',
+            url: 'http://localhost:3000/api/users/current',
+            headers: {
+              Authorization: "Bearer "+ token
+            }
+        }).then(response => {
+            const user_r = response.data["current_user"];
+            localStorage.setItem('current_user', user_r);
+        })
+        .catch(function (error) {
+          console.log('error');
+        });
+
+        const user = localStorage.getItem('current_user');
         axios({
             method:'post',
             url: 'http://localhost:3000/api/users/preferences_topic',
@@ -30,7 +46,7 @@ class Categories_List extends Component {
               Authorization: "Bearer "+ token
             },
             data: {
-              username: 'ldmolinav'
+              username: user
             },
         }).then(response => {
             const topics = response.data;
