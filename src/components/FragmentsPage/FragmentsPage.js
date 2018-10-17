@@ -26,7 +26,7 @@ class FragmentsPage extends Component {
       //get current user
       axios({
           method:'get',
-          url: 'http://localhost:3000/api/users/current',
+          url: 'https://luckyread-backend.herokuapp.com/api/users/current',
           headers: {
             Authorization: "Bearer "+ token
           }
