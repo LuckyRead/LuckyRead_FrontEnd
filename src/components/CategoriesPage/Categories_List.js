@@ -27,7 +27,7 @@ class Categories_List extends Component {
         //get current user
         axios({
             method:'get',
-            url: 'http://localhost:3000/api/users/current',
+            url: 'https://luckyread-backend.herokuapp.com/api/users/current',
             headers: {
               Authorization: "Bearer "+ token
             }
@@ -44,7 +44,7 @@ class Categories_List extends Component {
         //get preferences
         axios({
             method:'post',
-            url: 'http://localhost:3000/api/users/preferences_sub_topic',
+            url: 'https://luckyread-backend.herokuapp.com/api/users/preferences_sub_topic',
             headers: {
               Authorization: "Bearer "+ token
             },
@@ -63,7 +63,7 @@ class Categories_List extends Component {
         //get preferences
         axios({
             method:'post',
-            url: 'http://localhost:3000/api/users/preferences_topic',
+            url: 'https://luckyread-backend.herokuapp.com/api/users/preferences_topic',
             headers: {
               Authorization: "Bearer "+ token
             },

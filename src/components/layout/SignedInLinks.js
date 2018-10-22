@@ -1,25 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom'
-
 import '../../styles/navbar.css';
-const SignedInLinks = () => {
+import { logout } from '../../actions/authActions.js';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 
-  return (<div>
 
-    <ul className="right">
-      <li>
-        <NavLink to='/categoriespage' id="nav">Categorias</NavLink>
-      </li>
-      <li>
-        <NavLink to='/fragmentspage' id="nav">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to='/' id="nav">Salir</NavLink>
-      </li>
-    </ul>
-  </div>)
+
+class SignedInLinks extends React.Component {
+  constructor (props) {
+    super(props);
+  }
+
+  handleLogout = event => {
+    event.preventDefault();
+    this.props.logout()}
+
+  render(){
+    return (<div>
+
+      <ul className="right">
+        <li>
+          <NavLink to='/categoriespage' id="nav">Categorias</NavLink>
+        </li>
+        <li>
+          <NavLink to='/fragmentspage' id="nav">Leer algo</NavLink>
+        </li>
+        <li>
+          <NavLink to='/' id="nav" onClick={this.handleLogout}>Salir</NavLink>
+        </li>
+      </ul>
+    </div>)
+
+
+  }
 }
 
 
-export default SignedInLinks
+
+SignedInLinks.propTypes = {
+  logout: PropTypes.func.isRequired
+}
+
+SignedInLinks.contextTypes = {
+  router: PropTypes.object.isRequired
+}
+
+export default connect(null, { logout })(SignedInLinks);

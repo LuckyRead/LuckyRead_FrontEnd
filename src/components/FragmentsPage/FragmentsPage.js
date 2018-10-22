@@ -36,6 +36,7 @@ class FragmentsPage extends Component {
           localStorage.setItem('current_user', user_r);
       })
       .catch(function (error) {
+        console.log('aquiii errorrr');
         console.log('error');
       });
 
@@ -98,7 +99,7 @@ class FragmentsPage extends Component {
   // }
 
   handleChange = (e) => {
-    axios.get('http://localhost:3000/fragments')
+    axios.get('https://luckyread-backend.herokuapp.com/fragments')
       .then(res => {
         console.log(res);
         this.setState({
