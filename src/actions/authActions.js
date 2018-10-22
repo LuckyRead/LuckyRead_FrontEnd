@@ -3,6 +3,7 @@ import API from '../api';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import { SET_CURRENT_USER } from './types';
+import PropTypes from 'prop-types';
 
 export function setCurrentUser(user) {
   return {
@@ -17,6 +18,7 @@ export function logout() {
     console.log('en funcion logout');
     setAuthorizationToken(false);
     dispatch(setCurrentUser({}));
+    this.context.router.history.push('/')
   };
 }
 
