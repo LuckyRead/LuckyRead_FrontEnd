@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { SocialIcon } from 'react-social-icons';
 import axios from 'axios';
 import '../../styles/login.css';
 import { FormErrors } from './FormErrors';
@@ -82,17 +81,7 @@ class LoginForm extends Component {
         (res) => this.context.router.history.push('/fragmentspage'),
         (err) => console.log('error')
       );
-
-    // axios.post(`http://localhost:3000/api/login`, { auth })
-    //   .then(res => {
-    //     console.log(res);
-    //     console.log(res.data);
-    //   })
   }
-
-
-
-
 
     render() {
       return (
@@ -126,14 +115,6 @@ class LoginForm extends Component {
 
             <div className="LogIn-Button">
               <button  type="submit" className="btn btn-primary" >Iniciar Sesion</button>
-              <br/>
-              <h6></h6>
-            <h6>O ingresa con tus redes sociales</h6> &nbsp;
-              <br/>
-              <h6></h6>
-              <SocialIcon url="http://facebook.com/" /> &emsp;
-              <SocialIcon url="http://twitter.com/" /> &emsp;
-              <SocialIcon url="http://google.com/" /> &emsp;
             </div>
             </form>
           </div>

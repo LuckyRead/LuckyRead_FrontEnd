@@ -4,9 +4,10 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import { FormErrors } from './FormErrors';
-import { SocialIcon } from 'react-social-icons';
+
 // import TextFieldGroup from '../../common/TextFieldGroup'
 import PropTypes from 'prop-types';
+
 import '../../styles/sign-up.css';
 
 
@@ -129,9 +130,27 @@ class SignUpForm extends Component {
     //
     // this.props.userSignupRequest({user});
     this.props.userSignupRequest({user}).then(
-      (res) => this.context.router.history.push('/FragmentsPage'),
+      (res) => {
+        console.log('Registro exitoso')
+        // this.context.router.history.push('/login')
+      },
       (err) => console.log('')
     );
+
+    event.preventDefault();
+    const auth = {
+      email: this.state.email,
+      password: this.state.password
+    };
+
+      this.props.login({auth}).then(
+        (res) => {
+          console.log('Login exitoso');
+          this.context.router.history.push('/')
+        },
+        (err) => console.log('error')
+      );
+
     // axios.post(`http://localhost:3000/api/signup`, { user })
     //   .then(res => {
     //     console.log(res);
@@ -218,14 +237,6 @@ class SignUpForm extends Component {
 
       <div className="SignUp-Button">
         <button  type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Registrarme</button>
-        <br/>
-        <h6></h6>
-      <h6>O ingresa con tus redes sociales</h6> &nbsp;
-        <br/>
-        <h6></h6>
-        <SocialIcon url="http://facebook.com/" /> &emsp;
-        <SocialIcon url="http://twitter.com/" /> &emsp;
-        <SocialIcon url="http://google.com/" /> &emsp;
       </div>
       </form>
     </div>
@@ -236,12 +247,13 @@ class SignUpForm extends Component {
 
 SignUpForm.propTypes = {
   userSignupRequest: PropTypes.func.isRequired,
-  addFlashMessage: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired
   // isUserExists: React.PropTypes.func.isRequired
 }
 
 SignUpForm.contextTypes = {
   router: PropTypes.object.isRequired
 }
+
 
 export default SignUpForm;
