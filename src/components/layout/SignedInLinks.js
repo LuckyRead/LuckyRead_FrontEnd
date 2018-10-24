@@ -29,7 +29,7 @@ class SignedInLinks extends Component {
         <li>
           <NavLink to='/' id="nav" onClick={this.handleLogout}>Salir</NavLink>
         </li>
-        <li><NavLink to='/' className="btn btn-floating blue lighten-1">
+        <li><NavLink to='/' className="btn btn-floating pink lighten-1">
           DC
         </NavLink></li>
       </ul>

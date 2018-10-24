@@ -6,7 +6,7 @@ import '../../styles/login.css';
 class LoginPage extends React.Component {
   render() {
     return (
-      <div className="row">
+      <div className="row" id="loginpage">
           <div className="col-md-4" id="RegistrationForm">
           <LoginForm />
       </div>
