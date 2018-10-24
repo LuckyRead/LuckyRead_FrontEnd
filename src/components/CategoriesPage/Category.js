@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup } from 'reactstrap';
+
 import '../../styles/preferences.css';
 
 //Icons
 
 class Category extends Component {
-  constructor (props) {
-    super(props);
-  }
+
 
   showSubCategories(){
     console.log('subcategories');

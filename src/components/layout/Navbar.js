@@ -4,7 +4,7 @@ import SignedOutLinks from './SignedOutLinks'
 import SignedInLinks from './SignedInLinks'
 import '../../styles/navbar.css';
 import paperplane from '../../resources/paper_plane.png';
-import axios from 'axios';
+
 
 
 const Navbar = () => {
@@ -14,7 +14,7 @@ const Navbar = () => {
   return (<nav className="nav-wrapper grey darken-3">
     <div className="container">
       <div className="left" id="paperplane">
-        <img src={paperplane}></img>
+        <img src={paperplane} alt="paperplane"></img>
       </div>
 
       <Link to='/' className="brand-logo" id="nav">LuckyRead</Link>

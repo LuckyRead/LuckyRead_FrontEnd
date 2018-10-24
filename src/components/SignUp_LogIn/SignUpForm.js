@@ -132,24 +132,26 @@ class SignUpForm extends Component {
     this.props.userSignupRequest({user}).then(
       (res) => {
         console.log('Registro exitoso')
+        const auth = {
+          email: this.state.email,
+          password: this.state.password
+        };
+
+          this.props.login({auth}).then(
+            (res) => {
+              console.log('Login exitoso');
+              this.props.addAllTopics();
+            },
+            (err) => console.log('error')
+          );
         // this.context.router.history.push('/login')
+
+
       },
-      (err) => console.log('')
+
+      (err) => console.log('asdasdasdasdasd')
     );
 
-    event.preventDefault();
-    const auth = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-      this.props.login({auth}).then(
-        (res) => {
-          console.log('Login exitoso');
-          this.context.router.history.push('/')
-        },
-        (err) => console.log('error')
-      );
 
     // axios.post(`http://localhost:3000/api/signup`, { user })
     //   .then(res => {
@@ -247,7 +249,8 @@ class SignUpForm extends Component {
 
 SignUpForm.propTypes = {
   userSignupRequest: PropTypes.func.isRequired,
-  login: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired,
+  addAllTopics: PropTypes.func.isRequired
   // isUserExists: React.PropTypes.func.isRequired
 }
 

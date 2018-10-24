@@ -1,10 +1,8 @@
 //Dependencies
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import axios from 'axios';
-
 //Components
-
+import axios from 'axios';
 //styles
 import '../../styles/homepage.css';
 
@@ -21,38 +19,37 @@ class FragmentsPage extends Component {
 
     componentDidMount() {
 
-      const token = localStorage.getItem('jwtToken');
 
       //get current user
       axios({
           method:'get',
           url: 'https://luckyread-backend.herokuapp.com/api/users/current',
           headers: {
-            Authorization: "Bearer "+ token
+            Authorization: "Bearer "+ localStorage.jwtToken
           }
       }).then(
         response => {
+          console.log('respuesta get user')
+          console.log(response)
           const user_r = response.data.current_user;
           localStorage.setItem('current_user', user_r);
-      })
-      .catch(function (error) {
+      }).catch(function (error) {
         console.log('aquiii errorrr');
         console.log('error');
       });
 
       //get fragment
-      const user = localStorage.getItem('current_user');
+      //const user = localStorage.getItem('current_user');
 
       axios({
-        method: 'POST', url: 'https://luckyread-backend.herokuapp.com/api/fragments/something',
+        method: 'GET', url: 'https://luckyread-backend.herokuapp.com/api/fragments/something',
         headers:
         {
-          Authorization: "Bearer " + token
-        },
-        data: {
-          username: user
+          Authorization: "Bearer " + localStorage.jwtToken
         }
-      }).then(response => {
+      }).then(
+
+        (response) => {
         console.log(response)
         this.setState({
           posts: response["data"]
@@ -61,7 +58,13 @@ class FragmentsPage extends Component {
         console.log(this.state);
         console.log(response.data.title);
 
-      });
+      },
+      (err) => {
+        console.log('el error es pidiendo fragmento random')
+      }
+
+
+    );
 
     }
 
@@ -98,15 +101,7 @@ class FragmentsPage extends Component {
   //   })
   // }
 
-  handleChange = (e) => {
-    axios.get('https://luckyread-backend.herokuapp.com/fragments')
-      .then(res => {
-        console.log(res);
-        this.setState({
-          posts: res.data.slice(0, 2)
-        });
-      });
-  }
+
 
 
   render() {

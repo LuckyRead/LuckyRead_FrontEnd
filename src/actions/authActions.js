@@ -1,8 +1,10 @@
-import axios from 'axios';
+
 import API from '../api';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import { SET_CURRENT_USER } from './types';
+
+
 
 export function setCurrentUser(user) {
   return {
@@ -29,10 +31,7 @@ export function login(auth) {
       setAuthorizationToken(token);
       dispatch(setCurrentUser(jwtDecode(token)));
     },
-    (err) => {
-      console.log('login fallido');
-    }
+    (err) => {console.log('login fallido');}
   );
-
   }
 }

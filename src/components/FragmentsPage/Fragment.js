@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import Reactions from './Reactions'
 import '../../styles/fragmentcontainer.css';
 import API from '../../api';
@@ -13,7 +12,7 @@ class Fragment extends Component {
   componentDidMount(){
 
     let id = this.props.match.params.fragment_id;
-    API.get('/fragments/'+id)
+    API.get('/api/fragments/'+id)
       .then(res => {
         console.log(res)
         this.setState({
