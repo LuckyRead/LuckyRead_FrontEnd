@@ -7,8 +7,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 
-
-
 class SignedInLinks extends Component {
 
 
@@ -25,6 +23,9 @@ class SignedInLinks extends Component {
         </li>
         <li>
           <NavLink to='/fragmentspage' id="nav">Leer algo</NavLink>
+        </li>
+        <li>
+          <NavLink to='/myprofile' id="nav">Mi perfil</NavLink>
         </li>
         <li>
           <NavLink to='/' id="nav" onClick={this.handleLogout}>Salir</NavLink>

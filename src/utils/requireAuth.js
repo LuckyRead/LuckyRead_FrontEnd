@@ -7,7 +7,7 @@ export default function(ComposedComponent) {
     componentWillMount() {
       if (!this.props.isAuthenticated) {
         console.log("Necesita autenticarse")
-        this.context.router.push('/login');
+        this.context.router.history.push('/login');
       }
     }
 

@@ -15,31 +15,7 @@ class FragmentsPage extends Component {
     posts: []
   }
 
-
-
     componentDidMount() {
-
-
-      //get current user
-      axios({
-          method:'get',
-          url: 'https://luckyread-backend.herokuapp.com/api/users/current',
-          headers: {
-            Authorization: "Bearer "+ localStorage.jwtToken
-          }
-      }).then(
-        response => {
-          console.log('respuesta get user')
-          console.log(response)
-          const user_r = response.data.current_user;
-          localStorage.setItem('current_user', user_r);
-      }).catch(function (error) {
-        console.log('aquiii errorrr');
-        console.log('error');
-      });
-
-      //get fragment
-      const user = localStorage.getItem('current_user');
 
       axios({
         method: 'GET', url: 'https://luckyread-backend.herokuapp.com/api/fragments/something',
@@ -67,8 +43,6 @@ class FragmentsPage extends Component {
     );
 
     }
-
-
 
 
 
