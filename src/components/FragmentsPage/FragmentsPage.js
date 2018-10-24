@@ -39,7 +39,7 @@ class FragmentsPage extends Component {
       });
 
       //get fragment
-      //const user = localStorage.getItem('current_user');
+      const user = localStorage.getItem('current_user');
 
       axios({
         method: 'GET', url: 'https://luckyread-backend.herokuapp.com/api/fragments/something',
@@ -69,38 +69,6 @@ class FragmentsPage extends Component {
     }
 
 
-      // axios.defaults.headers.common['Authorization'] = `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Mzk3OTgxMzIsInN1YiI6MTgxfQ.21lgp1YnHwAj_WrxluKH_S3_wsrepMiQmXRn2S3mHgE`;
-      // // Send a POST request
-      //     console.log(axios.defaults.headers);
-      // axios({
-      //   method: 'post',
-      //   url: 'http://10.203.2.224:3000/api/fragments/something',
-      //   data: {
-      //     username: "daescobarp"
-      //   }
-      // }).then(response => {
-      //   console.log(response["data"]["data"])
-      //   this.setState({
-      //     posts: response["data"]["data"]
-      //
-      //   });
-      //   console.log(this.state);
-      // });
-      //
-
-
-
-  //
-  // componentDidMount() {
-  //   axios.get('10.203.2.224:3000/fragments')
-  //   .then(res => {
-  //       console.log(res);
-  //     this.setState({
-  //       posts: res.data.slice(0, 1)
-  //     });
-  //   })
-  // }
-
 
 
 
@@ -123,7 +91,7 @@ class FragmentsPage extends Component {
                   <p id='FragmentIntro'>{posts.introduction}</p>
                   <div className="row" id="FragmentButtons">
                     <div className="col-md-12">
-                      <Link to={'/' + 1}>
+                      <Link to={'/' + posts.id}>
                         <button className="btn btn-primary" id="ButtonRead">Leer este fragmento</button>
                       </Link>
                     </div>

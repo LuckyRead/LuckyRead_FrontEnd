@@ -19,8 +19,8 @@ class Fragment extends Component {
           post: res.data.data.attributes
         });
         //console.log(res.data);
-        console.log("source")
-        console.log(this.props.source)
+        console.log("photo_url")
+        console.log(res.data.data.attributes)
       });
   }
   render() {
@@ -34,7 +34,7 @@ class Fragment extends Component {
             <br/>
             <div className = "row justify-content-center" id="content">
               <div className="col-4" id="image">
-                <img src={this.state.post.source} alt="Imagen de referencia"/>
+                <img src={this.state.post.photo_url} alt="Imagen de referencia"/>
 
               </div>
               <div className="col-8" id="text">
