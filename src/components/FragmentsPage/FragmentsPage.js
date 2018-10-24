@@ -38,8 +38,7 @@ class FragmentsPage extends Component {
         console.log('error');
       });
 
-      //get fragment
-      const user = localStorage.getItem('current_user');
+      //get
 
       axios({
         method: 'GET', url: 'https://luckyread-backend.herokuapp.com/api/fragments/something',
@@ -99,7 +98,7 @@ class FragmentsPage extends Component {
 
                   <div className="row" id="FragmentButtons">
                     <div className="col-md-12">
-                      <button className="btn btn-primary" id="ButtonNext" onClick={this.handleChange}>Muestrame otro fragmento</button>
+                      <button className="btn btn-primary" id="ButtonNext" to="/fragmentspage">Muestrame otro fragmento</button>
                     </div>
                   </div>
                 </div>
