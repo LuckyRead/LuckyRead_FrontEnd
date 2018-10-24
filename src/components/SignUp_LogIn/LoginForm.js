@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import '../../styles/login.css';
 import { FormErrors } from './FormErrors';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login } from '../../actions/authActions';
-import TextFieldGroup from '../../common/TextFieldGroup';
 
 class LoginForm extends Component {
   constructor (props) {

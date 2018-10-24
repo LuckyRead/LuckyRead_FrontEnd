@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button, ButtonGroup } from 'reactstrap';
 import '../../styles/preferences.css';
 
 //Icons
@@ -17,7 +16,7 @@ class Preferences extends Component {
   const button_class = e.target.className
   console.log(button_class);
 
-  if (button_class == "btn btn-primary active focus"){
+  if (button_class === "btn btn-primary active focus"){
     this.setState({hidden: false})
   } else {
     this.setState({hidden: true})

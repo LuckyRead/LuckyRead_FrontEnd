@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom'
 import '../../styles/navbar.css';
 import { logout } from '../../actions/authActions.js';
-import axios from 'axios';
+
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 
 
 
-class SignedInLinks extends React.Component {
-  constructor (props) {
-    super(props);
-  }
+class SignedInLinks extends Component {
+
 
   handleLogout = event => {
     event.preventDefault();

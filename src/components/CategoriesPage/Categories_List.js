@@ -2,10 +2,7 @@
 import React, { Component } from 'react';
 
 //Components
-import HomePage_Category from './HomePage_Category';
-import AddTopic from './AddTopic';
 import Category from './Category';
-import Preferences from './Preferences';
 //styles
 import '../../styles/homepage.css';
 

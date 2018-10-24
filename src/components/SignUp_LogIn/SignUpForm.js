@@ -140,13 +140,16 @@ class SignUpForm extends Component {
           this.props.login({auth}).then(
             (res) => {
               console.log('Login exitoso');
-              this.context.router.history.push('/')
+              this.props.addAllTopics();
             },
             (err) => console.log('error')
           );
         // this.context.router.history.push('/login')
+
+
       },
-      (err) => console.log('')
+
+      (err) => console.log('asdasdasdasdasd')
     );
 
 
@@ -246,7 +249,8 @@ class SignUpForm extends Component {
 
 SignUpForm.propTypes = {
   userSignupRequest: PropTypes.func.isRequired,
-  login: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired,
+  addAllTopics: PropTypes.func.isRequired
   // isUserExists: React.PropTypes.func.isRequired
 }
 
