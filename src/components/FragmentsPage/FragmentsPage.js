@@ -5,7 +5,8 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 //styles
 import '../../styles/homepage.css';
-
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 //Data
 //import items from '../data/menu.js'
 
@@ -15,7 +16,36 @@ class FragmentsPage extends Component {
     posts: []
   }
 
+  constructor(){
+    super();
+    this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+  };
+
+  forceUpdateHandler(){
+    this.forceUpdate();
+  };
+
     componentDidMount() {
+
+      //get current user
+      axios({
+          method:'get',
+          url: 'https://luckyread-backend.herokuapp.com/api/users/current',
+          headers: {
+            Authorization: "Bearer "+ localStorage.jwtToken
+          }
+      }).then(
+        response => {
+          console.log('respuesta get user')
+          console.log(response)
+          const user_r = response.data.current_user;
+          localStorage.setItem('current_user', user_r);
+      }).catch(function (error) {
+        console.log('aquiii errorrr');
+        console.log('error');
+      });
+
+      //get
 
       axios({
         method: 'GET', url: 'https://luckyread-backend.herokuapp.com/api/fragments/something',
@@ -56,7 +86,7 @@ class FragmentsPage extends Component {
               <div id="FragmentSection">Hemos seleccionado un fragmento para ti</div>
               <div className="col-md-12" id="HomePage_Fragment" key={posts.id}>
 
-              <p id='FragmentTitle'>{posts.title}</p>
+              <p id='FragmentTitle'><strong>  {posts.title}</strong></p>
               <div className="row">
               <div className="col-md-4" id="image">
                   <img src={posts.image_path} alt="Imagen de referencia"/>
@@ -73,7 +103,7 @@ class FragmentsPage extends Component {
 
                   <div className="row" id="FragmentButtons">
                     <div className="col-md-12">
-                      <button className="btn btn-primary" id="ButtonNext" onClick={this.handleChange}>Muestrame otro fragmento</button>
+                      <button className="btn btn-primary" id="ButtonNext" onClick= {this.forceUpdateHandler}>Muestrame otro fragmento</button>
                     </div>
                   </div>
                 </div>

@@ -9,7 +9,6 @@ const initState = {
 
 
 const fragmentreducer = (state = initState, action) => {
-  console.log(action);
   if(action.type === 'DELETE_POST'){
    let newPosts = state.posts.filter(post => {
      return post.id !== action.id
