@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
-import { Link } from "react-router-dom"
 import ChangeAvatar from './ChangeAvatar'
 
 class PopUp extends React.Component {
@@ -18,6 +17,9 @@ class PopUp extends React.Component {
       modal: !this.state.modal
     });
   }
+  Reload(){
+    window.location.reload();
+  }
 
   render() {
     return (
@@ -29,7 +31,7 @@ class PopUp extends React.Component {
             <ChangeAvatar/>
           </ModalBody>
           <ModalFooter>
-          <Button color="primary" onClick={this.toggle}>Cerrar</Button>{' '}
+          <Button color="primary" onClick={this.Reload}>Cerrar</Button>{' '}
           </ModalFooter>
         </Modal>
       </div>

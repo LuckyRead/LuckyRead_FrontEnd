@@ -31,6 +31,8 @@ class ChangeAvatar extends Component {
     })
     .then( response =>{
       console.log(response)
+      console.log(response['data']['id'])
+      localStorage.setItem('idImage', response['data']['id']);
     });
   }
 
@@ -49,7 +51,7 @@ class ChangeAvatar extends Component {
           <button onClick={this.fileUploadHandler}>Cargar</button>
         </div>
         <div className = 'row' id="crop-img">
-          <img src={this.state.showImage}/>
+          <img src={this.state.showImage} alt='profile'/>
         </div>
       </div>
     )
