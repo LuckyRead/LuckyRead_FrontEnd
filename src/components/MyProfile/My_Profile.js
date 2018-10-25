@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Avatar from './Avatar'
+import PopUp from './PopUp'
+import '../../styles/myprofile.css';
 
 class My_Profile extends Component {
   render(){
@@ -7,7 +8,7 @@ class My_Profile extends Component {
       <div className = "My_Profile">
         <div className = "row">
           <div className = "col-4" id = "profile_picture">
-            <Avatar/>
+            <PopUp/>
           </div>
         </div>
       </div>
