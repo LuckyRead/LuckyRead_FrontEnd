@@ -149,7 +149,7 @@ class SignUpForm extends Component {
 
       },
 
-      (err) => console.log('asdasdasdasdasd')
+      (err) => console.log('Error en SignUpRequest')
     );
 
 

@@ -45,14 +45,19 @@ class Fragment extends Component {
                 <p className = "text-justify">{this.state.post.content}</p>
                 <h6><strong>Fuente</strong></h6>
                 <p className = "text-center">{this.state.post.source}</p>
+
               </div>
+              <div> Aqui van mas opciones</div>
+
+
+            </div>
+            <div className="row justify-content-center">
+              <Button color='primary' tag={Link} to="/fragmentspage">Volver</Button>
             </div>
           </div>
-          <Reactions/>
+
         </div>
-        <div className="row justify-content-center">
-          <Button color='primary' tag={Link} to="/fragmentspage">Volver</Button>
-        </div>
+
       </div>
     ) : (
       <div className="center">Loading post...</div>

@@ -5,7 +5,8 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 //styles
 import '../../styles/homepage.css';
-
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 //Data
 //import items from '../data/menu.js'
 
@@ -15,10 +16,16 @@ class FragmentsPage extends Component {
     posts: []
   }
 
+  constructor(){
+    super();
+    this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+  };
 
+  forceUpdateHandler(){
+    this.forceUpdate();
+  };
 
     componentDidMount() {
-
 
       //get current user
       axios({
@@ -69,8 +76,6 @@ class FragmentsPage extends Component {
 
 
 
-
-
   render() {
     const {posts} = this.state
     return (
@@ -81,7 +86,7 @@ class FragmentsPage extends Component {
               <div id="FragmentSection">Hemos seleccionado un fragmento para ti</div>
               <div className="col-md-12" id="HomePage_Fragment" key={posts.id}>
 
-              <p id='FragmentTitle'>{posts.title}</p>
+              <p id='FragmentTitle'><strong>  {posts.title}</strong></p>
               <div className="row">
               <div className="col-md-4" id="image">
                   <img src={posts.image_path} alt="Imagen de referencia"/>
@@ -98,7 +103,7 @@ class FragmentsPage extends Component {
 
                   <div className="row" id="FragmentButtons">
                     <div className="col-md-12">
-                      <button className="btn btn-primary" id="ButtonNext" to="/fragmentspage">Muestrame otro fragmento</button>
+                      <button className="btn btn-primary" id="ButtonNext" onClick= {this.forceUpdateHandler}>Muestrame otro fragmento</button>
                     </div>
                   </div>
                 </div>
