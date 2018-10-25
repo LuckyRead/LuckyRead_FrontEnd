@@ -16,7 +16,6 @@ class FragmentsPage extends Component {
   }
 
     componentDidMount() {
-
       axios({
         method: 'GET', url: 'https://luckyread-backend.herokuapp.com/api/fragments/something',
         headers:
@@ -38,13 +37,9 @@ class FragmentsPage extends Component {
       (err) => {
         console.log('el error es pidiendo fragmento random')
       }
-
-
     );
 
-    }
-
-
+  }
 
   render() {
     const {posts} = this.state
@@ -83,8 +78,7 @@ class FragmentsPage extends Component {
           </div>
         </div>
       </div>
-)
-}
+  )}
 }
 
 export default FragmentsPage
