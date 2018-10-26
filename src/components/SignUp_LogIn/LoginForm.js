@@ -21,6 +21,9 @@ class LoginForm extends Component {
     }
   }
 
+  signup(res, type){
+    console.log('hola '+ type);
+  }
 
 
   handleUserInput = (e) => {
