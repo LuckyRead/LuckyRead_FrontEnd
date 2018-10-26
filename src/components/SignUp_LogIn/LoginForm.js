@@ -4,6 +4,8 @@ import { FormErrors } from './FormErrors';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login } from '../../actions/authActions';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import GoogleLogin from 'react-google-login';
 
 class LoginForm extends Component {
   constructor (props) {
@@ -82,6 +84,14 @@ class LoginForm extends Component {
   }
 
     render() {
+      const responseFacebook = (response) => {
+        console.log(response);
+        this.signup(response, 'facebook');
+      }
+      const responseGoogle = (response) => {
+        console.log(response);
+        this.signup(response, 'google');
+      }
       return (
             <div className="col-sm-12" id = "Form">
             <form className="demoForm" onSubmit={this.handleSubmit}>
@@ -113,6 +123,27 @@ class LoginForm extends Component {
 
             <div className="LogIn-Button">
               <button  type="submit" className="btn btn-primary" >Iniciar Sesion</button>
+            </div>
+            <br/>
+            <div className="Social">
+            O ingresa con tu redes sociales
+            <FacebookLogin
+              appId="175675156693690"
+              autoLoad={true}
+              fields="name,email,picture"
+              callback={responseFacebook}
+              render={renderProps => (
+                <button onClick={renderProps.onClick}>FB</button>
+              )}
+            />
+              <GoogleLogin
+                clientId="1031528270008-p1pd4mi00m1igslrh342thmnpr1ram1t.apps.googleusercontent.com"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                render={renderProps => (
+                  <button onClick={renderProps.onClick}>Google</button>
+                )}
+              />
             </div>
             </form>
           </div>
