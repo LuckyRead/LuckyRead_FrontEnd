@@ -5,8 +5,13 @@ background-color: #e3f2fd;
 
 #brand:hover{
   border-bottom-style: inset;
-  border-bottom:  1px solid #0E8A80;
+  border-bottom:  2px solid #7AACA1;
 
+}
+
+#brand{
+    font-family: 'Dancing Script';
+    font-size: 2em;
 }
 
 #navbar-brand{

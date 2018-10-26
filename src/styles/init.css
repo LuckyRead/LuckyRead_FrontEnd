@@ -4,17 +4,14 @@ body
   /*background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);  /* Chrome 10-25, Safari 5.1-6 */
   /*background: linear-gradient(to right, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-image: url('../resources/beach.jpg');
-
+font-family: "Open Sans"
 }
 
 
-.Init {
-  margin: 0 auto;
-  border-style: none;
-}
-
-#Init-panel{
-  background-image: url("../resources/paper.jpg");
+#Init {
+  background: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* background-image: url("../resources/paper.jpg"); */
   align-self: center;
   display: table;
   margin: 0 auto;
@@ -22,13 +19,23 @@ body
   border-radius: 5px;
   border-style: none;
   height: 500px;
+  align-content: center;
 }
 
 
-.Init-title {
-  font-size: 5em;
-  color: #0E8A80;
+#InitPanel{
   text-align: center;
+  margin: 0 auto;
+}
+
+#Init-title {
+  font-family: 'Dancing Script';
+  margin: 0 auto;
+      font-weight: bold;
+  font-size: 5em;
+  color: #D16647;
+  text-align: center;
+      text-shadow: -5px 0  white, 0 5px  white, 5px 0  white, 0 -5px  white;
 }
 
 .LuckyRead-logo {
@@ -43,18 +50,15 @@ body
 
 .Init-subtitle {
   font-size: 2em;
-  color: #000;
+  color: #fff;
   text-align: center;
-    height: 100px;
+  height: 100px;
 }
 
 
-.Div-button{
-  background-color: red;
-}
 
 
-.Init-button {
+/* .Init-button {
   background-color: #51AFAD;
   width: 200px;
   color: white;
@@ -66,19 +70,49 @@ body
   border-style: none;
   position: relative;
     animation: MoveUpDown 5s linear infinite;
+} */
+
+
+#Init-button{
+  font-family: 'Dancing Script';
+  margin-top: 30px; 
+  border-radius: 50%;
+  background-color: #7AACA1;
+  width: 150px;
+  height:  150px;
+  color: white;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  border-color: white;
+}
+
+#Init-button:hover{
+  border: none;
+cursor: pointer;
+  background-color: #7AACA1;
 }
 
 
 
-.InitButton onClick{
 
-}
-
-@keyframes MoveUpDown {
+/* @keyframes MoveUpDown {
   0%, 100% {
     bottom: 0;
   }
   50% {
     bottom: 30px;
   }
+} */
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: none;
+    border-width: 2px;
+border-color:white;
 }
