@@ -10,12 +10,7 @@ import FragmentsPage from './components/FragmentsPage/FragmentsPage';
 import Categories_List from './components/CategoriesPage/Categories_List';
 import My_Profile from './components/MyProfile/My_Profile';
 import Fragment from './components/FragmentsPage/Fragment';
-import { library } from '@fortawesome/fontawesome-svg-core'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSmile } from '@fortawesome/free-solid-svg-icons'
-import { faMeh } from '@fortawesome/free-solid-svg-icons'
-import { faFrown } from '@fortawesome/free-solid-svg-icons'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+
 
 
 import requireAuth from './utils/requireAuth';
@@ -43,10 +38,6 @@ class App extends Component {
   }
 }
 
-library.add(faSmile);
-library.add(faMeh);
-library.add(faFrown);
-library.add(faCheck);
 
 
 export default App;
