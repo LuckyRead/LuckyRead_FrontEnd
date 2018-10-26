@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../styles/login.css';
 import { FormErrors } from './FormErrors';
+import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login } from '../../actions/authActions';
@@ -136,15 +137,15 @@ class LoginForm extends Component {
               fields="name,email,picture"
               callback={responseFacebook}
               render={renderProps => (
-                <button onClick={renderProps.onClick}>FB</button>
+                <Button color="primary" onClick={renderProps.onClick}>Facebook</Button>
               )}
-            />
+            />&nbsp;&nbsp;
               <GoogleLogin
                 clientId="1031528270008-p1pd4mi00m1igslrh342thmnpr1ram1t.apps.googleusercontent.com"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 render={renderProps => (
-                  <button onClick={renderProps.onClick}>Google</button>
+                  <Button color="danger" onClick={renderProps.onClick}>Google</Button>
                 )}
               />
             </div>
