@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import { Link } from "react-router-dom"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class RegistrationPopUp extends React.Component {
   constructor(props) {
@@ -22,9 +22,9 @@ class RegistrationPopUp extends React.Component {
   render() {
     return (
       <div>
-        <Button color="success" onClick={this.toggle} size="lg">Continuar&nbsp;<FontAwesomeIcon icon="angle-right" size ="lg"/></Button>
+        <Button color="success" onClick={this.toggle} size="lg">Continuar</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}><FontAwesomeIcon icon="exclamation-triangle"/>&nbsp;Aviso</ModalHeader>
+
           <ModalBody>
           Si deseas que se guarden tus preferencias, por favor registrate.
           </ModalBody>

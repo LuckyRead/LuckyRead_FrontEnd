@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import '../../styles/fragmentcontainer.css'
 
 //Icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 
@@ -26,9 +26,7 @@ class Reactions extends Component {
     return(
       <div className="container">
         <div className="row justify-content-center">
-        <FontAwesomeIcon icon="smile" id= "smile" size ="3x" onClick = {this.handleClick}/> &nbsp;
-        <FontAwesomeIcon icon="meh" id= "meh" size ="3x" onClick = {this.handleClick}/> &nbsp;
-        <FontAwesomeIcon icon="frown" id= "frown" size ="3x" onClick = {this.handleClick}/>
+      
         </div>
       </div>
     )

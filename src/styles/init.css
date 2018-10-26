@@ -49,6 +49,7 @@ font-family: "Open Sans"
 
 
 .Init-subtitle {
+  font-family: 'Open Sans';
   font-size: 2em;
   color: #fff;
   text-align: center;
@@ -75,7 +76,7 @@ font-family: "Open Sans"
 
 #Init-button{
   font-family: 'Dancing Script';
-  margin-top: 30px; 
+  margin-top: 30px;
   border-radius: 50%;
   background-color: #7AACA1;
   width: 150px;
