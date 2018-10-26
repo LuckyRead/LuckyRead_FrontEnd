@@ -14,6 +14,7 @@ class My_Profile extends Component {
 
   componentWillMount(){
     const id_image = localStorage.getItem('idImage');
+    console.log(id_image);
     axios.get('https://luckyread-backend.herokuapp.com/api/photo/' + id_image)
     .then( response =>{
       console.log(response['request']['responseURL'])
