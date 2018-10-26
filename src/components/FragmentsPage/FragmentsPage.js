@@ -5,8 +5,7 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 //styles
 import '../../styles/homepage.css';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+
 //Data
 //import items from '../data/menu.js'
 
