@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Reactions from './Reactions'
+
 import '../../styles/fragmentcontainer.css';
 import API from '../../api';
 import { Button } from 'reactstrap';
