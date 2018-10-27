@@ -1,0 +1,30 @@
+.rounded-circle{
+  margin: auto;
+}
+
+#divProfile{
+  margin: 0;
+  padding: 0;
+}
+
+#profileImage{
+  margin-top: 10px;
+}
+#profileImage:hover{
+  opacity: 0.5;
+}
+a{
+  font-size: 13px;
+}
+
+.card{
+  background-color: #e5e5e5;
+}
+
+.list-group-item{
+  background-color: #e5e5e5;
+}
+
+.card-body{
+  background-color: #e5e5e5;
+}

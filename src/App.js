@@ -10,7 +10,7 @@ import FragmentsPage from './components/FragmentsPage/FragmentsPage';
 import Categories_List from './components/CategoriesPage/Categories_List';
 import My_Profile from './components/MyProfile/My_Profile';
 import Fragment from './components/FragmentsPage/Fragment';
-
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 import requireAuth from './utils/requireAuth';
@@ -28,7 +28,7 @@ class App extends Component {
           <Route path='/contact' component={Contact}/>
           <Route path='/signup' component={SignUp}/>
           <Route path='/login' component={LoginPage}/>
-          <Route path='/myprofile' component={requireAuth(My_Profile)}/>
+          <Route path='/profile' component={requireAuth(ProfileContainer)}/>
           <Route path='/fragmentspage' component={requireAuth(FragmentsPage)}/>
           <Route path='/categoriespage' component={requireAuth(Categories_List)}/>
           <Route path='/:fragment_id' component={requireAuth(Fragment)}/>

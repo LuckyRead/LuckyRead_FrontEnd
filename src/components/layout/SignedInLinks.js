@@ -26,9 +26,9 @@ class SignedInLinks extends Component {
       <Link to='categoriespage' className="nav-link">Categorias</Link>
     </li>
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <Link to="/profile" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Perfil
-          </a>
+          </Link>
           <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
            <a className="dropdown-item " disabled>{localStorage.current_user}</a>
         <div className="dropdown-divider"></div>
