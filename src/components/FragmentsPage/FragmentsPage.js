@@ -77,6 +77,14 @@ class FragmentsPage extends Component {
 
                   <div className="row" id="FragmentButtons">
                     <div className="col-md-12">
+                      <Link to={'/pdf/' + posts.id}>
+                        <button className="btn btn-primary" id="ButtonPDF">Leer fragmento en PDF</button>
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="row" id="FragmentButtons">
+                    <div className="col-md-12">
                       <button className="btn btn-primary" id="ButtonNext" onClick= {this.forceUpdateHandler}>Muestrame otro fragmento</button>
                     </div>
                   </div>
