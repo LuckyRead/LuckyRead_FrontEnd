@@ -13,12 +13,17 @@ class My_Profile extends Component {
   }
 
   componentWillMount(){
-    const id_image = localStorage.getItem('idImage');
-    console.log(id_image);
-    axios.get('https://luckyread-backend.herokuapp.com/api/photo/' + id_image)
-    .then( response =>{
-      console.log(response['request']['responseURL'])
-      this.setState({ path: response['request']['responseURL']});
+    axios({
+      method: 'get',
+      url: 'https://luckyread-backend.herokuapp.com/api/photo_id',
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem('jwtToken')
+      }
+    }).then( response =>{
+      console.log(response);
+      const path_p = 'https://luckyread-backend.herokuapp.com/api/photo/' + response['data']['id']
+      console.log(path_p);
+      this.setState({ path: path_p});
     });
   }
 
