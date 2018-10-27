@@ -8,6 +8,7 @@ import { login } from '../../actions/authActions';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import GoogleLogin from 'react-google-login';
 
+
 class LoginForm extends Component {
   constructor (props) {
     super(props);
@@ -24,6 +25,11 @@ class LoginForm extends Component {
 
   signup(res, type){
     console.log('hola '+ type);
+    if (type == 'facebook'){
+      axios.post("http://localhost:3000/api/login/fb", response);
+    }else{
+      axios.post("http://localhost:3000/api/login/ggle", response);
+    }
   }
 
 
@@ -86,6 +92,7 @@ class LoginForm extends Component {
         (err) => console.log('error')
       );
   }
+
 
     render() {
       const responseFacebook = (response) => {
