@@ -31,8 +31,12 @@ class FragmentPDF extends Component {
     return (
       <div className= "container-pdf">
         <br/>
-        <div className="row row justify-content-center" id="PDF">
+        <div className="row justify-content-center" id="PDF">
           <iframe src={this.state.pdf_link} width="550" height="600" frameBorder="0" marginWidth="0" marginHeight="0" scrolling="no" allowFullScreen> </iframe>
+        </div>
+        <br/>
+        <div className="row justify-content-center">
+          <Button color='primary' tag={Link} to="/fragmentspage">Volver</Button>
         </div>
       </div>
     )
