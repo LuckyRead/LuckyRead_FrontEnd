@@ -11,7 +11,7 @@ class FragmentPDF extends Component {
   componentDidMount(){
     console.log('pdf page');
     let id = this.props.match.params.fragment_id;
-    API.get('/api/fragments/'+id+'.pdf')
+    API.get('/api/fragments_pdf/'+id+'.pdf')
       .then(res => {
         console.log('pdf')
         console.log(res)
