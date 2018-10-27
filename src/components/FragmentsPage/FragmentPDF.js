@@ -5,20 +5,26 @@ import { Link } from 'react-router-dom'
 import '../../styles/fragmentcontainer.css';
 class FragmentPDF extends Component {
   state = {
-    post: null
+    pdf_link: null
   }
 
   componentDidMount(){
     console.log('pdf page');
     let id = this.props.match.params.fragment_id;
-    API.get('/api/fragments_pdf/'+id+'.pdf')
+    const link = "https://luckyread-backend.herokuapp.com/api/fragments_pdf/" + id + ".pdf"
+    this.setState({
+      pdf_link: link
+    });
+    console.log(link)
+    /*API.get('/api/fragments_pdf/'+id+'.pdf')
       .then(res => {
         console.log('pdf')
         console.log(res)
         this.setState({
-          post: res.data
+          pdf_url: res['config']['headers']['url']
         });
-      });
+        console.log(res['config']['headers']['url'])
+      });*/
   }
 
   render() {
@@ -26,7 +32,7 @@ class FragmentPDF extends Component {
       <div className= "container-pdf">
         <br/>
         <div className="row row justify-content-center" id="PDF">
-          <iframe src="http://www.slideshare.net/slideshow/embed_code/key/fZHbg6xSXHL9Ua?startSlide=32" width="595" height="795" frameBorder="0" marginWidth="0" marginHeight="0" scrolling="no" allowFullScreen> </iframe>
+          <iframe src={this.state.pdf_link} width="550" height="600" frameBorder="0" marginWidth="0" marginHeight="0" scrolling="no" allowFullScreen> </iframe>
         </div>
       </div>
     )
