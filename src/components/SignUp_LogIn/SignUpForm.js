@@ -9,7 +9,7 @@ import { FormErrors } from './FormErrors';
 import PropTypes from 'prop-types';
 
 import '../../styles/sign-up.css';
-
+import Loading_Popup from '../../common/Loading_Popup'
 
 
 class SignUpForm extends Component {
@@ -31,7 +31,8 @@ class SignUpForm extends Component {
       passwordValid: false,
       confirmpasswordValid: false,
       formValid: false,
-      confirmPass: false
+      confirmPass: false,
+      loading: false
     }
   }
 
@@ -117,7 +118,9 @@ class SignUpForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
+    this.setState({
+      loading: true
+})
     const user = {
       username: this.state.username,
       name: this.state.nombre,
@@ -141,6 +144,7 @@ class SignUpForm extends Component {
             (res) => {
               console.log('Login exitoso');
               this.props.addAllTopics();
+              this.context.router.history.push('/fragmentspage')
             },
             (err) => console.log('error')
           );
@@ -176,12 +180,14 @@ class SignUpForm extends Component {
         <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
           <label htmlFor="username">Usuario</label>
 
+
             <div className="input-group">
 
         <input type="text" required className="form-control" name="username"
             placeholder="Nombre de usuario"
             value={this.state.username}
             onChange={this.handleUserInput}  />
+          <button type="submit" className="btn btn-primary mb-2">Confirmar</button>
           </div>
 
         </div>
@@ -238,7 +244,13 @@ class SignUpForm extends Component {
 
 
       <div className="SignUp-Button">
-        <button  type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Registrarme</button>
+      <button type="submit" className="btn btn-primary" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#exampleModal" disabled={!this.state.formValid}>
+          Registrarme
+      </button>
+      {this.state.loading ?
+        <Loading_Popup/>
+        : null }
+
       </div>
       </form>
     </div>
