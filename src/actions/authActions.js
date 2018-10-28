@@ -40,6 +40,6 @@ export function login_social(token) {
   return dispatch => {
     localStorage.setItem('jwtToken', token);
     setAuthorizationToken(token);
-    //dispatch(setCurrentUser(jwtDecode(token)));
+    dispatch(setCurrentUser(jwtDecode(token)));
   }
 }
