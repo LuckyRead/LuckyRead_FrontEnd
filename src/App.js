@@ -8,7 +8,6 @@ import SignUp from './components/SignUp_LogIn/SignUpPage';
 import LoginPage from './components/SignUp_LogIn/LoginPage';
 import FragmentsPage from './components/FragmentsPage/FragmentsPage';
 import Categories_List from './components/CategoriesPage/Categories_List';
-import My_Profile from './components/MyProfile/My_Profile';
 import Fragment from './components/FragmentsPage/Fragment';
 import ProfileContainer from './components/Profile/ProfileContainer';
 
