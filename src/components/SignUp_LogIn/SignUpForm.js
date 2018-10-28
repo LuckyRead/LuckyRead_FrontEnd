@@ -1,6 +1,7 @@
 
 //Dependencies
-
+import axios from 'axios';
+import API from '../../api';
 import React, { Component } from 'react';
 // import axios from 'axios';
 import { FormErrors } from './FormErrors';
@@ -25,9 +26,11 @@ class SignUpForm extends Component {
       formErrors: {username: '', nombre: '', apellido: '', email: '', password: '', confirmpassword: ''},
 
       usernameValid: false,
+      usernameExists: false,
       namesValid: false,
       lastnameValid: false,
       emailValid: false,
+      emailExists: false,
       passwordValid: false,
       confirmpasswordValid: false,
       formValid: false,
@@ -116,59 +119,78 @@ class SignUpForm extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.setState({
-      loading: true
+
+handleVerify = event =>{
+  event.preventDefault();
+  console.log("Verificando Usuario");
+  const username= this.state.username;
+  const email= this.state.email;
+  API.post(`/api/users/user_exist`, {username}).then(
+    (res) => {
+      console.log(res)
+    },
+    (err) => {
+      console.log(err)
+    }
+  )
+
+}
+
+
+handleSubmit = event => {
+  event.preventDefault();
+  this.setState({
+    loading: true
 })
-    const user = {
-      username: this.state.username,
-      name: this.state.nombre,
-      lastname: this.state.apellido,
-      email: this.state.email,
-      password: this.state.password,
-      city_id: 1
-    };
-    console.log(user);
-    //
-    // this.props.userSignupRequest({user});
-    this.props.userSignupRequest({user}).then(
-      (res) => {
-        console.log('Registro exitoso')
-        const auth = {
-          email: this.state.email,
-          password: this.state.password
-        };
+  const user = {
+    username: this.state.username,
+    name: this.state.nombre,
+    lastname: this.state.apellido,
+    email: this.state.email,
+    password: this.state.password,
+    city_id: 1
+  };
+  console.log(user);
+  //
+  // this.props.userSignupRequest({user});
+  this.props.userSignupRequest({user}).then(
+    (res) => {
+      console.log('Registro exitoso')
+      const auth = {
+        email: this.state.email,
+        password: this.state.password
+      };
 
-          this.props.login({auth}).then(
-            (res) => {
-              console.log('Login exitoso');
-              this.props.addAllTopics();
-              this.context.router.history.push('/fragmentspage')
-            },
-            (err) => console.log('error')
-          );
-        // this.context.router.history.push('/login')
-
-
-      },
-
-      (err) => console.log('Error en SignUpRequest')
-    );
+        this.props.login({auth}).then(
+          (res) => {
+            console.log('Login exitoso');
+            this.props.addAllTopics();
+            this.context.router.history.push('/fragmentspage')
+          },
+          (err) => console.log('error')
+        );
+      // this.context.router.history.push('/login')
 
 
-    // axios.post(`http://localhost:3000/api/signup`, { user })
-    //   .then(res => {
-    //     console.log(res);
-    //     console.log(res.data);
-    //   })
-  }
+    },
+
+    (err) => console.log('Error en SignUpRequest')
+  );
+
+
+  // axios.post(`http://localhost:3000/api/signup`, { user })
+  //   .then(res => {
+  //     console.log(res);
+  //     console.log(res.data);
+  //   })
+}
+
 
   render () {
     return (
 
       <div className="col-sm-12" id = "Form">
-      <form className="demoForm" onSubmit={this.handleSubmit}>
+      <form className="demoForm" onSubmit={this.handleVerify}>
         <h2 className="SignUp-Title" >Crea tu cuenta</h2>
 
 
@@ -187,7 +209,6 @@ class SignUpForm extends Component {
             placeholder="Nombre de usuario"
             value={this.state.username}
             onChange={this.handleUserInput}  />
-          <button type="submit" className="btn btn-primary mb-2">Confirmar</button>
           </div>
 
         </div>
@@ -262,7 +283,9 @@ class SignUpForm extends Component {
 SignUpForm.propTypes = {
   userSignupRequest: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
-  addAllTopics: PropTypes.func.isRequired
+  addAllTopics: PropTypes.func.isRequired,
+  verifyEmail: PropTypes.func.isRequired,
+  verifyUser:PropTypes.func.isRequired
   // isUserExists: React.PropTypes.func.isRequired
 }
 

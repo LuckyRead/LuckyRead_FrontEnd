@@ -27,17 +27,44 @@ export function addAllTopics(eeh) {
        }).then(
         (res) => {
           console.log("All topics added")
-
         },
 
         (err) => {
           console.log("error en topics all")
         }
-
-
       )
 }
 };
+
+export function verifyUser(username){
+  console.log(username)
+        console.log("que pasaaa")
+  return dispatch => {
+
+    return API.post(`/api/users/user_exist`, username).then(
+      (res) => {
+        console.log("que pasaaa")
+        console.log(res)
+      },
+      (err) => {
+        console.log(err)
+      }
+    )
+
+        }
+}
+
+
+export function verifyEmail(email){
+  console.log(email)
+  return dispatch => {
+    return API.post(`/api/users/email_exist`, email)
+          .then(res => {
+            console.log(res)
+          })
+        }
+}
+
 
 export default createBrowserHistory();
 
