@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../../styles/ProfileLeftInfo.css';
 import paperplane from '../../resources/avatar.png';
-import PopUp from './PopUp'
+import PopUp from './PopUp';
+import axios from 'axios';
 
 class ProfileLeftInfo extends Component {
 

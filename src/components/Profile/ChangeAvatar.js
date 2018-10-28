@@ -23,17 +23,37 @@ class ChangeAvatar extends Component {
   fileUploadHandler = () =>{
     console.log(this.state.selectedFile);
     const formData = new FormData()
+    var second_axios = false
     formData.append('image', this.state.selectedFile);
-    axios.post('https://luckyread-backend.herokuapp.com/api/photo/upload', formData, {
-      onUploadProgress: progressEvent =>{
-        console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100)+ '%');
-      }
-    })
-    .then( response =>{
+    //subir imagen
+    axios.post('https://luckyread-backend.herokuapp.com/api/photo/upload',
+      formData, {
+        onUploadProgress: progressEvent =>{
+          console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100)+ '%');
+        }
+      }).then( response =>{
+      console.log('upload photo')
       console.log(response)
-      console.log(response['data']['id'])
       localStorage.setItem('idImage', response['data']['id']);
+      console.log('mandar id');
+      axios({
+        method: 'patch',
+        url: 'https://luckyread-backend.herokuapp.com/api/photo/set_profile_photo',
+        data: {
+          id_photo: localStorage.getItem('idImage')
+        },
+        headers: {
+            Authorization: "Bearer "+ localStorage.getItem('jwtToken')
+        }
+      }).then( response =>{
+          console.log(response)
+      }).catch(function (error) {
+        console.log('error');
+      });
+
     });
+
+
   }
 
   render(){

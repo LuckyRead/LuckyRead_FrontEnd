@@ -9,6 +9,7 @@
 
 #profileImage{
   margin-top: 10px;
+  object-fit: cover;
 }
 #profileImage:hover{
   opacity: 0.5;
