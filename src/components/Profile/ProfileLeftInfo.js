@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../../styles/ProfileLeftInfo.css';
-import paperplane from '../../resources/paper_plane.png';
+import paperplane from '../../resources/avatar.png';
 class ProfileLeftInfo extends Component {
   render() {
     return (
+      <div className="row">
       <div id="divProfile">
         <div className="card">
           <a href="http://lucky-read.com">
@@ -24,6 +25,7 @@ class ProfileLeftInfo extends Component {
             <a href="http://lucky-read.com" className="card-link">Siguiendo</a>
           </div>
         </div>
+      </div>
       </div>
     );
   }
