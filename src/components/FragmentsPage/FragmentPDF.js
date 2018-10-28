@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import API from '../../api';
+//import API from '../../api';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import '../../styles/fragmentcontainer.css';
@@ -32,7 +32,7 @@ class FragmentPDF extends Component {
       <div className= "container-pdf">
         <br/>
         <div className="row justify-content-center" id="PDF">
-          <iframe src={this.state.pdf_link} width="550" height="600" frameBorder="0" marginWidth="0" marginHeight="0" scrolling="no" allowFullScreen> </iframe>
+          <iframe src={this.state.pdf_link} width="550" height="600" frameBorder="0" marginWidth="0" marginHeight="0" scrolling="no" allowFullScreen title="fragmentPDF"> </iframe>
         </div>
         <br/>
         <div className="row justify-content-center">

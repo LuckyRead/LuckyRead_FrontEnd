@@ -6,7 +6,7 @@ import { SET_CURRENT_USER } from './types';
 
 
 
-export function setCurrentUser(user) {
+export function setCurrentUser(user){
   return {
     type: SET_CURRENT_USER,
     user
@@ -32,6 +32,14 @@ export function login(auth) {
       dispatch(setCurrentUser(jwtDecode(token)));
     },
     (err) => {console.log('login fallido');}
-  );
+    );
+  }
+}
+
+export function login_social(token) {
+  return dispatch => {
+    localStorage.setItem('jwtToken', token);
+    setAuthorizationToken(token);
+    //dispatch(setCurrentUser(jwtDecode(token)));
   }
 }

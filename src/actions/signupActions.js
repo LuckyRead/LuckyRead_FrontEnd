@@ -8,11 +8,11 @@ export function userSignupRequest(userData) {
   console.log(userData)
   return dispatch => {
     return API.post(`/api/signup`, userData)
-          .then(res => {
-            console.log(res)
+    .then(res => {
+      console.log(res)
 
-          })
-        }
+    })
+  }
 };
 
 export function addAllTopics(eeh) {
@@ -36,7 +36,7 @@ export function addAllTopics(eeh) {
 
 
       )
-}
+  }
 };
 
 export default createBrowserHistory();
