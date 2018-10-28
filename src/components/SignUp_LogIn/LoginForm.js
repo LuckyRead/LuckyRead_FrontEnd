@@ -22,19 +22,23 @@ class LoginForm extends Component {
       passwordValid: false,
       formValid: false,
     }
+    this.signup = this.signup.bind(this);
   }
 
+
+
   signup(res, type){
+
     if (type === 'facebook'){
       console.log('token facebook')
       axios.post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
       .then(res =>{
         const token = res['data']['jwt']
         console.log('jwt: '+token)
-        this.props.login_social(token).then(
-          (res) => this.context.router.history.push('/fragmentspage'),
-          (err) => console.log('error')
-        );
+        this.props.login_social(token)
+        this.context.router.history.push('/fragmentspage')/*.then(
+          (res) => ,
+          (err) => console.log('error')*/
       })
     }else{
       console.log('token google');
@@ -111,6 +115,8 @@ class LoginForm extends Component {
 
 
     render() {
+      var type = '';
+      var res = null;
       const responseFacebook = (response) => {
         console.log(response);
         this.signup(response, 'facebook');

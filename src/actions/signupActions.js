@@ -36,7 +36,7 @@ export function addAllTopics(eeh) {
 
 
       )
-}
+  }
 };
 
 export default createBrowserHistory();
