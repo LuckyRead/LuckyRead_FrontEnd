@@ -15,7 +15,6 @@ const SignedOutLinks = () => {
       </a>
       <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
         <LoginPage/>
-
       </div>
     </li>
 

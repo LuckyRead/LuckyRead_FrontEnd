@@ -4,9 +4,10 @@ import { FormErrors } from './FormErrors';
 import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { login } from '../../actions/authActions';
+import { login, login_social } from '../../actions/authActions';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import GoogleLogin from 'react-google-login';
+import axios from 'axios';
 
 
 class LoginForm extends Component {
@@ -24,11 +25,26 @@ class LoginForm extends Component {
   }
 
   signup(res, type){
-    console.log('hola '+ type);
-    if (type == 'facebook'){
-      axios.post("http://localhost:3000/api/login/fb", response);
+    if (type === 'facebook'){
+      console.log('token facebook')
+      axios.post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
+      .then(res =>{
+        const token = res['data']['jwt']
+        console.log('jwt: '+token)
+        this.props.login_social(token).then(
+          (res) => this.context.router.history.push('/fragmentspage'),
+          (err) => console.log('error')
+        );
+      })
     }else{
-      axios.post("http://localhost:3000/api/login/ggle", response);
+      console.log('token google');
+      axios.post("https://luckyread-backend.herokuapp.com/api/login/ggle", res)
+      .then(res =>{
+        const token = res['data']['jwt']
+        this.props.login_social(token)
+      }).catch(function (error) {
+        console.log('error al tratar de conseguir token del back - google');
+      });
     }
   }
 
@@ -89,7 +105,7 @@ class LoginForm extends Component {
     event.preventDefault();
       this.props.login({auth}).then(
         (res) => this.context.router.history.push('/fragmentspage'),
-        (err) => console.log('error')
+        (err) => console.log('error con login normal')
       );
   }
 
@@ -137,16 +153,16 @@ class LoginForm extends Component {
             </div>
             <br/>
             <div className="Social">
-            O ingresa con tu redes sociales
-            <FacebookLogin
-              appId="175675156693690"
-              autoLoad={true}
-              fields="name,email,picture"
-              callback={responseFacebook}
-              render={renderProps => (
-                <Button color="primary" onClick={renderProps.onClick}>Facebook</Button>
-              )}
-            />&nbsp;&nbsp;
+              O ingresa con tu redes sociales
+              <FacebookLogin
+                appId="175675156693690"
+                autoLoad={true}
+                fields="name,email,picture"
+                callback={responseFacebook}
+                render={renderProps => (
+                  <Button color="primary" onClick={renderProps.onClick}>Facebook</Button>
+                )}
+              />&nbsp;&nbsp;
               <GoogleLogin
                 clientId="1031528270008-p1pd4mi00m1igslrh342thmnpr1ram1t.apps.googleusercontent.com"
                 onSuccess={responseGoogle}
@@ -164,11 +180,12 @@ class LoginForm extends Component {
 
 
 LoginForm.propTypes = {
-  login: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired,
+  login_social: PropTypes.func.isRequired
 }
 
 LoginForm.contextTypes = {
   router: PropTypes.object.isRequired
 }
 
-export default connect(null, { login })(LoginForm);
+export default connect(null, { login, login_social })(LoginForm);
