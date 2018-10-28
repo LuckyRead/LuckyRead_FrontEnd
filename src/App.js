@@ -10,7 +10,7 @@ import FragmentsPage from './components/FragmentsPage/FragmentsPage';
 import Categories_List from './components/CategoriesPage/Categories_List';
 import My_Profile from './components/MyProfile/My_Profile';
 import Fragment from './components/FragmentsPage/Fragment';
-
+import FragmentPDF from './components/FragmentsPage/FragmentPDF';
 
 
 import requireAuth from './utils/requireAuth';
@@ -31,7 +31,9 @@ class App extends Component {
           <Route path='/myprofile' component={requireAuth(My_Profile)}/>
           <Route path='/fragmentspage' component={requireAuth(FragmentsPage)}/>
           <Route path='/categoriespage' component={requireAuth(Categories_List)}/>
+          <Route path='/pdf/:fragment_id' component={requireAuth(FragmentPDF)}/>
           <Route path='/:fragment_id' component={requireAuth(Fragment)}/>
+
         </Switch>
       </div>
     </BrowserRouter>);
