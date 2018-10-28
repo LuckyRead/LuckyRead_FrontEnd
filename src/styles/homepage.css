@@ -124,6 +124,15 @@
   width: 50%;
 }
 
+#ButtonPDF {
+  background-color: #FF8000;
+  margin: auto;
+  margin-top: 5px;
+  border-style: none;
+  width: 50%;
+}
+
 #ButtonNext {
   width: 50%;
+  margin-top: 5px;
 }
