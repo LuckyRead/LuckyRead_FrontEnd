@@ -27,8 +27,8 @@ class ProfileLeftInfo extends Component {
     return (
       <div className="row">
       <div id="divProfile">
-        <div className="card">
-          <a href="http://lucky-read.com">
+        <div className="card" >
+          <a>
             <img className="rounded-circle" id="profileImage" width="150" height="150" src={this.state.path} alt=""></img>
           </a>
           <div className = "card-body">
@@ -41,9 +41,9 @@ class ProfileLeftInfo extends Component {
             <li className="list-group-item" >7 meses</li>
           </ul>
           <div className="card-body">
-            <a href="http://lucky-read.com" className="card-link">Seguidores</a>
+            <a className="card-link">Seguidores</a>
             <PopUp/>
-            <a href="http://lucky-read.com" className="card-link">Siguiendo</a>
+            <a className="card-link">Siguiendo</a>
           </div>
         </div>
       </div>

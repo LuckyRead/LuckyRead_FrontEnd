@@ -20,6 +20,7 @@ a{
 
 .card{
   background-color: #e5e5e5;
+  width: 350px;
 }
 
 .list-group-item{
