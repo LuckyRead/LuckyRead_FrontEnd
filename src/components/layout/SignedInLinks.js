@@ -19,25 +19,25 @@ class SignedInLinks extends Component {
     return (
       <div>
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <Link to='fragmentspage' className="nav-link" >Leer algo <span className="sr-only">(current)</span></Link>
-          </li>
-          <li className="nav-item">
-            <Link to='categoriespage' className="nav-link">Categorias</Link>
-          </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Perfil
-            </a>
-            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item " disabled>{localStorage.current_user}</a>
-              <div className="dropdown-divider"></div>
-                <Link to='/' className="dropdown-item" onClick={this.handleLogout} id="exitButton">Salir</Link>
-            </div>
-          </li>
-        </ul>
-    </div>
-  )
+       <li className="nav-item">
+      <Link to='fragmentspage' className="nav-link" >Leer algo <span className="sr-only">(current)</span></Link>
+    </li>
+       <li className="nav-item">
+      <Link to='categoriespage' className="nav-link">Categorias</Link>
+    </li>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {localStorage.current_user}
+          </a>
+          <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+           <Link to="/profile" className="dropdown-item " disabled>Mi perfil</Link>
+        <div className="dropdown-divider"></div>
+      <Link to='/' className="dropdown-item" onClick={this.handleLogout} id="exitButton">Salir</Link>
+          </div>
+        </li>
+
+              </ul>
+    </div>)
 
 
   }
