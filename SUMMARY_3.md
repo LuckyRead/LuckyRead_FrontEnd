@@ -21,6 +21,9 @@ In this feature the message "loading..." was implemented
 * 16-implementing-redux (Developer: Daniela Castellanos) </br>
 In this feature, redux was completed
 
+* 17-form-validations (Developer: Camilo Sanchéz) </br>
+In this feature the validations in forms were implemented
+
 ## Features that we would like to develop in next iteration
 
 * The Community Page
