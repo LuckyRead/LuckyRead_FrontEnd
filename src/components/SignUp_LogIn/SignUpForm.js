@@ -190,7 +190,7 @@ handleSubmit = event => {
     return (
 
       <div className="col-sm-12" id = "Form">
-      <form className="demoForm" onSubmit={this.handleVerify}>
+      <form className="demoForm" onSubmit={this.handleSubmit}>
         <h2 className="SignUp-Title" >Crea tu cuenta</h2>
 
 
