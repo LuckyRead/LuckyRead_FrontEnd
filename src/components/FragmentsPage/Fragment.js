@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import Reactions from './Reactions'
+
 import '../../styles/fragmentcontainer.css';
 import API from '../../api';
 import { Button } from 'reactstrap';
@@ -13,15 +12,15 @@ class Fragment extends Component {
   componentDidMount(){
 
     let id = this.props.match.params.fragment_id;
-    API.get('/fragments/'+id)
+    API.get('/api/fragments/'+id)
       .then(res => {
         console.log(res)
         this.setState({
-          post: res.data.data.attributes
+          post: res.data
         });
         //console.log(res.data);
-        console.log("source")
-        console.log(this.props.source)
+        console.log("photo_url")
+        console.log(res.data)
       });
   }
   render() {
@@ -35,7 +34,7 @@ class Fragment extends Component {
             <br/>
             <div className = "row justify-content-center" id="content">
               <div className="col-4" id="image">
-                <img src={this.state.post.source} alt="Imagen de referencia"/>
+                <img src={this.state.post.image_path} alt="Imagen de referencia"/>
 
               </div>
               <div className="col-8" id="text">
@@ -46,14 +45,19 @@ class Fragment extends Component {
                 <p className = "text-justify">{this.state.post.content}</p>
                 <h6><strong>Fuente</strong></h6>
                 <p className = "text-center">{this.state.post.source}</p>
+
               </div>
+              <div> Aqui van mas opciones</div>
+
+
+            </div>
+            <div className="row justify-content-center">
+              <Button color='primary' tag={Link} to="/fragmentspage">Volver</Button>
             </div>
           </div>
-          <Reactions/>
+
         </div>
-        <div className="row justify-content-center">
-          <Button color='primary' tag={Link} to="/fragmentspage">Volver</Button>
-        </div>
+
       </div>
     ) : (
       <div className="center">Loading post...</div>

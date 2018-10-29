@@ -1,14 +1,16 @@
 
 //Dependencies
-
+import axios from 'axios';
+import API from '../../api';
 import React, { Component } from 'react';
 // import axios from 'axios';
 import { FormErrors } from './FormErrors';
-import { SocialIcon } from 'react-social-icons';
+
 // import TextFieldGroup from '../../common/TextFieldGroup'
 import PropTypes from 'prop-types';
-import '../../styles/sign-up.css';
 
+import '../../styles/sign-up.css';
+import Loading_Popup from '../../common/Loading_Popup'
 
 
 class SignUpForm extends Component {
@@ -24,13 +26,16 @@ class SignUpForm extends Component {
       formErrors: {username: '', nombre: '', apellido: '', email: '', password: '', confirmpassword: ''},
 
       usernameValid: false,
+      usernameExists: false,
       namesValid: false,
       lastnameValid: false,
       emailValid: false,
+      emailExists: false,
       passwordValid: false,
       confirmpasswordValid: false,
       formValid: false,
-      confirmPass: false
+      confirmPass: false,
+      loading: false
     }
   }
 
@@ -114,30 +119,72 @@ class SignUpForm extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
 
-    const user = {
-      username: this.state.username,
-      name: this.state.nombre,
-      lastname: this.state.apellido,
-      email: this.state.email,
-      password: this.state.password,
-      city_id: 1
-    };
-    console.log(user);
-    //
-    // this.props.userSignupRequest({user});
-    this.props.userSignupRequest({user}).then(
-      (res) => this.context.router.history.push('/FragmentsPage'),
-      (err) => console.log('')
-    );
-    // axios.post(`http://localhost:3000/api/signup`, { user })
-    //   .then(res => {
-    //     console.log(res);
-    //     console.log(res.data);
-    //   })
-  }
+handleVerify = event =>{
+  event.preventDefault();
+  console.log("Verificando Usuario");
+  const username= this.state.username;
+  const email= this.state.email;
+  API.post(`/api/users/user_exist`, {username}).then(
+    (res) => {
+      console.log(res)
+    },
+    (err) => {
+      console.log(err)
+    }
+  )
+
+}
+
+
+handleSubmit = event => {
+  event.preventDefault();
+  this.setState({
+    loading: true
+})
+  const user = {
+    username: this.state.username,
+    name: this.state.nombre,
+    lastname: this.state.apellido,
+    email: this.state.email,
+    password: this.state.password,
+    city_id: 1
+  };
+  console.log(user);
+  //
+  // this.props.userSignupRequest({user});
+  this.props.userSignupRequest({user}).then(
+    (res) => {
+      console.log('Registro exitoso')
+      const auth = {
+        email: this.state.email,
+        password: this.state.password
+      };
+
+        this.props.login({auth}).then(
+          (res) => {
+            console.log('Login exitoso');
+            this.props.addAllTopics();
+            this.context.router.history.push('/fragmentspage')
+          },
+          (err) => console.log('error')
+        );
+      // this.context.router.history.push('/login')
+
+
+    },
+
+    (err) => console.log('Error en SignUpRequest')
+  );
+
+
+  // axios.post(`http://localhost:3000/api/signup`, { user })
+  //   .then(res => {
+  //     console.log(res);
+  //     console.log(res.data);
+  //   })
+}
+
 
   render () {
     return (
@@ -154,6 +201,7 @@ class SignUpForm extends Component {
 
         <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
           <label htmlFor="username">Usuario</label>
+
 
             <div className="input-group">
 
@@ -217,15 +265,13 @@ class SignUpForm extends Component {
 
 
       <div className="SignUp-Button">
-        <button  type="submit" className="btn btn-primary" disabled={!this.state.formValid}>Registrarme</button>
-        <br/>
-        <h6></h6>
-      <h6>O ingresa con tus redes sociales</h6> &nbsp;
-        <br/>
-        <h6></h6>
-        <SocialIcon url="http://facebook.com/" /> &emsp;
-        <SocialIcon url="http://twitter.com/" /> &emsp;
-        <SocialIcon url="http://google.com/" /> &emsp;
+      <button type="submit" className="btn btn-primary" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#exampleModal" disabled={!this.state.formValid}>
+          Registrarme
+      </button>
+      {this.state.loading ?
+        <Loading_Popup/>
+        : null }
+
       </div>
       </form>
     </div>
@@ -236,12 +282,16 @@ class SignUpForm extends Component {
 
 SignUpForm.propTypes = {
   userSignupRequest: PropTypes.func.isRequired,
-  addFlashMessage: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired,
+  addAllTopics: PropTypes.func.isRequired,
+  verifyEmail: PropTypes.func.isRequired,
+  verifyUser:PropTypes.func.isRequired
   // isUserExists: React.PropTypes.func.isRequired
 }
 
 SignUpForm.contextTypes = {
   router: PropTypes.object.isRequired
 }
+
 
 export default SignUpForm;

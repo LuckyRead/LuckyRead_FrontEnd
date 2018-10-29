@@ -1,9 +1,8 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
-import { Link } from "react-router-dom"
+import ChangeAvatar from './ChangeAvatar'
 
-
-class RegistrationPopUp extends React.Component {
+class PopUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,19 +17,21 @@ class RegistrationPopUp extends React.Component {
       modal: !this.state.modal
     });
   }
+  Reload(){
+    window.location.reload();
+  }
 
   render() {
     return (
       <div>
-        <Button color="success" onClick={this.toggle} size="lg">Continuar</Button>
+        <a onClick={this.toggle} size='xs'>Cambiar Foto</a>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-
+          <ModalHeader toggle={this.toggle}>Cambiar foto de perfil</ModalHeader>
           <ModalBody>
-          Si deseas que se guarden tus preferencias, por favor registrate.
+            <ChangeAvatar/>
           </ModalBody>
           <ModalFooter>
-            <Button color="link" onClick={this.toggle} size="xs" tag={Link} to="/FragmentsPage">Continuar sin registrar</Button>
-          <Button color="primary" onClick={this.toggle} tag={Link} to="/signup">Registrarse</Button>{' '}
+          <Button color="primary" onClick={this.Reload}>Cerrar</Button>{' '}
           </ModalFooter>
         </Modal>
       </div>
@@ -38,4 +39,4 @@ class RegistrationPopUp extends React.Component {
   }
 }
 
-export default RegistrationPopUp;
+export default PopUp;

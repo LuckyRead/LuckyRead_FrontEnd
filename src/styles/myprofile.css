@@ -1,0 +1,13 @@
+#crop-img{
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+#crop-img img{
+  object-fit: cover;
+  height: 200px;
+  overflow: hidden;
+  margin: 0 auto;
+}

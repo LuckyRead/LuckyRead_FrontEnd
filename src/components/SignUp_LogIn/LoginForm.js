@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { SocialIcon } from 'react-social-icons';
-import axios from 'axios';
 import '../../styles/login.css';
 import { FormErrors } from './FormErrors';
+import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { login } from '../../actions/authActions';
-import TextFieldGroup from '../../common/TextFieldGroup';
+import { login, login_social } from '../../actions/authActions';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import GoogleLogin from 'react-google-login';
+import axios from 'axios';
+
 
 class LoginForm extends Component {
   constructor (props) {
@@ -20,8 +22,37 @@ class LoginForm extends Component {
       passwordValid: false,
       formValid: false,
     }
+    this.signup = this.signup.bind(this);
   }
 
+
+
+  signup(res, type){
+
+    if (type === 'facebook'){
+      console.log('token facebook')
+      axios.post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
+      .then(res =>{
+        const token = res['data']['jwt']
+        console.log('jwt: '+token)
+        this.props.login_social(token)
+        this.context.router.history.push('/fragmentspage')
+      }).catch(function (error) {
+        console.log('error al tratar de conseguir token del back - facebook');
+      });
+    }else{
+      console.log('token google');
+      axios.post("https://luckyread-backend.herokuapp.com/api/login/ggle", res)
+      .then(res =>{
+        const token = res['data']['jwt']
+        console.log('jwt: '+token)
+        this.props.login_social(token)
+        this.context.router.history.push('/fragmentspage')
+      }).catch(function (error) {
+        console.log('error al tratar de conseguir token del back - google');
+      });
+    }
+  }
 
 
   handleUserInput = (e) => {
@@ -80,21 +111,20 @@ class LoginForm extends Component {
     event.preventDefault();
       this.props.login({auth}).then(
         (res) => this.context.router.history.push('/fragmentspage'),
-        (err) => console.log('error')
+        (err) => console.log('error con login normal')
       );
-
-    // axios.post(`http://localhost:3000/api/login`, { auth })
-    //   .then(res => {
-    //     console.log(res);
-    //     console.log(res.data);
-    //   })
   }
 
 
-
-
-
     render() {
+      const responseFacebook = (response) => {
+        console.log(response);
+        this.signup(response, 'facebook');
+      }
+      const responseGoogle = (response) => {
+        console.log(response);
+        this.signup(response, 'google');
+      }
       return (
             <div className="col-sm-12" id = "Form">
             <form className="demoForm" onSubmit={this.handleSubmit}>
@@ -126,14 +156,27 @@ class LoginForm extends Component {
 
             <div className="LogIn-Button">
               <button  type="submit" className="btn btn-primary" >Iniciar Sesion</button>
-              <br/>
-              <h6></h6>
-            <h6>O ingresa con tus redes sociales</h6> &nbsp;
-              <br/>
-              <h6></h6>
-              <SocialIcon url="http://facebook.com/" /> &emsp;
-              <SocialIcon url="http://twitter.com/" /> &emsp;
-              <SocialIcon url="http://google.com/" /> &emsp;
+            </div>
+            <br/>
+            <div className="Social">
+              O ingresa con tu redes sociales
+              <FacebookLogin
+                appId="175675156693690"
+                autoLoad={true}
+                fields="name,email,picture"
+                callback={responseFacebook}
+                render={renderProps => (
+                  <Button color="primary" onClick={renderProps.onClick}>Facebook</Button>
+                )}
+              />&nbsp;&nbsp;
+              <GoogleLogin
+                clientId="1031528270008-p1pd4mi00m1igslrh342thmnpr1ram1t.apps.googleusercontent.com"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                render={renderProps => (
+                  <Button color="danger" onClick={renderProps.onClick}>Google</Button>
+                )}
+              />
             </div>
             </form>
           </div>
@@ -143,11 +186,12 @@ class LoginForm extends Component {
 
 
 LoginForm.propTypes = {
-  login: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired,
+  login_social: PropTypes.func.isRequired
 }
 
 LoginForm.contextTypes = {
   router: PropTypes.object.isRequired
 }
 
-export default connect(null, { login })(LoginForm);
+export default connect(null, { login, login_social })(LoginForm);
