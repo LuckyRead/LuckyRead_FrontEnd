@@ -58,7 +58,6 @@ class ProfileLeftInfo extends Component {
   }
 
   render() {
-    const {posts} = this.state
     return (
 
       <div className="row">
