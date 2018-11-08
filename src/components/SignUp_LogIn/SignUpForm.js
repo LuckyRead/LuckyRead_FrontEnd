@@ -1,6 +1,4 @@
-
 //Dependencies
-import axios from 'axios';
 import API from '../../api';
 import React, { Component } from 'react';
 // import axios from 'axios';
@@ -47,7 +45,6 @@ class SignUpForm extends Component {
   }
 
   validateField(fieldName, value) {
-
     let fieldValidationErrors = this.state.formErrors;
     let usernameValid=this.state.namesValid;
     let namesValid =this.state.namesValid;
@@ -59,44 +56,39 @@ class SignUpForm extends Component {
     switch(fieldName) {
 
       case 'username':
-      usernameValid = value.length <= 15 ;
-      fieldValidationErrors.username =  usernameValid ? '' : 'Tu nombre de usuario no debe exceder los 15 caracteres';
+        usernameValid = value.length <= 15 ;
+        fieldValidationErrors.username =  usernameValid ? '' : 'Tu nombre de usuario no debe exceder los 15 caracteres';
       break;
 
       case 'nombre':
-      namesValid = value.length >= 2;
-      fieldValidationErrors.nombre =  namesValid ? '' : 'Nombre invalido';
+        namesValid = value.length >= 2;
+        fieldValidationErrors.nombre =  namesValid ? '' : 'Nombre inválido';
       break;
-
 
       case 'email':
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        fieldValidationErrors.email = emailValid ? '' : 'Email invalido';
-        break;
+        fieldValidationErrors.email = emailValid ? '' : 'Email inválido';
+      break;
 
       case 'password':
-
         passwordValid = value.length >= 8;
-        fieldValidationErrors.password = passwordValid ? '': 'Tu contrasena debe tener al menos 8 caracteres';
-
+        fieldValidationErrors.password = passwordValid ? '': 'Tu contraseña debe tener al menos 8 caracteres';
         confirmpasswordValid= (this.state.password===this.state.confirmpassword || passwordValid===false)
-        fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'Las contrasenas no coinciden';
-
-        break;
+        fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'Las contraseñas no coinciden';
+      break;
 
       case 'confirmpassword':
-      if(this.state.password===this.state.confirmpassword){
-        confirmpasswordValid= true;
-      }
-      else{
-        confirmpasswordValid=false;
-      }
-          fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'Las contrasenas no coinciden';
-          break;
-
+        if(this.state.password===this.state.confirmpassword){
+          confirmpasswordValid= true;
+        }
+        else{
+          confirmpasswordValid=false;
+        }
+        fieldValidationErrors.confirmpassword = confirmpasswordValid ? '': 'Las contraseñas no coinciden';
+      break;
 
       default:
-        break;
+      break;
     }
 
 
@@ -120,47 +112,45 @@ class SignUpForm extends Component {
   }
 
 
-handleVerify = event =>{
-  event.preventDefault();
-  console.log("Verificando Usuario");
-  const username= this.state.username;
-  const email= this.state.email;
-  API.post(`/api/users/user_exist`, {username}).then(
-    (res) => {
-      console.log(res)
-    },
-    (err) => {
-      console.log(err)
-    }
-  )
+  handleVerify = event =>{
+    event.preventDefault();
+    console.log("Verificando Usuario");
+    const username= this.state.username;
+    API.post(`/api/users/user_exist`, {username}).then(
+      (res) => {
+        console.log(res)
+      },
+      (err) => {
+        console.log(err)
+      }
+    )
 
-}
+  }
 
 
-handleSubmit = event => {
-  event.preventDefault();
-  this.setState({
-    loading: true
-})
-  const user = {
-    username: this.state.username,
-    name: this.state.nombre,
-    lastname: this.state.apellido,
-    email: this.state.email,
-    password: this.state.password,
-    city_id: 1
-  };
-  console.log(user);
-  //
-  // this.props.userSignupRequest({user});
-  this.props.userSignupRequest({user}).then(
-    (res) => {
-      console.log('Registro exitoso')
-      const auth = {
-        email: this.state.email,
-        password: this.state.password
-      };
-
+  handleSubmit = event => {
+    event.preventDefault();
+    this.setState({
+      loading: true
+    })
+    const user = {
+      username: this.state.username,
+      name: this.state.nombre,
+      lastname: this.state.apellido,
+      email: this.state.email,
+      password: this.state.password,
+      city_id: 1
+    };
+    console.log(user);
+    //
+    // this.props.userSignupRequest({user});
+    this.props.userSignupRequest({user}).then(
+      (res) => {
+        console.log('Registro exitoso')
+        const auth = {
+          email: this.state.email,
+          password: this.state.password
+        };
         this.props.login({auth}).then(
           (res) => {
             console.log('Login exitoso');
@@ -169,113 +159,83 @@ handleSubmit = event => {
           },
           (err) => console.log('error')
         );
-      // this.context.router.history.push('/login')
-
-
-    },
-
-    (err) => console.log('Error en SignUpRequest')
-  );
-
-
-  // axios.post(`http://localhost:3000/api/signup`, { user })
-  //   .then(res => {
-  //     console.log(res);
-  //     console.log(res.data);
-  //   })
-}
+        // this.context.router.history.push('/login')
+      },
+      (err) => console.log('Error en SignUpRequest')
+    );
+  }
 
 
   render () {
     return (
-
       <div className="col-sm-12" id = "Form">
-      <form className="demoForm" onSubmit={this.handleSubmit}>
-        <h2 className="SignUp-Title" >Crea tu cuenta</h2>
-
-
-        <div className="panel panel-default">
-          <FormErrors formErrors={this.state.formErrors} />
-        </div>
-
-
-        <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
-          <label htmlFor="username">Usuario</label>
-
-
-            <div className="input-group">
-
-        <input type="text" required className="form-control" name="username"
-            placeholder="Nombre de usuario"
-            value={this.state.username}
-            onChange={this.handleUserInput}  />
+        <form className="demoForm" onSubmit={this.handleSubmit}>
+          <h2 className="SignUp-Title" >Crea tu cuenta</h2>
+          <div className="panel panel-default">
+            <FormErrors formErrors={this.state.formErrors} />
           </div>
-
-        </div>
-
-
-        <div className="form-group row">
-          <div className="col-sm-6">
-        <div className={`form-group ${this.errorClass(this.state.formErrors.nombre)}`}>
-          <label htmlFor="nombre">Nombres</label>
-        <input type="text" required className="form-control" name="nombre"
-            placeholder="Nombres"
-            value={this.state.nombre}
-            onChange={this.handleUserInput}  />
-        </div>
-        </div>
-          <div className="col-sm-6">
-        <div className={`form-group ${this.errorClass(this.state.formErrors.apellido)}`}>
-          <label htmlFor="nombre">Apellidos</label>
-        <input type="text" required className="form-control" name="apellido"
-            placeholder="Apellidos"
-            value={this.state.apellido}
-            onChange={this.handleUserInput}  />
-        </div>
-        </div>
-        </div>
-
-
-        <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
-          <label htmlFor="email">Correo</label>
-          <input type="email" required className="form-control" name="email"
-            placeholder="Ingresa tu correo"
-            value={this.state.email}
-            onChange={this.handleUserInput}  />
-        </div>
-        <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
-          <label htmlFor="password">Contraseña</label>
-          <input type="password" className="form-control" name="password"
-            placeholder="Ingresa tu contraseña"
-            value={this.state.password}
-            onChange={this.handleUserInput}  />
-        </div>
-
-        { this.state.passwordValid ?
-          <div className={`form-group ${this.errorClass(this.state.formErrors.confirmpassword)}`}>
-            <label htmlFor="confirmpassword">Repite tu contraseña</label>
-          <input type="password" className="form-control" name="confirmpassword"
-              placeholder="Repite tu contraseña"
-              value={this.state.confirmpassword}
+          <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
+            <label htmlFor="username">Usuario</label>
+            <div className="input-group">
+              <input type="text" required className="form-control" name="username"
+                placeholder="Nombre de usuario"
+                value={this.state.username}
+                onChange={this.handleUserInput}/>
+            </div>
+          </div>
+          <div className="form-group row">
+            <div className="col-sm-6">
+              <div className={`form-group ${this.errorClass(this.state.formErrors.nombre)}`}>
+                <label htmlFor="nombre">Nombres</label>
+                <input type="text" required className="form-control" name="nombre"
+                placeholder="Nombres"
+                value={this.state.nombre}
+                onChange={this.handleUserInput}/>
+              </div>
+            </div>
+            <div className="col-sm-6">
+              <div className={`form-group ${this.errorClass(this.state.formErrors.apellido)}`}>
+                <label htmlFor="nombre">Apellidos</label>
+                <input type="text" required className="form-control" name="apellido"
+                placeholder="Apellidos"
+                value={this.state.apellido}
+                onChange={this.handleUserInput}/>
+              </div>
+            </div>
+          </div>
+          <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
+            <label htmlFor="email">Correo</label>
+            <input type="email" required className="form-control" name="email"
+              placeholder="Ingresa tu correo"
+              value={this.state.email}
               onChange={this.handleUserInput}  />
           </div>
-
-
-          : null }
-
-
-      <div className="SignUp-Button">
-      <button type="submit" className="btn btn-primary" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#exampleModal" disabled={!this.state.formValid}>
-          Registrarme
-      </button>
-      {this.state.loading ?
-        <Loading_Popup/>
-        : null }
-
-      </div>
+          <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+            <label htmlFor="password">Contraseña</label>
+            <input type="password" className="form-control" name="password"
+              placeholder="Ingresa tu contraseña"
+              value={this.state.password}
+              onChange={this.handleUserInput}  />
+          </div>
+          {this.state.passwordValid ?
+            <div className={`form-group ${this.errorClass(this.state.formErrors.confirmpassword)}`}>
+              <label htmlFor="confirmpassword">Repite tu contraseña</label>
+              <input type="password" className="form-control" name="confirmpassword"
+                placeholder="Repite tu contraseña"
+                value={this.state.confirmpassword}
+                onChange={this.handleUserInput}/>
+            </div>
+          :null}
+        <div className="SignUp-Button">
+          <button type="submit" className="btn btn-primary" data-toggle="modal" data-backdrop="static" data-keyboard="false" data-target="#exampleModal" disabled={!this.state.formValid}>
+              Registrarme
+          </button>
+          {this.state.loading ?
+            <Loading_Popup/>
+          :null}
+        </div>
       </form>
     </div>
-
     )
   }
 }

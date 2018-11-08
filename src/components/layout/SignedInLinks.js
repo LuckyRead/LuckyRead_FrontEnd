@@ -8,11 +8,18 @@ import PropTypes from 'prop-types';
 
 
 class SignedInLinks extends Component {
-
+  constructor(props){
+    super(props);
+    console.log('antes de ser montado')
+    this.state = {
+      user: localStorage.user
+    }
+  }
 
   handleLogout = event => {
     event.preventDefault();
-    this.props.logout()}
+    this.props.logout()
+  }
 
 
   render(){
@@ -27,7 +34,7 @@ class SignedInLinks extends Component {
     </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {localStorage.current_user}
+            {this.state.user}
           </a>
           <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
            <Link to="/profile" className="dropdown-item " disabled>Mi perfil</Link>

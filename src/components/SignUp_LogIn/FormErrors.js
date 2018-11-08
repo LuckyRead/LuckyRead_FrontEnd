@@ -1,9 +1,9 @@
 import React from 'react';
-import '../../styles/sign-up.css';
+import '../../styles/formerrors.css';
 
 export const FormErrors = ({formErrors}) =>
-  <div className="FormErrors">
 
+  <div className="FormErrors">
     {Object.keys(formErrors).map((fieldName, i) => {
       if(formErrors[fieldName].length > 0){
         return (

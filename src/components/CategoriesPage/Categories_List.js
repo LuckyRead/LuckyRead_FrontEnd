@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 //Components
 import Category from './Category';
-//styles
+import Sub_topics from './Sub_topics';
 import '../../styles/homepage.css';
 
 import axios from 'axios';
@@ -30,57 +30,48 @@ class Categories_List extends Component {
             }
         }).then(response => {
             const user_r = response.data["current_user"];
-            localStorage.setItem('current_user', user_r);
+            //get subtopics
+            axios({
+                method:'post',
+                url: 'https://luckyread-backend.herokuapp.com/api/users/preferences_sub_topic',
+                headers: {
+                  Authorization: "Bearer "+ token
+                },
+                data: {
+                  username: user_r
+                },
+            }).then(response => {
+                const sub_topics = response["data"];
+                this.setState({ subtopics: sub_topics });
+                console.log(this.state.subtopics);
+            })
+            .catch(function (error) {
+              console.log('error');
+            });
+
+            //get topics
+            axios({
+                method:'post',
+                url: 'https://luckyread-backend.herokuapp.com/api/users/preferences_topic',
+                headers: {
+                  Authorization: "Bearer "+ token
+                },
+                data: {
+                  username: user_r
+                },
+            }).then(response => {
+                const topics = response.data;
+                this.setState({ topics: topics });
+                console.log(response);
+            })
+            .catch(function (error) {
+            });
         })
         .catch(function (error) {
           console.log('error');
         });
-
-        const user = localStorage.getItem('current_user');
-
-        //get preferences
-        axios({
-            method:'post',
-            url: 'https://luckyread-backend.herokuapp.com/api/users/preferences_sub_topic',
-            headers: {
-              Authorization: "Bearer "+ token
-            },
-            data: {
-              username: user
-            },
-        }).then(response => {
-            const sub_topics = response["data"];
-            this.setState({ subtopics: sub_topics });
-            console.log(this.state.subtopics);
-        })
-        .catch(function (error) {
-          console.log('error');
-        });
-
-        //get preferences
-        axios({
-            method:'post',
-            url: 'https://luckyread-backend.herokuapp.com/api/users/preferences_topic',
-            headers: {
-              Authorization: "Bearer "+ token
-            },
-            data: {
-              username: user
-            },
-        }).then(response => {
-            const topics = response.data;
-            this.setState({ topics: topics });
-            console.log(response);
-        })
-        .catch(function (error) {
-        });
-
 
   }
-
-  /*addTopic() {
-    console.log('entro aquí');
-  }*/
 
 
   handleClic = (e) => {
@@ -97,7 +88,7 @@ class Categories_List extends Component {
         return <Category key={topic.topic_id} name={topic.topic_name} id={topic.topic_id}/>;
     });
     const domSubTopics = this.state.subtopics.map(subtopic => {
-        return <Category key={subtopic.sub_topic_id} name={subtopic.sub_topic_name} id={subtopic.sub_topic_id}/>;
+        return <Sub_topics key={subtopic.sub_topic_id} name={subtopic.sub_topic_name} id={subtopic.sub_topic_id}/>;
     });
     return(
       <div>

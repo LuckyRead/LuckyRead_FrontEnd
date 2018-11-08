@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../styles/login.css';
 import { FormErrors } from './FormErrors';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login, login_social } from '../../actions/authActions';
@@ -18,6 +19,7 @@ class LoginForm extends Component {
       password: '',
       formErrors: {email: '', password: ''},
 
+      authNotFail: false,
       emailValid: false,
       passwordValid: false,
       formValid: false,
@@ -26,9 +28,8 @@ class LoginForm extends Component {
   }
 
 
-
+// signup - login FB and Google
   signup(res, type){
-
     if (type === 'facebook'){
       console.log('token facebook')
       axios.post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
@@ -59,32 +60,34 @@ class LoginForm extends Component {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({[name]: value},
-                  () => { this.validateField(name, value) });
+                    () => { this.validateField(name, value) });
   }
 
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid=this.state.emailValid;
     let passwordValid = this.state.passwordValid;
+    let authNotFail = this.state.authNotFail;
 
     switch(fieldName) {
 
       case 'email':
-      emailValid = value.length >= 0 ;
-      fieldValidationErrors.email =  emailValid ? '' : 'debe tener maximo 15 caracteres';
+        emailValid = value.length >= 0 ;
+        fieldValidationErrors.email =  emailValid ? '' : 'debe tener maximo 15 caracteres';
       break;
 
       case 'password':
-
         passwordValid = value.length >= 0;
-        fieldValidationErrors.password = passwordValid ? '': ' is too short';
+        fieldValidationErrors.password = passwordValid ? '': 'contraseña muy corta';
+      break;
 
-        break;
+      case 'auth':
+        fieldValidationErrors.auth = authNotFail ? '': 'el email y la contraseña no coinciden';
+      break;
 
       default:
-        break;
+      break;
     }
-
 
     this.setState({formErrors: fieldValidationErrors,
                     emailValid: emailValid,
@@ -110,7 +113,18 @@ class LoginForm extends Component {
 
     event.preventDefault();
       this.props.login({auth}).then(
-        (res) => this.context.router.history.push('/fragmentspage'),
+        (res) => {
+          //console.log('res: ')
+          //console.log(res)
+          if(res['status'] == 201){
+            this.context.router.history.push('/fragmentspage')
+            this.setState({authNotFail: true});
+
+          }else{
+            alert('El usuario y la contraseña no coinciden')
+          }
+          this.validateField(auth, 'auth')
+        },
         (err) => console.log('error con login normal')
       );
   }
@@ -118,33 +132,33 @@ class LoginForm extends Component {
 
     render() {
       const responseFacebook = (response) => {
-        console.log(response);
-        this.signup(response, 'facebook');
+        if (response){
+          console.log(response);
+          this.signup(response, 'facebook');
+        }
+
       }
       const responseGoogle = (response) => {
-        console.log(response);
-        this.signup(response, 'google');
+        if (response){
+          console.log(response);
+          this.signup(response, 'google');
+        }
+
       }
       return (
-            <div className="col-sm-12" id = "Form">
-            <form className="demoForm" onSubmit={this.handleSubmit}>
+          <div className="col-sm-12" id = "Form">
+            <form onSubmit={this.handleSubmit}>
               <h2 className="LogIn-Title" >Ingresa</h2>
               <div className="panel panel-default">
-                <FormErrors formErrors={this.state.formErrors} />
+                <FormErrors formErrors={this.state.formErrors}/>
               </div>
-
               <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
                 <label htmlFor="email">Correo</label>
-                  <div className="input-group">
-              <input type="text" required className="form-control" name="email"
+                <input type="text" required className="form-control" name="email"
                   placeholder="Ejemplo:luckyread@example.com"
                   value={this.state.email}
                   onChange={this.handleUserInput}  />
-                </div>
-
               </div>
-
-
               <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
                 <label htmlFor="password">Contraseña</label>
                 <input type="password" className="form-control" name="password"
@@ -152,34 +166,33 @@ class LoginForm extends Component {
                   value={this.state.password}
                   onChange={this.handleUserInput}  />
               </div>
-
-
-            <div className="LogIn-Button">
-              <button  type="submit" className="btn btn-primary" >Iniciar Sesion</button>
-            </div>
-            <br/>
-            <div className="Social">
-              O ingresa con tu redes sociales
-              <FacebookLogin
-                appId="175675156693690"
-                autoLoad={true}
-                fields="name,email,picture"
-                callback={responseFacebook}
-                render={renderProps => (
-                  <Button color="primary" onClick={renderProps.onClick}>Facebook</Button>
-                )}
-              />&nbsp;&nbsp;
-              <GoogleLogin
-                clientId="1031528270008-p1pd4mi00m1igslrh342thmnpr1ram1t.apps.googleusercontent.com"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                render={renderProps => (
-                  <Button color="danger" onClick={renderProps.onClick}>Google</Button>
-                )}
-              />
-            </div>
-            </form>
-          </div>
+              <div className="LogIn-Button">
+                <Button  type="submit" color="primary">Iniciar sesión</Button>
+                <Button color="link" size="sm" tag={Link} to="/email">¿Olvidaste tu contraseña?</Button>
+              </div>
+              <br/>
+              <div className="Social">
+                <p>O ingresa con tu redes sociales</p>
+                <FacebookLogin
+                  appId="175675156693690"
+                  autoLoad={true}
+                  fields="name,email,picture"
+                  callback={responseFacebook}
+                  render={renderProps => (
+                    <Button color="primary" size="sm" onClick={renderProps.onClick}><strong>Facebook</strong></Button>
+                  )}
+                />&nbsp;&nbsp;
+                <GoogleLogin
+                  clientId="1031528270008-p1pd4mi00m1igslrh342thmnpr1ram1t.apps.googleusercontent.com"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  render={renderProps => (
+                    <Button color="danger" size="sm" onClick={renderProps.onClick}><strong>Google</strong></Button>
+                  )}
+                />
+              </div>
+          </form>
+        </div>
     )
   }
 }

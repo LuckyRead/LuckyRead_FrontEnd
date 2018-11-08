@@ -10,7 +10,6 @@ class Fragment extends Component {
     post: null
   }
   componentDidMount(){
-
     let id = this.props.match.params.fragment_id;
     API.get('/api/fragments/'+id)
       .then(res => {
@@ -18,8 +17,7 @@ class Fragment extends Component {
         this.setState({
           post: res.data
         });
-        //console.log(res.data);
-        console.log("photo_url")
+        //console.log(res.data)
         console.log(res.data)
       });
   }

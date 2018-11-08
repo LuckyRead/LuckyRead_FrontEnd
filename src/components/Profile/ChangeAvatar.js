@@ -23,7 +23,6 @@ class ChangeAvatar extends Component {
   fileUploadHandler = () =>{
     console.log(this.state.selectedFile);
     const formData = new FormData()
-    var second_axios = false
     formData.append('image', this.state.selectedFile);
     //subir imagen
     axios.post('https://luckyread-backend.herokuapp.com/api/photo/upload',
@@ -34,13 +33,12 @@ class ChangeAvatar extends Component {
       }).then( response =>{
       console.log('upload photo')
       console.log(response)
-      localStorage.setItem('idImage', response['data']['id']);
-      console.log('mandar id');
+      console.log('el id de la foto es: ' + response['data']['id']);
       axios({
         method: 'patch',
         url: 'https://luckyread-backend.herokuapp.com/api/photo/set_profile_photo',
         data: {
-          id_photo: localStorage.getItem('idImage')
+          id_photo: response['data']['id']
         },
         headers: {
             Authorization: "Bearer "+ localStorage.getItem('jwtToken')
@@ -48,9 +46,11 @@ class ChangeAvatar extends Component {
       }).then( response =>{
           console.log(response)
       }).catch(function (error) {
-        console.log('error');
+        console.log('el error es vinculando la foto con un usuario');
       });
 
+    }).catch(function (error){
+      console.log('el error es cargando la foto');
     });
 
 

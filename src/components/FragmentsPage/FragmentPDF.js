@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import '../../styles/fragmentcontainer.css';
+
 class FragmentPDF extends Component {
   state = {
     pdf_link: null

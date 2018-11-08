@@ -98,4 +98,4 @@ class FragmentsPage extends Component {
   )}
 }
 
-export default FragmentsPage
+export default FragmentsPage;

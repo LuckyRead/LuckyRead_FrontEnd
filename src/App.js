@@ -11,6 +11,8 @@ import Categories_List from './components/CategoriesPage/Categories_List';
 import Fragment from './components/FragmentsPage/Fragment';
 import FragmentPDF from './components/FragmentsPage/FragmentPDF';
 import ProfileContainer from './components/Profile/ProfileContainer';
+import Email from './components/ChangePassword/Email';
+import ChangePasswordPage from './components/ChangePassword/ChangePasswordPage';
 
 
 
@@ -29,6 +31,8 @@ class App extends Component {
           <Route path='/contact' component={Contact}/>
           <Route path='/signup' component={SignUp}/>
           <Route path='/login' component={LoginPage}/>
+          <Route path='/email' component={Email}/>
+          <Route path='/reset_password/:token' component={ChangePasswordPage}/>
           <Route path='/profile' component={requireAuth(ProfileContainer)}/>
           <Route path='/fragmentspage' component={requireAuth(FragmentsPage)}/>
           <Route path='/categoriespage' component={requireAuth(Categories_List)}/>
