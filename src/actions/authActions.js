@@ -29,16 +29,10 @@ export function login(auth) {
     .then( res=>{
         //console.log(res);
         const token = res.data.jwt;
+        const user = res.data.username;
         localStorage.setItem('jwtToken', token);
+        localStorage.setItem('user', user);
         setAuthorizationToken(token);
-        //obtener el usuario para la navbar
-        API.get('/api/users/current', token).then(
-          (res_u) => {
-            console.log(res_u['data']['current_user'])
-            const current_user = res_u.data.current_user;
-            localStorage.setItem('user', current_user);
-          }
-        )
         dispatch(setCurrentUser(jwtDecode(token)));
         return res
     }).catch(function(error){
