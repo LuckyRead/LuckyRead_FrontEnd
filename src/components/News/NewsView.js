@@ -29,10 +29,13 @@ class NewsView extends Component {
   render(){
     const divStyle = {
       width: '18rem',
-      height:'30 rem'
+      height:'30rem'
     };
+    var id = 0;
     const domNews = this.state.articles.map(article => {
+      id = id + 1;
       return <News
+              key = {id}
               source = {article.url}
               title = {article.title}
               description = {article.description}
@@ -41,12 +44,17 @@ class NewsView extends Component {
     });
 
     return(
-      <div>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style = {divStyle}>
+      <div className= "row justify-content-center">
+        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel" style = {divStyle}>
           <div className="carousel-inner">
-            <div class="carousel-item active">
-              NOTICIAS
+          <div className="carousel-item active">
+            <div className="card" style={divStyle}>
+              <div className="card-body">
+                <h5 className="card-title">Noticias</h5>
+                <p className="card-text">Mira las noticias del momento</p>
+              </div>
             </div>
+          </div>
           {domNews}
           </div>
           <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

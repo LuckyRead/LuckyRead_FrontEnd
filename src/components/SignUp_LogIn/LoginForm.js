@@ -116,7 +116,7 @@ class LoginForm extends Component {
         (res) => {
           //console.log('res: ')
           //console.log(res)
-          if(res['status'] == 201){
+          if(res['status'] === 201){
             this.context.router.history.push('/fragmentspage')
             this.setState({authNotFail: true});
 
