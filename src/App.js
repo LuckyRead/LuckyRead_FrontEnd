@@ -13,7 +13,7 @@ import FragmentPDF from './components/FragmentsPage/FragmentPDF';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import Email from './components/ChangePassword/Email';
 import ChangePasswordPage from './components/ChangePassword/ChangePasswordPage';
-
+import News from './components/News/NewsView';
 
 
 import requireAuth from './utils/requireAuth';
@@ -33,6 +33,7 @@ class App extends Component {
           <Route path='/login' component={LoginPage}/>
           <Route path='/email' component={Email}/>
           <Route path='/reset_password/:token' component={ChangePasswordPage}/>
+          <Route path='/news' component={requireAuth(News)}/>
           <Route path='/profile' component={requireAuth(ProfileContainer)}/>
           <Route path='/fragmentspage' component={requireAuth(FragmentsPage)}/>
           <Route path='/categoriespage' component={requireAuth(Categories_List)}/>
