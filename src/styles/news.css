@@ -1,0 +1,26 @@
+#NewsCard {
+  width: 100%;
+  height: 35rem;
+  background: #ffff;
+};
+#carouselExampleControls{
+  background: #FFFFFF;
+}
+#date{
+  color: #6E6E6E;
+  font-size: 0.8em;
+}
+#NewsCardBody {
+  background:#FFFFFF;
+  color: #000000 !important;
+  overflow-y: auto;
+};
+#carouselExampleControls{
+  width: 100%;
+  height: 35rem;
+}
+#CoverPage {
+  background:#FFFFFF;
+  color: #000000 !important;
+  font-size: 2em;
+}

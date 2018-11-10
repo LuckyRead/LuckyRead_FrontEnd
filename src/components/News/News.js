@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
+import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button} from 'reactstrap'
+import '../../styles/news.css'
 
-import '../../styles/fragmentcontainer.css'
 
 class News extends Component {
 
   render(){
-    const divStyle = {
-      width: '18rem',
-      height:'30rem'
-    };
     return(
       <div className="carousel-item">
-        <div className="card" style={divStyle}>
-          <div className="card-body">
-            <h5 className="card-title">{this.props.title}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{this.props.date}</h6>
-            <p className="card-text">{this.props.description}</p>
-            <a href={this.props.source}>Ver más...</a>
-          </div>
-        </div>
+        <Card id="NewsCard">
+          <CardImg top width="100%" src={this.props.image} alt="Card image cap"/>
+          <CardBody id="NewsCardBody">
+            <CardTitle><h4><strong>{this.props.title}</strong></h4></CardTitle>
+            <CardSubtitle><p id="date">{this.props.date}</p></CardSubtitle>
+            <CardText><p>{this.props.description}</p></CardText>
+            <div className= "row justify-content-center">
+              <a href={this.props.source}>Ver más...</a>
+            </div>
+          </CardBody>
+        </Card>
       </div>
     )
   }
