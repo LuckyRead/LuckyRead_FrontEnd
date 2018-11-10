@@ -9,6 +9,7 @@ import { login, login_social } from '../../actions/authActions';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import GoogleLogin from 'react-google-login';
 import axios from 'axios';
+import Spinner from 'react-spinkit';
 
 
 class LoginForm extends Component {
@@ -23,6 +24,7 @@ class LoginForm extends Component {
       emailValid: false,
       passwordValid: false,
       formValid: false,
+      loaded: false
     }
     this.signup = this.signup.bind(this);
   }
@@ -136,6 +138,9 @@ class LoginForm extends Component {
       const responseFacebook = (response) => {
         if (response){
           console.log(response);
+          this.setState({
+            loaded: true
+          });
           this.signup(response, 'facebook');
         }
 
@@ -143,6 +148,9 @@ class LoginForm extends Component {
       const responseGoogle = (response) => {
         if (response){
           console.log(response);
+          this.setState({
+            loaded: true
+          });
           this.signup(response, 'google');
         }
 
@@ -181,7 +189,12 @@ class LoginForm extends Component {
                   fields="name,email,picture"
                   callback={responseFacebook}
                   render={renderProps => (
-                    <Button color="primary" size="sm" onClick={renderProps.onClick}><strong>Facebook</strong></Button>
+                    <Button color="primary" size="sm" onClick={renderProps.onClick}>
+                    {this.state.loaded ?
+                        <Spinner name="circle" fadein="none" color="white"/>
+                      : <strong>Facebook</strong>
+                    }
+                    </Button>
                   )}
                 />&nbsp;&nbsp;
                 <GoogleLogin
@@ -189,7 +202,12 @@ class LoginForm extends Component {
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                   render={renderProps => (
-                    <Button color="danger" size="sm" onClick={renderProps.onClick}><strong>Google</strong></Button>
+                    <Button color="danger" size="sm" onClick={renderProps.onClick}>
+                    {this.state.loaded ?
+                        <Spinner name="circle" fadein="none" color="white"/>
+                      : <strong>Google</strong>
+                    }
+                    </Button>
                   )}
                 />
               </div>
