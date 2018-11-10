@@ -24,7 +24,9 @@ class LoginForm extends Component {
       emailValid: false,
       passwordValid: false,
       formValid: false,
-      loaded: false
+      loaded: false,
+      loadedgoogle: false,
+      loadedfb: false
     }
     this.signup = this.signup.bind(this);
   }
@@ -43,6 +45,7 @@ class LoginForm extends Component {
         this.context.router.history.push('/fragmentspage')
       }).catch(function (error) {
         console.log('error al tratar de conseguir token del back - facebook');
+
       });
     }else{
       console.log('token google');
@@ -50,7 +53,6 @@ class LoginForm extends Component {
       .then(res =>{
         const token = res['data']['jwt']
         const user = res['data']['username']
-        console.log(res)
         this.props.login_social(token, user)
         this.context.router.history.push('/fragmentspage')
       }).catch(function (error) {
@@ -120,12 +122,18 @@ class LoginForm extends Component {
         (res) => {
           //console.log('res: ')
           //console.log(res)
+          this.setState({
+            loaded: true
+          });
           if(res['status'] === 201){
             this.context.router.history.push('/fragmentspage')
-            this.setState({authNotFail: true});
 
           }else{
-            alert('El usuario y la contraseña no coinciden')
+            //alert('El usuario y la contraseña no coinciden')
+            this.setState({
+              loaded: false,
+              authNotFail: true
+            });
           }
           this.validateField(auth, 'auth')
         },
@@ -139,7 +147,7 @@ class LoginForm extends Component {
         if (response){
           console.log(response);
           this.setState({
-            loaded: true
+            loadedfb: true
           });
           this.signup(response, 'facebook');
         }
@@ -149,7 +157,7 @@ class LoginForm extends Component {
         if (response){
           console.log(response);
           this.setState({
-            loaded: true
+            loadedgoogle: true
           });
           this.signup(response, 'google');
         }
@@ -176,8 +184,18 @@ class LoginForm extends Component {
                   value={this.state.password}
                   onChange={this.handleUserInput}  />
               </div>
+              {this.state.authNotFail ?
+                  <p className="text-danger text-center small"><strong>*El usuario y la contraseña no coinciden</strong></p>
+                : null
+              }
               <div className="LogIn-Button">
-                <Button  type="submit" color="primary">Iniciar sesión</Button>
+                <Button  type="submit" color="primary">
+                {this.state.loaded ?
+                    <Spinner name="circle" fadein="none" color="white"/>
+                  : "Iniciar sesión"
+                }
+
+                </Button>
                 <Button color="link" size="sm" tag={Link} to="/email">¿Olvidaste tu contraseña?</Button>
               </div>
               <br/>
@@ -189,8 +207,8 @@ class LoginForm extends Component {
                   fields="name,email,picture"
                   callback={responseFacebook}
                   render={renderProps => (
-                    <Button color="primary" size="sm" onClick={renderProps.onClick}>
-                    {this.state.loaded ?
+                    <Button id="facebook" size="sm" onClick={renderProps.onClick}>
+                    {this.state.loadedfb ?
                         <Spinner name="circle" fadein="none" color="white"/>
                       : <strong>Facebook</strong>
                     }
@@ -203,7 +221,7 @@ class LoginForm extends Component {
                   onFailure={responseGoogle}
                   render={renderProps => (
                     <Button color="danger" size="sm" onClick={renderProps.onClick}>
-                    {this.state.loaded ?
+                    {this.state.loadedgoogle ?
                         <Spinner name="circle" fadein="none" color="white"/>
                       : <strong>Google</strong>
                     }
