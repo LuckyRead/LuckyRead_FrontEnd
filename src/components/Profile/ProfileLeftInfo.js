@@ -66,7 +66,7 @@ class ProfileLeftInfo extends Component {
       <div className="row">
       <div id="divProfile">
         <div className="card" >
-          <a>
+          <a> 
             <img className="rounded-circle" id="profileImage" width="150" height="150" src={this.state.base_64_image} alt=""></img>
           </a>
           <div className = "card-body">

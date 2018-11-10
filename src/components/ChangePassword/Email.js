@@ -14,7 +14,8 @@ class Email extends Component {
       emailValid: false,
       emailExists: false,
       formValid: false,
-      loaded: false
+      loaded: false,
+      finishloaded: false
     }
   }
 
@@ -60,9 +61,10 @@ class Email extends Component {
       console.log(response["data"]["jwt"])
       localStorage.setItem('jwtChangePassword', response["data"]["jwt"]);
       this.setState({
-        loaded: false
+        loaded: false,
+        finishloaded: true
       });
-      alert("Mensaje enviado, revisa tu correo");
+      //alert("Mensaje enviado, revisa tu correo");
       //window.location.reload(true);
     }).catch(function(error){
       console.log(error)
@@ -118,19 +120,19 @@ class Email extends Component {
                   name="email"
                   onChange={this.handleUserInput}/>
                   <small id="emailHelp" className="form-text text-muted">Te vamos a enviar mensaje a tu correo con los pasos a seguir.</small>
-                  {this.state.loaded ?
-                    <div className="row justify-content-center" fadein="none">
-                      <Spinner name="circle" />
-                    </div>
-                    :null}
+                  {this.state.finishloaded ?
+                    <p className="text-success text-center"><strong>El mensaje ha sido enviado exitosamente. Revisa tu correo</strong></p>
+                  :null}
               </div>
-
               <div className="SignUp-Button">
                 <button type="submit"
                   className="btn btn-primary"
                   onClick={this.handleClick}
                   disabled={!this.state.formValid}>
-                    Enviar
+                  {this.state.loaded ?
+                      <Spinner name="circle" fadein="none" color="white"/>
+                    : "Enviar"
+                  }
                 </button>
               </div>
             </form>

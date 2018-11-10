@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import '../../styles/myprofile.css';
+import '../../styles/loader.css';
+import Spinner from 'react-spinkit';
 
 class ChangeAvatar extends Component {
   constructor(props){
     super(props)
     this.state = {
       selectedFile: null,
-      showImage: null
+      showImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1ZS_mBVAw53O1RrjB5RdofzPaziI2UKw7UHJXlFubx327yJMU",
+      loaded: false,
+      finishloaded: false
     }
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this)
   }
@@ -22,6 +26,9 @@ class ChangeAvatar extends Component {
 
   fileUploadHandler = () =>{
     console.log(this.state.selectedFile);
+    this.setState({
+      loaded: true
+    });
     const formData = new FormData()
     formData.append('image', this.state.selectedFile);
     //subir imagen
@@ -45,6 +52,10 @@ class ChangeAvatar extends Component {
         }
       }).then( response =>{
           console.log(response)
+          this.setState({
+            loaded: false,
+            finishloaded: true
+          });
       }).catch(function (error) {
         console.log('el error es vinculando la foto con un usuario');
       });
@@ -67,12 +78,20 @@ class ChangeAvatar extends Component {
             id="exampleFormControlFile"
             onChange = {this.fileSelectedHandler}
             ref = {fileInput => this.fileInput = fileInput}/>
-          <button onClick={() => this.fileInput.click()}>Escoger imagen</button>&nbsp;&nbsp;
-          <button onClick={this.fileUploadHandler}>Cargar</button>
+          <button type="button" className="btn btn-secondary btn-sm" onClick={() => this.fileInput.click()}>Escoger imagen</button>&nbsp;&nbsp;
+          <button type="button" className="btn btn-secondary btn-sm" onClick={this.fileUploadHandler}>
+          {this.state.loaded ?
+              <Spinner name="circle" fadein="none" color="white"/>
+            : "Cargar"
+          }
+          </button>
         </div>
-        <div className = 'row' id="crop-img">
+        <div className = 'row justify-content-center' id="crop-img">
           <img src={this.state.showImage} alt='profile'/>
         </div>
+        {this.state.finishloaded ?
+          <p className="text-success text-center"><strong>La foto ha sido cargada exitosamente</strong></p>
+        :null}
       </div>
     )
   }
