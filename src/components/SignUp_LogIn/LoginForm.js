@@ -35,8 +35,9 @@ class LoginForm extends Component {
       axios.post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
       .then(res =>{
         const token = res['data']['jwt']
-        console.log('jwt: '+token)
-        this.props.login_social(token)
+        const user = res['data']['username']
+        console.log(res)
+        this.props.login_social(token, user)
         this.context.router.history.push('/fragmentspage')
       }).catch(function (error) {
         console.log('error al tratar de conseguir token del back - facebook');
@@ -46,8 +47,9 @@ class LoginForm extends Component {
       axios.post("https://luckyread-backend.herokuapp.com/api/login/ggle", res)
       .then(res =>{
         const token = res['data']['jwt']
-        console.log('jwt: '+token)
-        this.props.login_social(token)
+        const user = res['data']['username']
+        console.log(res)
+        this.props.login_social(token, user)
         this.context.router.history.push('/fragmentspage')
       }).catch(function (error) {
         console.log('error al tratar de conseguir token del back - google');
