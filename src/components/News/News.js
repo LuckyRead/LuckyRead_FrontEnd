@@ -9,13 +9,13 @@ class News extends Component {
     return(
       <div className="carousel-item">
         <Card id="NewsCard">
-          <CardImg top width="100%" src={this.props.image} alt="Card image cap"/>
+          <CardImg top width="100%" src={this.props.image} alt="Card image cap" id="image"/>
           <CardBody id="NewsCardBody">
             <CardTitle><h4><strong>{this.props.title}</strong></h4></CardTitle>
             <CardSubtitle><p id="date">{this.props.date}</p></CardSubtitle>
-            <CardText><p>{this.props.description}</p></CardText>
+            <CardText><p className="text-justify">{this.props.description}</p></CardText>
             <div className= "row justify-content-center">
-              <a href={this.props.source}>Ver más...</a>
+              <a href={this.props.source} target="_blank">Ver más...</a>
             </div>
           </CardBody>
         </Card>
