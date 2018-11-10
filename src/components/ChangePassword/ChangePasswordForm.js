@@ -14,7 +14,8 @@ class ChangePasswordForm extends Component {
       passwordValid: false,
       confirmpasswordValid: false,
       formValid: false,
-      loaded: false
+      loaded: false,
+      finishloaded: false
     }
   }
 
@@ -92,9 +93,10 @@ class ChangePasswordForm extends Component {
       console.log(response)
       localStorage.removeItem('jwtChangePassword');
       this.setState({
-        loaded: false
+        loaded: false,
+        finishloaded: true
       });
-      alert("Contraseña cambiada");
+      //alert("Contraseña cambiada");
       //window.location.reload(true);
     }).catch(function(error){
       console.log(error)
@@ -130,11 +132,9 @@ class ChangePasswordForm extends Component {
               value={this.state.confirmpassword}
               onChange={this.handleUserInput}/>
           </div>
-          {this.state.loaded ?
-            <div className="row justify-content-center" fadein="none">
-              <Spinner name="circle" />
-            </div>
-            :null}
+          {this.state.finishloaded ?
+            <p className="text-success text-center"><strong>Contraseña cambiada exitosamente</strong></p>
+          :null}
           <div className="SignUp-Button">
             <button type="submit"
               className="btn btn-primary"
@@ -143,7 +143,10 @@ class ChangePasswordForm extends Component {
               data-keyboard="false"
               data-target="#exampleModal"
               disabled={!this.state.formValid}>
-                Cambiar
+              {this.state.loaded ?
+                  <Spinner name="circle" fadein="none" color="white"/>
+                : "Cambiar"
+              }
             </button>
           </div>
         </form>

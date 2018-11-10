@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../styles/news.css'
 import axios from 'axios';
 import News from './News';
-import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle} from 'reactstrap'
+import { Card, CardImg, CardBody,CardTitle, CardSubtitle} from 'reactstrap'
 
 class NewsView extends Component {
   constructor (props) {
