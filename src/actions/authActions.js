@@ -43,17 +43,11 @@ export function login(auth) {
   }
 }
 
-export function login_social(token) {
+export function login_social(token, user) {
   return dispatch => {
     localStorage.setItem('jwtToken', token);
+    localStorage.setItem('user', user);
     setAuthorizationToken(token);
-    API.get('/api/users/current', token).then(
-      (res_u) => {
-        console.log(res_u['data']['current_user'])
-        const current_user = res_u.data.current_user;
-        localStorage.setItem('user', current_user);
-      }
-    )
     dispatch(setCurrentUser(jwtDecode(token)));
   }
 }
