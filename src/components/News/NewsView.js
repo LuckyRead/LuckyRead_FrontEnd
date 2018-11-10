@@ -49,12 +49,12 @@ class NewsView extends Component {
               <div className="carousel-inner">
               <div className="carousel-item active">
                 <Card id="NewsCard">
-                    <CardImg top width="100%" src="http://newsmobile.in/wp-content/uploads/2018/08/5ab4adb10a8d0.jpg" alt="Card image cap"/>
+                    <CardImg top width="100%" src="http://sharepoint.ncssma.org/dailynewsbundle/Pictures/News%20Collage.jpg" alt="Card image cap"/>
                     <CardBody id="CoverPage" className="text-center">
                     <CardTitle className="text-center"><h1><strong>Noticias</strong></h1></CardTitle>
-                    <CardSubtitle><p><strong>Enterate aquí de las noticias más importantes actualmente,
-                    al darle en "Ver más..." te va a redirigir a la página original dónde se encuentra
-                    alojada la noticia.</strong></p></CardSubtitle>
+                    <CardSubtitle><p className="text-justify">Enterate aquí de las noticias más importantes actualmente,
+                    al darle en <strong>"Ver más..."</strong> te va a redirigir a la página original dónde se encuentra
+                    alojada la noticia.</p></CardSubtitle>
                   </CardBody>
                 </Card>
               </div>
