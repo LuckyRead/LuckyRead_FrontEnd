@@ -20,7 +20,7 @@ const LandingPage = () => {
                   otros usuarios y aprender algo nuevo cada día!
                 </p>
               </h3>
-              <Link to="/register">
+              <Link to="/RegisterPage">
                 <button className="button button5" id="Init-button">
                   <strong>Empezar</strong>
                 </button>
