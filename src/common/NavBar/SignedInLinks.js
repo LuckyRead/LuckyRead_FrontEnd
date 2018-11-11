@@ -1,7 +1,7 @@
 /* import React, { Component } from 'react';
 
 import '../../styles/navbar.css';
-import { logout } from '../../actions/authActions.js';
+
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';

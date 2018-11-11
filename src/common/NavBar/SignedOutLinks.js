@@ -13,8 +13,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import "./navbar.css";
-
-// import { login } from '../../actions/authActions';
+import LoginPage from "../../screens/LoginPage/LoginPage";
 
 const SignedOutLinks = () => {
   return (
@@ -24,7 +23,9 @@ const SignedOutLinks = () => {
           <DropdownToggle nav caret>
             Iniciar sesion
           </DropdownToggle>
-          <DropdownMenu right>Aqui va la Login Page</DropdownMenu>
+          <DropdownMenu right>
+            <LoginPage />
+          </DropdownMenu>
         </UncontrolledDropdown>
       </Nav>
     </div>
