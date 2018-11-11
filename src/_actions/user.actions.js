@@ -6,7 +6,9 @@ import { history } from "../_helpers";
 export const userActions = {
   /*    login,
     logout, */
-  register
+  register,
+  verify_username,
+  verify_email
   /*     getAll,
     delete: _delete */
 };
@@ -43,7 +45,7 @@ function register(user) {
     dispatch(request(user));
 
     userService.register(user).then(
-      user => {
+      response => {
         dispatch(success());
         history.push("/");
         dispatch(alertActions.success("Registro exitoso"));
@@ -60,6 +62,74 @@ function register(user) {
   }
   function success(user) {
     return { type: userConstants.REGISTER_SUCCESS, user };
+  }
+  function failure(error) {
+    return { type: userConstants.REGISTER_FAILURE, error };
+  }
+}
+
+function verify_username(username) {
+  console.log("Action verify_username");
+  return dispatch => {
+    dispatch(request(username));
+
+    userService.verify_username(username).then(
+      response => {
+        console.log(response.data.email.toString());
+        dispatch(success(response.data.email.toString()));
+        const resp = response.data.email.toString();
+        if (resp === "Taken") {
+          dispatch(alertActions.error("El usuario ya existe"));
+        } else {
+          dispatch(alertActions.success("Usuario Disponible"));
+        }
+      },
+      error => {
+        dispatch(failure(error.toString()));
+        dispatch(alertActions.error(error.toString()));
+      }
+    );
+  };
+
+  function request(username) {
+    return { type: userConstants.REGISTER_REQUEST, username };
+  }
+  function success(username) {
+    return { type: userConstants.REGISTER_SUCCESS, username };
+  }
+  function failure(error) {
+    return { type: userConstants.REGISTER_FAILURE, error };
+  }
+}
+
+function verify_email(email) {
+  console.log("Action verify_email");
+  return dispatch => {
+    dispatch(request(email));
+
+    userService.verify_email(email).then(
+      response => {
+        console.log(response.data.email.toString());
+        dispatch(success(response.data.email.toString()));
+        const resp = response.data.email.toString();
+        if (resp === "Taken") {
+          dispatch(alertActions.error("El email existe"));
+        } else {
+          dispatch(alertActions.success("Email disponible"));
+        }
+      },
+      error => {
+        dispatch(failure(error.toString()));
+        dispatch(alertActions.error(error.toString()));
+      }
+    );
+  };
+
+  function request(username) {
+    return { type: userConstants.REGISTER_REQUEST, username };
+  }
+  function success(username) {
+    return { type: userConstants.REGISTER_SUCCESS, username };
   }
   function failure(error) {
     return { type: userConstants.REGISTER_FAILURE, error };

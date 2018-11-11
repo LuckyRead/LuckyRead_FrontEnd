@@ -36,7 +36,6 @@ class RegisterForm extends React.Component {
       confirmpasswordValid: false,
       formValid: false,
       confirmPass: false,
-      loading: false,
       submitted: false
     };
 
@@ -67,6 +66,9 @@ class RegisterForm extends React.Component {
         fieldValidationErrors.username = usernameValid
           ? ""
           : "Tu nombre de usuario no debe exceder los 15 caracteres";
+        /*         const { dispatch } = this.props;
+        console.log("dispatch verify_username");
+        dispatch(userActions.verify_username(this.state.username)); */
         break;
 
       case "nombre":
@@ -77,6 +79,9 @@ class RegisterForm extends React.Component {
       case "email":
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         fieldValidationErrors.email = emailValid ? "" : "Email inválido";
+        const { dispatch } = this.props;
+        console.log("dispatch verify_username");
+        dispatch(userActions.verify_email(this.state.email));
         break;
 
       case "password":
@@ -137,14 +142,6 @@ class RegisterForm extends React.Component {
   }
 
   handleSubmit = event => {
-    /*     event.preventDefault();
-
-    this.setState({ submitted: true });
-    const { user } = this.state;
-    const { dispatch } = this.props;
-      if (user.firstName && user.lastName && user.username && user.password) {
-            dispatch(userActions.register(user));
-        } */
     event.preventDefault();
     this.setState({ submitted: true });
     const user = {
@@ -156,7 +153,8 @@ class RegisterForm extends React.Component {
       city_id: 1
     };
     const { dispatch } = this.props;
-    dispatch(userActions.register(user));
+    console.log("dispatch register");
+    dispatch(userActions.register({ user }));
   };
 
   render() {
@@ -282,9 +280,9 @@ class RegisterForm extends React.Component {
               data-backdrop="static"
               data-keyboard="false"
               data-target="#exampleModal"
-              disabled={!this.state.formValid}
+              disabled={!this.state.formValid && registering}
             >
-              Register
+              Registrarme
             </button>
             {registering && (
               <img

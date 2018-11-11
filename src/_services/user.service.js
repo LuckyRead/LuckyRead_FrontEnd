@@ -1,18 +1,25 @@
-import { authHeader } from "../_helpers";
+/* import { authHeader } from "../_helpers"; */
 import API from "../api";
 export const userService = {
-  register
+  register,
+  verify_username,
+  verify_email
 };
 
 function register(user) {
-  return API.post(`/api/signup`, user).then(
-    res => {
-      console.log(res);
-      console.log("usuario registrado");
-    },
-    err => {
-      console.log(err);
-      console.log("registro rechazado");
-    }
-  );
+  console.log("Usuario a registrar");
+  console.log(user);
+  return API.post(`/api/signup`, user);
+}
+
+function verify_username(username) {
+  console.log("Verificando Usuario");
+  console.log(username);
+  return API.post(`/api/users/user_exist`, { username });
+}
+
+function verify_email(email) {
+  console.log("Verificando Usuario");
+  console.log(email);
+  return API.post(`/api/users/email_exist`, { email });
 }
