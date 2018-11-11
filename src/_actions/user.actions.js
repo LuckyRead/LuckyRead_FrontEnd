@@ -52,7 +52,7 @@ function register(user) {
       },
       error => {
         dispatch(failure(error.toString()));
-        dispatch(alertActions.error(error.toString()));
+        dispatch(alertActions.error("Oh, algo salio mal"));
       }
     );
   };
@@ -92,13 +92,13 @@ function verify_username(username) {
   };
 
   function request(username) {
-    return { type: userConstants.REGISTER_REQUEST, username };
+    return { type: userConstants.VALIDATE_USERNAME_REQUEST, username };
   }
   function success(username) {
-    return { type: userConstants.REGISTER_SUCCESS, username };
+    return { type: userConstants.VALIDATE_USERNAME_SUCCESS, username };
   }
   function failure(error) {
-    return { type: userConstants.REGISTER_FAILURE, error };
+    return { type: userConstants.VALIDATE_USERNAME_FAILURE, error };
   }
 }
 
@@ -125,14 +125,14 @@ function verify_email(email) {
     );
   };
 
-  function request(username) {
-    return { type: userConstants.REGISTER_REQUEST, username };
+  function request(email) {
+    return { type: userConstants.VALIDATE_EMAIL_REQUEST, email };
   }
-  function success(username) {
-    return { type: userConstants.REGISTER_SUCCESS, username };
+  function success(email) {
+    return { type: userConstants.VALIDATE_EMAIL_SUCCESS, email };
   }
   function failure(error) {
-    return { type: userConstants.REGISTER_FAILURE, error };
+    return { type: userConstants.VALIDATE_EMAIL_FAILURE, error };
   }
 }
 

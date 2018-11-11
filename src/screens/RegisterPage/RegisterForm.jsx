@@ -52,6 +52,7 @@ class RegisterForm extends React.Component {
   };
 
   validateField(fieldName, value) {
+    const { dispatch } = this.props;
     let fieldValidationErrors = this.state.formErrors;
     let usernameValid = this.state.namesValid;
     let namesValid = this.state.namesValid;
@@ -66,9 +67,10 @@ class RegisterForm extends React.Component {
         fieldValidationErrors.username = usernameValid
           ? ""
           : "Tu nombre de usuario no debe exceder los 15 caracteres";
-        /*         const { dispatch } = this.props;
-        console.log("dispatch verify_username");
-        dispatch(userActions.verify_username(this.state.username)); */
+        if (usernameValid) {
+          console.log("dispatch verify_username");
+          dispatch(userActions.verify_username(this.state.username));
+        }
         break;
 
       case "nombre":
@@ -79,9 +81,11 @@ class RegisterForm extends React.Component {
       case "email":
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         fieldValidationErrors.email = emailValid ? "" : "Email inválido";
-        const { dispatch } = this.props;
-        console.log("dispatch verify_username");
-        dispatch(userActions.verify_email(this.state.email));
+
+        if (emailValid) {
+          console.log("dispatch verify_username");
+          dispatch(userActions.verify_email(this.state.email));
+        }
         break;
 
       case "password":
@@ -159,7 +163,9 @@ class RegisterForm extends React.Component {
 
   render() {
     const { registering } = this.props;
-    const { user, submitted } = this.state;
+    const { validating_email } = this.props;
+    const { validating_username } = this.props;
+
     return (
       <div className="col-sm-12" id="Form">
         <form className="demoForm" onSubmit={this.handleSubmit}>
@@ -173,6 +179,12 @@ class RegisterForm extends React.Component {
             )}`}
           >
             <label htmlFor="username">Usuario</label>
+            {validating_username && (
+              <img
+                src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                alt="loading gif"
+              />
+            )}
             <div className="input-group">
               <input
                 type="text"
@@ -223,12 +235,19 @@ class RegisterForm extends React.Component {
               </div>
             </div>
           </div>
+
           <div
             className={`form-group ${this.errorClass(
               this.state.formErrors.email
             )}`}
           >
             <label htmlFor="email">Correo</label>
+            {validating_email && (
+              <img
+                src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                alt="loading gif"
+              />
+            )}
             <input
               type="email"
               required
@@ -280,7 +299,7 @@ class RegisterForm extends React.Component {
               data-backdrop="static"
               data-keyboard="false"
               data-target="#exampleModal"
-              disabled={!this.state.formValid && registering}
+              disabled={!this.state.formValid || registering}
             >
               Registrarme
             </button>
@@ -299,8 +318,13 @@ class RegisterForm extends React.Component {
 
 function mapStateToProps(state) {
   const { registering } = state.registration;
+  const { validating_email } = state.email_exist;
+  const { validating_username } = state.username_exist;
+
   return {
-    registering
+    registering,
+    validating_email,
+    validating_username
   };
 }
 

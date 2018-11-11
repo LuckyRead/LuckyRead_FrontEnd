@@ -7,7 +7,7 @@ export const userService = {
 };
 
 function register(user) {
-  console.log("Usuario a registrar");
+  console.log("Registrando usuario");
   console.log(user);
   return API.post(`/api/signup`, user);
 }
@@ -19,7 +19,7 @@ function verify_username(username) {
 }
 
 function verify_email(email) {
-  console.log("Verificando Usuario");
+  console.log("Verificando email");
   console.log(email);
   return API.post(`/api/users/email_exist`, { email });
 }
