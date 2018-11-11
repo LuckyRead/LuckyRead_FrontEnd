@@ -7,7 +7,7 @@ import { alertActions } from "../_actions";
 import { PrivateRoute } from "../_utils";
 import RegisterPage from "../screens/RegisterPage";
 import LandingPage from "../screens/LandingPage";
-
+import Navbar from "../common/NavBar/NavBar.js";
 import "./App.css";
 
 class App extends Component {
@@ -25,6 +25,7 @@ class App extends Component {
     const { alert } = this.props;
     return (
       <div className="container-fluid">
+        <Navbar />
         {alert.message && (
           <div className={`alert ${alert.type}`}>{alert.message}</div>
         )}
