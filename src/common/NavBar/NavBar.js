@@ -1,19 +1,8 @@
 import React from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from "reactstrap";
 import paperplane from "../../resources/paper_plane.png";
 import SignedOutLinks from "./SignedOutLinks";
+import SignedInLinks from "./SignedInLinks";
 import "./navbar.css";
 
 export default class NavBar extends React.Component {
@@ -31,8 +20,8 @@ export default class NavBar extends React.Component {
     });
   }
   render() {
-    const token = null;
-    const links = token == null ? <SignedOutLinks /> : null;
+    const token = localStorage.getItem("jwtToken");
+    const links = token == null ? <SignedOutLinks /> : <SignedInLinks />;
     return (
       <div>
         <Navbar color="dark" dark expand="md" id="navbar">

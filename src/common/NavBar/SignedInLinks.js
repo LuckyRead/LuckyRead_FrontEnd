@@ -1,64 +1,59 @@
-/* import React, { Component } from 'react';
-
-import '../../styles/navbar.css';
-
-import {Link} from 'react-router-dom'
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-
+import React, { Component } from "react";
+import {
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
+import "./navbar.css";
 
 class SignedInLinks extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    console.log('antes de ser montado')
     this.state = {
       user: localStorage.user
-    }
+    };
   }
 
-  handleLogout = event => {
-    event.preventDefault();
-    this.props.logout()
-  }
-
-
-  render(){
+  render() {
     return (
       <div>
-        <ul className="navbar-nav ml-auto">
-         <li className="nav-item">
-          <Link to='fragmentspage' className="nav-link" >Leer algo <span className="sr-only">(current)</span></Link>
-         </li>
-         <li className="nav-item">
-          <Link to='news' className="nav-link" >Noticias</Link>
-         </li>
-         <li className="nav-item">
-          <Link to='categoriespage' className="nav-link">Categorias</Link>
-         </li>
-         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {this.state.user}
-          </a>
-          <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-           <Link to="/profile" className="dropdown-item " disabled>Mi perfil</Link>
-           <div className="dropdown-divider"></div>
-           <Link to='/' className="dropdown-item" onClick={this.handleLogout} id="exitButton">Salir</Link>
-          </div>
-         </li>
-      </ul>
-    </div>
-  )}
+        <Nav className="ml-auto" navbar>
+          <NavItem>
+            <NavLink to="/frag">
+              Leer algo <span className="sr-only">(current)</span>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="news">Noticias</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="categoriespage">Categorias</NavLink>
+          </NavItem>
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>
+              {this.state.user}
+            </DropdownToggle>
+            <DropdownMenu right>
+              <DropdownItem>Perfil</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem
+                to="/"
+                className="dropdown-item"
+                onClick={this.handleLogout}
+                id="exitButton"
+              >
+                Salir
+              </DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        </Nav>
+      </div>
+    );
+  }
 }
 
-
-
-SignedInLinks.propTypes = {
-  logout: PropTypes.func.isRequired
-}
-
-SignedInLinks.contextTypes = {
-  router: PropTypes.object.isRequired
-}
-
-export default connect(null, { logout })(SignedInLinks);
- */
+export default SignedInLinks;
