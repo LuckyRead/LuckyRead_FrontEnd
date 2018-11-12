@@ -1,0 +1,39 @@
+#RegistrationForm {
+    background: white;
+    display: table;
+    margin: 0 auto;
+    margin-top: 2%;
+    border-radius: 5px;
+    border-style: none;
+}
+#Form {
+  display: table;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+#center{
+  text-align: center;
+}
+
+
+.LogIn-Title{
+  color: #2B5275;
+  text-align: center;
+}
+
+.LogIn-Button{
+  text-align: center;
+}
+
+
+#loginpage{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+#facebook{
+  background: #3b5998 !important;
+  border-color:  #3b5998 !important;
+}
