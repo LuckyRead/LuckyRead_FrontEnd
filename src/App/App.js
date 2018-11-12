@@ -14,6 +14,7 @@ import LandingPage from "../screens/LandingPage";
 import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage";
 import FragmentPage from "../screens/FragmentPage/FragmentPage";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
+import Categories_List from "../screens/CategoriesPage/Categories_List";
 
 // Styles
 import "./App.css";
@@ -55,6 +56,11 @@ class App extends Component {
             />
             <PrivateRoute exact path="/:fragment_id" component={FragmentPage} />
             <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
+            <PrivateRoute
+              exact
+              path="/CategoriesPage"
+              component={Categories_List}
+            />
           </div>
         </Router>
       </div>

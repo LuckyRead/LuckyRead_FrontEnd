@@ -17,6 +17,7 @@ function login(auth) {
 function logout() {
   console.log("service logout");
   localStorage.removeItem("jwtToken");
+  localStorage.removeItem("user");
 }
 
 function register(user) {
