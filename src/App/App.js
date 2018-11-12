@@ -13,6 +13,7 @@ import RegisterPage from "../screens/RegisterPage";
 import LandingPage from "../screens/LandingPage";
 import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage";
 import FragmentPage from "../screens/FragmentPage/FragmentPage";
+import ProfilePage from "../screens/ProfilePage/ProfilePage";
 
 // Styles
 import "./App.css";
@@ -53,6 +54,7 @@ class App extends Component {
               component={RandomFragmentPage}
             />
             <PrivateRoute exact path="/:fragment_id" component={FragmentPage} />
+            <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
           </div>
         </Router>
       </div>

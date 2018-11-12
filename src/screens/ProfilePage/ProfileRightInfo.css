@@ -1,0 +1,39 @@
+.btn-squared-default{
+  font-size: 15px;
+  margin: 20px;
+}
+
+.fa{
+  font-size: 150px;
+  margin: 20px;
+}
+i{
+  margin: 0 auto !important;
+}
+.btn-squared-default:hover{
+  border: 0px solid white;
+}
+
+
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+#buttonFrag{
+  background-color:  #73c6b6 ;
+  border-color:  #73c6b6 ;
+}
+#buttonPref{
+  background-color:  #85c1e9 ;
+  border-color:  #85c1e9 ;
+}
+#buttonFav{
+  background-color:  #f9e79f ;
+  border-color:  #f9e79f ;
+}
+#buttonInfo{
+  background-color: #f8c471;
+  border-color:  #f8c471 ;
+}
