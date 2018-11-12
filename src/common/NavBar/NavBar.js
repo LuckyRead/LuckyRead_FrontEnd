@@ -2,7 +2,7 @@ import React from "react";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from "reactstrap";
 import paperplane from "../../resources/paper_plane.png";
 import SignedOutLinks from "./SignedOutLinks";
-import SignedInLinks from "./SignedInLinks";
+import { SignedInLinks } from "./SignedInLinks";
 import "./navbar.css";
 
 export default class NavBar extends React.Component {

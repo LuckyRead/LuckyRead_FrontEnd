@@ -2,6 +2,7 @@
 import API from "../api";
 export const userService = {
   login,
+  logout,
   register,
   verify_username,
   verify_email
@@ -13,10 +14,10 @@ function login(auth) {
   return API.post("/api/login", { auth });
 }
 
-/* function logout() {
-  // remove user from local storage to log user out
-  localStorage.removeItem("user");
-} */
+function logout() {
+  console.log("service logout");
+  localStorage.removeItem("jwtToken");
+}
 
 function register(user) {
   console.log("Registrando usuario");

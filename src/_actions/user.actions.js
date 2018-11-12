@@ -5,7 +5,7 @@ import { history } from "../_helpers";
 
 export const userActions = {
   login,
-  /* logout, */
+  logout,
   register,
   verify_username,
   verify_email
@@ -48,10 +48,12 @@ function login(auth) {
   }
 }
 
-/* function logout() {
-    userService.logout();
-    return { type: userConstants.LOGOUT };
-} */
+function logout() {
+  console.log("action logout");
+  userService.logout();
+  history.push("/");
+  return { type: userConstants.LOGOUT };
+}
 
 function register(user) {
   return dispatch => {

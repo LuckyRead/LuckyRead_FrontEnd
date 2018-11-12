@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { userActions } from "../../_actions";
 import {
   Nav,
   NavItem,
@@ -16,7 +18,15 @@ class SignedInLinks extends Component {
     this.state = {
       user: localStorage.user
     };
+    this.handleLogout = this.handleLogout.bind(this);
   }
+
+  handleLogout = event => {
+    event.preventDefault();
+    const { dispatch } = this.props;
+    console.log("dispatch logout");
+    dispatch(userActions.logout());
+  };
 
   render() {
     return (
@@ -56,4 +66,17 @@ class SignedInLinks extends Component {
   }
 }
 
-export default SignedInLinks;
+function mapStateToProps(state) {
+  const { registering } = state.registration;
+  const { validating_email } = state.email_exist;
+  const { validating_username } = state.username_exist;
+
+  return {
+    registering,
+    validating_email,
+    validating_username
+  };
+}
+
+const connectedSignedInLinks = connect(mapStateToProps)(SignedInLinks);
+export { connectedSignedInLinks as SignedInLinks };
