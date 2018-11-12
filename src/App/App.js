@@ -15,6 +15,8 @@ import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage
 import FragmentPage from "../screens/FragmentPage/FragmentPage";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
 import Categories_List from "../screens/CategoriesPage/Categories_List";
+import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
+import Email from "../screens/ChangePassword/Email";
 
 // Styles
 import "./App.css";
@@ -49,6 +51,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/RegisterPage" component={RegisterPage} />
+
             <PrivateRoute
               exact
               path="/RandomFragmentPage"
@@ -60,6 +63,11 @@ class App extends Component {
               exact
               path="/CategoriesPage"
               component={Categories_List}
+            />
+            <Route exact path="/Email" component={Email} />
+            <Route
+              path="/reset_password/:token"
+              component={ChangePasswordPage}
             />
           </div>
         </Router>
