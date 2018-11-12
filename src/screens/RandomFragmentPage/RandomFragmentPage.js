@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 //Components
 import axios from "axios";
 //styles
-import "../../styles/homepage.css";
+import "./homepage.css";
 
-class FragmentsPage extends Component {
+class RandomFragmentPage extends Component {
   state = {
     posts: []
   };
@@ -21,6 +21,7 @@ class FragmentsPage extends Component {
   }
 
   componentDidMount() {
+    console.log(localStorage.jwtToken);
     axios({
       method: "GET",
       url: "https://luckyread-backend.herokuapp.com/api/fragments/something",
@@ -37,7 +38,7 @@ class FragmentsPage extends Component {
         console.log(response.data.title);
       },
       err => {
-        console.log("el error es pidiendo fragmento random");
+        console.log("Error pidiendo fragmento random");
       }
     );
   }
@@ -104,4 +105,4 @@ class FragmentsPage extends Component {
   }
 }
 
-export default FragmentsPage;
+export default RandomFragmentPage;

@@ -33,7 +33,7 @@ class SignedInLinks extends Component {
       <div>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink to="/frag">
+            <NavLink href="/RandomFragmentPage">
               Leer algo <span className="sr-only">(current)</span>
             </NavLink>
           </NavItem>

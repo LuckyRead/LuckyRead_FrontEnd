@@ -80,9 +80,9 @@
   text-align: center;
 }
 
-.paperplane img{
+.paperplane img {
   position: relative;
-  top:20px;
+  top: 20px;
   left: -100px;
   opacity: 0.6;
 }
@@ -104,7 +104,7 @@
   background-color: black;
   width: auto;
   height: 100%;
-  background-image: url("../resources/flower.jpg");
+  /*   background-image: url("../resources/flower.jpg"); */
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;

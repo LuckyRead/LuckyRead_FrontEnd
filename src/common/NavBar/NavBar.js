@@ -1,5 +1,12 @@
 import React from "react";
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from "reactstrap";
+import {
+  NavLink,
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav
+} from "reactstrap";
 import paperplane from "../../resources/paper_plane.png";
 import SignedOutLinks from "./SignedOutLinks";
 import { SignedInLinks } from "./SignedInLinks";
@@ -25,10 +32,11 @@ export default class NavBar extends React.Component {
     return (
       <div>
         <Navbar color="dark" dark expand="md" id="navbar">
-          <NavbarBrand id="paperplane">
+          <NavbarBrand id="paperplane" href="/">
             <img src={paperplane} alt="paperplane" />
-            <a id="brand">LuckyRead</a>
+            LuckyRead
           </NavbarBrand>
+
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

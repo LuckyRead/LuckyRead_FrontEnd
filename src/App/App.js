@@ -5,9 +5,14 @@ import { connect } from "react-redux";
 import { history } from "../_helpers";
 import { alertActions } from "../_actions";
 import { PrivateRoute } from "../_utils";
+
+import Navbar from "../common/NavBar/NavBar.js";
+
+//Screens
 import RegisterPage from "../screens/RegisterPage";
 import LandingPage from "../screens/LandingPage";
-import Navbar from "../common/NavBar/NavBar.js";
+import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage";
+import FragmentPage from "../screens/FragmentPage/FragmentPage";
 
 // Styles
 import "./App.css";
@@ -42,6 +47,12 @@ class App extends Component {
           <div>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/RegisterPage" component={RegisterPage} />
+            <PrivateRoute
+              exact
+              path="/RandomFragmentPage"
+              component={RandomFragmentPage}
+            />
+            <PrivateRoute exact path="/:fragment_id" component={FragmentPage} />
           </div>
         </Router>
       </div>

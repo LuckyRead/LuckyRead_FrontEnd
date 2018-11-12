@@ -27,7 +27,7 @@ function login(auth) {
         localStorage.setItem("user", user);
         console.log(localStorage.jwtToken);
         /*         dispatch(success(response.toString())); */
-        history.push("/");
+        history.push("/RandomFragmentPage");
       },
       error => {
         console.log("error en login");
