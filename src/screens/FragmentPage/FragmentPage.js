@@ -4,10 +4,12 @@ import "./fragmentcontainer.css";
 import API from "../../api";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
-
+import Loading from "../../common/Loading/Loading";
+import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
 class FragmentPage extends Component {
   state = {
-    post: null
+    post: null,
+    statistic: null
   };
   componentDidMount() {
     let id = this.props.match.params.fragment_id;
@@ -16,11 +18,29 @@ class FragmentPage extends Component {
       this.setState({
         post: res.data
       });
-      //console.log(res.data)
+      console.log(this.state.post.base64_image);
       console.log(res.data);
     });
+
+    API.get("/api/fragments/stat/percentage_reaction_fragments/" + id).then(
+      res => {
+        console.log(res);
+        this.setState({
+          statistic: {
+            percentagelikes: res.data[0].percentagelikes,
+            percentagedislikes: res.data[0].percentagedislikes,
+            percentagenoreaction: res.data[0].percentagenoreaction
+          }
+        });
+        console.log(this.state.statistic);
+        console.log(res.data[0]);
+        console.log(res.data[0].percentagelikes);
+        console.log(res.data[0].percentagedislikes);
+      }
+    );
   }
   render() {
+    const statistic = this.state.statistic;
     const post = this.state.post ? (
       <div className="container" id="container">
         <br />
@@ -33,10 +53,12 @@ class FragmentPage extends Component {
             <div className="row justify-content-center" id="content">
               <div className="col-4" id="image">
                 <img
-                  src={this.state.post.image_path}
+                  src={this.state.post.base64_image}
                   alt="Imagen de referencia"
                 />
+                <div>{<ReactionButtons response={this.state.statistic} />}</div>
               </div>
+
               <div className="col-8" id="text">
                 <h4>
                   <strong>Introducción</strong>
@@ -52,7 +74,6 @@ class FragmentPage extends Component {
                 </h6>
                 <p className="text-center">{this.state.post.source}</p>
               </div>
-              <div> Aqui van mas opciones</div>
             </div>
             <div className="row justify-content-center">
               <Button color="primary" tag={Link} to="/RandomFragmentPage">
@@ -63,7 +84,9 @@ class FragmentPage extends Component {
         </div>
       </div>
     ) : (
-      <div className="center">Loading post...</div>
+      <div className="center">
+        <Loading />
+      </div>
     );
 
     return <div className="container">{post}</div>;

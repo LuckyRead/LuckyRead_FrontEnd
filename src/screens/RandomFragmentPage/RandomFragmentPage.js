@@ -59,7 +59,7 @@ class RandomFragmentPage extends Component {
                 </p>
                 <div className="row">
                   <div className="col-md-4" id="image">
-                    <img src={posts.image_path} alt="Imagen de referencia" />
+                    <img src={posts.base64_image} alt="Imagen de referencia" />
                   </div>
                   <div className="col-md-8">
                     <p id="FragmentIntro">{posts.introduction}</p>
