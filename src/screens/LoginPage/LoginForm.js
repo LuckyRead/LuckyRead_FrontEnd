@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
           const user = res["data"]["username"];
           console.log(res);
           this.props.login_social(token, user);
-          this.context.router.history.push("/fragmentspage");
+          this.context.router.history.push("/RandomFragmentPage");
         })
         .catch(function(error) {
           console.log("error al tratar de conseguir token del back - facebook");
@@ -59,7 +59,7 @@ class LoginForm extends React.Component {
           const token = res["data"]["jwt"];
           const user = res["data"]["username"];
           this.props.login_social(token, user);
-          this.context.router.history.push("/fragmentspage");
+          this.context.router.history.push("/RandomFragmentPage");
         })
         .catch(function(error) {
           console.log("error al tratar de conseguir token del back - google");
