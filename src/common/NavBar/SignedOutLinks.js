@@ -1,5 +1,7 @@
 import React from "react";
 import {
+  NavItem,
+  NavLink,
   Nav,
   UncontrolledDropdown,
   DropdownToggle,
@@ -12,6 +14,9 @@ const SignedOutLinks = () => {
   return (
     <div>
       <Nav className="ml-auto" navbar>
+        <NavItem>
+          <NavLink href="news">Noticias</NavLink>
+        </NavItem>
         <UncontrolledDropdown nav inNavbar>
           <DropdownToggle nav caret>
             Iniciar sesion

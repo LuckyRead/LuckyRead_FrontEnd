@@ -48,10 +48,9 @@ class SignedInLinks extends Component {
               {this.state.user}
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem>Perfil</DropdownItem>
+              <DropdownItem href="/ProfilePage">Perfil</DropdownItem>
               <DropdownItem divider />
               <DropdownItem
-                to="/"
                 className="dropdown-item"
                 onClick={this.handleLogout}
                 id="exitButton"

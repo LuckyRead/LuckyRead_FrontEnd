@@ -17,7 +17,8 @@ import ProfilePage from "../screens/ProfilePage/ProfilePage";
 import Categories_List from "../screens/CategoriesPage/Categories_List";
 import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
-import News from "../screens/News/News";
+import News from "../screens/News/NewsView";
+import FragmentPDF from "../screens/FragmentPage/FragmentPDF";
 
 // Styles
 import "./App.css";
@@ -70,6 +71,7 @@ class App extends Component {
               component={ChangePasswordPage}
             />
             <Route path="/news" component={News} />
+            <Route path="/pdf/:fragment_id" component={FragmentPDF} />
           </div>
         </Router>
       </div>
