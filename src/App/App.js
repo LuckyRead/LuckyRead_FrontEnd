@@ -17,6 +17,7 @@ import ProfilePage from "../screens/ProfilePage/ProfilePage";
 import Categories_List from "../screens/CategoriesPage/Categories_List";
 import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
+import News from "../screens/News/News";
 
 // Styles
 import "./App.css";
@@ -51,13 +52,12 @@ class App extends Component {
           <div>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/RegisterPage" component={RegisterPage} />
-
             <PrivateRoute
               exact
               path="/RandomFragmentPage"
               component={RandomFragmentPage}
             />
-            <PrivateRoute exact path="/:fragment_id" component={FragmentPage} />
+            <Route exact path="/:fragment_id" component={FragmentPage} />
             <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
             <PrivateRoute
               exact
@@ -69,6 +69,7 @@ class App extends Component {
               path="/reset_password/:token"
               component={ChangePasswordPage}
             />
+            <Route path="/news" component={News} />
           </div>
         </Router>
       </div>

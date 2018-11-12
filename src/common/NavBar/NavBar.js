@@ -32,11 +32,19 @@ export default class NavBar extends React.Component {
     return (
       <div>
         <Navbar color="dark" dark expand="md" id="navbar">
-          <NavbarBrand id="paperplane" href="/">
+          <NavbarBrand id="paperplane">
             <img src={paperplane} alt="paperplane" />
-            LuckyRead
           </NavbarBrand>
 
+          {token == null ? (
+            <NavbarBrand id="paperplane" href="/">
+              LuckyRead
+            </NavbarBrand>
+          ) : (
+            <a className="navbar-brand" id="brand">
+              LuckyRead
+            </a>
+          )}
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
