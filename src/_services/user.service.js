@@ -1,15 +1,25 @@
 /* import { authHeader } from "../_helpers"; */
 import API from "../api";
 export const userService = {
+  login,
   register,
   verify_username,
   verify_email
 };
 
+function login(auth) {
+  return API.login({ auth });
+}
+
+/* function logout() {
+  // remove user from local storage to log user out
+  localStorage.removeItem("user");
+} */
+
 function register(user) {
   console.log("Registrando usuario");
   console.log(user);
-  return API.post(`/api/signup`, user);
+  API.post(`/api/signup`, user);
 }
 
 function verify_username(username) {

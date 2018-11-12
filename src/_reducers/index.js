@@ -10,7 +10,7 @@ import { users } from "./users.reducer";
 import { alert } from "./alert.reducer";
 
 const rootReducer = combineReducers({
-  /*   authentication, */
+  authentication,
   registration,
   email_exist,
   username_exist,

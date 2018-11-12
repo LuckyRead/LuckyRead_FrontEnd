@@ -156,9 +156,16 @@ class RegisterForm extends React.Component {
       password: this.state.password,
       city_id: 1
     };
+
+    const auth = {
+      email: this.state.email,
+      password: this.state.password
+    };
     const { dispatch } = this.props;
     console.log("dispatch register");
     dispatch(userActions.register({ user }));
+    console.log("dispatch login");
+    dispatch(userActions.login({ auth }));
   };
 
   render() {

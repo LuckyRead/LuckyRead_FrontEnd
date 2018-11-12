@@ -35,7 +35,7 @@ export default class NavBar extends React.Component {
     const links = token == null ? <SignedOutLinks /> : null;
     return (
       <div>
-        <Navbar color="light" light expand="md" id="navbar">
+        <Navbar color="dark" dark expand="md" id="navbar">
           <NavbarBrand id="paperplane">
             <img src={paperplane} alt="paperplane" />
             <a id="brand">LuckyRead</a>

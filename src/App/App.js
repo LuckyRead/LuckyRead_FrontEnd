@@ -8,7 +8,10 @@ import { PrivateRoute } from "../_utils";
 import RegisterPage from "../screens/RegisterPage";
 import LandingPage from "../screens/LandingPage";
 import Navbar from "../common/NavBar/NavBar.js";
+
+// Styles
 import "./App.css";
+import { Alerts } from "./Styled";
 
 class App extends Component {
   constructor(props) {
@@ -26,9 +29,15 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <Navbar />
-        {alert.message && (
-          <div className={`alert ${alert.type}`}>{alert.message}</div>
-        )}
+        <Alerts>
+          <div className="row">
+            <div className="col-md-5">
+              {alert.message && (
+                <div className={`alert ${alert.type}`}>{alert.message}</div>
+              )}
+            </div>
+          </div>
+        </Alerts>
         <Router history={history}>
           <div>
             <Route exact path="/" component={LandingPage} />
