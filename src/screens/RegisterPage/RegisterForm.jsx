@@ -164,8 +164,6 @@ class RegisterForm extends React.Component {
     const { dispatch } = this.props;
     console.log("dispatch register");
     dispatch(userActions.register({ user }));
-    console.log("dispatch login");
-    dispatch(userActions.login({ auth }));
   };
 
   render() {

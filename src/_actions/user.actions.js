@@ -15,12 +15,18 @@ export const userActions = {
 
 function login(auth) {
   return dispatch => {
-    dispatch(request({ auth }));
+    dispatch(request(auth));
 
     userService.login(auth).then(
       response => {
-        console.log("Logged");
-        dispatch(success(response));
+        console.log("Inicio de sesion exitoso");
+        console.log(response);
+        const token = response.data.jwt;
+        const user = response.data.username;
+        localStorage.setItem("jwtToken", token);
+        localStorage.setItem("user", user);
+        console.log(localStorage.jwtToken);
+        /*         dispatch(success(response.toString())); */
         history.push("/");
       },
       error => {

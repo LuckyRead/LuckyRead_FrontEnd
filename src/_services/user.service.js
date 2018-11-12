@@ -8,7 +8,9 @@ export const userService = {
 };
 
 function login(auth) {
-  return API.login({ auth });
+  console.log("Iniciando sesion");
+  console.log({ auth });
+  return API.post("/api/login", { auth });
 }
 
 /* function logout() {
@@ -19,7 +21,7 @@ function login(auth) {
 function register(user) {
   console.log("Registrando usuario");
   console.log(user);
-  API.post(`/api/signup`, user);
+  return API.post(`/api/signup`, user);
 }
 
 function verify_username(username) {

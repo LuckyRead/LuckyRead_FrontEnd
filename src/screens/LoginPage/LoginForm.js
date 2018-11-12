@@ -98,7 +98,9 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password
     };
-
+    const { dispatch } = this.props;
+    console.log("dispatch login");
+    dispatch(userActions.login(auth));
     /*     this.setState({ submitted: true });
     const { username, password } = this.state;
     const { dispatch } = this.props;
