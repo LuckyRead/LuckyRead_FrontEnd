@@ -9,10 +9,11 @@ import {
 } from "reactstrap";
 
 import LoginPage from "../../screens/LoginPage/LoginPage";
+import { SignedOutLinksContainer } from "./Styled";
 
 const SignedOutLinks = () => {
   return (
-    <div>
+    <SignedOutLinksContainer>
       <Nav className="ml-auto" navbar>
         <NavItem>
           <NavLink href="news">Noticias</NavLink>
@@ -26,7 +27,7 @@ const SignedOutLinks = () => {
           </DropdownMenu>
         </UncontrolledDropdown>
       </Nav>
-    </div>
+    </SignedOutLinksContainer>
   );
 };
 

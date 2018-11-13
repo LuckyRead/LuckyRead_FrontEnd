@@ -51,6 +51,7 @@ export default class NavBar extends React.Component {
             </LuckyReadHomeContainer>
           )}
           <NavbarToggler onClick={this.toggle} />
+
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               {links}

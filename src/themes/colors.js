@@ -7,7 +7,8 @@ const Palette = {
   bluesea: " #0fddf2 ",
   bluestrong: " #2b5693 ",
   blackopacity: "#0006",
-  blueTitleLanding: "#105f78"
+  blueTitleLanding: "#105f78",
+  black: "black"
 };
 
 export { Palette };

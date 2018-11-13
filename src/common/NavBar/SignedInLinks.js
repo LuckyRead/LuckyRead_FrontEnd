@@ -10,7 +10,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-
+import { SignedInLinksContainer } from "./Styled";
 class SignedInLinks extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +29,7 @@ class SignedInLinks extends Component {
 
   render() {
     return (
-      <div>
+      <SignedInLinksContainer>
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink href="/RandomFragmentPage">
@@ -59,7 +59,7 @@ class SignedInLinks extends Component {
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
-      </div>
+      </SignedInLinksContainer>
     );
   }
 }
