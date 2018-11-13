@@ -10,8 +10,11 @@ import {
 import paperplane from "../../resources/paper_plane.png";
 import SignedOutLinks from "./SignedOutLinks";
 import { SignedInLinks } from "./SignedInLinks";
-import "./navbar.css";
-
+import {
+  ImageContainer,
+  NavbarContainer,
+  LuckyReadHomeContainer
+} from "./Styled";
 export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -30,29 +33,32 @@ export default class NavBar extends React.Component {
     const token = localStorage.getItem("jwtToken");
     const links = token == null ? <SignedOutLinks /> : <SignedInLinks />;
     return (
-      <div>
-        <Navbar color="dark" dark expand="md" id="navbar">
-          <NavbarBrand id="paperplane">
-            <img src={paperplane} alt="paperplane" />
+      <NavbarContainer>
+        <Navbar color="dark" dark expand="lg">
+          <NavbarBrand>
+            <ImageContainer>
+              <img src={paperplane} alt="paperplane" />
+            </ImageContainer>
           </NavbarBrand>
 
           {token == null ? (
-            <NavbarBrand id="paperplane" href="/">
-              LuckyRead
-            </NavbarBrand>
+            <LuckyReadHomeContainer>
+              <NavbarBrand href="/">LuckyRead</NavbarBrand>
+            </LuckyReadHomeContainer>
           ) : (
-            <a className="navbar-brand" id="brand">
-              LuckyRead
-            </a>
+            <LuckyReadHomeContainer>
+              <a className="navbar-brand">LuckyRead</a>
+            </LuckyReadHomeContainer>
           )}
           <NavbarToggler onClick={this.toggle} />
+
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               {links}
             </Nav>
           </Collapse>
         </Navbar>
-      </div>
+      </NavbarContainer>
     );
   }
 }

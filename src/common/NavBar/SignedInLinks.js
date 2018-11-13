@@ -10,8 +10,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import "./navbar.css";
-
+import { SignedInLinksContainer } from "./Styled";
 class SignedInLinks extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +29,7 @@ class SignedInLinks extends Component {
 
   render() {
     return (
-      <div>
+      <SignedInLinksContainer>
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink href="/RandomFragmentPage">
@@ -48,19 +47,22 @@ class SignedInLinks extends Component {
               {this.state.user}
             </DropdownToggle>
             <DropdownMenu right>
-              <DropdownItem href="/ProfilePage">Perfil</DropdownItem>
+              <DropdownItem href="/ProfilePage" id="profile">
+                Perfil
+              </DropdownItem>
+
               <DropdownItem divider />
               <DropdownItem
                 className="dropdown-item"
                 onClick={this.handleLogout}
                 id="exitButton"
               >
-                Salir
+                <h6>Salir</h6>
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
-      </div>
+      </SignedInLinksContainer>
     );
   }
 }
