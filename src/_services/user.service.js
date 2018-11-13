@@ -2,6 +2,7 @@
 import API from "../api";
 export const userService = {
   login,
+  login_social,
   logout,
   register,
   verify_username,
@@ -12,6 +13,11 @@ function login(auth) {
   console.log("Iniciando sesion");
   console.log({ auth });
   return API.post("/api/login", { auth });
+}
+
+function login_social(token, user) {
+  localStorage.setItem("jwtToken", token);
+  localStorage.setItem("user", user);
 }
 
 function logout() {

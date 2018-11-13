@@ -5,6 +5,7 @@ import { history } from "../_helpers";
 
 export const userActions = {
   login,
+  login_social,
   logout,
   register,
   verify_username,
@@ -46,6 +47,12 @@ function login(auth) {
   function failure(error) {
     return { type: userConstants.LOGIN_FAILURE, error };
   }
+}
+
+function login_social(token, user){
+  userService.login_social(token, user);
+  history.push("/RandomFragmentPage");
+  return { type: userConstants.LOGIN_SUCESS };
 }
 
 function logout() {

@@ -37,6 +37,7 @@ class LoginForm extends React.Component {
 
   // signup - login FB and Google
   signup(res, type) {
+    const { dispatch } = this.props;
     if (type === "facebook") {
       console.log("token facebook");
       axios
@@ -45,8 +46,7 @@ class LoginForm extends React.Component {
           const token = res["data"]["jwt"];
           const user = res["data"]["username"];
           console.log(res);
-          this.props.login_social(token, user);
-          this.context.router.history.push("/RandomFragmentPage");
+          dispatch(userActions.login_social(token, user));
         })
         .catch(function(error) {
           console.log("error al tratar de conseguir token del back - facebook");
@@ -58,8 +58,7 @@ class LoginForm extends React.Component {
         .then(res => {
           const token = res["data"]["jwt"];
           const user = res["data"]["username"];
-          this.props.login_social(token, user);
-          this.context.router.history.push("/RandomFragmentPage");
+          dispatch(userActions.login_social(token, user));
         })
         .catch(function(error) {
           console.log("error al tratar de conseguir token del back - google");
