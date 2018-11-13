@@ -10,7 +10,11 @@ import {
 import paperplane from "../../resources/paper_plane.png";
 import SignedOutLinks from "./SignedOutLinks";
 import { SignedInLinks } from "./SignedInLinks";
-import { ImageContainer, NavbarContainer } from "./Styled";
+import {
+  ImageContainer,
+  NavbarContainer,
+  LuckyReadHomeContainer
+} from "./Styled";
 export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -38,9 +42,13 @@ export default class NavBar extends React.Component {
           </NavbarBrand>
 
           {token == null ? (
-            <NavbarBrand href="/">LuckyRead</NavbarBrand>
+            <LuckyReadHomeContainer>
+              <NavbarBrand href="/">LuckyRead</NavbarBrand>
+            </LuckyReadHomeContainer>
           ) : (
-            <a className="navbar-brand">LuckyRead</a>
+            <LuckyReadHomeContainer>
+              <a className="navbar-brand">LuckyRead</a>
+            </LuckyReadHomeContainer>
           )}
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
