@@ -10,7 +10,7 @@ const ImageContainer = styled.div`
 `;
 const NavbarContainer = styled.div`
   nav {
-    background-color: #0009 !important;
+    background-color: ${Palette.blackNavbar} !important;
   }
   width: 100% !important;
   height: 100%;
@@ -22,7 +22,7 @@ const NavbarContainer = styled.div`
     margin-bottom: 10px;
   }
   .navbar-brand {
-    color: white !important;
+    color: ${Palette.white} !important;
   }
 `;
 const LuckyReadHomeContainer = styled.div`
@@ -30,11 +30,25 @@ const LuckyReadHomeContainer = styled.div`
     text-shadow: 4px 4px 7px ${Palette.black} !important;
     transform: translate(0, -2px);
   }
+  font-family: "Dancing Script";
 `;
 
 const SignedOutLinksContainer = styled.div`
   a {
     font-size: 16px !important;
+    color: ${Palette.whiteopacity} !important;
+  }
+
+  a: hover {
+    color: ${Palette.white} !important;
+  }
+
+  #forgotPassword {
+    color: ${Palette.blueLinkopacity} !important;
+    border: ${Palette.white} !important;
+  }
+  #forgotPassword: hover {
+    color: ${Palette.blueTitleLanding} !important;
   }
 `;
 const SignedInLinksContainer = styled.div`
@@ -43,6 +57,25 @@ const SignedInLinksContainer = styled.div`
   }
   button: hover {
     cursor: pointer;
+    background-color: ${Palette.blackNavbar} !important;
+  }
+  div {
+    background-color: ${Palette.blackNavbar} !important;
+  }
+  a {
+    color: ${Palette.whiteopacity} !important;
+  }
+  a: hover {
+    color: ${Palette.white} !important;
+  }
+  #profile: hover {
+    background-color: ${Palette.blackNavbar} !important;
+  }
+  h6 {
+    color: ${Palette.whiteopacity} !important;
+  }
+  button: hover > h6 {
+    color: ${Palette.white} !important;
   }
 `;
 

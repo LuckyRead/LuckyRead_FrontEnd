@@ -242,7 +242,7 @@ class LoginForm extends React.Component {
                 "Iniciar sesión"
               )}
             </Button>
-            <Button color="link" size="sm" href="/Email">
+            <Button color="link" size="sm" href="/Email" id="forgotPassword">
               ¿Olvidaste tu contraseña?
             </Button>
           </div>

@@ -8,7 +8,10 @@ const Palette = {
   bluestrong: " #2b5693 ",
   blackopacity: "#0006",
   blueTitleLanding: "#105f78",
-  black: "black"
+  black: "black",
+  blackNavbar: "#0009",
+  whiteopacity: "rgba(230, 230, 230, 0.9)",
+  blueLinkopacity: "rgba(44, 110, 160, 0.9)"
 };
 
 export { Palette };
