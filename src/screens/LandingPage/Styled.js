@@ -13,7 +13,6 @@ const LandingPageContainer = styled.div`
     margin-top: 1%;
     border-radius: 5px;
     border-style: none;
-    height: 500px;
     align-content: center;
   }
   #InitPanel {
@@ -53,5 +52,4 @@ const LandingPageContainer = styled.div`
     padding-right: 1%;
   }
 `;
-
 export { Palette, LandingPageContainer };

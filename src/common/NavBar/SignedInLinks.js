@@ -10,7 +10,6 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import "./navbar.css";
 
 class SignedInLinks extends Component {
   constructor(props) {

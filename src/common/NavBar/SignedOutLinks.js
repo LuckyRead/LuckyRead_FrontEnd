@@ -7,7 +7,7 @@ import {
   DropdownToggle,
   DropdownMenu
 } from "reactstrap";
-import "./navbar.css";
+
 import LoginPage from "../../screens/LoginPage/LoginPage";
 
 const SignedOutLinks = () => {

@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     const { alert } = this.props;
     return (
-      <div className="container-fluid">
+      <div>
         <Navbar />
         <Alerts>
           <div className="row">
