@@ -13,6 +13,7 @@ class FragmentPage extends Component {
   };
   componentDidMount() {
     let id = this.props.match.params.fragment_id;
+    console.log(id)
     API.get("/api/fragments/" + id).then(res => {
       console.log(res);
       this.setState({
@@ -89,7 +90,11 @@ class FragmentPage extends Component {
       </div>
     );
 
-    return <div className="container">{post}</div>;
+    return(
+      <div className="container">
+        {post}
+      </div>
+    )
   }
 }
 

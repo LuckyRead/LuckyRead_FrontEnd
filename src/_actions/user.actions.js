@@ -49,8 +49,12 @@ function login(auth) {
   }
 }
 
-function login_social(token, user){
-  userService.login_social(token, user);
+function login_social(response){
+  const token = response.data.jwt;
+  const user = response.data.username;
+  localStorage.setItem("jwtToken", token);
+  localStorage.setItem("user", user);
+  userService.login_social(response);
   history.push("/RandomFragmentPage");
   //return { type: userConstants.LOGIN_SUCESS };
 }
