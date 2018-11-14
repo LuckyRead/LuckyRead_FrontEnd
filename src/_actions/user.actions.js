@@ -49,10 +49,14 @@ function login(auth) {
   }
 }
 
-function login_social(token, user){
-  userService.login_social(token, user);
+function login_social(response){
+  const token = response.data.jwt;
+  const user = response.data.username;
+  localStorage.setItem("jwtToken", token);
+  localStorage.setItem("user", user);
+  userService.login_social(response);
   history.push("/RandomFragmentPage");
-  return { type: userConstants.LOGIN_SUCESS };
+  //return { type: userConstants.LOGIN_SUCESS };
 }
 
 function logout() {
@@ -97,9 +101,9 @@ function verify_username(username) {
 
     userService.verify_username(username).then(
       response => {
-        console.log(response.data.email.toString());
-        dispatch(success(response.data.email.toString()));
-        const resp = response.data.email.toString();
+        console.log(response.data.user.toString());
+        dispatch(success(response.data.user.toString()));
+        const resp = response.data.user.toString();
         if (resp === "Taken") {
           dispatch(alertActions.error("El usuario ya existe"));
         } else {

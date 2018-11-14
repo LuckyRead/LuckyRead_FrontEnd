@@ -1,5 +1,6 @@
 /* import { authHeader } from "../_helpers"; */
 import API from "../api";
+import axios from "axios"
 export const userService = {
   login,
   login_social,
@@ -15,9 +16,27 @@ function login(auth) {
   return API.post("/api/login", { auth });
 }
 
-function login_social(token, user) {
-  localStorage.setItem("jwtToken", token);
-  localStorage.setItem("user", user);
+function login_social(res) {
+  if (res["data"]["warning"]){
+    console.log('jwt token: ' + localStorage.jwtToken)
+    axios(
+    {
+      method: 'GET',
+      url: 'https://luckyread-backend.herokuapp.com/api/preference/add_all',
+      headers: {
+         Authorization: "Bearer "+ localStorage.jwtToken
+       }
+     }).then(
+      (res) => {
+        console.log("All topics added")
+      },
+      (err) => {
+        console.log("error en topics all")
+        console.log(err);
+      }
+    )
+  }
+
 }
 
 function logout() {

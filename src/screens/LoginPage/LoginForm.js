@@ -56,9 +56,8 @@ class LoginForm extends React.Component {
       axios
         .post("https://luckyread-backend.herokuapp.com/api/login/ggle", res)
         .then(res => {
-          const token = res["data"]["jwt"];
-          const user = res["data"]["username"];
-          dispatch(userActions.login_social(token, user));
+          console.log(res);          
+          dispatch(userActions.login_social(res));
         })
         .catch(function(error) {
           console.log("error al tratar de conseguir token del back - google");
