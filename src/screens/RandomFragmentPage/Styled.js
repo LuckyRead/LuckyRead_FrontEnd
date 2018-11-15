@@ -63,9 +63,24 @@ const FragmentButtons = styled.div`
     width: 100%;
     font-size: 0.9em;
   }
-  
 `;
 
+const CategoryTagContainer = styled.div`
+  margin-left: 0.2%;
+  margin-right: 0.2%;
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: ${Palette.graylight};
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 80%;
+`;
+
+const TagsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+`;
 
 export {
   PageContainer,
@@ -75,5 +90,7 @@ export {
   FragmentTitle,
   FragmentText,
   StatisticsContainer,
-  FragmentButtons
+  FragmentButtons,
+  CategoryTagContainer,
+  TagsContainer
 };

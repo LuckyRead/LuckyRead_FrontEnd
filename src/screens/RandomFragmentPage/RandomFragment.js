@@ -9,8 +9,10 @@ import {
   FragmentTitle,
   FragmentText,
   StatisticsContainer,
-  FragmentButtons
+  FragmentButtons,
+  TagsContainer
 } from "./Styled";
+import CategoryTag from "./CategoryTag";
 import pdficon from "../../resources/paper_plane.png";
 
 class RandomFragment extends React.Component {
@@ -18,18 +20,22 @@ class RandomFragment extends React.Component {
     super(props);
     this.state = {
       randomfragment: this.props.randomfragment,
-      path_image: "https://luckyread-backend.herokuapp.com/api/photo/" + this.props.base64_image
+      path_image:
+        "https://luckyread-backend.herokuapp.com/api/photo/" +
+        this.props.base64_image
     };
   }
-
-
-
+  renderCategoryTags(categoryArray) {
+    let categoryTags = {};
+    categoryTags = [];
+    categoryArray.forEach(category => {
+      categoryTags.push(<CategoryTag name={category.name} />);
+    });
+    return categoryTags;
+  }
   render() {
     return (
-
       <FragmentContent>
-
-
         <Row>
           <Col md="3">
             <ImageContainer>
@@ -43,21 +49,22 @@ class RandomFragment extends React.Component {
           </Col>
 
           <Col md="9">
-
             <FragmentTitle>{this.props.randomfragment.title}</FragmentTitle>
-            <FragmentText>{this.props.randomfragment.introduction}</FragmentText>
-
+            <FragmentText>
+              {this.props.randomfragment.introduction}
+            </FragmentText>
+            <TagsContainer>
+              {this.renderCategoryTags(this.state.randomfragment)}
+            </TagsContainer>
           </Col>
         </Row>
       </FragmentContent>
-
     );
   }
 }
 
 RandomFragment.propTypes = {
-  randomfragment: PropTypes.object.isRequired,
+  randomfragment: PropTypes.array.isRequired
 };
-
 
 export default RandomFragment;
