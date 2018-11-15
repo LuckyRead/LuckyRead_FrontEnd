@@ -11,7 +11,7 @@ const Palette = {
   black: "black",
   blackNavbar: "#0009",
   whiteopacity: "rgba(230, 230, 230, 0.9)",
-  blueLinkopacity: "rgba(44, 110, 160, 0.9)"
+  blueLinkopacity: "rgba(44, 110, 160, 0.9)",
   blue: "#2B5E77",
   whiteopacity: "#fff7"
 };
