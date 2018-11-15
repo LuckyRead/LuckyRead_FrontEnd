@@ -51,8 +51,8 @@ const ProfileCardDiv = styled.div`
   border: 2px solid ${Palette.grayoff};
 `;
 const ProfilePhotoContainer = styled.div`
-  margin-top: 10%;
-  margin-bottom: 4%;
+  padding-top: 10%;
+  padding-bottom: 4%;
   img {
     width: 200px;
     heihgt: 200px;
@@ -63,16 +63,20 @@ const ProfilePhotoContainer = styled.div`
 `;
 
 const AllInfoContainer = styled.div`
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 `;
 const InfoContainer = styled.div`
   padding-left: 2%;
   padding-right: 2%;
   text-align: center;
-  border-top: ${props => (props.border ? "1px solid" : "none")};
+  border: ${props => (props.border ? "1px solid" : "none")};
   border-color :  ${props => (props.border ? Palette.grayoff : "none")}
-  margin-top: ${props => (props.margin ? props.margin : 0)};  
+  border-radius: ${props => (props.border ? "5px" : "none")}
+  margin-top: ${props => (props.marginTop ? props.marginTop : 0)};  
+  margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)};  
+  background-color: ${props => (props.bgcolor ? props.bgcolor : "none")}
+
   .skinny {
     font-size: 90%;
     color: ${Palette.gray};
@@ -84,8 +88,28 @@ const InfoContainer = styled.div`
   .about{
     font-size: 80%;
     font-style: italic;
+    padding-bottom: 5%;
   }
   
+`;
+
+const ChangeAvatarContainer = styled.div`
+  .center {
+    text-align: center;
+  }
+  #crop-img {
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+  }
+
+  #crop-img img {
+    object-fit: cover;
+    height: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
 `;
 
 export {
@@ -96,5 +120,6 @@ export {
   ProfileCardDiv,
   ProfilePhotoContainer,
   InfoContainer,
-  AllInfoContainer
+  AllInfoContainer,
+  ChangeAvatarContainer
 };
