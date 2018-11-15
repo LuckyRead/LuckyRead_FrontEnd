@@ -126,8 +126,15 @@ const TabContent = styled.div`
   margin-right: 2%;
   padding-top: 2%;
   padding-bottom: 2%;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+`;
+const RowInfo = styled.div`
+  width: 100%;
+  margin-top: 2%;
+  .FullButton {
+    width: 100% !important;
+  }
 `;
 
 export {
@@ -140,5 +147,6 @@ export {
   InfoContainer,
   AllInfoContainer,
   ChangeAvatarContainer,
-  TabContent
+  TabContent,
+  RowInfo
 };
