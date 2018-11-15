@@ -3,6 +3,7 @@ import "./ProfileLeftInfo.css";
 //import paperplane from '../../resources/avatar.png';
 import PopUp from "./PopUp";
 import axios from "axios";
+import { Row, Col } from "reactstrap";
 
 class ProfileLeftInfo extends Component {
   constructor(props) {
@@ -58,8 +59,9 @@ class ProfileLeftInfo extends Component {
   }
 
   render() {
+    console.log(this.state.user_data);
     return (
-      <div className="row">
+      <Row>
         <div id="divProfile">
           <div className="card">
             <a>
@@ -82,15 +84,13 @@ class ProfileLeftInfo extends Component {
               <li className="list-group-item">{this.state.user_data.city}</li>
               <li className="list-group-item">Universidad Nacional</li>
               <li className="list-group-item">7 meses</li>
+              <li className="list-group-item">
+                <PopUp />
+              </li>
             </ul>
-            <div className="card-body">
-              <a className="card-link">Seguidores</a>
-              <PopUp />
-              <a className="card-link">Siguiendo</a>
-            </div>
           </div>
         </div>
-      </div>
+      </Row>
     );
   }
 }
