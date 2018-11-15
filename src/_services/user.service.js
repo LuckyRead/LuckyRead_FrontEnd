@@ -7,7 +7,8 @@ export const userService = {
   logout,
   register,
   verify_username,
-  verify_email
+  verify_email,
+  addAllTopics
 };
 
 function login(auth) {
@@ -61,4 +62,16 @@ function verify_email(email) {
   console.log("Verificando email");
   console.log(email);
   return API.post(`/api/users/email_exist`, { email });
+}
+
+
+function addAllTopics() {
+  return axios(
+    {
+      method: 'GET',
+      url: 'https://luckyread-backend.herokuapp.com/api/preference/add_all',
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    })
 }
