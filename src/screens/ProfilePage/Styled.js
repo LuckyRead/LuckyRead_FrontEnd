@@ -49,6 +49,9 @@ const ProfileCardDiv = styled.div`
   background-color: ${Palette.white};
   border-radius: 5px;
   border: 2px solid ${Palette.grayoff};
+  a: hover {
+    cursor: pointer;
+  }
 `;
 const ProfilePhotoContainer = styled.div`
   padding-top: 10%;
