@@ -13,14 +13,7 @@ const Palette = {
   black: "black",
   blackNavbar: "#0009",
   whiteopacity: "#fff7",
-  blueLinkopacity: "rgba(44, 110, 160, 0.9)",
-<<<<<<< HEAD
-  gray: "#7a7a7a",
-  bluesealight: "#d3f4f5"
-=======
-  blue: "#2B5E77",
-  whiteopacity: "#fff7"
->>>>>>> 2414d8406b0c0ab379626f5e56cf0a6ae9882317
+  blueLinkopacity: "rgba(44, 110, 160, 0.9)"
 };
 
 export { Palette };
