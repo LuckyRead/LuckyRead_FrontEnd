@@ -10,8 +10,39 @@ import {
   StatisticsContainer
 } from "./Styled";
 import pdficon from "../../resources/paper_plane.png";
-
+import RandomFragment from "../RandomFragmentPage/RandomFragment"
+import axios from 'axios';
 class RandomFragmentPage extends React.Component {
+  state = {
+    randomfragment: []
+  }
+
+  componentDidMount() {
+    console.log(localStorage.jwtToken);
+    axios({
+      method: 'GET', url: 'https://luckyread-backend.herokuapp.com/api/fragments/something',
+      headers:
+      {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    }).then(
+
+      (response) => {
+        console.log(response)
+        this.setState({
+          randomfragment: response["data"]
+
+        });
+        console.log(this.state.randomfragment);
+      },
+      (err) => {
+        console.log('el error es pidiendo fragmento random')
+      }
+    );
+
+  }
+
+
   render() {
     return (
       <Container>
@@ -21,22 +52,7 @@ class RandomFragmentPage extends React.Component {
               <Col>Tenemos un fragmento para ti</Col>
             </Row>
           </MessageFragment>
-
-          <Row>
-            <Col md="3">
-              <ImageContainer>Aqui va la imagen</ImageContainer>
-              <Button color="info">Leer este fragmento online</Button>{" "}
-              <Button color="success">Leer este fragmento en PDF</Button>{" "}
-              <Button color="warning">warning</Button>{" "}
-            </Col>
-
-            <Col md="9">
-              <FragmentContent>
-                <FragmentTitle>Titulo de fragmento</FragmentTitle>
-                <FragmentText>asdasd</FragmentText>
-              </FragmentContent>
-            </Col>
-          </Row>
+          <RandomFragment randomfragment={this.state.randomfragment} ></RandomFragment>
         </PageContainer>
       </Container>
     );

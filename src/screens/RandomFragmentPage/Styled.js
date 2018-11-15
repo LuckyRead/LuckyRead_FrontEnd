@@ -22,6 +22,8 @@ const MessageFragment = styled.div`
 `;
 
 const FragmentContent = styled.div`
+  width: 95%;
+  height: 95%;
   text-align: center;
   background-color: white;
   border-radius: 10px;
@@ -29,8 +31,7 @@ const FragmentContent = styled.div`
   border-width: 5px;
   border-color: white;
   margin: auto;
-  min-height: 400px;
-  margin-bottom: 40px;
+  padding: 40px;
 `;
 
 const ImageContainer = styled.div`
@@ -55,6 +56,17 @@ const FragmentText = styled.div`
   margin: 20px;
 `;
 
+const FragmentButtons = styled.div`
+  text-align: center;
+  .btn {
+    margin: 5px;
+    width: 100%;
+    font-size: 0.9em;
+  }
+  
+`;
+
+
 export {
   PageContainer,
   MessageFragment,
@@ -62,5 +74,6 @@ export {
   ImageContainer,
   FragmentTitle,
   FragmentText,
-  StatisticsContainer
+  StatisticsContainer,
+  FragmentButtons
 };
