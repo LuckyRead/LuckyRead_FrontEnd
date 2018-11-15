@@ -15,20 +15,7 @@ import axios from "axios";
 class RandomFragmentPage extends React.Component {
   state = {
     //  randomfragment: []
-    randomfragment: [
-      {
-        index: 1,
-        name: "Categoria 1"
-      },
-      {
-        index: 2,
-        name: "Categoria 2"
-      },
-      {
-        index: 2,
-        name: "Categoria 2"
-      }
-    ]
+    randomfragment: []
   };
 
   componentDidMount() {
@@ -46,6 +33,7 @@ class RandomFragmentPage extends React.Component {
           randomfragment: response["data"]
         });
         console.log(this.state.randomfragment);
+        console.log(this.state.randomfragment.base64_image)
       },
       err => {
         console.log("el error es pidiendo fragmento random");

@@ -15,10 +15,16 @@ const PageContainer = styled.div`
 `;
 
 const MessageFragment = styled.div`
-  font-size: 2.5em;
   color: ${Palette.blue};
   border-style: none;
   margin: 10px;
+  font-family: 'Dancing Script';
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 4em;
+  color: #105F78;
+  text-align: center;
+  text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
 `;
 
 const FragmentContent = styled.div`
@@ -31,12 +37,13 @@ const FragmentContent = styled.div`
   border-width: 5px;
   border-color: white;
   margin: auto;
+  margin-bottom: 40px;
   padding: 40px;
 `;
 
 const ImageContainer = styled.div`
   border-style: solid;
-  height: 200px;
+  border-color: gray;
   margin-bottom: 10px;
 `;
 
@@ -47,7 +54,7 @@ const StatisticsContainer = styled.div`
 
 const FragmentTitle = styled.div`
   color: ${Palette.blue};
-  font-size: 1em;
+  font-size: 3em;
   font-weight: bold;
 `;
 

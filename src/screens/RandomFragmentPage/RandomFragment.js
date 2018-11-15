@@ -20,9 +20,6 @@ class RandomFragment extends React.Component {
     super(props);
     this.state = {
       randomfragment: this.props.randomfragment,
-      path_image:
-        "https://luckyread-backend.herokuapp.com/api/photo/" +
-        this.props.base64_image
     };
   }
   renderCategoryTags(categoryArray) {
@@ -37,9 +34,9 @@ class RandomFragment extends React.Component {
     return (
       <FragmentContent>
         <Row>
-          <Col md="3">
+          <Col md="4">
             <ImageContainer>
-              <img src={this.state.path_image} alt="Imagen de referencia" />
+              <img src={"data:image/png;base64, " + this.props.randomfragment.base64_image} alt="Imagen de referencia" width= "100%" />
             </ImageContainer>
             <FragmentButtons>
               <Button color="info">Leer este fragmento online</Button>{" "}
@@ -48,7 +45,7 @@ class RandomFragment extends React.Component {
             </FragmentButtons>
           </Col>
 
-          <Col md="9">
+          <Col md="8">
             <FragmentTitle>{this.props.randomfragment.title}</FragmentTitle>
             <FragmentText>
               {this.props.randomfragment.introduction}
