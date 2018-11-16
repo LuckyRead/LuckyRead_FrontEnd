@@ -48,13 +48,13 @@ function login(auth) {
   }
 }
 
-function login_social(response){
+function login_social(response) {
   const token = response.data.jwt;
   const user = response.data.username;
   localStorage.setItem("jwtToken", token);
   localStorage.setItem("user", user);
   console.log('user y token agregados')
-  if(response['data']['warning']){
+  if (response['data']['warning']) {
     userService.addAllTopics().then(
       response => {
         console.log("All topics added")
@@ -65,7 +65,7 @@ function login_social(response){
         console.log("Error agregando topicos")
       }
     )
-  }else{
+  } else {
     history.push("/RandomFragmentPage");
   }
 
@@ -105,7 +105,7 @@ function register(user, auth) {
             userService.addAllTopics().then(
               response => {
                 console.log("All topics added")
-                this.history.push("/RandomFragmentPage");
+                history.push("/RandomFragmentPage");
               },
               error => {
                 console.log("Error agregando topicos")
