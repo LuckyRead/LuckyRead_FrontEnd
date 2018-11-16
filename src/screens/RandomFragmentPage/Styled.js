@@ -30,7 +30,7 @@ const MessageFragment = styled.div`
 const FragmentContent = styled.div`
   width: 95%;
   height: 95%;
-  text-align: center;
+  text-align: justify;
   background-color: white;
   border-radius: 10px;
   border-style: solid;
@@ -56,6 +56,7 @@ const FragmentTitle = styled.div`
   color: ${Palette.blue};
   font-size: 3em;
   font-weight: bold;
+  text-align: center;
 `;
 
 const FragmentText = styled.div`

@@ -40,7 +40,6 @@ class RandomFragmentPage extends React.Component {
           randomfragment: response["data"]
         });
         console.log(this.state.randomfragment);
-        console.log(this.state.randomfragment.base64_image)
       },
       err => {
         console.log("el error es pidiendo fragmento random");
