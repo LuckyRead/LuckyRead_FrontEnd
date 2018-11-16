@@ -43,9 +43,19 @@ export default class ProfileLabel extends React.Component {
           <Col xs="2">
             <FollowContainer>
               {this.state.followed ? (
-                <Button color="success" onClick={() => this.changeFollow()} />
+                <Button color="success" onClick={() => this.changeFollow()}>
+                  <img
+                    src={require("../../resources/Check_green_icon.png")}
+                    alt="Follow button"
+                  />
+                </Button>
               ) : (
-                <Button color="secondary" onClick={() => this.changeFollow()} />
+                <Button color="secondary" onClick={() => this.changeFollow()}>
+                  <img
+                    src={require("../../resources/Check_gray_icon.png")}
+                    alt="Unfollow button"
+                  />
+                </Button>
               )}
             </FollowContainer>
           </Col>

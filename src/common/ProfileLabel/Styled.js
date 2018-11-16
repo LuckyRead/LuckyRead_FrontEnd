@@ -8,7 +8,8 @@ const ProfileLabelContainer = styled.div`
     border-bottom: 1px solid ${Palette.graylight};
     padding: 1%;
     display: block;
-    padding-right: 3%;
+    padding-right: 6%;
+    
   }
 `;
 const PhotoContainer = styled.div`
@@ -49,6 +50,11 @@ const FollowContainer = styled.div`
   button {
     width: 100%;
     height: 50%;
+    text-align: center;
+  }
+  img {
+    width: 20px;
+    height: 20px;
   }
 `;
 export {
