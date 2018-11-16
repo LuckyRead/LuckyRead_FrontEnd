@@ -8,6 +8,7 @@ const ProfileLabelContainer = styled.div`
     border-bottom: 1px solid ${Palette.graylight};
     padding: 1%;
     display: block;
+    padding-right: 3%;
   }
 `;
 const PhotoContainer = styled.div`
@@ -35,14 +36,26 @@ const StringContainer = styled.div`
 const ProfileMapContainer = styled.div`
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: ${Palette.white};
   border: 2px solid ${Palette.grayoff};
+`;
+
+const FollowContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  button {
+    width: 100%;
+    height: 50%;
+  }
 `;
 export {
   Palette,
   ProfileLabelContainer,
   PhotoContainer,
   StringContainer,
-  ProfileMapContainer
+  ProfileMapContainer,
+  FollowContainer
 };

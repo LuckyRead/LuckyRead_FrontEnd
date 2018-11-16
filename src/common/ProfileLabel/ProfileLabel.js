@@ -1,14 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ProfileLabelContainer, PhotoContainer } from "./Styled";
-import { Row, Col } from "reactstrap";
+import {
+  ProfileLabelContainer,
+  PhotoContainer,
+  FollowContainer,
+  Palette
+} from "./Styled";
+import { Row, Col, Button } from "reactstrap";
 import StringLabel from "./StringLabel";
 export default class ProfileLabel extends React.Component {
   render() {
     return (
       <ProfileLabelContainer>
         <Row>
-          <Col xs="5">
+          <Col xs="4">
             <PhotoContainer>
               <img
                 src={require("../../resources/avatar.png")}
@@ -17,9 +22,18 @@ export default class ProfileLabel extends React.Component {
               />
             </PhotoContainer>
           </Col>
-          <Col xs="7">
+          <Col xs="6">
             <StringLabel content={this.props.username} username={true} />
             <StringLabel content={"@" + this.props.nickname} username={false} />
+          </Col>
+          <Col xs="2">
+            <FollowContainer>
+              {this.props.followed ? (
+                <Button color="success" />
+              ) : (
+                <Button color="secondary" />
+              )}
+            </FollowContainer>
           </Col>
         </Row>
       </ProfileLabelContainer>
@@ -29,5 +43,6 @@ export default class ProfileLabel extends React.Component {
 ProfileLabel.propTypes = {
   username: PropTypes.string.isRequired,
   nickname: PropTypes.string.isRequired,
-  photosrc: PropTypes.string.isRequired
+  photosrc: PropTypes.string.isRequired,
+  followed: PropTypes.bool
 };
