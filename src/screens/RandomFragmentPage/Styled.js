@@ -10,7 +10,7 @@ const PageContainer = styled.div`
   border-color: white;
   margin: auto;
   margin-top: 10px;
-
+  padding-bottom: 10px;
   height: 100%;
 `;
 
@@ -37,7 +37,7 @@ const FragmentContent = styled.div`
   border-width: 5px;
   border-color: white;
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   padding: 40px;
 `;
 
