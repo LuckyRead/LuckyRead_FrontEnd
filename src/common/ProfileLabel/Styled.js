@@ -7,6 +7,7 @@ const ProfileLabelContainer = styled.div`
     background-color: ${Palette.white};
     border-bottom: 1px solid ${Palette.graylight};
     padding: 1%;
+    display: block;
   }
 `;
 const PhotoContainer = styled.div`
@@ -29,5 +30,10 @@ const StringContainer = styled.div`
   font-size: ${props => (props.username === true ? "100%" : "80%")};
   font-style: ${props => (props.username === true ? "normal" : "italic")};
   color: ${props => (props.username === true ? Palette.black : Palette.gray)};
+`;
+
+const ProfileMapContainer = styled.div`
+  width: 100%;
+  height: 100%;
 `;
 export { Palette, ProfileLabelContainer, PhotoContainer, StringContainer };

@@ -19,8 +19,7 @@ import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/FragmentPage/FragmentPDF";
-import ProfileLabel from "../common/ProfileLabel/ProfileLabel";
-
+import ProfileLabelMapTest from "../Test/ProfileLabelMapTest";
 // Styles
 import "./App.css";
 import { Alerts } from "./Styled";
@@ -57,7 +56,7 @@ class App extends Component {
               <Route exact path="/RegisterPage" component={RegisterPage} />
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
               <Route path="/news" component={News} />
-              <Route path="/ProfileLabelTest" component={ProfileLabel} />
+              <Route path="/ProfileLabelTest" component={ProfileLabelMapTest} />
               <PrivateRoute
                 exact
                 path="/RandomFragmentPage"
