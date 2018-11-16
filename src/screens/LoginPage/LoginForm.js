@@ -39,18 +39,16 @@ class LoginForm extends React.Component {
   signup(res, type) {
     const { dispatch } = this.props;
     if (type === "facebook") {
-      console.log("token facebook");
-      axios
-        .post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
+      console.log("token facebook ");
+      axios.post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
         .then(res => {
-          const token = res["data"]["jwt"];
-          const user = res["data"]["username"];
           console.log(res);
-          dispatch(userActions.login_social(token, user));
+          dispatch(userActions.login_social(res));
         })
-        .catch(function(error) {
-          console.log("error al tratar de conseguir token del back - facebook");
-        });
+        // .catch(function(error) {
+        //   console.log("error al tratar de conseguir token del back - facebook");
+        //   console.log(error)
+        // });
     } else {
       console.log("token google");
       axios
@@ -168,21 +166,32 @@ class LoginForm extends React.Component {
     const { username, password, submitted } = this.state;
 
     const responseFacebook = response => {
-      if (response) {
-        console.log(response);
-        this.setState({
-          loadedfb: true
-        });
-        this.signup(response, "facebook");
-      }
-    };
+        // console.log('response fb: ');
+        // console.log(response);
+        if(response['accessToken'] && !response['error']){
+          this.setState({
+            loadedfb: true
+          });
+          this.signup(response, "facebook");
+        }else{
+          this.setState({
+            loadedfb: false
+          });
+        }
+
+    }
     const responseGoogle = response => {
-      if (response) {
-        console.log(response);
+      // console.log('response google: ');
+      // console.log(response);
+      if (!response['error']) {
         this.setState({
           loadedgoogle: true
         });
         this.signup(response, "google");
+      }else{
+        this.setState({
+          loadedgoogle: false
+        });
       }
     };
     return (
