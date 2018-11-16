@@ -12,13 +12,13 @@ import Navbar from "../common/NavBar/NavBar.js";
 import RegisterPage from "../screens/RegisterPage";
 import LandingPage from "../screens/LandingPage";
 import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage";
-import FragmentPage from "../screens/FragmentPage/FragmentPage";
+import FragmentPage from "../screens/RandomFragmentPage/FragmentPage";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
 import Categories_List from "../screens/CategoriesPage/Categories_List";
 import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
-import FragmentPDF from "../screens/FragmentPage/FragmentPDF";
+import FragmentPDF from "../screens/RandomFragmentPage/FragmentPDF";
 
 // Styles
 import "./App.css";
@@ -58,7 +58,7 @@ class App extends Component {
               path="/RandomFragmentPage"
               component={RandomFragmentPage}
             />
-            <Route exact path="/:fragment_id" component={FragmentPage} />
+            <Route exact path="/RandomFragmentPage/:fragment_id" component={FragmentPage} />
             <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
             <PrivateRoute
               exact

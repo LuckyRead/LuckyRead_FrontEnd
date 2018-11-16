@@ -106,6 +106,7 @@ const StatisticsContainer = styled.div`
   height: 250px;
   margin-top: 6px;
   margin-bottom: 6px;
+    
 `;
 
 export {

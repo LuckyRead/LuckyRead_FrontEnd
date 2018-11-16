@@ -19,60 +19,49 @@ class Categories_List extends Component {
   }
   componentWillMount() {
     const token = localStorage.getItem("jwtToken");
+    const user = localStorage.getItem("user");
+    console.log(token)
 
-    //get current user
+    //get subtopics
     axios({
       method: "get",
-      url: "https://luckyread-backend.herokuapp.com/api/users/current",
+      url:
+        "https://luckyread-backend.herokuapp.com/api/users/preferences_sub_topic",
       headers: {
         Authorization: "Bearer " + token
+      },
+      data: {
+        username: user
       }
     })
       .then(response => {
-        const user_r = response.data["current_user"];
-        //get subtopics
-        axios({
-          method: "post",
-          url:
-            "https://luckyread-backend.herokuapp.com/api/users/preferences_sub_topic",
-          headers: {
-            Authorization: "Bearer " + token
-          },
-          data: {
-            username: user_r
-          }
-        })
-          .then(response => {
-            const sub_topics = response["data"];
-            this.setState({ subtopics: sub_topics });
-            console.log(this.state.subtopics);
-          })
-          .catch(function(error) {
-            console.log("error");
-          });
-
-        //get topics
-        axios({
-          method: "post",
-          url:
-            "https://luckyread-backend.herokuapp.com/api/users/preferences_topic",
-          headers: {
-            Authorization: "Bearer " + token
-          },
-          data: {
-            username: user_r
-          }
-        })
-          .then(response => {
-            const topics = response.data;
-            this.setState({ topics: topics });
-            console.log(response);
-          })
-          .catch(function(error) {});
+        const sub_topics = response["data"];
+        this.setState({ subtopics: sub_topics });
+        console.log(this.state.subtopics);
       })
       .catch(function(error) {
         console.log("error");
       });
+
+        //get topics
+        // axios({
+        //   method: "post",
+        //   url:
+        //     "https://luckyread-backend.herokuapp.com/api/users/preferences_topic",
+        //   headers: {
+        //     Authorization: "Bearer " + token
+        //   },
+        //   data: {
+        //     username: user
+        //   }
+        // })
+        //   .then(response => {
+        //     const topics = response.data;
+        //     this.setState({ topics: topics });
+        //     console.log(response);
+        //   })
+        //   .catch(function(error) {});
+
   }
 
   handleClic = e => {
