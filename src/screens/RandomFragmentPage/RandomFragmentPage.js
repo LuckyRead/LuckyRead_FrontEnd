@@ -12,6 +12,9 @@ import {
 import pdficon from "../../resources/paper_plane.png";
 import RandomFragment from "../RandomFragmentPage/RandomFragment";
 import axios from "axios";
+
+
+
 class RandomFragmentPage extends React.Component {
   state = {
     //  randomfragment: []
@@ -19,6 +22,10 @@ class RandomFragmentPage extends React.Component {
   };
 
   componentDidMount() {
+    this.request()
+  }
+
+  request = e => {
     console.log(localStorage.jwtToken);
     axios({
       method: "GET",
@@ -33,12 +40,12 @@ class RandomFragmentPage extends React.Component {
           randomfragment: response["data"]
         });
         console.log(this.state.randomfragment);
-        console.log(this.state.randomfragment.base64_image)
       },
       err => {
         console.log("el error es pidiendo fragmento random");
       }
     );
+    return
   }
 
   render() {
@@ -51,6 +58,7 @@ class RandomFragmentPage extends React.Component {
             </Row>
           </MessageFragment>
           <RandomFragment randomfragment={this.state.randomfragment} />
+          <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
         </PageContainer>
       </Container>
     );

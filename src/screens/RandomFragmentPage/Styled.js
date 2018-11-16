@@ -10,7 +10,7 @@ const PageContainer = styled.div`
   border-color: white;
   margin: auto;
   margin-top: 10px;
-
+  padding-bottom: 10px;
   height: 100%;
 `;
 
@@ -30,14 +30,14 @@ const MessageFragment = styled.div`
 const FragmentContent = styled.div`
   width: 95%;
   height: 95%;
-  text-align: center;
+  text-align: justify;
   background-color: white;
   border-radius: 10px;
   border-style: solid;
   border-width: 5px;
   border-color: white;
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   padding: 40px;
 `;
 
@@ -56,6 +56,7 @@ const FragmentTitle = styled.div`
   color: ${Palette.blue};
   font-size: 3em;
   font-weight: bold;
+  text-align: center;
 `;
 
 const FragmentText = styled.div`

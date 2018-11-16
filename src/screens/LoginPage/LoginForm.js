@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
           const token = res["data"]["jwt"];
           const user = res["data"]["username"];
           console.log(res);
-          dispatch(userActions.login_social(token, user));
+          dispatch(userActions.login_social(res));
         })
         .catch(function(error) {
           console.log("error al tratar de conseguir token del back - facebook");
@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
       axios
         .post("https://luckyread-backend.herokuapp.com/api/login/ggle", res)
         .then(res => {
-          console.log(res);          
+          console.log(res);
           dispatch(userActions.login_social(res));
         })
         .catch(function(error) {
@@ -249,7 +249,6 @@ class LoginForm extends React.Component {
               <p>O ingresa con tu redes sociales</p>
               <FacebookLogin
                 appId="175675156693690"
-                autoLoad={true}
                 fields="name,email,picture"
                 callback={responseFacebook}
                 render={renderProps => (

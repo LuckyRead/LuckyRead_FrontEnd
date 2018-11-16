@@ -34,14 +34,14 @@ class RandomFragment extends React.Component {
     return (
       <FragmentContent>
         <Row>
-          <Col md="4">
+          <Col md="4" >
             <ImageContainer>
-              <img src={"data:image/png;base64, " + this.props.randomfragment.base64_image} alt="Imagen de referencia" width= "100%" />
+              <img src={"data:image/png;base64, " + this.props.randomfragment.base64_image} alt="Imagen de referencia" width="100%" />
             </ImageContainer>
             <FragmentButtons>
               <Button color="info">Leer este fragmento online</Button>{" "}
               <Button color="success">Leer este fragmento en PDF</Button>{" "}
-              <Button color="warning">Ver otro fragmento</Button>{" "}
+
             </FragmentButtons>
           </Col>
 
