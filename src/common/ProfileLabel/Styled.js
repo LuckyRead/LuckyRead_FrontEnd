@@ -50,7 +50,7 @@ const FollowContainer = styled.div`
   button {
     width: 100%;
     height: 50%;
-    text-align: center;
+    text-align: right;
   }
   img {
     width: 20px;
