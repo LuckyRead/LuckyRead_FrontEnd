@@ -58,25 +58,28 @@ class App extends Component {
               <Route exact path="/RegisterPage" component={RegisterPage} />
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
               <Route path="/news" component={News} />
+
+              <PrivateRoute
+                exact
+                path="/CategoriesPage"
+                component={Categories_List}
+              />
               <Route path="/ProfileLabelTest" component={ProfileLabelMapTest} />
               <PrivateRoute
                 exact
                 path="/RandomFragmentPage"
                 component={RandomFragmentPage}
               />
-              <Route exact path="/:fragment_id" component={FragmentPage} />
+
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
-              <PrivateRoute
-                exact
-                path="/CategoriesPage"
-                component={Categories_List}
-              />
+
               <Route exact path="/Email" component={Email} />
               <Route
                 path="/reset_password/:token"
                 component={ChangePasswordPage}
               />
               <Route path="/news" component={News} />
+              <Route exact path="/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
             </Switch>
           </div>
