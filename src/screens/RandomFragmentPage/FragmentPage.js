@@ -9,8 +9,7 @@ import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButt
 class FragmentPage extends Component {
   state = {
     post: null,
-    statistic: null,
-    base64_image: null
+    statistic: null
   };
   componentDidMount() {
     let id = this.props.match.params.fragment_id;
@@ -18,10 +17,9 @@ class FragmentPage extends Component {
     API.get("/api/fragments/" + id).then(res => {
       console.log(res);
       this.setState({
-        post: res.data,
-        base64_image: ("data:image/png;base64, " + res.data.base64_image)
+        post: res.data
       });
-      console.log(this.state.base64_image);
+      console.log(this.state.post.base64_image);
       console.log(res.data);
     });
 
@@ -56,7 +54,7 @@ class FragmentPage extends Component {
             <div className="row justify-content-center" id="content">
               <div className="col-4" id="image">
                 <img
-                  src="https://fortunedotcom.files.wordpress.com/2018/07/gettyimages-961697338.jpg"
+                  src={"data:image/png;base64, " + this.state.post.base64_image}
                   alt="Imagen de referencia"
                 />
                 <div>{<ReactionButtons response={this.state.statistic} />}</div>

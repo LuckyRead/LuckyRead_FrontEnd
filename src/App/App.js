@@ -12,7 +12,7 @@ import Navbar from "../common/NavBar/NavBar.js";
 import RegisterPage from "../screens/RegisterPage";
 import LandingPage from "../screens/LandingPage";
 import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage";
-import FragmentPage from "../screens/FragmentPage/FragmentPage";
+import FragmentPage from "../screens/RandomFragmentPage/FragmentPage";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
 import Categories_List from "../screens/CategoriesPage/Categories_List";
 import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
@@ -20,6 +20,8 @@ import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/FragmentPage/FragmentPDF";
 import ProfileLabelMapTest from "../Test/ProfileLabelMapTest";
+//  import FragmentPDF from "../screens/RandomFragmentPage/FragmentPDF";
+
 // Styles
 import "./App.css";
 import { Alerts } from "./Styled";
