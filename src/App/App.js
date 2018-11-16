@@ -19,6 +19,7 @@ import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/FragmentPage/FragmentPDF";
+import ProfileLabel from "../common/ProfileLabel/ProfileLabel";
 
 // Styles
 import "./App.css";
@@ -75,6 +76,7 @@ class App extends Component {
               />
               <Route path="/news" component={News} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+              <Route path="/ProfileLabelTest" component={ProfileLabel} />
             </Switch>
           </div>
         </Router>
