@@ -57,6 +57,7 @@ class App extends Component {
               <Route exact path="/RegisterPage" component={RegisterPage} />
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
               <Route path="/news" component={News} />
+              <Route path="/ProfileLabelTest" component={ProfileLabel} />
               <PrivateRoute
                 exact
                 path="/RandomFragmentPage"
@@ -76,7 +77,6 @@ class App extends Component {
               />
               <Route path="/news" component={News} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
-              <Route path="/ProfileLabelTest" component={ProfileLabel} />
             </Switch>
           </div>
         </Router>
