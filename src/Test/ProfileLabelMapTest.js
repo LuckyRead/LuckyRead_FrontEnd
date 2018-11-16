@@ -26,7 +26,7 @@ export default class ProfileLabelMapTest extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div style={{ width: "200px" }}>
         <ProfileLabelMap response={this.state.response} />
       </div>
     );

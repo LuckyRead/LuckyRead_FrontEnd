@@ -35,5 +35,14 @@ const StringContainer = styled.div`
 const ProfileMapContainer = styled.div`
   width: 100%;
   height: 100%;
+  border-radius: 5px;
+  background-color: ${Palette.white};
+  border: 2px solid ${Palette.grayoff};
 `;
-export { Palette, ProfileLabelContainer, PhotoContainer, StringContainer };
+export {
+  Palette,
+  ProfileLabelContainer,
+  PhotoContainer,
+  StringContainer,
+  ProfileMapContainer
+};
