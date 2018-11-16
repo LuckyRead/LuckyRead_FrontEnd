@@ -3,7 +3,8 @@ import React, { Component } from "react";
 
 //Components
 import Category from "./Category";
-import Sub_topics from "./Sub_topics";
+
+import { ListGroup, ListGroupItem } from 'reactstrap';
 import "./homepage.css";
 
 import axios from "axios";
@@ -20,47 +21,39 @@ class Categories_List extends Component {
   componentWillMount() {
     const token = localStorage.getItem("jwtToken");
     const user = localStorage.getItem("user");
-    console.log(token)
-
     //get subtopics
-    axios({
-      method: "get",
-      url:
-        "https://luckyread-backend.herokuapp.com/api/users/preferences_sub_topic",
-      headers: {
-        Authorization: "Bearer " + token
-      },
-      data: {
-        username: user
-      }
-    })
-      .then(response => {
-        const sub_topics = response["data"];
-        this.setState({ subtopics: sub_topics });
-        console.log(this.state.subtopics);
-      })
-      .catch(function(error) {
-        console.log("error");
-      });
+    // axios({
+    //   method: "get",
+    //   url:
+    //     "https://luckyread-backend.herokuapp.com/api/users/preferences_sub_topic",
+    //   headers: {
+    //     Authorization: "Bearer " + token
+    //   }
+    // })
+    //   .then(response => {
+    //     console.log(response)
+    //     const sub_topics = response["data"]["sub_topics"];
+    //     this.setState({ subtopics: sub_topics });
+    //   })
+    //   .catch(function(error) {
+    //     console.log("error");
+    //   });
 
         //get topics
-        // axios({
-        //   method: "post",
-        //   url:
-        //     "https://luckyread-backend.herokuapp.com/api/users/preferences_topic",
-        //   headers: {
-        //     Authorization: "Bearer " + token
-        //   },
-        //   data: {
-        //     username: user
-        //   }
-        // })
-        //   .then(response => {
-        //     const topics = response.data;
-        //     this.setState({ topics: topics });
-        //     console.log(response);
-        //   })
-        //   .catch(function(error) {});
+        axios({
+          method: "get",
+          url:
+            "https://luckyread-backend.herokuapp.com/api/users/preferences_topic",
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        })
+          .then(response => {
+            const topics = response.data;
+            this.setState({ topics: topics });
+            console.log(response);
+          })
+          .catch(function(error) {});
 
   }
 
@@ -81,15 +74,7 @@ class Categories_List extends Component {
         />
       );
     });
-    const domSubTopics = this.state.subtopics.map(subtopic => {
-      return (
-        <Sub_topics
-          key={subtopic.sub_topic_id}
-          name={subtopic.sub_topic_name}
-          id={subtopic.sub_topic_id}
-        />
-      );
-    });
+
     return (
       <div>
         <br />
@@ -99,16 +84,16 @@ class Categories_List extends Component {
           </h1>
         </div>
         <div className="row justify-content-center ">
-          <ul className="list-group">{domTopics}</ul>
+          <ListGroup>{domTopics}</ListGroup>
         </div>
-        <div className="row justify-content-center ">
+        {/*<div className="row justify-content-center ">
           <h2>
             <strong>Subcategorías</strong>
           </h2>
         </div>
         <div className="row justify-content-center ">
           <ul className="list-group">{domSubTopics}</ul>
-        </div>
+        </div>*/}
       </div>
     );
   }
