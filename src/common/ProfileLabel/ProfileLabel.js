@@ -9,7 +9,21 @@ import {
 import { Row, Col, Button } from "reactstrap";
 import StringLabel from "./StringLabel";
 export default class ProfileLabel extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      followed: this.props.followed
+    };
+  }
+
+  changeFollow() {
+    let newState = Object.assign({}, this.state);
+    newState.followed = !newState.followed;
+    this.setState(newState);
+  }
+
   render() {
+    console.log(this.state.followed);
     return (
       <ProfileLabelContainer>
         <Row>
@@ -28,10 +42,10 @@ export default class ProfileLabel extends React.Component {
           </Col>
           <Col xs="2">
             <FollowContainer>
-              {this.props.followed ? (
-                <Button color="success" />
+              {this.state.followed ? (
+                <Button color="success" onClick={() => this.changeFollow()} />
               ) : (
-                <Button color="secondary" />
+                <Button color="secondary" onClick={() => this.changeFollow()} />
               )}
             </FollowContainer>
           </Col>
