@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Route } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { history } from "../_helpers";
@@ -19,6 +19,7 @@ import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/RandomFragmentPage/FragmentPDF";
+import ProfileLabel from "../common/ProfileLabel/ProfileLabel";
 
 // Styles
 import "./App.css";
@@ -51,27 +52,32 @@ class App extends Component {
         </Alerts>
         <Router history={history}>
           <div>
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/RegisterPage" component={RegisterPage} />
-            <PrivateRoute
-              exact
-              path="/RandomFragmentPage"
-              component={RandomFragmentPage}
-            />
-            <Route exact path="/RandomFragmentPage/:fragment_id" component={FragmentPage} />
-            <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
-            <PrivateRoute
-              exact
-              path="/CategoriesPage"
-              component={Categories_List}
-            />
-            <Route exact path="/Email" component={Email} />
-            <Route
-              path="/reset_password/:token"
-              component={ChangePasswordPage}
-            />
-            <Route path="/news" component={News} />
-            <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/RegisterPage" component={RegisterPage} />
+              <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
+              <Route path="/news" component={News} />
+              <Route path="/ProfileLabelTest" component={ProfileLabel} />
+              <PrivateRoute
+                exact
+                path="/RandomFragmentPage"
+                component={RandomFragmentPage}
+              />
+              <Route exact path="/:fragment_id" component={FragmentPage} />
+              <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
+              <PrivateRoute
+                exact
+                path="/CategoriesPage"
+                component={Categories_List}
+              />
+              <Route exact path="/Email" component={Email} />
+              <Route
+                path="/reset_password/:token"
+                component={ChangePasswordPage}
+              />
+              <Route path="/news" component={News} />
+              <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+            </Switch>
           </div>
         </Router>
       </div>
