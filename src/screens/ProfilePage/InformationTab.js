@@ -22,7 +22,8 @@ export default class InformationTab extends Component {
     this.state = {
       collapsePassword: false,
       collapseNickname: false,
-      collapseCity: false
+      collapseCity: false,
+      collapseAbout: false
     };
   }
   togglePassword() {
@@ -40,6 +41,12 @@ export default class InformationTab extends Component {
   toggleCity() {
     let newState = Object.assign({}, this.state);
     newState.collapseCity = !newState.collapseCity;
+    this.setState(newState);
+  }
+
+  toggleAbout() {
+    let newState = Object.assign({}, this.state);
+    newState.collapseAbout = !newState.collapseAbout;
     this.setState(newState);
   }
 
@@ -144,6 +151,28 @@ export default class InformationTab extends Component {
                       <option>Ciudad 4</option>
                       <option>Ciudad 5</option>
                     </Input>
+                    <Button className="ChangeButton">Cambiar</Button>
+                  </FormGroup>
+                </Form>
+              </CollapseContainer>
+            </Collapse>
+          </RowInfo>
+        </Row>
+        <Row>
+          <RowInfo>
+            <Button
+              color="primary"
+              onClick={() => this.toggleAbout()}
+              className="FullButton"
+            >
+              Actualiza tu estado
+            </Button>
+            <Collapse isOpen={this.state.collapseAbout}>
+              <CollapseContainer>
+                <Form>
+                  <FormGroup>
+                    <Label for="aboutText">Cuéntanos sobre ti</Label>
+                    <Input type="textarea" name="about" id="aboutText" />
                     <Button className="ChangeButton">Cambiar</Button>
                   </FormGroup>
                 </Form>
