@@ -18,12 +18,13 @@
 
 }
 .card{
-  width: 1100px;
-  padding: 0;
+  width: 1100px !important;
+  padding: 0 !important;
 }
 
 .card-header{
   background: #ffff !important;
+  padding: 0;
 }
 
 label{
