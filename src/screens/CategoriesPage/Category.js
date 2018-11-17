@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { ListGroup, ListGroupItem, Collapse, Card, Button, CardHeader, CardFooter, CardBody,
-  CardTitle, CardText, Col } from 'reactstrap';
+  CardTitle, CardText, Col, Input, Label } from 'reactstrap';
 import Sub_topics from "./Sub_topics";
 import axios from 'axios';
-
 import "./preferences.css";
 
 //Icons
@@ -15,12 +14,19 @@ class Category extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       collapse: false,
-      subtopics: []
+      subtopics: [],
+      check: true
     };
   }
 
   toggle() {
-    this.setState({ collapse: !this.state.collapse });
+    let checked = this.state.check
+    if(checked === true){
+      this.setState({ collapse: !this.state.collapse });
+    }else{
+      this.setState({ collapse: false });
+    }
+
   }
 
   componentWillMount() {
@@ -41,7 +47,15 @@ class Category extends Component {
 
   }
 
+  handleClick = (e) => {
+    const checked = e.target.checked
+    if(checked === true){
+      this.setState({ check: true });
+    }else{
+      this.setState({ check: false });
+    }
 
+  }
   render() {
     const domSubTopics = this.state.subtopics.map(subtopic => {
       return (
@@ -55,9 +69,22 @@ class Category extends Component {
     return (
       <Card className= "Item">
         <CardHeader id="Header">
-          <Button color="link" onClick={this.toggle}>{this.props.name}</Button>
+          <div className="pretty p-switch p-fill">
+            {this.state.check ?
+               (<input type="checkbox" id="checkCategory" defaultChecked onClick = {this.handleClick}/>)
+              :(<input type="checkbox" id="checkCategory" onClick = {this.handleClick}/>)
+            }
+              <div className="state  p-info">
+                  <label></label>
+              </div>
+           </div>
+           <Button color="link" id ="Category"onClick={this.toggle}>
+             {this.props.name}
+           </Button>
+
+
         </CardHeader>
-        <Collapse isOpen={this.state.collapse}>
+        <Collapse isOpen={this.state.collapse} id="Collapse">
             <CardBody>
             {domSubTopics}
             </CardBody>

@@ -15,7 +15,9 @@ class Sub_topics extends Component {
   showSubCategories() {
     console.log("subcategories");
   }
+
   componentDidMount(){
+    //mirar si le gusta o no el subtopico al usuario
     axios({
       method: "get",
       url:
@@ -40,17 +42,46 @@ class Sub_topics extends Component {
 
     )
   }
+
+  handleClick = (e) => {
+    const checked = e.target.checked
+    if(checked === true){
+      console.log('checked')
+      axios({
+        method: "post",
+        url:
+          "https://luckyread-backend.herokuapp.com/api/preference/add/"+this.props.id,
+        headers: {
+          Authorization: "Bearer " + localStorage.jwtToken
+        }
+      })
+    }else{
+      console.log('not checked')
+      axios({
+        method: "delete",
+        url:
+          "https://luckyread-backend.herokuapp.com/api/preference/rm/"+this.props.id,
+        headers: {
+          Authorization: "Bearer " + localStorage.jwtToken
+        }
+      })
+    }
+
+  }
+
   render() {
 
     return (
-      <Label check>
-      {this.state.check ?
-         (<Input type="checkbox" defaultChecked />)
-        :(<Input type="checkbox" />)
-      } {this.props.name}
+      <div className="pretty p-default" id="subcategories">
+        {this.state.check ?
+           (<input type="checkbox" defaultChecked onClick = {this.handleClick}/>)
+          :(<input type="checkbox" onClick = {this.handleClick}/>)
+        }
+        <div className="state p-success">
+            <label>{this.props.name}</label>
+        </div>
+      </div>
 
-
-      </Label>
       /*<div key={this.props.topic_id}>
         <div className="custom-control custom-checkbox">
           <input type="checkbox" className="custom-control-input" id={this.props.id} onClick={this.showSubCategories}/>
