@@ -59,7 +59,7 @@ class FragmentPage extends Component {
                   src="https://fortunedotcom.files.wordpress.com/2018/07/gettyimages-961697338.jpg"
                   alt="Imagen de referencia"
                 />
-                <div>{<ReactionButtons response={this.state.statistic} />}</div>
+
               </div>
 
               <div className="col-8" id="text">
@@ -76,8 +76,12 @@ class FragmentPage extends Component {
                   <strong>Fuente</strong>
                 </h6>
                 <p className="text-center">{this.state.post.source}</p>
+                <div>{<ReactionButtons response={this.state.statistic} />}</div>
               </div>
+
             </div>
+
+
             <div className="row justify-content-center">
               <Button color="primary" tag={Link} to="/RandomFragmentPage">
                 Volver
@@ -87,12 +91,12 @@ class FragmentPage extends Component {
         </div>
       </div>
     ) : (
-      <div className="center">
-        <Loading />
-      </div>
-    );
+        <div className="center">
+          <Loading />
+        </div>
+      );
 
-    return(
+    return (
       <div className="container">
         {post}
       </div>

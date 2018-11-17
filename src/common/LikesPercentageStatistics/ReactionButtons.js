@@ -85,5 +85,5 @@ export default class ReactionButtons extends React.Component {
   }
 }
 ReactionButtons.propTypes = {
-  response: PropTypes.object.isRequired
+  response: PropTypes.object
 };

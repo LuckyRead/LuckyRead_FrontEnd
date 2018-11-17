@@ -14,6 +14,7 @@ import {
 } from "./Styled";
 import CategoryTag from "./CategoryTag";
 import pdficon from "../../resources/paper_plane.png";
+import { Link } from "react-router-dom";
 
 class RandomFragment extends React.Component {
   constructor(props) {
@@ -39,9 +40,12 @@ class RandomFragment extends React.Component {
               <img src={"data:image/png;base64, " + this.props.randomfragment.base64_image} alt="Imagen de referencia" width="100%" />
             </ImageContainer>
             <FragmentButtons>
-              <Button color="info">Leer este fragmento online</Button>{" "}
-              <Button color="success">Leer este fragmento en PDF</Button>{" "}
-
+              <Link to={"/fragment/" + this.props.randomfragment.id}>
+                <Button color="info">Leer este fragmento online</Button>{" "}
+              </Link>
+              <Link to={'/pdf/' + this.props.randomfragment.id}>
+                <Button color="success">Leer este fragmento en PDF</Button>{" "}
+              </Link>
             </FragmentButtons>
           </Col>
 
@@ -61,7 +65,7 @@ class RandomFragment extends React.Component {
 }
 
 RandomFragment.propTypes = {
-  randomfragment: PropTypes.array.isRequired
+  randomfragment: PropTypes.object.isRequired
 };
 
 export default RandomFragment;

@@ -12,12 +12,12 @@ import {
 import pdficon from "../../resources/paper_plane.png";
 import RandomFragment from "../RandomFragmentPage/RandomFragment";
 import axios from "axios";
+import Loading from "../../common/Loading/Loading";
 
 
 
 class RandomFragmentPage extends React.Component {
   state = {
-    //  randomfragment: []
     randomfragment: []
   };
 
@@ -49,17 +49,22 @@ class RandomFragmentPage extends React.Component {
   }
 
   render() {
+    console.log(rf)
+    const rf = this.state.randomfragment ?
+      (<PageContainer>
+        <MessageFragment>
+          <Row>
+            <Col>Tenemos un fragmento para ti</Col>
+          </Row>
+        </MessageFragment>
+        <RandomFragment randomfragment={this.state.randomfragment} />
+        <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
+      </PageContainer>) : <div className="center">
+        <Loading />
+      </div>
     return (
       <Container>
-        <PageContainer>
-          <MessageFragment>
-            <Row>
-              <Col>Tenemos un fragmento para ti</Col>
-            </Row>
-          </MessageFragment>
-          <RandomFragment randomfragment={this.state.randomfragment} />
-          <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
-        </PageContainer>
+        {rf}
       </Container>
     );
   }
