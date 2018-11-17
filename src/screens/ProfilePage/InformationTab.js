@@ -19,7 +19,11 @@ export default class InformationTab extends Component {
   constructor(props) {
     super(props);
     this.togglePassword = this.togglePassword.bind(this);
-    this.state = { collapsePassword: false, collapseNickname: false };
+    this.state = {
+      collapsePassword: false,
+      collapseNickname: false,
+      collapseCity: false
+    };
   }
   togglePassword() {
     let newState = Object.assign({}, this.state);
@@ -32,6 +36,13 @@ export default class InformationTab extends Component {
     newState.collapseNickname = !newState.collapseNickname;
     this.setState(newState);
   }
+
+  toggleCity() {
+    let newState = Object.assign({}, this.state);
+    newState.collapseCity = !newState.collapseCity;
+    this.setState(newState);
+  }
+
   render() {
     return (
       <TabContent>
@@ -64,7 +75,7 @@ export default class InformationTab extends Component {
                   <FormGroup>
                     <Label for="Cambiar contraseña">Nueva contraseña</Label>
                     <Input
-                      type="Password"
+                      type="password"
                       name="newPassword"
                       id="newPassword"
                       placeholder="Nueva contraseña"
@@ -105,6 +116,34 @@ export default class InformationTab extends Component {
                       <InputGroupAddon addonType="prepend">@</InputGroupAddon>
                       <Input placeholder="username" />
                     </InputGroup>
+                    <Button className="ChangeButton">Cambiar</Button>
+                  </FormGroup>
+                </Form>
+              </CollapseContainer>
+            </Collapse>
+          </RowInfo>
+        </Row>
+        <Row>
+          <RowInfo>
+            <Button
+              color="primary"
+              onClick={() => this.toggleCity()}
+              className="FullButton"
+            >
+              Cambiar ciudad
+            </Button>
+            <Collapse isOpen={this.state.collapseCity}>
+              <CollapseContainer>
+                <Form>
+                  <FormGroup>
+                    <Label for="selectCity">Selecciona tu ciudad</Label>
+                    <Input type="select" name="select" id="selectCity">
+                      <option>Ciudad 1</option>
+                      <option>Ciudad 2</option>
+                      <option>Ciudad 3</option>
+                      <option>Ciudad 4</option>
+                      <option>Ciudad 5</option>
+                    </Input>
                     <Button className="ChangeButton">Cambiar</Button>
                   </FormGroup>
                 </Form>
