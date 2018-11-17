@@ -31,11 +31,35 @@ export default class FollowedTab extends Component {
           username: "Daniela",
           nickname: "danicastel2829",
           photosrc: "asdasd",
-          followed: false
+          followed: true
         },
         {
           username: "Camiela",
           nickname: "cd2121",
+          photosrc: "asdasd",
+          followed: true
+        },
+        {
+          username: "Cristhian",
+          nickname: "cc2951",
+          photosrc: "asdasd",
+          followed: true
+        },
+        {
+          username: "Laura",
+          nickname: "lm2987",
+          photosrc: "asdasd",
+          followed: true
+        },
+        {
+          username: "Lauristian",
+          nickname: "lc2929",
+          photosrc: "asdasd",
+          followed: true
+        },
+        {
+          username: "Daniel",
+          nickname: "descob",
           photosrc: "asdasd",
           followed: true
         }
