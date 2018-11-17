@@ -22,16 +22,16 @@ export default class FollowersTab extends Component {
     this.state = {
       response: [
         {
-          username: "Camilo",
-          nickname: "camiela2121",
-          photosrc: "asdasd",
-          followed: true
-        },
-        {
           username: "Daniela",
           nickname: "danicastel2829",
           photosrc: "asdasd",
           followed: true
+        },
+        {
+          username: "Daniel",
+          nickname: "descob",
+          photosrc: "asdasd",
+          followed: false
         },
         {
           username: "Camiela",
@@ -45,29 +45,12 @@ export default class FollowersTab extends Component {
           photosrc: "asdasd",
           followed: false
         },
+
         {
-          username: "Cristhian",
-          nickname: "cc2951",
-          photosrc: "asdasd",
-          followed: true
-        },
-        {
-          username: "Laura",
-          nickname: "lm2987",
-          photosrc: "asdasd",
-          followed: true
-        },
-        {
-          username: "Lauristian",
+          username: "Samael",
           nickname: "lc2929",
           photosrc: "asdasd",
-          followed: true
-        },
-        {
-          username: "Daniel",
-          nickname: "descob",
-          photosrc: "asdasd",
-          followed: true
+          followed: false
         }
       ]
     };
