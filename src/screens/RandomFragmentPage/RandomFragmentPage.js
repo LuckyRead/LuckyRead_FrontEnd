@@ -7,18 +7,21 @@ import {
   ImageContainer,
   FragmentTitle,
   FragmentText,
-  StatisticsContainer
+  StatisticsContainer,
+  TagsContainer,
+  Topics
 } from "./Styled";
 import pdficon from "../../resources/paper_plane.png";
 import RandomFragment from "../RandomFragmentPage/RandomFragment";
 import axios from "axios";
 import Loading from "../../common/Loading/Loading";
-
+import CategoryTag from "../../common/Tags/CategoryTag";
 
 
 class RandomFragmentPage extends React.Component {
   state = {
-    randomfragment: []
+    randomfragment: [],
+    topics: []
   };
 
   componentDidMount() {
@@ -37,7 +40,8 @@ class RandomFragmentPage extends React.Component {
       response => {
         console.log(response);
         this.setState({
-          randomfragment: response["data"]
+          randomfragment: response["data"],
+          topics: response["data"].topics
         });
         console.log(this.state.randomfragment);
       },
@@ -48,8 +52,22 @@ class RandomFragmentPage extends React.Component {
     return
   }
 
+  renderCategoryTags(categoryArray) {
+    let categoryTags = {};
+    categoryTags = [];
+    categoryArray.forEach(category => {
+      categoryTags.push(<CategoryTag name={category.name} />);
+    });
+    return categoryTags;
+  }
+
+
+
   render() {
     console.log(rf)
+    console.log("aqui")
+    console.log(this.state.topics[0])
+
     const rf = this.state.randomfragment ?
       (<PageContainer>
         <MessageFragment>
@@ -57,6 +75,18 @@ class RandomFragmentPage extends React.Component {
             <Col>Tenemos un fragmento para ti</Col>
           </Row>
         </MessageFragment>
+
+        <Row>
+          <Col>
+            <Topics>
+              <TagsContainer>
+                {this.renderCategoryTags(this.state.topics)}
+              </TagsContainer>
+            </Topics>
+          </Col>
+
+        </Row>
+
         <RandomFragment randomfragment={this.state.randomfragment} />
         <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
       </PageContainer>) : <div className="center">

@@ -6,12 +6,15 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import Loading from "../../common/Loading/Loading";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
+import CategoryTag from "../../common/Tags/CategoryTag";
 class FragmentPage extends Component {
   state = {
     post: null,
     statistic: null,
-    base64_image: null
+    base64_image: null,
+    topics: []
   };
+
   componentDidMount() {
     let id = this.props.match.params.fragment_id;
     console.log(id)
@@ -42,6 +45,17 @@ class FragmentPage extends Component {
       }
     );
   }
+
+  renderCategoryTags(categoryArray) {
+    let categoryTags = {};
+    categoryTags = [];
+    categoryArray.forEach(category => {
+      categoryTags.push(<CategoryTag name={category.name} />);
+    });
+    return categoryTags;
+  }
+
+
   render() {
     const statistic = this.state.statistic;
     const post = this.state.post ? (
