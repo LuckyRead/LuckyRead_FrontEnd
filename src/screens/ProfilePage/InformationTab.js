@@ -84,22 +84,13 @@ export default class InformationTab extends Component {
               <CollapseContainer>
                 <Form>
                   <FormGroup>
-                    <Label for="Cambiar contraseña">Contraseña actual</Label>
-                    <Input
-                      type="password"
-                      name="password"
-                      id="password"
-                      placeholder="Contraseña actual"
-                      value=""
-                    />
-                  </FormGroup>
-                  <FormGroup>
                     <Label for="Cambiar contraseña">Nueva contraseña</Label>
                     <Input
                       type="password"
                       name="newPassword"
                       id="newPassword"
                       placeholder="Nueva contraseña"
+                      value=""
                     />
                   </FormGroup>
                   <FormGroup>
@@ -208,17 +199,7 @@ export default class InformationTab extends Component {
               <CollapseContainer>
                 <Form>
                   <FormGroup>
-                    <Label for="passwordChangeEmail">Contraseña actual</Label>
-                    <Input
-                      type="password"
-                      name="password"
-                      id="passwordEmail"
-                      placeholder="Contraseña actual"
-                      value=""
-                    />
-                  </FormGroup>
-                  <FormGroup>
-                    <Label for="changeEmail">Email</Label>
+                    <Label for="changeEmail">Nuevo email</Label>
                     <Input
                       type="email"
                       name="email"
