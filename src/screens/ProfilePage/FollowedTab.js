@@ -19,7 +19,6 @@ import ProfileLabelMap from "../../common/ProfileLabel/ProfileLabelMap";
 export default class FollowedTab extends Component {
   constructor(props) {
     super(props);
-    this.togglePassword = this.togglePassword.bind(this);
     this.state = {
       response: [
         {
@@ -47,7 +46,7 @@ export default class FollowedTab extends Component {
   render() {
     return (
       <TabContent>
-        <div style={{ width: "300px" }}>
+        <div style={{ width: "400px", margin: "auto" }}>
           <ProfileLabelMap response={this.state.response} />
         </div>
       </TabContent>

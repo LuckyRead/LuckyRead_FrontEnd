@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import classnames from "classnames";
 import InformationTab from "./InformationTab";
+import FollowedTab from "./FollowedTab";
 
 export default class ProfileTabs extends React.Component {
   constructor(props) {
@@ -116,9 +117,7 @@ export default class ProfileTabs extends React.Component {
           </TabPane>
           <TabPane tabId="5">
             <Row className="divNav">
-              <Col sm="12">
-                <h4>Tab 5 Contents</h4>
-              </Col>
+              <FollowedTab />
             </Row>
           </TabPane>
         </TabContent>
