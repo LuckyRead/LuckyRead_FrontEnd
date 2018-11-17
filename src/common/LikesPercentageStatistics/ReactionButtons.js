@@ -12,7 +12,7 @@ export default class ReactionButtons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      percentage: this.props.response.percentagelikes,
+      percentage: 0,
       typeReaction: "percentagelikes"
     };
   }
@@ -51,6 +51,7 @@ export default class ReactionButtons extends React.Component {
           <ReactionButtonsContainer>
             <Button
               className="ReactionButton"
+              outline
               color="success"
               onClick={() => this.setReaction("like")}
             >
@@ -58,6 +59,7 @@ export default class ReactionButtons extends React.Component {
             </Button>
             <Button
               className="ReactionButton"
+              outline
               color="warning"
               onClick={() => this.setReaction("noreaction")}
             >
@@ -65,6 +67,7 @@ export default class ReactionButtons extends React.Component {
             </Button>
             <Button
               className="ReactionButton"
+              outline
               color="danger"
               onClick={() => this.setReaction("dislike")}
             >
@@ -85,5 +88,5 @@ export default class ReactionButtons extends React.Component {
   }
 }
 ReactionButtons.propTypes = {
-  response: PropTypes.object.isRequired
+  response: PropTypes.object
 };

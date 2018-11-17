@@ -82,6 +82,10 @@ export default class ProfileCard extends Component {
   }
 
   render() {
+    const talkToUs = this.state.user_data.talk_to_us
+      ? this.state.user_data.talk_to_us
+      : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.";
+
     return (
       <ProfileCardDiv>
         <ProfilePhotoContainer>
@@ -108,10 +112,7 @@ export default class ProfileCard extends Component {
             marginBottom="10%"
             bgcolor={Palette.bluesealight}
           >
-            <div className="about">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              eiusmod tempor incidunt ut labore et dolore magna aliqua."
-            </div>
+            <div className="about">{talkToUs}</div>
           </InfoContainer>
         </AllInfoContainer>
 

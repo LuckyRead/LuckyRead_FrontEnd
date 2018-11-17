@@ -13,7 +13,7 @@ const ProfileCardContainer = styled.div`
 
 const TabContainer = styled.div`
   .itemNav {
-    background-color: ${Palette.white};
+    background-color: ${Palette.whitetransparency};
     border: 1px solid ${Palette.grayoff};
     border-radius: 5px;
     margin-right: 0.3%;
@@ -31,7 +31,7 @@ const TabContainer = styled.div`
   }
 
   .divNav {
-    background-color: ${Palette.white};
+    background-color: ${Palette.whitetransparency};
     width: 100%;
     height: 100%;
     margin-left: 0.025%;
@@ -114,6 +114,42 @@ const ChangeAvatarContainer = styled.div`
     margin: 0 auto;
   }
 `;
+const TabContent = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: ${Palette.whitetransparency};
+  border-radius: 5px;
+  border: 1px solid ${Palette.grayoff};
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: auto;
+  .ChangeButton {
+    margin-top: 1%;
+  }
+`;
+const RowInfo = styled.div`
+  width: 100%;
+  margin-top: 2% !important;
+  .FullButton {
+    width: 25% !important;
+  }
+`;
+
+const CollapseContainer = styled.div`
+  background-color: ${Palette.white};
+  padding: 2%;
+  width: 100%;
+  height: 100%;
+  margin-top: 2%;
+  border-radius: 5px;
+  border: 1px solid ${Palette.grayoff};
+`;
 
 export {
   Palette,
@@ -124,5 +160,8 @@ export {
   ProfilePhotoContainer,
   InfoContainer,
   AllInfoContainer,
-  ChangeAvatarContainer
+  ChangeAvatarContainer,
+  TabContent,
+  RowInfo,
+  CollapseContainer
 };

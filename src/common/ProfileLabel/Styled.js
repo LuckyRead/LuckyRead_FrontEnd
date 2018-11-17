@@ -48,8 +48,8 @@ const FollowContainer = styled.div`
   display: flex;
   align-items: center;
   button {
-    width: 100%;
-    height: 50%;
+    width: 25px !important;
+    height: 25px !important;
     text-align: right;
   }
   img {
