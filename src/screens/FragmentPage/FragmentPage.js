@@ -7,6 +7,19 @@ import { Link } from "react-router-dom";
 import Loading from "../../common/Loading/Loading";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
 import CategoryTag from "../../common/Tags/CategoryTag";
+import {
+  PageContainer,
+  MessageFragment,
+  FragmentContent,
+  ImageContainer,
+  FragmentTitle,
+  FragmentText,
+  StatisticsContainer,
+  TagsContainer,
+  Topics
+} from "./Styled";
+
+
 class FragmentPage extends Component {
   state = {
     post: null,
@@ -22,10 +35,9 @@ class FragmentPage extends Component {
       console.log(res);
       this.setState({
         post: res.data,
+        topics: res.data.topics,
         base64_image: ("data:image/png;base64, " + res.data.base64_image)
       });
-      console.log(this.state.base64_image);
-      console.log(res.data);
     });
 
     API.get("/api/fragments/stat/percentage_reaction_fragments/" + id).then(
@@ -38,10 +50,6 @@ class FragmentPage extends Component {
             percentagenoreaction: res.data[0].percentagenoreaction
           }
         });
-        console.log(this.state.statistic);
-        console.log(res.data[0]);
-        console.log(res.data[0].percentagelikes);
-        console.log(res.data[0].percentagedislikes);
       }
     );
   }
@@ -57,23 +65,26 @@ class FragmentPage extends Component {
 
 
   render() {
+
+
     const statistic = this.state.statistic;
     const post = this.state.post ? (
       <div className="container" id="container">
-        <br />
         <div className="row" id="container_fragment">
+          <Topics>
+            <TagsContainer>
+              {this.renderCategoryTags(this.state.topics)}
+            </TagsContainer>
+          </Topics>
           <div className="text-center" id="title_fragment">
-            <h2>
-              <strong>{this.state.post.title}</strong>
-            </h2>
-            <br />
+            <h2><strong>{this.state.post.title}</strong></h2>
+
             <div className="row justify-content-center" id="content">
               <div className="col-4" id="image">
                 <img
                   src="https://fortunedotcom.files.wordpress.com/2018/07/gettyimages-961697338.jpg"
                   alt="Imagen de referencia"
                 />
-
               </div>
 
               <div className="col-8" id="text">
