@@ -19,7 +19,6 @@ import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/FragmentPage/FragmentPDF";
-import ProfileLabelMapTest from "../Test/ProfileLabelMapTest";
 //  import FragmentPDF from "../screens/RandomFragmentPage/FragmentPDF";
 
 // Styles
@@ -64,7 +63,6 @@ class App extends Component {
                 path="/CategoriesPage"
                 component={Categories_List}
               />
-              <Route path="/ProfileLabelTest" component={ProfileLabelMapTest} />
               <PrivateRoute
                 exact
                 path="/RandomFragmentPage"
