@@ -15,7 +15,9 @@ class Sub_topics extends Component {
   showSubCategories() {
     console.log("subcategories");
   }
+
   componentDidMount(){
+    //mirar si le gusta o no el subtopico al usuario
     axios({
       method: "get",
       url:
@@ -40,13 +42,40 @@ class Sub_topics extends Component {
 
     )
   }
+
+  handleClick = (e) => {
+    const checked = e.target.checked
+    if(checked === true){
+      console.log('checked')
+      axios({
+        method: "post",
+        url:
+          "https://luckyread-backend.herokuapp.com/api/preference/add/"+this.props.id,
+        headers: {
+          Authorization: "Bearer " + localStorage.jwtToken
+        }
+      })
+    }else{
+      console.log('not checked')
+      axios({
+        method: "post",
+        url:
+          "https://luckyread-backend.herokuapp.com/api/preference/rm/"+this.props.id,
+        headers: {
+          Authorization: "Bearer " + localStorage.jwtToken
+        }
+      })
+    }
+
+  }
+
   render() {
 
     return (
       <Label check>
       {this.state.check ?
-         (<Input type="checkbox" defaultChecked />)
-        :(<Input type="checkbox" />)
+         (<Input type="checkbox" defaultChecked onClick = {this.handleClick}/>)
+        :(<Input type="checkbox" onClick = {this.handleClick}/>)
       } {this.props.name}
 
 

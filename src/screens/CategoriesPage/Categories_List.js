@@ -4,7 +4,7 @@ import React, { Component } from "react";
 //Components
 import Category from "./Category";
 
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Button } from 'reactstrap';
 import "./homepage.css";
 
 import axios from "axios";
@@ -13,56 +13,28 @@ class Categories_List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      topics: [],
-      subtopics: [],
-      user: ""
+      topics: []
     };
   }
   componentWillMount() {
     const token = localStorage.getItem("jwtToken");
     const user = localStorage.getItem("user");
-    //get subtopics
-    // axios({
-    //   method: "get",
-    //   url:
-    //     "https://luckyread-backend.herokuapp.com/api/users/preferences_sub_topic",
-    //   headers: {
-    //     Authorization: "Bearer " + token
-    //   }
-    // })
-    //   .then(response => {
-    //     console.log(response)
-    //     const sub_topics = response["data"]["sub_topics"];
-    //     this.setState({ subtopics: sub_topics });
-    //   })
-    //   .catch(function(error) {
-    //     console.log("error");
-    //   });
 
-        //get topics
-        axios({
-          method: "get",
-          url:
-            "https://luckyread-backend.herokuapp.com/api/users/preferences_topic",
-          headers: {
-            Authorization: "Bearer " + token
-          }
-        })
-          .then(response => {
-            const topics = response.data;
-            this.setState({ topics: topics });
-            console.log(response);
-          })
-          .catch(function(error) {});
+    //get topics
+    axios({
+      method: "get",
+      url:
+        "https://luckyread-backend.herokuapp.com/api/users/preferences_topic",
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    }).then(response => {
+        const topics = response.data;
+        this.setState({ topics: topics });
+        console.log(response);
+    })
 
   }
-
-  handleClic = e => {
-    const checked = e.target.checked;
-    if (checked) {
-    } else {
-    }
-  };
 
   render() {
     const domTopics = this.state.topics.map(topic => {
@@ -94,6 +66,7 @@ class Categories_List extends Component {
         <div className="row justify-content-center ">
           <ul className="list-group">{domSubTopics}</ul>
         </div>*/}
+        
       </div>
     );
   }
