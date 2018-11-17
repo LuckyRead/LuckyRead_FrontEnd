@@ -44,12 +44,13 @@ label{
   margin-bottom: 10px;
 }
 
-#container{
+#preferences{
   background: rgba(255, 255, 255, 0.5);
   padding: 10px;
   border-radius: 10px;
   margin-top: 40px;
 }
+
 h1{
   color: #2B5275;
 }
