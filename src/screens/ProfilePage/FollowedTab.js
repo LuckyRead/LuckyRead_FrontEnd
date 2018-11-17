@@ -22,45 +22,52 @@ export default class FollowedTab extends Component {
     this.state = {
       response: [
         {
-          username: "Camilo",
-          nickname: "camiela2121",
-          photosrc: "asdasd",
+          username: "camiela2121",
+          name: "Camilo",
+          lastname: "Sanchez",
+          profile_photo: "asdasd",
           followed: true
         },
         {
-          username: "Daniela",
-          nickname: "danicastel2829",
-          photosrc: "asdasd",
+          username: "danicastel2829",
+          name: "Daniela",
+          lastname: "Castellanos",
+          profile_photo: "asdasd",
           followed: true
         },
         {
-          username: "Camiela",
-          nickname: "cd2121",
-          photosrc: "asdasd",
+          username: "camiela2121",
+          name: "Camiela",
+          lastname: "Castesanchez",
+          profile_photo: "asdasd",
           followed: true
         },
         {
-          username: "Cristhian",
-          nickname: "cc2951",
-          photosrc: "asdasd",
+          username: "cc2951",
+          name: "Cristhian",
+          lastname: "Contreras",
+          profile_photo: "asdasd",
           followed: true
         },
         {
-          username: "Laura",
-          nickname: "lm2987",
-          photosrc: "asdasd",
+          username: "lm2315",
+          name: "Laura",
+          lastname: "Molina",
+          profile_photo: "asdasd",
           followed: true
         },
         {
-          username: "Lauristian",
-          nickname: "lc2929",
-          photosrc: "asdasd",
+          username: "laurist6123",
+          name: "Lauristian",
+          lastname: "Montreras",
+          profile_photo: "asdasd",
           followed: true
         },
         {
-          username: "Daniel",
-          nickname: "descob",
-          photosrc: "asdasd",
+          username: "daescobp2135",
+          name: "Daniel",
+          lastname: "Escobar",
+          profile_photo: "asdasd",
           followed: true
         }
       ]
