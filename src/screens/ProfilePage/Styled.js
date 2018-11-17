@@ -114,6 +114,37 @@ const ChangeAvatarContainer = styled.div`
     margin: 0 auto;
   }
 `;
+const TabContent = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: ${Palette.white};
+  border-radius: 5px;
+  border: 1px solid ${Palette.grayoff};
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+  .ChangeButton {
+    margin-top: 1%;
+  }
+`;
+const RowInfo = styled.div`
+  width: 100%;
+  margin-top: 2%;
+  .FullButton {
+    width: 100% !important;
+  }
+`;
+
+const CollapseContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-top: 2%;
+`;
 
 export {
   Palette,
@@ -124,5 +155,8 @@ export {
   ProfilePhotoContainer,
   InfoContainer,
   AllInfoContainer,
-  ChangeAvatarContainer
+  ChangeAvatarContainer,
+  TabContent,
+  RowInfo,
+  CollapseContainer
 };
