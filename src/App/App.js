@@ -58,7 +58,6 @@ class App extends Component {
               <Route exact path="/RegisterPage" component={RegisterPage} />
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
               <Route path="/news" component={News} />
-
               <PrivateRoute
                 exact
                 path="/CategoriesPage"
@@ -71,13 +70,13 @@ class App extends Component {
               />
 
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
-
+              <Route exact path="/news" component={News} />
               <Route exact path="/Email" component={Email} />
               <Route
                 path="/reset_password/:token"
                 component={ChangePasswordPage}
               />
-              <Route exact path="/news" component={News} />
+
               <Route path="/fragment/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
             </Switch>
