@@ -73,8 +73,15 @@ export default class InformationTab extends Component {
         </Row>
         <Row>
           <RowInfo>
+            <Button color="info" className="FullButton">
+              Descargar mi perfil en PDF
+            </Button>
+          </RowInfo>
+        </Row>
+        <Row>
+          <RowInfo>
             <Button
-              color="primary"
+              color="info"
               onClick={() => this.togglePassword()}
               className="FullButton"
             >
@@ -114,7 +121,7 @@ export default class InformationTab extends Component {
         <Row>
           <RowInfo>
             <Button
-              color="primary"
+              color="info"
               onClick={() => this.toggleNickname()}
               className="FullButton"
             >
@@ -138,7 +145,7 @@ export default class InformationTab extends Component {
         <Row>
           <RowInfo>
             <Button
-              color="primary"
+              color="info"
               onClick={() => this.toggleCity()}
               className="FullButton"
             >
@@ -166,7 +173,7 @@ export default class InformationTab extends Component {
         <Row>
           <RowInfo>
             <Button
-              color="primary"
+              color="info"
               onClick={() => this.toggleAbout()}
               className="FullButton"
             >
@@ -189,7 +196,7 @@ export default class InformationTab extends Component {
         <Row>
           <RowInfo>
             <Button
-              color="primary"
+              color="info"
               onClick={() => this.toggleEmail()}
               className="FullButton"
             >
@@ -217,7 +224,7 @@ export default class InformationTab extends Component {
         <Row>
           <RowInfo>
             <Button
-              color="primary"
+              color="info"
               onClick={() => this.toggleUsername()}
               className="FullButton"
             >

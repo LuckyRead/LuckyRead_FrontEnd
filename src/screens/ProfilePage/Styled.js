@@ -135,9 +135,9 @@ const TabContent = styled.div`
 `;
 const RowInfo = styled.div`
   width: 100%;
-  margin-top: 2%;
+  margin-top: 2% !important;
   .FullButton {
-    width: 100% !important;
+    width: 25% !important;
   }
 `;
 
