@@ -58,7 +58,7 @@ class Sub_topics extends Component {
     }else{
       console.log('not checked')
       axios({
-        method: "post",
+        method: "delete",
         url:
           "https://luckyread-backend.herokuapp.com/api/preference/rm/"+this.props.id,
         headers: {
@@ -72,14 +72,16 @@ class Sub_topics extends Component {
   render() {
 
     return (
-      <Label check>
-      {this.state.check ?
-         (<Input type="checkbox" defaultChecked onClick = {this.handleClick}/>)
-        :(<Input type="checkbox" onClick = {this.handleClick}/>)
-      } {this.props.name}
+      <div className="pretty p-default" id="subcategories">
+        {this.state.check ?
+           (<input type="checkbox" defaultChecked onClick = {this.handleClick}/>)
+          :(<input type="checkbox" onClick = {this.handleClick}/>)
+        }
+        <div className="state p-success">
+            <label>{this.props.name}</label>
+        </div>
+      </div>
 
-
-      </Label>
       /*<div key={this.props.topic_id}>
         <div className="custom-control custom-checkbox">
           <input type="checkbox" className="custom-control-input" id={this.props.id} onClick={this.showSubCategories}/>

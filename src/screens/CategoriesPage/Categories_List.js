@@ -48,8 +48,9 @@ class Categories_List extends Component {
     });
 
     return (
-      <div>
+      <div className="col-12">
         <br />
+
         <div className="row justify-content-center ">
           <h1>
             <strong>Mis preferencias</strong>
@@ -66,7 +67,7 @@ class Categories_List extends Component {
         <div className="row justify-content-center ">
           <ul className="list-group">{domSubTopics}</ul>
         </div>*/}
-        
+
       </div>
     );
   }
