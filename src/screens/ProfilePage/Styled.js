@@ -128,6 +128,9 @@ const TabContent = styled.div`
   padding-bottom: 2%;
   padding-left: 5%;
   padding-right: 5%;
+  .ChangeButton {
+    margin-top: 1%;
+  }
 `;
 const RowInfo = styled.div`
   width: 100%;
@@ -135,6 +138,12 @@ const RowInfo = styled.div`
   .FullButton {
     width: 100% !important;
   }
+`;
+
+const CollapseContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-top: 2%;
 `;
 
 export {
@@ -148,5 +157,6 @@ export {
   AllInfoContainer,
   ChangeAvatarContainer,
   TabContent,
-  RowInfo
+  RowInfo,
+  CollapseContainer
 };
