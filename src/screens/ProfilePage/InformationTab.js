@@ -23,7 +23,9 @@ export default class InformationTab extends Component {
       collapsePassword: false,
       collapseNickname: false,
       collapseCity: false,
-      collapseAbout: false
+      collapseAbout: false,
+      collapseEmail: false,
+      collapseUsername: false
     };
   }
   togglePassword() {
@@ -47,6 +49,17 @@ export default class InformationTab extends Component {
   toggleAbout() {
     let newState = Object.assign({}, this.state);
     newState.collapseAbout = !newState.collapseAbout;
+    this.setState(newState);
+  }
+  toggleEmail() {
+    let newState = Object.assign({}, this.state);
+    newState.collapseEmail = !newState.collapseEmail;
+    this.setState(newState);
+  }
+
+  toggleUsername() {
+    let newState = Object.assign({}, this.state);
+    newState.collapseUsername = !newState.collapseUsername;
     this.setState(newState);
   }
 
@@ -77,6 +90,7 @@ export default class InformationTab extends Component {
                       name="password"
                       id="password"
                       placeholder="Contraseña actual"
+                      value=""
                     />
                   </FormGroup>
                   <FormGroup>
@@ -173,6 +187,81 @@ export default class InformationTab extends Component {
                   <FormGroup>
                     <Label for="aboutText">Cuéntanos sobre ti</Label>
                     <Input type="textarea" name="about" id="aboutText" />
+                    <Button className="ChangeButton">Cambiar</Button>
+                  </FormGroup>
+                </Form>
+              </CollapseContainer>
+            </Collapse>
+          </RowInfo>
+        </Row>
+
+        <Row>
+          <RowInfo>
+            <Button
+              color="primary"
+              onClick={() => this.toggleEmail()}
+              className="FullButton"
+            >
+              Cambia tu email
+            </Button>
+            <Collapse isOpen={this.state.collapseEmail}>
+              <CollapseContainer>
+                <Form>
+                  <FormGroup>
+                    <Label for="passwordChangeEmail">Contraseña actual</Label>
+                    <Input
+                      type="password"
+                      name="password"
+                      id="passwordEmail"
+                      placeholder="Contraseña actual"
+                      value=""
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="changeEmail">Email</Label>
+                    <Input
+                      type="email"
+                      name="email"
+                      id="changeEmail"
+                      placeholder="ejemplo@ejemplo.com"
+                    />
+                    <Button className="ChangeButton">Cambiar</Button>
+                  </FormGroup>
+                </Form>
+              </CollapseContainer>
+            </Collapse>
+          </RowInfo>
+        </Row>
+
+        <Row>
+          <RowInfo>
+            <Button
+              color="primary"
+              onClick={() => this.toggleUsername()}
+              className="FullButton"
+            >
+              Cambia tu nombre
+            </Button>
+            <Collapse isOpen={this.state.collapseUsername}>
+              <CollapseContainer>
+                <Form>
+                  <FormGroup>
+                    <Label for="changeUsername">Nuevo nombre</Label>
+                    <Input
+                      type="text"
+                      name="newUsername"
+                      id="newUsername"
+                      placeholder="Nombres"
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <Label for="changeUserlastname">Nuevo apellido</Label>
+                    <Input
+                      type="text"
+                      name="newUserlastname"
+                      id="newUserlastname"
+                      placeholder="Apellidos"
+                    />
                     <Button className="ChangeButton">Cambiar</Button>
                   </FormGroup>
                 </Form>
