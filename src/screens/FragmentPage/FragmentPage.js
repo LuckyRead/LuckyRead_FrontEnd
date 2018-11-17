@@ -82,7 +82,7 @@ class FragmentPage extends Component {
             <div className="row justify-content-center" id="content">
               <div className="col-4" id="image">
                 <img
-                  src="https://fortunedotcom.files.wordpress.com/2018/07/gettyimages-961697338.jpg"
+                  src={"data:image/png;base64, " + this.state.post.base64_image}
                   alt="Imagen de referencia"
                 />
               </div>
