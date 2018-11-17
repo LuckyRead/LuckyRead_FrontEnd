@@ -10,10 +10,12 @@ import {
   FragmentText,
   StatisticsContainer,
   FragmentButtons,
-  TagsContainer
+
 } from "./Styled";
-import CategoryTag from "./CategoryTag";
+import RandomFragmentPage from "./RandomFragmentPage"
 import pdficon from "../../resources/paper_plane.png";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 class RandomFragment extends React.Component {
   constructor(props) {
@@ -22,15 +24,10 @@ class RandomFragment extends React.Component {
       randomfragment: this.props.randomfragment,
     };
   }
-  renderCategoryTags(categoryArray) {
-    let categoryTags = {};
-    categoryTags = [];
-    categoryArray.forEach(category => {
-      categoryTags.push(<CategoryTag name={category.name} />);
-    });
-    return categoryTags;
-  }
+
+
   render() {
+
     return (
       <FragmentContent>
         <Row>
@@ -39,9 +36,12 @@ class RandomFragment extends React.Component {
               <img src={"data:image/png;base64, " + this.props.randomfragment.base64_image} alt="Imagen de referencia" width="100%" />
             </ImageContainer>
             <FragmentButtons>
-              <Button color="info">Leer este fragmento online</Button>{" "}
-              <Button color="success">Leer este fragmento en PDF</Button>{" "}
-
+              <Link to={"/fragment/" + this.props.randomfragment.id}>
+                <Button color="info">Leer este fragmento online</Button>{" "}
+              </Link>
+              <Link to={'/pdf/' + this.props.randomfragment.id}>
+                <Button color="info">Leer este fragmento en PDF</Button>{" "}
+              </Link>
             </FragmentButtons>
           </Col>
 
@@ -50,9 +50,7 @@ class RandomFragment extends React.Component {
             <FragmentText>
               {this.props.randomfragment.introduction}
             </FragmentText>
-            <TagsContainer>
-              {this.renderCategoryTags(this.state.randomfragment)}
-            </TagsContainer>
+
           </Col>
         </Row>
       </FragmentContent>
@@ -61,7 +59,7 @@ class RandomFragment extends React.Component {
 }
 
 RandomFragment.propTypes = {
-  randomfragment: PropTypes.array.isRequired
+  randomfragment: PropTypes.object.isRequired
 };
 
 export default RandomFragment;

@@ -12,14 +12,15 @@ import Navbar from "../common/NavBar/NavBar.js";
 import RegisterPage from "../screens/RegisterPage";
 import LandingPage from "../screens/LandingPage";
 import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage";
-import FragmentPage from "../screens/RandomFragmentPage/FragmentPage";
+import FragmentPage from "../screens/FragmentPage/FragmentPage";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
 import Categories_List from "../screens/CategoriesPage/Categories_List";
 import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
-import FragmentPDF from "../screens/FragmentPage/FragmentPDF";
-//  import FragmentPDF from "../screens/RandomFragmentPage/FragmentPDF";
+import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
+
+
 
 // Styles
 import "./App.css";
@@ -76,8 +77,8 @@ class App extends Component {
                 path="/reset_password/:token"
                 component={ChangePasswordPage}
               />
-              <Route path="/news" component={News} />
-              <Route exact path="/:fragment_id" component={FragmentPage} />
+              <Route exact path="/news" component={News} />
+              <Route path="/fragment/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
             </Switch>
           </div>
