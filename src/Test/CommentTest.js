@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Comment from "../common/Comment/Comment";
+import CommentMap from "../common/Comment/CommentMap";
 export default class CommentTest extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +43,7 @@ export default class CommentTest extends React.Component {
   render() {
     return (
       <div>
-        <Comment comments={this.state.comments} />
+        <CommentMap comments={this.state.comments} />
       </div>
     );
   }
