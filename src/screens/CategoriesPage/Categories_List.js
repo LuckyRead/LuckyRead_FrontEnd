@@ -24,15 +24,14 @@ class Categories_List extends Component {
     axios({
       method: "get",
       url:
-        "https://luckyread-backend.herokuapp.com/api/users/preferences_topic",
-      headers: {
-        Authorization: "Bearer " + token
-      }
+        "https://luckyread-backend.herokuapp.com/api/topic/alltopics",
     }).then(response => {
         const topics = response.data;
         this.setState({ topics: topics });
         console.log(response);
     })
+
+
 
   }
 
@@ -40,9 +39,9 @@ class Categories_List extends Component {
     const domTopics = this.state.topics.map(topic => {
       return (
         <Category
-          key={topic.topic_id}
+          key={topic.id}
           name={topic.topic_name}
-          id={topic.topic_id}
+          id={topic.id}
         />
       );
     });
@@ -57,15 +56,6 @@ class Categories_List extends Component {
         <div className="row justify-content-center ">
           <ListGroup>{domTopics}</ListGroup>
         </div>
-        {/*<div className="row justify-content-center ">
-          <h2>
-            <strong>Subcategorías</strong>
-          </h2>
-        </div>
-        <div className="row justify-content-center ">
-          <ul className="list-group">{domSubTopics}</ul>
-        </div>*/}
-
       </div>
     );
   }
