@@ -7,6 +7,11 @@ const CommentContainer = styled.div`
   margin: 1%;
   border-radius: 10px;
   border: 2px solid ${Palette.grayoff};
+  p {
+    text-align: justify;
+    padding-top: 1%;
+    padding-right: 1%;
+  }
 `;
 
 const ProfileInfoContainer = styled.div`

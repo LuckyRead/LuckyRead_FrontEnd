@@ -18,14 +18,7 @@ export default class Comment extends React.Component {
           </Col>
           <Col sm="10">
             <Row>
-              <p>
-                Ea culpa laborum magna amet quis laboris sunt culpa aliquip id.
-                Proident qui non magna veniam adipisicing amet adipisicing eu id
-                anim aliqua. Eiusmod tempor sunt commodo Lorem ea. Exercitation
-                labore ad nisi Lorem labore enim velit aliqua veniam. Consequat
-                adipisicing eiusmod ad ullamco sunt ullamco cupidatat veniam
-                amet Lorem.
-              </p>
+              <p>{this.props.comment}</p>
             </Row>
             <Row>
               <button>Like</button>
@@ -40,5 +33,6 @@ export default class Comment extends React.Component {
 Comment.propTypes = {
   photo_src: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  nickname: PropTypes.string.isRequired
+  nickname: PropTypes.string.isRequired,
+  comment: PropTypes.string.isRequired
 };
