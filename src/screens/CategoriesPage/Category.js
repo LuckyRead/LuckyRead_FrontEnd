@@ -32,7 +32,7 @@ class Category extends Component {
 
   componentWillMount() {
     ////mirar si le gusta o no el topico al usuario
-    console.log('componentWillMount')
+    //console.log('componentWillMount')
     axios({
       method: "get",
       url:
@@ -117,7 +117,7 @@ class Category extends Component {
 
   render() {
     console.log('render topic: ' + this.props.id)
-    console.log(this.state.subtopics)
+    //console.log(this.state.subtopics)
     const domSubTopics = this.state.subtopics.map(subtopic => {
       return (
         <Sub_topics
