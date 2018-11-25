@@ -19,8 +19,7 @@ import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
-
-
+import CommentTest from "../Test/CommentTest";
 
 // Styles
 import "./App.css";
@@ -63,6 +62,7 @@ class App extends Component {
                 path="/CategoriesPage"
                 component={Categories_List}
               />
+              <Route exact path="/Comments" component={CommentTest} />
               <PrivateRoute
                 exact
                 path="/RandomFragmentPage"
