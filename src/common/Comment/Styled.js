@@ -10,6 +10,14 @@ const CommentContainer = styled.div`
 `;
 const CommentProfile = styled.div`
   border-right: 1px solid ${Palette.grayoff};
+  padding: 2%;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+`;
+const ProfileInfoContainer = styled.div`
+  margin: auto;
 `;
 
-export { Palette, CommentContainer, CommentProfile };
+export { Palette, CommentContainer, CommentProfile, ProfileInfoContainer };
