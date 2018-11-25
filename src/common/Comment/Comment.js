@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Palette, CommentProfile, CommentContainer } from "./Styled";
+import { Palette, CommentContainer } from "./Styled";
 import ProfileInfo from "./ProfileInfo";
 import { Row, Col } from "reactstrap";
 
@@ -9,16 +9,14 @@ export default class Comment extends React.Component {
     return (
       <CommentContainer>
         <Row>
-          <Col sm="3">
-            <CommentProfile>
-              <ProfileInfo
-                photo_src={this.props.photo_src}
-                name={this.props.name}
-                nickname={this.props.nickname}
-              />
-            </CommentProfile>
+          <Col sm="2">
+            <ProfileInfo
+              photo_src={this.props.photo_src}
+              name={this.props.name}
+              nickname={this.props.nickname}
+            />
           </Col>
-          <Col sm="9">
+          <Col sm="10">
             <Row>
               <p>
                 Ea culpa laborum magna amet quis laboris sunt culpa aliquip id.
