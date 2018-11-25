@@ -39,4 +39,21 @@ const ReactionButton = styled.div`
   margin-right: 1%;
 `;
 
-export { Palette, CommentContainer, ProfileInfoContainer, ReactionButton };
+const MapContainer = styled.div`
+  border-radius: 20px;
+  margin: 1%;
+  padding: 1%;
+  text-align: center;
+  background-color: ${Palette.blackNavbar};
+  h1 {
+    color: ${Palette.white};
+  }
+`;
+
+export {
+  Palette,
+  CommentContainer,
+  ProfileInfoContainer,
+  ReactionButton,
+  MapContainer
+};
