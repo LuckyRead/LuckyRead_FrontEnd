@@ -9,7 +9,6 @@ const CommentContainer = styled.div`
   border: 2px solid ${Palette.grayoff};
   p {
     text-align: justify;
-    padding-top: 1%;
     padding-right: 1%;
   }
 `;
