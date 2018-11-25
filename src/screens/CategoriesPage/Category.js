@@ -29,7 +29,7 @@ class Category extends Component {
       //console.log('false')
     }
   }
-  
+
   componentWillMount() {
     ////mirar si le gusta o no el topico al usuario
     console.log('componentWillMount')
@@ -117,16 +117,19 @@ class Category extends Component {
 
   render() {
     console.log('render topic: ' + this.props.id)
+    console.log(this.state.subtopics)
     const domSubTopics = this.state.subtopics.map(subtopic => {
       return (
         <Sub_topics
           key={subtopic.id}
           name={subtopic.sub_topic_name}
           id={subtopic.id}
-          check = {this.state.check}
+          checked = {this.state.check}
         />
       );
     });
+
+    //const collapse = this.state.subtopics ? () :
     return (
       <Card className= "Item">
         <CardHeader id="Header">
