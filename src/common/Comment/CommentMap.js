@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Palette } from "./Styled";
+import { Palette, MapContainer } from "./Styled";
 import Comment from "./Comment";
 import { Row, Col, Button } from "reactstrap";
 
@@ -25,13 +25,14 @@ export default class CommentMap extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Comentarios</h1>
+      <MapContainer>
+        <h1>Comentarios ({this.props.numberofcomments})</h1>
         {this.renderCommentMap(this.props.comments)}
-      </div>
+      </MapContainer>
     );
   }
 }
 CommentMap.propTypes = {
-  comments: PropTypes.array
+  comments: PropTypes.array,
+  numberofcomments: PropTypes.number.isRequired
 };

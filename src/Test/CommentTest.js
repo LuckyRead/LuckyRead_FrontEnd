@@ -36,14 +36,18 @@ export default class CommentTest extends React.Component {
           likes: 60,
           dislikes: 30
         }
-      ]
+      ],
+      numberofcomments: 3
     };
   }
 
   render() {
     return (
       <div>
-        <CommentMap comments={this.state.comments} />
+        <CommentMap
+          comments={this.state.comments}
+          numberofcomments={this.state.numberofcomments}
+        />
       </div>
     );
   }
