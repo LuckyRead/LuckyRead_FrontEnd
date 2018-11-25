@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Palette, CommentContainer } from "./Styled";
+import { Palette, CommentContainer, ReactionButton } from "./Styled";
 import ProfileInfo from "./ProfileInfo";
-import { Row, Col } from "reactstrap";
+import { Row, Col, Button } from "reactstrap";
 
 export default class Comment extends React.Component {
   render() {
@@ -21,8 +21,16 @@ export default class Comment extends React.Component {
               <p>{this.props.comment}</p>
             </Row>
             <Row>
-              <button>Like</button>
-              <button>Dislike</button>
+              <ReactionButton>
+                <Button outline color="success">
+                  Like ({this.props.likes})
+                </Button>
+              </ReactionButton>
+              <ReactionButton>
+                <Button outline color="danger">
+                  Dislike ({this.props.dislikes})
+                </Button>
+              </ReactionButton>
             </Row>
           </Col>
         </Row>
@@ -34,5 +42,7 @@ Comment.propTypes = {
   photo_src: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   nickname: PropTypes.string.isRequired,
-  comment: PropTypes.string.isRequired
+  comment: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
+  dislikes: PropTypes.number.isRequired
 };

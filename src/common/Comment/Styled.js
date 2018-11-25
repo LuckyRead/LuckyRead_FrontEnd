@@ -36,4 +36,8 @@ const ProfileInfoContainer = styled.div`
   }
 `;
 
-export { Palette, CommentContainer, ProfileInfoContainer };
+const ReactionButton = styled.div`
+  margin-right: 1%;
+`;
+
+export { Palette, CommentContainer, ProfileInfoContainer, ReactionButton };

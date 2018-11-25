@@ -10,7 +10,9 @@ export default class CommentTest extends React.Component {
       name: "Camiela",
       nickname: "Camiela2121",
       comment:
-        "Incididunt pariatur fugiat dolore enim eiusmod. Exercitation elit Lorem ex ut ex labore et occaecat laborum dolore. Quis ullamco incididunt excepteur occaecat Lorem quis enim fugiat sunt magna Lorem consectetur deserunt. Eiusmod laboris adipisicing aute tempor incididunt cupidatat ullamco ullamco do aliquip id veniam nulla. Culpa tempor occaecat irure id commodo. Excepteur deserunt ex do quis quis nulla ad fugiat minim officia quis. Laborum fugiat dolor nisi id reprehenderit irure aute nulla officia dolore incididunt ex ullamco."
+        "Incididunt pariatur fugiat dolore enim eiusmod. Exercitation elit Lorem ex ut ex labore et occaecat laborum dolore. Quis ullamco incididunt excepteur occaecat Lorem quis enim fugiat sunt magna Lorem consectetur deserunt. Eiusmod laboris adipisicing aute tempor incididunt cupidatat ullamco ullamco do aliquip id veniam nulla. Culpa tempor occaecat irure id commodo. Excepteur deserunt ex do quis quis nulla ad fugiat minim officia quis. Laborum fugiat dolor nisi id reprehenderit irure aute nulla officia dolore incididunt ex ullamco.",
+      likes: 69,
+      dislikes: 10
     };
   }
 
@@ -22,6 +24,8 @@ export default class CommentTest extends React.Component {
           name={this.state.name}
           nickname={this.state.nickname}
           comment={this.state.comment}
+          likes={this.state.likes}
+          dislikes={this.state.dislikes}
         />
       </div>
     );
