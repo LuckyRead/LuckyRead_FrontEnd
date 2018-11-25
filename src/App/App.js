@@ -20,7 +20,7 @@ import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
 import CommentTest from "../Test/CommentTest";
-
+import Test from "../Test/Test";
 // Styles
 import "./App.css";
 import { Alerts } from "./Styled";
@@ -63,6 +63,7 @@ class App extends Component {
                 component={Categories_List}
               />
               <Route exact path="/Comments" component={CommentTest} />
+              <Route exact path="/Test" component={Test} />
               <PrivateRoute
                 exact
                 path="/RandomFragmentPage"
