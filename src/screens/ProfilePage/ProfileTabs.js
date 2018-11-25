@@ -13,7 +13,7 @@ import classnames from "classnames";
 import InformationTab from "./InformationTab";
 import FollowedTab from "./FollowedTab";
 import FollowersTab from "./FollowersTab";
-
+import FragmentTab from "./FragmentTab";
 export default class ProfileTabs extends React.Component {
   constructor(props) {
     super(props);
@@ -97,9 +97,7 @@ export default class ProfileTabs extends React.Component {
           </TabPane>
           <TabPane tabId="2">
             <Row className="divNav">
-              <Col sm="12">
-                <h4>Tab 2 Contents</h4>
-              </Col>
+              <FragmentTab />
             </Row>
           </TabPane>
           <TabPane tabId="3">
