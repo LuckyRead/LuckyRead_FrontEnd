@@ -45,9 +45,9 @@ class Sub_topics extends Component {
   // Typical usage (don't forget to compare props):
   console.log('componentDidUpdate')
   if (this.props.checked !== prevProps.checked) {
-    this.setState({
-      check: this.props.checked
-    })
+    // this.setState({
+    //   check: this.props.checked
+    // })
     this.refs.checkbox.checked = this.props.checked;
   }
 }
@@ -78,11 +78,11 @@ class Sub_topics extends Component {
   }
 
   render() {
-    console.log('render SUBTOPIC: ' + this.props.id)
-    // const subcategories = this.props.checked ? (
-    //
-    // ) : null
-    console.log(this.state.check)
+    // console.log('render SUBTOPIC: ' + this.props.id)
+    // // const subcategories = this.props.checked ? (
+    // //
+    // // ) : null
+    // console.log(this.state.check)
     //const subtopic = )
     return (
       <div className="pretty p-default" id="subcategories">
