@@ -7,7 +7,6 @@ import {
 } from "./Styled.js";
 import ProfileCard from "./ProfileCard";
 import ProfileTabs from "./ProfileTabs";
-import ChangeAvatar from "./ChangeAvatar";
 
 class ProfilePage extends Component {
   render() {

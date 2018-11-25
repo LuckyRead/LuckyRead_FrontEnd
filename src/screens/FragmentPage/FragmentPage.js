@@ -28,15 +28,16 @@ class FragmentPage extends Component {
     topics: []
   };
 
-  componentDidMount() {
+  componentWillMount() {
     let id = this.props.match.params.fragment_id;
+    console.log('id')
     console.log(id)
     API.get("/api/fragments/" + id).then(res => {
       console.log(res);
       this.setState({
-        post: res.data,
-        topics: res.data.topics,
-        base64_image: ("data:image/png;base64, " + res.data.base64_image)
+        post: res['data'][1],
+        topics: res['data'][1]['topics'],
+        base64_image: ("data:image/png;base64, " + res['data'][1]['base64_image'])
       });
     });
 
@@ -58,7 +59,7 @@ class FragmentPage extends Component {
     let categoryTags = {};
     categoryTags = [];
     categoryArray.forEach(category => {
-      categoryTags.push(<CategoryTag name={category.name} />);
+      categoryTags.push(<CategoryTag name={category.name} key={category.id}/>);
     });
     return categoryTags;
   }
