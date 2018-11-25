@@ -13,10 +13,10 @@ class Sub_topics extends Component {
     };
   }
   showSubCategories() {
-    console.log("subcategories");
+    //console.log("subcategories");
   }
 
-  componentDidMount(){
+  componentWillMount(){
     //mirar si le gusta o no el subtopico al usuario
     axios({
       method: "get",
@@ -27,7 +27,7 @@ class Sub_topics extends Component {
       }
 
     }).then( res =>{
-      console.log(res)
+      //console.log(res)
       if(res['data']['hurra']){
         this.setState({
           check: true
@@ -38,15 +38,23 @@ class Sub_topics extends Component {
         })
         console.log(res)
       }
-    }
-
-    )
+    })
   }
 
+  componentDidUpdate(prevProps) {
+  // Typical usage (don't forget to compare props):
+  console.log('componentDidUpdate')
+  if (this.props.checked !== prevProps.checked) {
+    // this.setState({
+    //   check: this.props.checked
+    // })
+    this.refs.checkbox.checked = this.props.checked;
+  }
+}
   handleClick = (e) => {
     const checked = e.target.checked
     if(checked === true){
-      console.log('checked')
+      //console.log('checked')
       axios({
         method: "post",
         url:
@@ -56,7 +64,7 @@ class Sub_topics extends Component {
         }
       })
     }else{
-      console.log('not checked')
+      //console.log('not checked')
       axios({
         method: "delete",
         url:
@@ -70,24 +78,22 @@ class Sub_topics extends Component {
   }
 
   render() {
-
+    // console.log('render SUBTOPIC: ' + this.props.id)
+    // // const subcategories = this.props.checked ? (
+    // //
+    // // ) : null
+    // console.log(this.state.check)
+    //const subtopic = )
     return (
       <div className="pretty p-default" id="subcategories">
         {this.state.check ?
-           (<input type="checkbox" defaultChecked onClick = {this.handleClick}/>)
-          :(<input type="checkbox" onClick = {this.handleClick}/>)
-        }
+           (<input type="checkbox" defaultChecked onClick = {this.handleClick} ref="checkbox"/>)
+          :(<input type="checkbox" onClick = {this.handleClick} ref="checkbox"/>)}
         <div className="state p-success">
             <label>{this.props.name}</label>
         </div>
       </div>
 
-      /*<div key={this.props.topic_id}>
-        <div className="custom-control custom-checkbox">
-          <input type="checkbox" className="custom-control-input" id={this.props.id} onClick={this.showSubCategories}/>
-          <label className="custom-control-label" htmlFor={this.props.id}>{this.props.name}</label>
-        </div>
-      </div>*/
     );
   }
 }
