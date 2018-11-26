@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Loading from "../../common/Loading/Loading";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
 import CategoryTag from "../../common/Tags/CategoryTag";
+import CommentMap from "../../common/Comment/CommentMap";
 import {
   PageContainer,
   MessageFragment,
@@ -59,7 +60,7 @@ class FragmentPage extends Component {
     let categoryTags = {};
     categoryTags = [];
     categoryArray.forEach(category => {
-      categoryTags.push(<CategoryTag name={category.name} key={category.id}/>);
+      categoryTags.push(<CategoryTag name={category.name} key={category.id} />);
     });
     return categoryTags;
   }
@@ -109,10 +110,13 @@ class FragmentPage extends Component {
 
 
             <div className="row justify-content-center">
+
               <Button color="primary" tag={Link} to="/RandomFragmentPage">
                 Volver
               </Button>
+
             </div>
+            <CommentMap fragmentid={this.state.post.id}></CommentMap>
           </div>
         </div>
       </div>

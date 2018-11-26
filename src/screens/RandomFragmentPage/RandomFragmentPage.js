@@ -16,6 +16,7 @@ import RandomFragment from "../RandomFragmentPage/RandomFragment";
 import axios from "axios";
 import Loading from "../../common/Loading/Loading";
 import CategoryTag from "../../common/Tags/CategoryTag";
+import CommentMap from "../../common/Comment/CommentMap";
 
 
 class RandomFragmentPage extends React.Component {
@@ -55,8 +56,8 @@ class RandomFragmentPage extends React.Component {
   renderCategoryTags(categoryArray) {
     let categoryTags = {};
     categoryTags = [];
-    categoryArray.forEach(category => {
-      categoryTags.push(<CategoryTag name={category.name} />);
+    categoryArray.forEach((category, index) => {
+      categoryTags.push(<CategoryTag name={category.name} key={index} />);
     });
     return categoryTags;
   }
@@ -64,9 +65,12 @@ class RandomFragmentPage extends React.Component {
 
 
   render() {
-    console.log(rf)
-    console.log("aqui")
+    console.log(rf);
+    console.log("aqui");
+    console.log("id");
+    console.log(this.state.randomfragment.id)
     console.log(this.state.topics[0])
+
 
     const rf = this.state.randomfragment ?
       (<PageContainer>
@@ -89,7 +93,9 @@ class RandomFragmentPage extends React.Component {
 
         <RandomFragment randomfragment={this.state.randomfragment} />
         <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
-      </PageContainer>) : <div className="center">
+        <CommentMap fragmentid={this.state.randomfragment.id}></CommentMap>
+      </PageContainer>
+      ) : <div className="center">
         <Loading />
       </div>
     return (
