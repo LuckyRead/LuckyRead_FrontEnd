@@ -19,12 +19,13 @@ import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
-
+import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage"
 
 
 // Styles
 import "./App.css";
 import { Alerts } from "./Styled";
+import { isPrimitive } from "util";
 
 class App extends Component {
   constructor(props) {
@@ -79,6 +80,9 @@ class App extends Component {
 
               <Route path="/fragment/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+              <Route path="/CategoriesInitPage" component={CategoriesInitPage} />
+
+
             </Switch>
           </div>
         </Router>
