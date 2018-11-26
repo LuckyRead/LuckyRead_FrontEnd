@@ -12,7 +12,7 @@
   border-radius: 5px;
   border-style: none;
   width: 100%;
-  height: 500px;
+  height: 100%;
 }
 
 #CategoriesTitle {
@@ -80,9 +80,9 @@
   text-align: center;
 }
 
-.paperplane img{
+.paperplane img {
   position: relative;
-  top:20px;
+  top: 20px;
   left: -100px;
   opacity: 0.6;
 }

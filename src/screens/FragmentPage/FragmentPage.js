@@ -6,20 +6,39 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import Loading from "../../common/Loading/Loading";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
+import CategoryTag from "../../common/Tags/CategoryTag";
+import {
+  PageContainer,
+  MessageFragment,
+  FragmentContent,
+  ImageContainer,
+  FragmentTitle,
+  FragmentText,
+  StatisticsContainer,
+  TagsContainer,
+  Topics
+} from "./Styled";
+
+
 class FragmentPage extends Component {
   state = {
     post: null,
-    statistic: null
+    statistic: null,
+    base64_image: null,
+    topics: []
   };
-  componentDidMount() {
+
+  componentWillMount() {
     let id = this.props.match.params.fragment_id;
+    console.log('id')
+    console.log(id)
     API.get("/api/fragments/" + id).then(res => {
       console.log(res);
       this.setState({
-        post: res.data
+        post: res['data'][1],
+        topics: res['data'][1]['topics'],
+        base64_image: ("data:image/png;base64, " + res['data'][1]['base64_image'])
       });
-      console.log(this.state.post.base64_image);
-      console.log(res.data);
     });
 
     API.get("/api/fragments/stat/percentage_reaction_fragments/" + id).then(
@@ -32,31 +51,41 @@ class FragmentPage extends Component {
             percentagenoreaction: res.data[0].percentagenoreaction
           }
         });
-        console.log(this.state.statistic);
-        console.log(res.data[0]);
-        console.log(res.data[0].percentagelikes);
-        console.log(res.data[0].percentagedislikes);
       }
     );
   }
+
+  renderCategoryTags(categoryArray) {
+    let categoryTags = {};
+    categoryTags = [];
+    categoryArray.forEach(category => {
+      categoryTags.push(<CategoryTag name={category.name} key={category.id}/>);
+    });
+    return categoryTags;
+  }
+
+
   render() {
+
+
     const statistic = this.state.statistic;
     const post = this.state.post ? (
       <div className="container" id="container">
-        <br />
         <div className="row" id="container_fragment">
+          <Topics>
+            <TagsContainer>
+              {this.renderCategoryTags(this.state.topics)}
+            </TagsContainer>
+          </Topics>
           <div className="text-center" id="title_fragment">
-            <h2>
-              <strong>{this.state.post.title}</strong>
-            </h2>
-            <br />
+            <h2><strong>{this.state.post.title}</strong></h2>
+
             <div className="row justify-content-center" id="content">
               <div className="col-4" id="image">
                 <img
-                  src={this.state.post.base64_image}
+                  src={"data:image/png;base64, " + this.state.post.base64_image}
                   alt="Imagen de referencia"
                 />
-                <div>{<ReactionButtons response={this.state.statistic} />}</div>
               </div>
 
               <div className="col-8" id="text">
@@ -73,8 +102,12 @@ class FragmentPage extends Component {
                   <strong>Fuente</strong>
                 </h6>
                 <p className="text-center">{this.state.post.source}</p>
+                <div>{<ReactionButtons response={this.state.statistic} />}</div>
               </div>
+
             </div>
+
+
             <div className="row justify-content-center">
               <Button color="primary" tag={Link} to="/RandomFragmentPage">
                 Volver
@@ -84,12 +117,16 @@ class FragmentPage extends Component {
         </div>
       </div>
     ) : (
-      <div className="center">
-        <Loading />
-      </div>
-    );
+        <div className="center">
+          <Loading />
+        </div>
+      );
 
-    return <div className="container">{post}</div>;
+    return (
+      <div className="container">
+        {post}
+      </div>
+    )
   }
 }
 

@@ -5,6 +5,7 @@ import { history } from "../_helpers";
 
 export const userActions = {
   login,
+  login_social,
   logout,
   register,
   verify_username,
@@ -16,7 +17,6 @@ export const userActions = {
 function login(auth) {
   return dispatch => {
     dispatch(request(auth));
-
     userService.login(auth).then(
       response => {
         console.log("Inicio de sesion exitoso");
@@ -48,6 +48,30 @@ function login(auth) {
   }
 }
 
+function login_social(response) {
+  const token = response.data.jwt;
+  const user = response.data.username;
+  localStorage.setItem("jwtToken", token);
+  localStorage.setItem("user", user);
+  console.log('user y token agregados')
+  if (response['data']['warning']) {
+    userService.addAllTopics().then(
+      response => {
+        console.log("All topics added")
+        history.push("/RandomFragmentPage");
+        return { type: userConstants.REGISTER_SOCIAL_SUCESS };
+      },
+      error => {
+        console.log("Error agregando topicos")
+      }
+    )
+  } else {
+    history.push("/RandomFragmentPage");
+  }
+
+  return { type: userConstants.LOGIN_SOCIAL_SUCESS };
+}
+
 function logout() {
   console.log("action logout");
   userService.logout();
@@ -55,7 +79,7 @@ function logout() {
   return { type: userConstants.LOGOUT };
 }
 
-function register(user) {
+function register(user, auth) {
   return dispatch => {
     dispatch(request(user));
 
@@ -64,6 +88,35 @@ function register(user) {
         dispatch(success());
         /*         history.push("/"); */
         dispatch(alertActions.success("Registro exitoso"));
+        dispatch(request(auth));
+        userService.login(auth).then(
+          response => {
+            console.log("logueado")
+            console.log("Inicio de sesion exitoso");
+            console.log(response);
+            const token = response.data.jwt;
+            const user = response.data.username;
+            localStorage.setItem("jwtToken", token);
+            localStorage.setItem("user", user);
+            console.log(localStorage.jwtToken);
+            dispatch(success());
+            dispatch(alertActions.success("Logueo exitoso"));
+            dispatch(request());
+            userService.addAllTopics().then(
+              response => {
+                console.log("All topics added")
+                history.push("/RandomFragmentPage");
+              },
+              error => {
+                console.log("Error agregando topicos")
+              }
+            )
+
+          }
+        );
+
+        console.log(user)
+
       },
       error => {
         dispatch(failure(error.toString()));
@@ -90,9 +143,9 @@ function verify_username(username) {
 
     userService.verify_username(username).then(
       response => {
-        console.log(response.data.email.toString());
-        dispatch(success(response.data.email.toString()));
-        const resp = response.data.email.toString();
+        console.log(response.data.user.toString());
+        dispatch(success(response.data.user.toString()));
+        const resp = response.data.user.toString();
         if (resp === "Taken") {
           dispatch(alertActions.error("El usuario ya existe"));
         } else {
@@ -150,6 +203,36 @@ function verify_email(email) {
     return { type: userConstants.VALIDATE_EMAIL_FAILURE, error };
   }
 }
+
+
+function addAllTopics(user) {
+  return dispatch => {
+    dispatch(request(user));
+
+    userService.register(user).then(
+      response => {
+        dispatch(success());
+        /*         history.push("/"); */
+        dispatch(alertActions.success("Registro exitoso"));
+      },
+      error => {
+        dispatch(failure(error.toString()));
+        dispatch(alertActions.error("Oh, algo salio mal"));
+      }
+    );
+  };
+
+  function request(user) {
+    return { type: userConstants.REGISTER_REQUEST, user };
+  }
+  function success(user) {
+    return { type: userConstants.REGISTER_SUCCESS, user };
+  }
+  function failure(error) {
+    return { type: userConstants.REGISTER_FAILURE, error };
+  }
+}
+
 
 /* function getAll() {
     return dispatch => {

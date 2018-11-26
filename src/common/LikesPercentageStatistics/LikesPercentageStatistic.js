@@ -4,8 +4,17 @@ import { Palette, PercentageContainer } from "./Styled";
 import CircularProgressbar from "react-circular-progressbar";
 
 export default class LikesPercentageStatistics extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      percentage: 0
+    };
+  }
+
   render() {
-    const percentage = this.props.percentage;
+    const percentage = this.props.percentage
+      ? this.props.percentage
+      : this.state.percentage;
     if (this.props.typeReaction === "percentagelikes") {
       return (
         <PercentageContainer>

@@ -1,22 +1,30 @@
 import React, { Component } from "react";
-import "./ProfileContainer.css";
-//Componentes
-import ProfileLeftInfo from "./ProfileLeftInfo.js";
-import ProfileRightInfo from "./ProfileRightInfo.js";
+import { Row, Col } from "reactstrap";
+import {
+  ProfileContainer,
+  ProfileCardContainer,
+  TabContainer
+} from "./Styled.js";
+import ProfileCard from "./ProfileCard";
+import ProfileTabs from "./ProfileTabs";
 
 class ProfilePage extends Component {
   render() {
     return (
-      <div className="ProfileContainer">
-        <div className="row">
-          <div className="col-md-3">
-            <ProfileLeftInfo />
-          </div>
-          <div className="col-md-9">
-            <ProfileRightInfo />
-          </div>
-        </div>
-      </div>
+      <ProfileContainer>
+        <Row>
+          <Col xs="3">
+            <ProfileCardContainer>
+              <ProfileCard />
+            </ProfileCardContainer>
+          </Col>
+          <Col xs="9">
+            <TabContainer>
+              <ProfileTabs />
+            </TabContainer>
+          </Col>
+        </Row>
+      </ProfileContainer>
     );
   }
 }

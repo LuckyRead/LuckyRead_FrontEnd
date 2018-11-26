@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Route } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { history } from "../_helpers";
@@ -18,11 +18,16 @@ import Categories_List from "../screens/CategoriesPage/Categories_List";
 import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
-import FragmentPDF from "../screens/FragmentPage/FragmentPDF";
+import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
+import CommentTest from "../Test/CommentTest";
+import PopUp from "../screens/PopUp/PopUpExample"
+import Test from "../Test/Test";
+import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage"
 
 // Styles
 import "./App.css";
 import { Alerts } from "./Styled";
+import { isPrimitive } from "util";
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +43,7 @@ class App extends Component {
   render() {
     const { alert } = this.props;
     return (
-      <div className="container-fluid">
+      <div>
         <Navbar />
         <Alerts>
           <div className="row">
@@ -51,27 +56,39 @@ class App extends Component {
         </Alerts>
         <Router history={history}>
           <div>
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/RegisterPage" component={RegisterPage} />
-            <PrivateRoute
-              exact
-              path="/RandomFragmentPage"
-              component={RandomFragmentPage}
-            />
-            <Route exact path="/:fragment_id" component={FragmentPage} />
-            <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
-            <PrivateRoute
-              exact
-              path="/CategoriesPage"
-              component={Categories_List}
-            />
-            <Route exact path="/Email" component={Email} />
-            <Route
-              path="/reset_password/:token"
-              component={ChangePasswordPage}
-            />
-            <Route path="/news" component={News} />
-            <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/RegisterPage" component={RegisterPage} />
+              <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
+              <PrivateRoute exact path="/PopUpExample" component={PopUp} />
+              <Route path="/news" component={News} />
+              <PrivateRoute
+                exact
+                path="/CategoriesPage"
+                component={Categories_List}
+              />
+              <Route exact path="/Comments" component={CommentTest} />
+              <Route exact path="/Test" component={Test} />
+              <PrivateRoute
+                exact
+                path="/RandomFragmentPage"
+                component={RandomFragmentPage}
+              />
+
+              <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
+              <Route exact path="/news" component={News} />
+              <Route exact path="/Email" component={Email} />
+              <Route
+                path="/reset_password/:token"
+                component={ChangePasswordPage}
+              />
+
+              <Route path="/fragment/:fragment_id" component={FragmentPage} />
+              <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+              <Route path="/CategoriesInitPage" component={CategoriesInitPage} />
+
+
+            </Switch>
           </div>
         </Router>
       </div>

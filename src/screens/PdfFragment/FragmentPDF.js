@@ -52,7 +52,7 @@ class FragmentPDF extends Component {
         </div>
         <br />
         <div className="row justify-content-center">
-          <Button color="primary" tag={Link} to="/fragmentspage">
+          <Button color="primary" tag={Link} to="/RandomFragmentPage">
             Volver
           </Button>
         </div>

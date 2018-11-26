@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./myprofile.css";
-import "./loader.css";
 import Spinner from "react-spinkit";
+import { ChangeAvatarContainer } from "./Styled";
 
 class ChangeAvatar extends Component {
   constructor(props) {
@@ -80,45 +79,47 @@ class ChangeAvatar extends Component {
 
   render() {
     return (
-      <div className="Avatar">
-        <div className="row justify-content-center">
-          <input
-            style={{ display: "none" }}
-            type="file"
-            className="form-control-file"
-            id="exampleFormControlFile"
-            onChange={this.fileSelectedHandler}
-            ref={fileInput => (this.fileInput = fileInput)}
-          />
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm"
-            onClick={() => this.fileInput.click()}
-          >
-            Escoger imagen
-          </button>
-          &nbsp;&nbsp;
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm"
-            onClick={this.fileUploadHandler}
-          >
-            {this.state.loaded ? (
-              <Spinner name="circle" fadein="none" color="white" />
-            ) : (
-              "Cargar"
-            )}
-          </button>
+      <ChangeAvatarContainer>
+        <div className="Avatar">
+          <div className="row justify-content-center">
+            <input
+              style={{ display: "none" }}
+              type="file"
+              className="form-control-file"
+              id="exampleFormControlFile"
+              onChange={this.fileSelectedHandler}
+              ref={fileInput => (this.fileInput = fileInput)}
+            />
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm"
+              onClick={() => this.fileInput.click()}
+            >
+              Escoger imagen
+            </button>
+            &nbsp;&nbsp;
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm"
+              onClick={this.fileUploadHandler}
+            >
+              {this.state.loaded ? (
+                <Spinner name="circle" fadein="none" color="white" />
+              ) : (
+                "Cargar"
+              )}
+            </button>
+          </div>
+          <div className="row justify-content-center" id="crop-img">
+            <img src={this.state.showImage} alt="profile" />
+          </div>
+          {this.state.finishloaded ? (
+            <p className="text-success text-center">
+              <strong>La foto ha sido cargada exitosamente</strong>
+            </p>
+          ) : null}
         </div>
-        <div className="row justify-content-center" id="crop-img">
-          <img src={this.state.showImage} alt="profile" />
-        </div>
-        {this.state.finishloaded ? (
-          <p className="text-success text-center">
-            <strong>La foto ha sido cargada exitosamente</strong>
-          </p>
-        ) : null}
-      </div>
+      </ChangeAvatarContainer>
     );
   }
 }

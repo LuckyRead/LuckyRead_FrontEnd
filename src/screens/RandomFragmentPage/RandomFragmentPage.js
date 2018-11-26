@@ -1,26 +1,34 @@
-//Dependencies
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-//Components
+import React from "react";
+import { Container, Row, Col, Button } from "reactstrap";
+import {
+  PageContainer,
+  MessageFragment,
+  FragmentContent,
+  ImageContainer,
+  FragmentTitle,
+  FragmentText,
+  StatisticsContainer,
+  TagsContainer,
+  Topics
+} from "./Styled";
+import pdficon from "../../resources/paper_plane.png";
+import RandomFragment from "../RandomFragmentPage/RandomFragment";
 import axios from "axios";
-//styles
-import "./homepage.css";
+import Loading from "../../common/Loading/Loading";
+import CategoryTag from "../../common/Tags/CategoryTag";
 
-class RandomFragmentPage extends Component {
+
+class RandomFragmentPage extends React.Component {
   state = {
-    posts: []
+    randomfragment: [],
+    topics: []
   };
 
-  constructor() {
-    super();
-    this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
-  }
-
-  forceUpdateHandler() {
-    this.forceUpdate();
-  }
-
   componentDidMount() {
+    this.request()
+  }
+
+  request = e => {
     console.log(localStorage.jwtToken);
     axios({
       method: "GET",
@@ -32,75 +40,62 @@ class RandomFragmentPage extends Component {
       response => {
         console.log(response);
         this.setState({
-          posts: response["data"]
+          randomfragment: response["data"],
+          topics: response["data"].topics
         });
-        console.log(this.state);
-        console.log(response.data.title);
+        console.log(this.state.randomfragment);
       },
       err => {
-        console.log("Error pidiendo fragmento random");
+        console.log("el error es pidiendo fragmento random");
       }
     );
+    return
   }
 
+  renderCategoryTags(categoryArray) {
+    let categoryTags = {};
+    categoryTags = [];
+    categoryArray.forEach(category => {
+      categoryTags.push(<CategoryTag name={category.name} />);
+    });
+    return categoryTags;
+  }
+
+
+
   render() {
-    const { posts } = this.state;
-    return (
-      <div id="HomePage">
-        <div>
-          <div className="row" id="HomeCenter">
-            <div className="col-sm-10" id="HomePage_Fragment_Section">
-              <div id="FragmentSection">
-                Hemos seleccionado un fragmento para ti
-              </div>
-              <div className="col-md-12" id="HomePage_Fragment" key={posts.id}>
-                <p id="FragmentTitle">
-                  <strong> {posts.title}</strong>
-                </p>
-                <div className="row">
-                  <div className="col-md-4" id="image">
-                    <img src={posts.base64_image} alt="Imagen de referencia" />
-                  </div>
-                  <div className="col-md-8">
-                    <p id="FragmentIntro">{posts.introduction}</p>
-                    <div className="row" id="FragmentButtons">
-                      <div className="col-md-12">
-                        <Link to={"/" + posts.id}>
-                          <button className="btn btn-primary" id="ButtonRead">
-                            Leer este fragmento
-                          </button>
-                        </Link>
-                      </div>
-                    </div>
+    console.log(rf)
+    console.log("aqui")
+    console.log(this.state.topics[0])
 
-                    <div className="row" id="FragmentButtons">
-                      <div className="col-md-12">
-                        <Link to={"/pdf/" + posts.id}>
-                          <button className="btn btn-primary" id="ButtonPDF">
-                            Leer fragmento en PDF
-                          </button>
-                        </Link>
-                      </div>
-                    </div>
+    const rf = this.state.randomfragment ?
+      (<PageContainer>
+        <MessageFragment>
+          <Row>
+            <Col>Tenemos un fragmento para ti</Col>
+          </Row>
+        </MessageFragment>
 
-                    <div className="row" id="FragmentButtons">
-                      <div className="col-md-12">
-                        <button
-                          className="btn btn-primary"
-                          id="ButtonNext"
-                          onClick={this.forceUpdateHandler}
-                        >
-                          Muestrame otro fragmento
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Row>
+          <Col>
+            <Topics>
+              <TagsContainer>
+                {this.renderCategoryTags(this.state.topics)}
+              </TagsContainer>
+            </Topics>
+          </Col>
+
+        </Row>
+
+        <RandomFragment randomfragment={this.state.randomfragment} />
+        <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
+      </PageContainer>) : <div className="center">
+        <Loading />
       </div>
+    return (
+      <Container>
+        {rf}
+      </Container>
     );
   }
 }

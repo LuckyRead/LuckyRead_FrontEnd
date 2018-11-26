@@ -6,7 +6,8 @@ import { userActions } from "../../_actions";
 import Spinner from "react-spinkit";
 import { FormErrors } from "../../common/formErrors/FormErrors";
 import GoogleLogin from "react-google-login";
-
+import axios from "axios";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -31,6 +32,35 @@ class LoginForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.signup = this.signup.bind(this);
+  }
+
+  // signup - login FB and Google
+  signup(res, type) {
+    const { dispatch } = this.props;
+    if (type === "facebook") {
+      console.log("token facebook ");
+      axios.post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
+        .then(res => {
+          console.log(res);
+          dispatch(userActions.login_social(res));
+        })
+        // .catch(function(error) {
+        //   console.log("error al tratar de conseguir token del back - facebook");
+        //   console.log(error)
+        // });
+    } else {
+      console.log("token google");
+      axios
+        .post("https://luckyread-backend.herokuapp.com/api/login/ggle", res)
+        .then(res => {
+          console.log(res);
+          dispatch(userActions.login_social(res));
+        })
+        .catch(function(error) {
+          console.log("error al tratar de conseguir token del back - google");
+        });
+    }
   }
 
   handleChange(e) {
@@ -60,11 +90,11 @@ class LoginForm extends React.Component {
           : "Ingresa tu contraseña";
         break;
 
-      /*       case "auth":
+      case "auth":
         fieldValidationErrors.auth = authNotFail
           ? ""
           : "el email y la contraseña no coinciden";
-        break; */
+        break;
 
       default:
         break;
@@ -135,24 +165,35 @@ class LoginForm extends React.Component {
     const { loggingIn } = this.props;
     const { username, password, submitted } = this.state;
 
-    /*    const responseFacebook = response => {
-      if (response) {
-        console.log(response);
-        this.setState({
-          loadedfb: true
-        });
-        this.signup(response, "facebook");
-      }
-    };
+    const responseFacebook = response => {
+        // console.log('response fb: ');
+        // console.log(response);
+        if(response['accessToken'] && !response['error']){
+          this.setState({
+            loadedfb: true
+          });
+          this.signup(response, "facebook");
+        }else{
+          this.setState({
+            loadedfb: false
+          });
+        }
+
+    }
     const responseGoogle = response => {
-      if (response) {
-        console.log(response);
+      // console.log('response google: ');
+      // console.log(response);
+      if (!response['error']) {
         this.setState({
           loadedgoogle: true
         });
         this.signup(response, "google");
+      }else{
+        this.setState({
+          loadedgoogle: false
+        });
       }
-    }; */
+    };
     return (
       <div className="col-sm-12" id="Form">
         <form onSubmit={this.handleSubmit}>
@@ -208,43 +249,48 @@ class LoginForm extends React.Component {
                 "Iniciar sesión"
               )}
             </Button>
-            <Button color="link" size="sm" href="/Email">
+            <Button color="link" size="sm" href="/Email" id="forgotPassword">
               ¿Olvidaste tu contraseña?
             </Button>
           </div>
-          {/* <div className="Social">
-            <p>O ingresa con tu redes sociales</p>
-            <FacebookLogin
-              appId="175675156693690"
-              autoLoad={true}
-              fields="name,email,picture"
-              callback={responseFacebook}
-              render={renderProps => (
-                <Button id="facebook" size="sm" onClick={renderProps.onClick}>
-                  {this.state.loadedfb ? (
-                    <Spinner name="circle" fadein="none" color="white" />
-                  ) : (
-                    <strong>Facebook</strong>
-                  )}
-                </Button>
-              )}
-            />
-            &nbsp;&nbsp;
-            <GoogleLogin
-              clientId="1031528270008-p1pd4mi00m1igslrh342thmnpr1ram1t.apps.googleusercontent.com"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              render={renderProps => (
-                <Button color="danger" size="sm" onClick={renderProps.onClick}>
-                  {this.state.loadedgoogle ? (
-                    <Spinner name="circle" fadein="none" color="white" />
-                  ) : (
-                    <strong>Google</strong>
-                  )}
-                </Button>
-              )}
-            />
-          </div> */}
+          {
+            <div className="Social">
+              <p>O ingresa con tu redes sociales</p>
+              <FacebookLogin
+                appId="175675156693690"
+                fields="name,email,picture"
+                callback={responseFacebook}
+                render={renderProps => (
+                  <Button id="facebook" size="sm" onClick={renderProps.onClick}>
+                    {this.state.loadedfb ? (
+                      <Spinner name="circle" fadein="none" color="white" />
+                    ) : (
+                      <strong>Facebook</strong>
+                    )}
+                  </Button>
+                )}
+              />
+              &nbsp;&nbsp;
+              <GoogleLogin
+                clientId="1031528270008-p1pd4mi00m1igslrh342thmnpr1ram1t.apps.googleusercontent.com"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                render={renderProps => (
+                  <Button
+                    color="danger"
+                    size="sm"
+                    onClick={renderProps.onClick}
+                  >
+                    {this.state.loadedgoogle ? (
+                      <Spinner name="circle" fadein="none" color="white" />
+                    ) : (
+                      <strong>Google</strong>
+                    )}
+                  </Button>
+                )}
+              />
+            </div>
+          }
         </form>
       </div>
     );
