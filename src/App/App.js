@@ -20,6 +20,7 @@ import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
 import CommentTest from "../Test/CommentTest";
+import PopUp from "../screens/PopUp/PopUpExample"
 
 // Styles
 import "./App.css";
@@ -56,6 +57,7 @@ class App extends Component {
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/RegisterPage" component={RegisterPage} />
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
+              <PrivateRoute exact path="/PopUpExample" component={PopUp} />
               <Route path="/news" component={News} />
               <PrivateRoute
                 exact
