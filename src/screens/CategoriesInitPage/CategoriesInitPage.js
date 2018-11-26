@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import API from "../../api";
 import Topic from "./Topic";
 import { TopicS, TopicsContainer } from "./Styled"
-
+import dark from "../../resources/dark.jpeg";
 
 export default class CategoriesInitPage extends Component {
 
@@ -27,8 +27,8 @@ export default class CategoriesInitPage extends Component {
 
     renderTopics() {
         console.log("en render topics")
-        const topicsList = this.state.topics.map((item, key) =>
-            <Topic topicname={item.topic_name} topicid={item.id}></Topic>
+        const topicsList = this.state.topics.map((item, index) =>
+            <Topic key={index} topicname={item.topic_name} topicid={item.id} topicimage={dark}></Topic>
         )
         return topicsList
     }
