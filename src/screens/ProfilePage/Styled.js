@@ -151,6 +151,10 @@ const CollapseContainer = styled.div`
   border: 1px solid ${Palette.grayoff};
 `;
 
+const TitleContainer = styled.div`
+  margin-bottom: 3% !important;
+`;
+
 export {
   Palette,
   ProfileContainer,
@@ -163,5 +167,6 @@ export {
   ChangeAvatarContainer,
   TabContent,
   RowInfo,
-  CollapseContainer
+  CollapseContainer,
+  TitleContainer
 };
