@@ -22,10 +22,12 @@ import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
 import CommentTest from "../Test/CommentTest";
 import PopUp from "../screens/PopUp/PopUpExample"
 import Test from "../Test/Test";
+import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage"
 
 // Styles
 import "./App.css";
 import { Alerts } from "./Styled";
+import { isPrimitive } from "util";
 
 class App extends Component {
   constructor(props) {
@@ -83,6 +85,9 @@ class App extends Component {
 
               <Route path="/fragment/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+              <Route path="/CategoriesInitPage" component={CategoriesInitPage} />
+
+
             </Switch>
           </div>
         </Router>
