@@ -20,8 +20,12 @@ import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
 import CommentTest from "../Test/CommentTest";
+<<<<<<< HEAD
 import PopUp from "../screens/PopUp/PopUpExample"
 
+=======
+import Test from "../Test/Test";
+>>>>>>> e28582773dd9fe43008aee8deab57a908e380140
 // Styles
 import "./App.css";
 import { Alerts } from "./Styled";
@@ -65,6 +69,7 @@ class App extends Component {
                 component={Categories_List}
               />
               <Route exact path="/Comments" component={CommentTest} />
+              <Route exact path="/Test" component={Test} />
               <PrivateRoute
                 exact
                 path="/RandomFragmentPage"
