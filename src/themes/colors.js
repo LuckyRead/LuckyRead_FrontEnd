@@ -16,7 +16,8 @@ const Palette = {
   blueLinkopacity: "rgba(44, 110, 160, 0.9)",
   gray: "gray",
   whitetransparency: "rgba(255,255,255,0.7)",
-  bluelabel: "#63c5fc"
+  bluelabel: "#63c5fc",
+  bluelabelborder: "#2ab0fc"
 };
 
 export { Palette };

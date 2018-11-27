@@ -7,18 +7,40 @@ export default class PersonalActivityTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      head1: "¡Has realizado",
-      number1: 100,
-      foot1: "comentarios en total!"
+      total_comentarios: 100,
+      seguidores_mensual: 50,
+      seguidos_mensual: 20,
+      total_reacciones: 500,
+      votos_positivos_comentario: 1000
     };
   }
   render() {
     return (
       <TabContent>
         <StatisticLabel
-          head={this.state.head1}
-          number={this.state.number1}
-          foot={this.state.foot1}
+          head="¡Has realizado"
+          number={this.state.total_comentarios}
+          foot="comentarios en total!"
+        />
+        <StatisticLabel
+          head="¡Has ganado"
+          number={this.state.seguidores_mensual}
+          foot="seguidores este mes!"
+        />
+        <StatisticLabel
+          head="¡Has seguido"
+          number={this.state.seguidos_mensual}
+          foot="usuarios este mes!"
+        />
+        <StatisticLabel
+          head="¡Has reaccionado a"
+          number={this.state.total_reacciones}
+          foot="fragmentos en total!"
+        />
+        <StatisticLabel
+          head="¡Has recibido"
+          number={this.state.votos_positivos_comentario}
+          foot="votos positivos!"
         />
       </TabContent>
     );

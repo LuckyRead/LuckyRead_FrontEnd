@@ -78,11 +78,23 @@ const StatisticLabelContainer = styled.div`
   width: 200px;
   height: 150px;
   border-radius: 10px;
+  padding: 0.5%;
+  border: 5px solid ${Palette.bluelabelborder};
+  display: inline-block;
+  margin: 1% 1% 1% 1%;
 `;
 const TextContainer = styled.div`
   color: white;
   text-align: center;
   width: 100%;
+`;
+
+const NumberContainer = styled.div`
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 350%;
 `;
 
 export {
@@ -92,5 +104,6 @@ export {
   TitleContainer,
   TabContent,
   StatisticLabelContainer,
-  TextContainer
+  TextContainer,
+  NumberContainer
 };
