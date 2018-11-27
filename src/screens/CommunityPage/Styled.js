@@ -74,12 +74,12 @@ const TabContent = styled.div`
 `;
 
 const StatisticLabelContainer = styled.div`
-  background-color: ${Palette.bluelabel};
+  background-color: ${props => (props.bgcolor ? props.bgcolor : "none")};
+  border: 5px solid ${props => (props.bcolor ? props.bcolor : "none")};
   width: 200px;
   height: 150px;
   border-radius: 10px;
   padding: 0.5%;
-  border: 5px solid ${Palette.bluelabelborder};
   display: inline-block;
   margin: 1% 1% 1% 1%;
 `;

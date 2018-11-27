@@ -50,7 +50,7 @@ export default class ProfileTabs extends React.Component {
                 this.toggle("2");
               }}
             >
-              Estadisticas fragmentos
+              Actividad global
             </NavLink>
           </NavItem>
 
@@ -83,7 +83,7 @@ export default class ProfileTabs extends React.Component {
                 this.toggle("5");
               }}
             >
-              Siguiendo
+              Estadisticas fragmentos
             </NavLink>
           </NavItem>
         </Nav>

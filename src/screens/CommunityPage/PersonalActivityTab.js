@@ -21,26 +21,31 @@ export default class PersonalActivityTab extends React.Component {
           head="¡Has realizado"
           number={this.state.total_comentarios}
           foot="comentarios en total!"
+          type="local"
         />
         <StatisticLabel
           head="¡Has ganado"
           number={this.state.seguidores_mensual}
           foot="seguidores este mes!"
+          type="local"
         />
         <StatisticLabel
-          head="¡Has seguido"
+          head="¡Has seguido a"
           number={this.state.seguidos_mensual}
           foot="usuarios este mes!"
+          type="local"
         />
         <StatisticLabel
           head="¡Has reaccionado a"
           number={this.state.total_reacciones}
           foot="fragmentos en total!"
+          type="local"
         />
         <StatisticLabel
           head="¡Has recibido"
           number={this.state.votos_positivos_comentario}
           foot="votos positivos!"
+          type="local"
         />
       </TabContent>
     );
