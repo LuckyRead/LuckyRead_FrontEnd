@@ -42,4 +42,15 @@ const TabContainer = styled.div`
   }
 `;
 
-export { Palette, CommunityPageContainer, TabContainer };
+const TitleContainer = styled.div`
+  color: ${Palette.blue};
+  border-style: none;
+  font-family: "Dancing Script";
+  font-weight: bold;
+  font-size: 4em;
+  color: #105f78;
+  text-align: center;
+  text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
+`;
+
+export { Palette, CommunityPageContainer, TabContainer, TitleContainer };
