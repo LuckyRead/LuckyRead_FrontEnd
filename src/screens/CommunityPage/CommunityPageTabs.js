@@ -10,6 +10,7 @@ import {
   Col
 } from "reactstrap";
 import classnames from "classnames";
+import PersonalActivityTab from "./PersonalActivityTab";
 
 export default class ProfileTabs extends React.Component {
   constructor(props) {
@@ -89,7 +90,7 @@ export default class ProfileTabs extends React.Component {
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             <Row className="divNav">
-              <h4>Tab 1 Contents</h4>
+              <PersonalActivityTab />
             </Row>
           </TabPane>
           <TabPane tabId="2">

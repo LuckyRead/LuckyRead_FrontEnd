@@ -53,4 +53,30 @@ const TitleContainer = styled.div`
   text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
 `;
 
-export { Palette, CommunityPageContainer, TabContainer, TitleContainer };
+const TabContent = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: ${Palette.whitetransparency};
+  border-radius: 5px;
+  border: 1px solid ${Palette.grayoff};
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: auto;
+  .ChangeButton {
+    margin-top: 1%;
+  }
+`;
+
+export {
+  Palette,
+  CommunityPageContainer,
+  TabContainer,
+  TitleContainer,
+  TabContent
+};
