@@ -1,17 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Palette } from "./Styled";
+import { Palette, StatisticLabelContainer, TextContainer } from "./Styled";
 
 export default class StatisticLabel extends React.Component {
   render() {
     return (
-      <div>
-        <h1>
-          {this.props.head}
-          {this.props.number}
-          {this.props.foot}
-        </h1>
-      </div>
+      <StatisticLabelContainer>
+        <TextContainer>{this.props.head}</TextContainer>
+        <TextContainer>{this.props.number}</TextContainer>
+        <TextContainer>{this.props.foot}</TextContainer>
+      </StatisticLabelContainer>
     );
   }
 }

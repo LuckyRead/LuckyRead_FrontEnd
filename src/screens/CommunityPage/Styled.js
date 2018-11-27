@@ -73,10 +73,24 @@ const TabContent = styled.div`
   }
 `;
 
+const StatisticLabelContainer = styled.div`
+  background-color: ${Palette.bluelabel};
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+`;
+const TextContainer = styled.div`
+  color: white;
+  text-align: center;
+  width: 100%;
+`;
+
 export {
   Palette,
   CommunityPageContainer,
   TabContainer,
   TitleContainer,
-  TabContent
+  TabContent,
+  StatisticLabelContainer,
+  TextContainer
 };
