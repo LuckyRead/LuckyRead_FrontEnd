@@ -14,6 +14,7 @@ import {
   InputGroupText
 } from "reactstrap";
 import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
+import axios from 'axios';
 
 export default class InformationTab extends Component {
   constructor(props) {
@@ -25,7 +26,8 @@ export default class InformationTab extends Component {
       collapseCity: false,
       collapseAbout: false,
       collapseEmail: false,
-      collapseUsername: false
+      collapseUsername: false,
+      newPassword: ""
     };
   }
   togglePassword() {
@@ -63,6 +65,46 @@ export default class InformationTab extends Component {
     this.setState(newState);
   }
 
+  handleUserInput = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({
+      [name]: value
+    })
+  };
+
+  handleSubmitPassword = event => {
+    event.preventDefault();
+    console.log("submit");
+    // this.setState({
+    //   loaded: true
+    // });
+    let n_password = this.state.newPassword;
+    console.log(this.state.newPassword)
+    axios({
+      method: "PATCH",
+      url: "https://luckyread-backend.herokuapp.com/api/user/change_password",
+      data: {
+        new_password: n_password
+      },
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    })
+      .then(response => {
+        console.log(response);
+        // this.setState({
+        //   loaded: false,
+        //   finishloaded: true
+        // });
+        //alert("Contraseña cambiada");
+        //window.location.reload(true);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <TabContent>
@@ -89,7 +131,7 @@ export default class InformationTab extends Component {
             </Button>
             <Collapse isOpen={this.state.collapsePassword}>
               <CollapseContainer>
-                <Form>
+                <Form onSubmit={this.handleSubmitPassword}>
                   <FormGroup>
                     <Label for="Cambiar contraseña">Nueva contraseña</Label>
                     <Input
@@ -97,7 +139,7 @@ export default class InformationTab extends Component {
                       name="newPassword"
                       id="newPassword"
                       placeholder="Nueva contraseña"
-                      value=""
+                      onChange={this.handleUserInput}
                     />
                   </FormGroup>
                   <FormGroup>
@@ -111,7 +153,7 @@ export default class InformationTab extends Component {
                       placeholder="Nueva contraseña"
                     />
                   </FormGroup>
-                  <Button>Cambiar</Button>
+                  <Button type='submit'>Cambiar</Button>
                 </Form>
               </CollapseContainer>
             </Collapse>
