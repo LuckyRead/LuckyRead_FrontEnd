@@ -78,22 +78,19 @@ class Sub_topics extends Component {
   }
 
   render() {
-    // console.log('render SUBTOPIC: ' + this.props.id)
-    // // const subcategories = this.props.checked ? (
-    // //
-    // // ) : null
-    // console.log(this.state.check)
-    //const subtopic = )
     return (
-      <div className="pretty p-default" id="subcategories">
-        {this.state.check ?
-           (<input type="checkbox" defaultChecked onClick = {this.handleClick} ref="checkbox"/>)
-          :(<input type="checkbox" onClick = {this.handleClick} ref="checkbox"/>)}
-        <div className="state p-success">
-            <label>{this.props.name}</label>
-        </div>
-      </div>
+      <div>
+        <div className="pretty p-default" id="subcategories">
+          {this.state.check ?
+             (<input type="checkbox" defaultChecked onClick = {this.handleClick} ref="checkbox"/>)
+            :(<input type="checkbox" onClick = {this.handleClick} ref="checkbox"/>)}
+          <div className="state p-success">
+              <label ></label>
+          </div>
 
+        </div>
+        <span>{this.props.name}</span>
+      </div>
     );
   }
 }

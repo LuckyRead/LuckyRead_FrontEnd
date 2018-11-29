@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Collapse, Card, Button, CardHeader, CardBody,
- CardTex} from 'reactstrap';
+CardText} from 'reactstrap';
 import Sub_topics from "./Sub_topics";
 import axios from 'axios';
 import "./preferences.css";
@@ -148,7 +148,9 @@ class Category extends Component {
         </CardHeader>
         <Collapse isOpen={this.state.collapse} id="Collapse">
             <CardBody>
+              <CardText>
                  {domSubTopics}
+              </CardText>
             </CardBody>
         </Collapse>
       </Card>

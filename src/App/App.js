@@ -14,7 +14,7 @@ import LandingPage from "../screens/LandingPage";
 import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage";
 import FragmentPage from "../screens/FragmentPage/FragmentPage";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
-import Categories_List from "../screens/CategoriesPage/Categories_List";
+import CategoriesPage from "../screens/CategoriesPage/CategoriesPage";
 import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
@@ -65,7 +65,7 @@ class App extends Component {
               <PrivateRoute
                 exact
                 path="/CategoriesPage"
-                component={Categories_List}
+                component={CategoriesPage}
               />
               <Route exact path="/Comments" component={CommentTest} />
               <Route exact path="/Test" component={Test} />
