@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Spinner from "react-spinkit";
 import {
   Row,
   Col,
@@ -14,6 +15,8 @@ import {
   InputGroupText
 } from "reactstrap";
 import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
+import { FormErrors } from "../../common/formErrors/FormErrors";
+import axios from 'axios';
 
 export default class InformationTab extends Component {
   constructor(props) {
@@ -25,8 +28,18 @@ export default class InformationTab extends Component {
       collapseCity: false,
       collapseAbout: false,
       collapseEmail: false,
-      collapseUsername: false
+      collapseUsername: false,
+      password: "",
+      confirmpassword: "",
+      loaded: false,
+      finishloaded: false,
+      formErrors: { password: "", confirmpassword: "" },
+      passwordValid: false,
+      confirmpasswordValid: false,
+      formValid: false
     };
+    //this.handleUserInput = this.handleUserInput.bind(this);
+    //this.handleSubmitPassword = this.handleSubmitPassword.bind(this);
   }
   togglePassword() {
     let newState = Object.assign({}, this.state);
@@ -63,6 +76,102 @@ export default class InformationTab extends Component {
     this.setState(newState);
   }
 
+  handleUserInput = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({ [name]: value }, () => {
+      this.validateField(name, value);
+    });
+  };
+
+  validateField(fieldName, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    let passwordValid = this.state.passwordValid;
+    let confirmpasswordValid = this.state.confirmpasswordValid;
+
+    switch (fieldName) {
+      case "password":
+        passwordValid = value.length >= 8;
+        fieldValidationErrors.password = passwordValid
+          ? ""
+          : "Tu contraseña debe tener al menos 8 caracteres";
+        confirmpasswordValid =
+          this.state.password === this.state.confirmpassword ||
+          passwordValid === false;
+        fieldValidationErrors.confirmpassword = confirmpasswordValid
+          ? ""
+          : "Las contraseñas no coinciden";
+        break;
+
+      case "confirmpassword":
+        if (this.state.password === this.state.confirmpassword) {
+          confirmpasswordValid = true;
+        } else {
+          confirmpasswordValid = false;
+        }
+        fieldValidationErrors.confirmpassword = confirmpasswordValid
+          ? ""
+          : "Las contraseñas no coinciden";
+        break;
+
+      default:
+        break;
+    }
+
+    this.setState(
+      {
+        formErrors: fieldValidationErrors,
+        passwordValid: passwordValid,
+        confirmpasswordValid: confirmpasswordValid
+      },
+      this.validateForm
+    );
+  }
+
+  validateForm() {
+    this.setState({
+      formValid: this.state.passwordValid && this.state.confirmpasswordValid
+    });
+    console.log(this.state.formValid)
+  }
+
+  errorClass(error) {
+    return error.length === 0 ? "" : "has-error";
+  }
+
+  handleSubmitPassword = event => {
+    event.preventDefault();
+    console.log("submit");
+    this.setState({
+      loaded: true
+    });
+    let n_password = this.state.password;
+    console.log(this.state.password)
+    axios({
+      method: "PATCH",
+      url: "https://luckyread-backend.herokuapp.com/api/user/change_password",
+      data: {
+        new_password: n_password
+      },
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    })
+      .then(response => {
+        console.log(response);
+        this.setState({
+          loaded: false,
+          finishloaded: true
+        });
+        //alert("Contraseña cambiada");
+        //window.location.reload(true);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
+
+
   render() {
     return (
       <TabContent>
@@ -89,16 +198,26 @@ export default class InformationTab extends Component {
             </Button>
             <Collapse isOpen={this.state.collapsePassword}>
               <CollapseContainer>
-                <Form>
+                <Form onSubmit={this.handleSubmitPassword}>
                   <FormGroup>
+                    <div className="panel panel-default">
+                      <FormErrors formErrors={this.state.formErrors} />
+                    </div>
+                    <div
+                      className={`form-group ${this.errorClass(
+                        this.state.formErrors.password
+                      )}`}
+                      id="FormInputs"
+                    >
                     <Label for="Cambiar contraseña">Nueva contraseña</Label>
                     <Input
                       type="password"
-                      name="newPassword"
-                      id="newPassword"
+                      name="password"
+                      id="password"
                       placeholder="Nueva contraseña"
-                      value=""
+                      onChange={this.handleUserInput}
                     />
+                  </div>
                   </FormGroup>
                   <FormGroup>
                     <Label for="Cambiar contraseña">
@@ -106,12 +225,27 @@ export default class InformationTab extends Component {
                     </Label>
                     <Input
                       type="password"
-                      name="repeatPassword"
-                      id="repeatPassword"
+                      name="confirmpassword"
+                      id="confirmpassword"
                       placeholder="Nueva contraseña"
+                      onChange={this.handleUserInput}
                     />
+                    {this.state.finishloaded ? (
+                      <p className="text-success text-center">
+                        <strong>Contraseña cambiada exitosamente</strong>
+                      </p>
+                    ) : null}
                   </FormGroup>
-                  <Button>Cambiar</Button>
+                  <Button
+                    type='submit'
+                    disabled={!this.state.formValid}
+                    >
+                    {this.state.loaded ? (
+                      <Spinner name="circle" fadein="none" color="white" />
+                    ) : (
+                      "Cambiar"
+                    )}
+                  </Button>
                 </Form>
               </CollapseContainer>
             </Collapse>
