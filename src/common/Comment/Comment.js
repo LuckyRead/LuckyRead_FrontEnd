@@ -26,11 +26,7 @@ export default class Comment extends React.Component {
                   Like ({this.props.likes})
                 </Button>
               </ReactionButton>
-              <ReactionButton>
-                <Button outline color="danger">
-                  Dislike ({this.props.dislikes})
-                </Button>
-              </ReactionButton>
+
             </Row>
           </Col>
         </Row>
@@ -44,5 +40,5 @@ Comment.propTypes = {
   nickname: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
   likes: PropTypes.number.isRequired,
-  dislikes: PropTypes.number.isRequired
+
 };
