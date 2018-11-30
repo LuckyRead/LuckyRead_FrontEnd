@@ -39,6 +39,7 @@ export default class FragmentsView extends PureComponent {
             key={fragment.id}
             title={fragment.title}
             introduction={fragment.introduction}
+            image={fragment.base64_image}
           />
         );
       });
