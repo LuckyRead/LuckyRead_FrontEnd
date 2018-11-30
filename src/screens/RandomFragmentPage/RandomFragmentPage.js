@@ -93,7 +93,6 @@ class RandomFragmentPage extends React.Component {
 
         <RandomFragment randomfragment={this.state.randomfragment} />
         <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
-        <CommentMap fragmentid={this.state.randomfragment.id}></CommentMap>
       </PageContainer>
       ) : <div className="center">
         <Loading />

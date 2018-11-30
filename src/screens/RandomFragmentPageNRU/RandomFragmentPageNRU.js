@@ -12,14 +12,14 @@ import {
   Topics
 } from "./Styled";
 import pdficon from "../../resources/paper_plane.png";
-import RandomFragment from "../RandomFragmentPage/RandomFragment";
+import RandomFragment from "./RandomFragment";
 import axios from "axios";
 import Loading from "../../common/Loading/Loading";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import CommentMap from "../../common/Comment/CommentMap";
 
 
-class RandomFragmentPage extends React.Component {
+class RandomFragmentPageNRU extends React.Component {
   state = {
     randomfragment: [],
     topics: [],
@@ -86,7 +86,6 @@ class RandomFragmentPage extends React.Component {
 
         <RandomFragment randomfragment={this.state.randomfragment} />
         <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
-        <CommentMap fragmentid={this.state.randomfragment.id}></CommentMap>
       </PageContainer>
       ) : <div className="center">
         <Loading />
@@ -99,4 +98,4 @@ class RandomFragmentPage extends React.Component {
   }
 }
 
-export default RandomFragmentPage;
+export default RandomFragmentPageNRU;

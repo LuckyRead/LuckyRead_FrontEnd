@@ -12,19 +12,27 @@ import {
   FragmentButtons,
 
 } from "./Styled";
-import RandomFragmentPage from "./RandomFragmentPage"
+import RandomFragmentPage from "./RandomFragmentPageNRU"
 import pdficon from "../../resources/paper_plane.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import PopUpExample from "../PopUp/PopUpExample";
 
 class RandomFragment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       randomfragment: this.props.randomfragment,
+      showpopup: false
     };
+    this.toggle = this.toggle.bind(this);
   }
 
+  toggle() {
+    this.setState({
+      showpopup: true
+    })
+  }
 
   render() {
 
@@ -39,9 +47,8 @@ class RandomFragment extends React.Component {
               <Link to={"/fragment/" + this.props.randomfragment.id}>
                 <Button color="info">Leer este fragmento online</Button>{" "}
               </Link>
-              <Link to={'/pdf/' + this.props.randomfragment.id}>
-                <Button color="info">Leer este fragmento en PDF</Button>{" "}
-              </Link>
+              <Button color="info" onClick={this.toggle}>Leer este fragmento en PDF</Button>{" "}
+              {this.state.showpopup ? <PopUpExample></PopUpExample> : null}
             </FragmentButtons>
           </Col>
 

@@ -12,9 +12,7 @@ import Navbar from "../common/NavBar/NavBar.js";
 import RegisterPage from "../screens/RegisterPage";
 import LandingPage from "../screens/LandingPage";
 import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage";
-import RandomFragmentPageNRU from "../screens/RandomFragmentPageNRU/RandomFragmentPage";
-
-
+import RandomFragmentPageNRU from "../screens/RandomFragmentPageNRU/RandomFragmentPageNRU";
 import FragmentPage from "../screens/FragmentPage/FragmentPage";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
 import Categories_List from "../screens/CategoriesPage/Categories_List";

@@ -22,7 +22,7 @@ const MessageFragment = styled.div`
   margin: 0 auto;
   font-weight: bold;
   font-size: 4em;
-  color: #105F78;
+  color: black;
   text-align: center;
   text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
 `;
