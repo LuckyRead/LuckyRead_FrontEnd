@@ -12,9 +12,6 @@ class Sub_topics extends Component {
       check: false
     };
   }
-  showSubCategories() {
-    //console.log("subcategories");
-  }
 
   componentWillMount(){
     //mirar si le gusta o no el subtopico al usuario
@@ -36,14 +33,14 @@ class Sub_topics extends Component {
         this.setState({
           check: false
         })
-        console.log(res)
+        //console.log(res)
       }
     })
   }
 
   componentDidUpdate(prevProps) {
   // Typical usage (don't forget to compare props):
-  console.log('componentDidUpdate')
+  //console.log('componentDidUpdate')
   if (this.props.checked !== prevProps.checked) {
     // this.setState({
     //   check: this.props.checked

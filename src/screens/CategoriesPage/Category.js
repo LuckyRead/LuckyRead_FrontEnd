@@ -116,7 +116,7 @@ class Category extends Component {
   }
 
   render() {
-    console.log('render topic: ' + this.props.id)
+    //console.log('render topic: ' + this.props.id)
     //console.log(this.state.subtopics)
     const domSubTopics = this.state.subtopics.map(subtopic => {
       return (

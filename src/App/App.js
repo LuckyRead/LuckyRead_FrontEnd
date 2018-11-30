@@ -23,6 +23,7 @@ import CommentTest from "../Test/CommentTest";
 import PopUp from "../screens/PopUp/PopUpExample"
 import Test from "../Test/Test";
 import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage"
+import FragmentsView from "../screens/CategoriesPage/FragmentsView"
 
 // Styles
 import "./App.css";
@@ -85,6 +86,7 @@ class App extends Component {
 
               <Route path="/fragment/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+              <Route path="/fragmentsview/:topic_id" component={FragmentsView} />
               <Route path="/CategoriesInitPage" component={CategoriesInitPage} />
 
 

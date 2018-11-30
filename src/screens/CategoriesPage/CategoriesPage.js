@@ -10,8 +10,8 @@ import {
   Col
 } from "reactstrap";
 import classnames from "classnames";
-import TopicsFragments from "./TopicsFragments";
 import Preferences from "./Preferences";
+import TopicsFragmentsPage from "./TopicsFragmentsPage"
 
 export default class CategoriesPage extends React.Component {
   constructor(props) {
@@ -63,7 +63,7 @@ export default class CategoriesPage extends React.Component {
           </TabPane>
           <TabPane tabId="2">
             <Row className="divNav">
-
+              <TopicsFragmentsPage />
             </Row>
           </TabPane>
         </TabContent>
