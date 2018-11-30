@@ -12,39 +12,41 @@ import {
   Topics
 } from "./Styled";
 import pdficon from "../../resources/paper_plane.png";
-import RandomFragment from "../RandomFragmentPage/RandomFragment";
+import RandomFragment from "./RandomFragment";
 import axios from "axios";
 import Loading from "../../common/Loading/Loading";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import CommentMap from "../../common/Comment/CommentMap";
 
 
-class RandomFragmentPage extends React.Component {
+class RandomFragmentPageNRU extends React.Component {
   state = {
     randomfragment: [],
-    topics: []
+    topics: [],
+    randomTopic: 0,
   };
 
   componentDidMount() {
-    this.request()
+    const preferences = localStorage.preferences.split(',');
+    const randomTopic = preferences[Math.floor(Math.random() * preferences.length)];
+    this.setState({
+      randomTopic: randomTopic
+    }, () => {
+      this.request()
+    })
   }
 
   request = e => {
     console.log(localStorage.jwtToken);
     axios({
       method: "GET",
-      url: "https://luckyread-backend.herokuapp.com/api/fragments/something",
-      headers: {
-        Authorization: "Bearer " + localStorage.jwtToken
-      }
+      url: "https://luckyread-backend.herokuapp.com/api/fragment/something/" + this.state.randomTopic,
     }).then(
       response => {
-        console.log(response);
         this.setState({
-          randomfragment: response["data"],
-          topics: response["data"].topics
+          randomfragment: response.data.Fragment,
+          topics: response.data.Fragment.topics
         });
-        console.log(this.state.randomfragment);
       },
       err => {
         console.log("el error es pidiendo fragmento random");
@@ -52,7 +54,6 @@ class RandomFragmentPage extends React.Component {
     );
     return
   }
-
   renderCategoryTags(categoryArray) {
     let categoryTags = {};
     categoryTags = [];
@@ -63,15 +64,7 @@ class RandomFragmentPage extends React.Component {
   }
 
 
-
   render() {
-    console.log(rf);
-    console.log("aqui");
-    console.log("id");
-    console.log(this.state.randomfragment.id)
-    console.log(this.state.topics[0])
-
-
     const rf = this.state.randomfragment ?
       (<PageContainer>
         <MessageFragment>
@@ -105,4 +98,4 @@ class RandomFragmentPage extends React.Component {
   }
 }
 
-export default RandomFragmentPage;
+export default RandomFragmentPageNRU;

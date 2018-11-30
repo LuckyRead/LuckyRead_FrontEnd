@@ -4,14 +4,16 @@ import { Palette } from "../../themes/colors";
 const PageContainer = styled.div`
   text-align: center;
   background-color: ${Palette.whiteopacity};
-  border-radius: 10px;
   border-style: solid;
   border-width: 5px;
-  border-color: white;
+  border-color: ${Palette.whiteopacity};
   margin: auto;
   margin-top: 10px;
   padding-bottom: 20px;
   height: 100%;
+  .eEEWNZ{
+    border-radius: 0px;
+  }
 `;
 
 const MessageFragment = styled.div`
@@ -22,7 +24,7 @@ const MessageFragment = styled.div`
   margin: 0 auto;
   font-weight: bold;
   font-size: 4em;
-  color: black;
+  color: #4F5659;
   text-align: center;
   text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
 `;
@@ -37,13 +39,13 @@ const Topics = styled.div`
 
 
 const FragmentContent = styled.div`
+  background-color: white;
   width: 95%;
   height: 95%;
-  background-color: white;
-  border-radius: 10px;
+
   border-style: solid;
   border-width: 5px;
-  border-color: white;
+  border-color: gray;
   margin: auto;
   margin-bottom: 10px;
   padding: 20px;
@@ -63,15 +65,18 @@ const StatisticsContainer = styled.div`
 `;
 
 const FragmentTitle = styled.div`
-  color: ${Palette.blue};
+  color: black;
   font-size: 3em;
   font-weight: bold;
   text-align: center;
+  font-family = "Playfair Display";
+
 `;
 
 const FragmentText = styled.div`
   color: black;
   margin: 20px;
+  font-family = "Playfair Display";
 `;
 
 const FragmentButtons = styled.div`
