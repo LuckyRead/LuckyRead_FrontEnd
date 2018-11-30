@@ -97,6 +97,15 @@ const NumberContainer = styled.div`
   font-size: 350%;
 `;
 
+const TrophyS = styled.div`
+  width: 100%;
+  text-align: right;
+  img {
+    width: 150px;
+    height: 300px;
+  }
+`;
+
 export {
   Palette,
   CommunityPageContainer,
@@ -105,5 +114,6 @@ export {
   TabContent,
   StatisticLabelContainer,
   TextContainer,
-  NumberContainer
+  NumberContainer,
+  TrophyS
 };
