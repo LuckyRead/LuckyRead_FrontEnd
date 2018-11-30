@@ -10,9 +10,11 @@ import {
 export default class StatisticLabel extends React.Component {
   render() {
     const bgcolor =
-      this.props.type === "global" ? Palette.gray : Palette.bluelabel;
+      this.props.type === "global" ? Palette.greenstatistic : Palette.bluelabel;
     const bcolor =
-      this.props.type === "global" ? Palette.grayoff : Palette.bluelabelborder;
+      this.props.type === "global"
+        ? Palette.greenstatisticborder
+        : Palette.bluelabelborder;
     return (
       <StatisticLabelContainer bgcolor={bgcolor} bcolor={bcolor}>
         <TextContainer>{this.props.head}</TextContainer>

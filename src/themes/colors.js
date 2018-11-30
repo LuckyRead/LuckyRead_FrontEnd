@@ -17,7 +17,9 @@ const Palette = {
   gray: "gray",
   whitetransparency: "rgba(255,255,255,0.7)",
   bluelabel: "#63c5fc",
-  bluelabelborder: "#2ab0fc"
+  bluelabelborder: "#2ab0fc",
+  greenstatistic: "#5cb850",
+  greenstatisticborder: "#53904b"
 };
 
 export { Palette };
