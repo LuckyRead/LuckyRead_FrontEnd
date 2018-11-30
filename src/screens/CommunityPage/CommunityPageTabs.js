@@ -61,7 +61,7 @@ export default class ProfileTabs extends React.Component {
                 this.toggle("3");
               }}
             >
-              Top global
+              Top usuarios
             </NavLink>
           </NavItem>
 
