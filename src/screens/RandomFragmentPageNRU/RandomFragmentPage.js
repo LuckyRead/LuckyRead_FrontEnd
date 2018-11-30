@@ -22,18 +22,25 @@ import CommentMap from "../../common/Comment/CommentMap";
 class RandomFragmentPage extends React.Component {
   state = {
     randomfragment: [],
-    topics: []
+    topics: [],
+    randomTopic: 0,
   };
 
   componentDidMount() {
-    this.request()
+    const preferences = localStorage.preferences.split(',');
+    const randomTopic = preferences[Math.floor(Math.random() * preferences.length)];
+    this.setState({
+      randomTopic: randomTopic
+    }, () => {
+      this.request()
+    })
   }
 
   request = e => {
     console.log(localStorage.jwtToken);
     axios({
       method: "GET",
-      url: "https://luckyread-backend.herokuapp.com/api/fragment/something/" + "1",
+      url: "https://luckyread-backend.herokuapp.com/api/fragment/something/" + this.state.randomTopic,
     }).then(
       response => {
         this.setState({
