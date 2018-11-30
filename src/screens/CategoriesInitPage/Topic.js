@@ -17,6 +17,8 @@ export default class Topic extends PureComponent {
         this.setState({
             selectTopic: !this.state.selectTopic
         });
+
+        this.props.selectTopic(this.props.topicid, this.state.selectTopic)
         console.log(this.state.selectTopic)
     }
 
@@ -36,5 +38,6 @@ export default class Topic extends PureComponent {
 Topic.propTypes = {
     topicname: PropTypes.string.isRequired,
     topicid: PropTypes.number.isRequired,
-    topicimage: PropTypes.string
+    topicimage: PropTypes.string,
+    selectTopic: PropTypes.func
 };

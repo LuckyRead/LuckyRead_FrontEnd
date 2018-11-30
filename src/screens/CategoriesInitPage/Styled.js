@@ -44,8 +44,20 @@ const TopicCardSelect = styled.div`
 `;
 
 
+const NextButton = styled.div`
+  margin: auto;
+`;
+
+const Title = styled.div`
+  margin: auto;
+  font-size: 3em;
+  font-family: "Dancing Script";
+  font-weight: bold;
+`;
 export {
   TopicCard,
   TopicsContainer,
-  TopicCardSelect
+  TopicCardSelect,
+  NextButton,
+  Title
 };
