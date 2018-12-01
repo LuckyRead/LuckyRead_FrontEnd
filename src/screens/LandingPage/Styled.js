@@ -34,10 +34,10 @@ const LandingPageContainer = styled.div`
     color: ${Palette.white};
     text-align: center;
     height: 100px;
+    text-shadow: 1px 2px ${Palette.black};
   }
   #Init-button {
     margin-top: 2%;
-    border-radius: 30px;
     font-size: 20px;
     border: 3px solid ${Palette.bluestrong};
     width: 12%;
