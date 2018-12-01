@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
 
-
 const TopicCard = styled.div`
   background-image: url(${props => props.topicimage});
   background-repeat: no-repeat;
@@ -18,7 +17,6 @@ const TopicCard = styled.div`
   padding: 5px;
   margin: 5px;
   display: grid;
-
 `;
 
 const TopicsContainer = styled.div`
@@ -34,18 +32,21 @@ const TopicsContainer = styled.div`
 const TopicCardSelect = styled.div`
   display: grid;
   cursor: pointer;
-  background: rgba(0,0,0, ${props => props.select ? 0 : 0.6});
+  background: rgba(0, 0, 0, ${props => (props.select ? 0 : 0.6)});
   width: 100%;
   height: 100%;
   align-items: center;
   text-align: center;
   color: white;
-  text-shadow: ${props => props.select ? "2px 2px 2px #000" : "0px"}
+  text-shadow: ${props => (props.select ? "2px 2px 2px #000" : "0px")};
 `;
-
 
 const NextButton = styled.div`
   margin: auto;
+  button {
+    margin-bottom: 10%;
+    margin-top: 10%;
+  }
 `;
 
 const Title = styled.div`
@@ -54,10 +55,4 @@ const Title = styled.div`
   font-family: "Dancing Script";
   font-weight: bold;
 `;
-export {
-  TopicCard,
-  TopicsContainer,
-  TopicCardSelect,
-  NextButton,
-  Title
-};
+export { TopicCard, TopicsContainer, TopicCardSelect, NextButton, Title };
