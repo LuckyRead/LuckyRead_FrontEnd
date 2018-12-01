@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react'
-import { Container, Row, Col } from 'reactstrap';
+import { Card, Button, CardImg, CardTitle, CardText, CardColumns,
+ CardSubtitle, CardBody } from 'reactstrap';
 import PropTypes from "prop-types";
 import { TopicCard, TopicCardSelect } from "../CategoriesInitPage/Styled";
 import FragmentCard from "./FragmentCard";
+
 
 import axios from 'axios';
 
@@ -40,13 +42,14 @@ export default class FragmentsView extends PureComponent {
             title={fragment.title}
             introduction={fragment.introduction}
             image={fragment.base64_image}
+            id={fragment.id}
           />
         );
       });
         return (
-          <div>
+           <CardColumns>
             {domFragments}
-          </div>
+          </CardColumns>
         )
     }
 }

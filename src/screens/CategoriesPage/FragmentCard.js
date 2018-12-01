@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
-
+import { Card, CardHeader, CardTitle, CardImg, CardText, CardBody,Button} from 'reactstrap';
+import { Link } from "react-router-dom";
+import "./preferences.css";
 
 export default class FragmentCard extends PureComponent {
     constructor(props) {
@@ -11,17 +11,14 @@ export default class FragmentCard extends PureComponent {
 
     render() {
         return (
-          <div>
-            <Card>
-              <CardImg top width="100%" src={"data:image/png;base64, " + this.props.image} alt="Card image cap" />
-              <CardBody>
-                <CardTitle>{this.props.title}</CardTitle>
-                <CardSubtitle>Card subtitle</CardSubtitle>
-                <CardText>{this.props.introduction}</CardText>
-                <Button>Button</Button>
-              </CardBody>
-            </Card>
-          </div>
+              <Card>
+                <CardHeader tag="h3" className="text-center"><strong>{this.props.title}</strong></CardHeader>
+                <CardImg top width="100%" src={"data:image/png;base64, " + this.props.image} alt="Card image cap" />
+                <CardBody id="fragmentcard" className="text-center">
+                  <CardText id="cardtext" className="text-justify">{this.props.introduction}</CardText>
+                  <Button color="primary" tag={Link} to={"/fragment/"+this.props.id}>Leer</Button>
+                </CardBody>
+              </Card>
         )
     }
 }

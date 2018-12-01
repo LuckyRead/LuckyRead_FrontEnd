@@ -12,6 +12,7 @@ import {
 import classnames from "classnames";
 import Preferences from "./Preferences";
 import TopicsFragmentsPage from "./TopicsFragmentsPage"
+import axios from 'axios';
 
 export default class CategoriesPage extends React.Component {
   constructor(props) {
@@ -30,44 +31,52 @@ export default class CategoriesPage extends React.Component {
       });
     }
   }
+
+
   render() {
     return (
-      <TabContainer>
-        <Nav tabs>
-          <NavItem className="itemNav">
-            <NavLink
-              className={classnames({ active: this.state.activeTab === "1" })}
-              onClick={() => {
-                this.toggle("1");
-              }}
-            >
-              Mis preferencias
-            </NavLink>
-          </NavItem>
-          <NavItem className="itemNav">
-            <NavLink
-              className={classnames({ active: this.state.activeTab === "2" })}
-              onClick={() => {
-                this.toggle("2");
-              }}
-            >
-              Fragmentos por preferencia
-            </NavLink>
-          </NavItem>
-        </Nav>
-        <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="1">
-            <Row className="divNav">
-              <Preferences />
-            </Row>
-          </TabPane>
-          <TabPane tabId="2">
-            <Row className="divNav">
-              <TopicsFragmentsPage />
-            </Row>
-          </TabPane>
-        </TabContent>
-      </TabContainer>
+      <div>
+        <div className="row justify-content-center">
+        <div className="col-8">
+          <TabContainer>
+            <Nav tabs>
+              <NavItem className="itemNav">
+                <NavLink
+                  className={classnames({ active: this.state.activeTab === "1" })}
+                  onClick={() => {
+                    this.toggle("1");
+                  }}
+                >
+                  Mis preferencias
+                </NavLink>
+              </NavItem>
+              <NavItem className="itemNav">
+                <NavLink
+                  className={classnames({ active: this.state.activeTab === "2" })}
+                  onClick={() => {
+                    this.toggle("2");
+                  }}
+                >
+                  Fragmentos por preferencia
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane tabId="1">
+                <Row className="divNav">
+                  <Preferences />
+                </Row>
+              </TabPane>
+              <TabPane tabId="2">
+                <Row className="divNav">
+                  <TopicsFragmentsPage />
+                </Row>
+              </TabPane>
+            </TabContent>
+          </TabContainer>
+        </div>
+        </div>
+      </div>
     );
   }
 }

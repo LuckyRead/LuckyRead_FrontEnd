@@ -54,20 +54,20 @@ class Category extends Component {
         //console.log(res)
       }
     })
-    //get subtopics
-    axios({
-      method: "get",
-      url:
-        "https://luckyread-backend.herokuapp.com/api/sub_topic/"+this.props.id,
-    })
-      .then(response => {
-        const sub_topics = response["data"];
-        //console.log(response);
-        this.setState({ subtopics: sub_topics });
-      })
-      .catch(function(error) {
-        console.log("error");
-      });
+    // //get subtopics
+    // axios({
+    //   method: "get",
+    //   url:
+    //     "https://luckyread-backend.herokuapp.com/api/sub_topic/"+this.props.id,
+    // })
+    //   .then(response => {
+    //     const sub_topics = response["data"];
+    //     //console.log(response);
+    //     this.setState({ subtopics: sub_topics });
+    //   })
+    //   .catch(function(error) {
+    //     console.log("error");
+    //   });
 
   }
 
@@ -118,13 +118,14 @@ class Category extends Component {
   render() {
     //console.log('render topic: ' + this.props.id)
     //console.log(this.state.subtopics)
-    const domSubTopics = this.state.subtopics.map(subtopic => {
+    const domSubTopics = this.props.subtopics.map(subtopic => {
       return (
         <Sub_topics
           key={subtopic.id}
           name={subtopic.sub_topic_name}
           id={subtopic.id}
           checked = {this.state.check}
+          love = {subtopic.love}
         />
       );
     });

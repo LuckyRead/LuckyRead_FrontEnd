@@ -54,3 +54,24 @@ span{
 h1{
   color: #2B5275;
 }
+h3{
+  color: #2B5275;
+}
+
+.card-columns {
+  column-count: 4;
+}
+
+#cardtext{
+  font-size: 90%;
+  overflow-y: auto;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+#fragmentcard{
+  padding: 0.5rem;
+}
+#mypreferences{
+  padding: 10px;
+}

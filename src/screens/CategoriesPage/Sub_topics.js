@@ -14,29 +14,34 @@ class Sub_topics extends Component {
   }
 
   componentWillMount(){
-    //mirar si le gusta o no el subtopico al usuario
-    axios({
-      method: "get",
-      url:
-        "https://luckyread-backend.herokuapp.com/api/subtopics/love/"+this.props.id,
-      headers: {
-        Authorization: "Bearer " + localStorage.jwtToken
-      }
-
-    }).then( res =>{
-      //console.log(res)
-      if(res['data']['hurra']){
-        this.setState({
-          check: true
-        })
-      }else{
-        this.setState({
-          check: false
-        })
-        //console.log(res)
-      }
+    this.setState({
+      check: this.props.love
     })
   }
+  // componentWillMount(){
+  //   //mirar si le gusta o no el subtopico al usuario
+  //   axios({
+  //     method: "get",
+  //     url:
+  //       "https://luckyread-backend.herokuapp.com/api/subtopics/love/"+this.props.id,
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.jwtToken
+  //     }
+  //
+  //   }).then( res =>{
+  //     //console.log(res)
+  //     if(res['data']['hurra']){
+  //       this.setState({
+  //         check: true
+  //       })
+  //     }else{
+  //       this.setState({
+  //         check: false
+  //       })
+  //       //console.log(res)
+  //     }
+  //   })
+  // }
 
   componentDidUpdate(prevProps) {
   // Typical usage (don't forget to compare props):

@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import Category from "./Category";
 
 import { ListGroup, ListGroupItem, Button, TabContent} from 'reactstrap';
-import "./homepage.css";
+import "./preferences.css";
 
 import axios from "axios";
 
@@ -17,40 +17,50 @@ class Preferences extends Component {
     };
   }
 
-  componentWillMount() {
-    const token = localStorage.getItem("jwtToken");
-    const user = localStorage.getItem("user");
+//   componentDidUpdate(prevProps) {
+//   // Typical usage (don't forget to compare props):
+//   if (this.props.topics !== prevProps.topics) {
+//     this.setState({
+//       topics: this.props.topics
+//     })
+//   }
+// }
 
-    //get topics
+  componentWillMount() {
     axios({
       method: "get",
       url:
-        "https://luckyread-backend.herokuapp.com/api/topic/alltopics",
+        "https://luckyread-backend.herokuapp.com/api/topics/get_all_in_one",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("jwtToken")
+      }
     }).then(response => {
-        const topics = response.data;
-        this.setState({ topics: topics });
-        console.log(response);
-    })
+        console.log('ALL IN ONE');
+        console.log(response)
+        this.setState({
+          topics: response.data.topics
+        });
+      })
+      .catch(function(error) {
+
+      });
   }
 
   render(){
+    console.log("PREFERENCES")
     const domTopics = this.state.topics.map(topic => {
       return (
         <Category
           key={topic.id}
           name={topic.topic_name}
           id={topic.id}
+          subtopics={topic.sub_topics}
         />
       );
     });
     return (
-      <div className="container" id="preferences">
-        <div className="row justify-content-center ">
-          <h1>
-            <strong>Mis preferencias</strong>
-          </h1>
-        </div>
-        <div className="row justify-content-center ">
+      <div className="container">
+        <div className="row justify-content-center " id="mypreferences">
           <ListGroup>{domTopics}</ListGroup>
         </div>
       </div>
