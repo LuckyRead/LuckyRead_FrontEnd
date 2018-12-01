@@ -18,29 +18,34 @@ import Loading from "../../common/Loading/Loading";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import CommentMap from "../../common/Comment/CommentMap";
 
-
 class RandomFragmentPageNRU extends React.Component {
-  state = {
-    randomfragment: [],
-    topics: [],
-    randomTopic: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { randomfragment: [], topics: [], randomTopic: 0 };
+    this.request = this.request.bind(this);
+  }
 
   componentDidMount() {
-    const preferences = localStorage.preferences.split(',');
-    const randomTopic = preferences[Math.floor(Math.random() * preferences.length)];
-    this.setState({
-      randomTopic: randomTopic
-    }, () => {
-      this.request()
-    })
+    const preferences = localStorage.preferences.split(",");
+    const randomTopic =
+      preferences[Math.floor(Math.random() * preferences.length)];
+    this.setState(
+      {
+        randomTopic: randomTopic
+      },
+      () => {
+        this.request();
+      }
+    );
   }
 
   request = e => {
     console.log(localStorage.jwtToken);
     axios({
       method: "GET",
-      url: "https://luckyread-backend.herokuapp.com/api/fragment/something/" + this.state.randomTopic,
+      url:
+        "https://luckyread-backend.herokuapp.com/api/fragment/something/" +
+        this.state.randomTopic
     }).then(
       response => {
         this.setState({
@@ -52,49 +57,29 @@ class RandomFragmentPageNRU extends React.Component {
         console.log("el error es pidiendo fragmento random");
       }
     );
-    return
-  }
-  renderCategoryTags(categoryArray) {
-    let categoryTags = {};
-    categoryTags = [];
-    categoryArray.forEach((category, index) => {
-      categoryTags.push(<CategoryTag name={category.name} key={index} />);
-    });
-    return categoryTags;
-  }
-
+    return;
+  };
 
   render() {
-    const rf = this.state.randomfragment ?
-      (<PageContainer>
-        <MessageFragment>
+    const rf = this.state.randomfragment ? (
+      <PageContainer>
+        {/*<MessageFragment>
           <Row>
-            <Col>Tenemos un fragmento para ti</Col>
+            <Col>Tenemos un fragmento para ti:</Col>
           </Row>
-        </MessageFragment>
-
-        <Row>
-          <Col>
-            <Topics>
-              <TagsContainer>
-                {this.renderCategoryTags(this.state.topics)}
-              </TagsContainer>
-            </Topics>
-          </Col>
-
-        </Row>
-
-        <RandomFragment randomfragment={this.state.randomfragment} />
-        <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
+        </MessageFragment>*/}
+        <RandomFragment
+          randomfragment={this.state.randomfragment}
+          topicsArray={this.state.topics}
+          request={this.request}
+        />
       </PageContainer>
-      ) : <div className="center">
+    ) : (
+      <div className="center">
         <Loading />
       </div>
-    return (
-      <Container>
-        {rf}
-      </Container>
     );
+    return <div>{rf}</div>;
   }
 }
 

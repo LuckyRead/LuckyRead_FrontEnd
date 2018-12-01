@@ -3,15 +3,15 @@ import { Palette } from "../../themes/colors";
 
 const PageContainer = styled.div`
   text-align: center;
+  align-items: top;
   background-color: ${Palette.whiteopacity};
   border-style: solid;
   border-width: 5px;
   border-color: ${Palette.whiteopacity};
   margin: auto;
-  margin-top: 10px;
-  padding-bottom: 20px;
+  margin 10px;
   height: 100%;
-  .eEEWNZ{
+  .eEEWNZ {
     border-radius: 0px;
   }
 `;
@@ -20,43 +20,66 @@ const MessageFragment = styled.div`
   color: ${Palette.blue};
   border-style: none;
   margin: 10px;
-  font-family: 'Dancing Script';
+  font-family: "Dancing Script";
   margin: 0 auto;
-  font-weight: bold;
   font-size: 4em;
-  color: #4F5659;
+  color: white;
   text-align: center;
-  text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
+  background-color: #5383a7;
+  // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+`;
+
+const Left = styled.div`
+  display: flex;
+  flex: 1;
+  flex-wrap: inherit;
+  margin: auto;
+  align-items: center;
+`;
+
+const Right = styled.div`
+  display: flex;
+  flex: 2;
+  flex-wrap: inherit;
+  margin: auto;
+  text-align: center;
+  align-items: top !important;
 `;
 
 const Topics = styled.div`
-  width: 95%;
-  height: 95%;
-  text-align: justify;
+  text-align: center;
   margin: auto;
   margin-bottom: 10px;
-`;
+  display: flex;
+  flex-wrap: wrap;
 
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  .cIDpQd {
+    background-color: #525252 !important;
+  }
+  margin-bottom: 20px;
+`;
 
 const FragmentContent = styled.div`
   background-color: white;
-  width: 95%;
-  height: 95%;
-
-  border-style: solid;
-  border-width: 5px;
-  border-color: gray;
+  // border-style: solid;
+  // border-width: 5px;
+  // border-color: white;
   margin: auto;
   margin-bottom: 10px;
   padding: 20px;
-  align-items: center;
-  text-align: center;
 `;
 
 const ImageContainer = styled.div`
   border-style: solid;
-  border-color: gray;
+  border-color: #5383a7;
   margin-bottom: 10px;
+  min-width: 400px;
+  max-width: 400px;
+  margin: auto;
 `;
 
 const StatisticsContainer = styled.div`
@@ -69,45 +92,51 @@ const FragmentTitle = styled.div`
   font-size: 3em;
   font-weight: bold;
   text-align: center;
-  font-family = "Playfair Display";
-
+  font-family: "PT Sans";
 `;
 
 const FragmentText = styled.div`
   color: black;
   margin: 20px;
-  font-family = "Playfair Display";
+  font-family: "PT Sans";
+  text-align: justify;
+  font-size: 1.4em;
 `;
 
 const FragmentButtons = styled.div`
   text-align: center;
+  margin-top: 10px;
   .btn {
+    border-radius: 0px;
     margin: 5px;
-    width: 100%;
+    width: 90%;
     font-size: 0.9em;
   }
 `;
 
 const CategoryTagContainer = styled.div`
-  margin-left: 2px;
-  margin-right: 2px;
-  background-color: #758;
-  display: inline-block;
   font-size: 80%;
-  color:white;
+  color: white;
   padding: 10px;
-  text-align: center;
+  text-align: center !important;
+  align-items: center !important;
+  margin: auto;
+  width: 100%;
 `;
 
-const TagsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  align-items: center;
+const TopicsText = styled.div`
+  color: black;
+`;
+
+const TopicsRow = styled.div`
   text-align: center;
+  align-items: center;
+  margin: auto;
 `;
 
 export {
+  Left,
+  Right,
   PageContainer,
   MessageFragment,
   FragmentContent,
@@ -117,6 +146,7 @@ export {
   StatisticsContainer,
   FragmentButtons,
   CategoryTagContainer,
-  TagsContainer,
-  Topics
+  Topics,
+  TopicsText,
+  TopicsRow
 };
