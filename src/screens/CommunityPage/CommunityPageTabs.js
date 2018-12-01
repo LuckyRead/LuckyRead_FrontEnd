@@ -76,17 +76,6 @@ export default class ProfileTabs extends React.Component {
               Top fragmentos
             </NavLink>
           </NavItem>
-
-          <NavItem className="itemNav">
-            <NavLink
-              className={classnames({ active: this.state.activeTab === "5" })}
-              onClick={() => {
-                this.toggle("5");
-              }}
-            >
-              Estadisticas fragmentos
-            </NavLink>
-          </NavItem>
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
@@ -107,11 +96,6 @@ export default class ProfileTabs extends React.Component {
           <TabPane tabId="4">
             <Row className="divNav">
               <h4>Tab 4 Contents</h4>
-            </Row>
-          </TabPane>
-          <TabPane tabId="5">
-            <Row className="divNav">
-              <h4>Tab 5 Contents</h4>
             </Row>
           </TabPane>
         </TabContent>
