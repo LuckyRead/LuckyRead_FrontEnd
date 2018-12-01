@@ -56,8 +56,7 @@ export default class TopUsersTab extends React.Component {
           style={{
             backgroundColor: "#F6E2B3",
             padding: "2%",
-            border: "7px solid #D8BD93",
-            borderRadius: "10px"
+            border: "7px solid #D8BD93"
           }}
         >
           <Col sm="4">
