@@ -48,6 +48,7 @@ class RandomFragment extends React.Component {
   }
 
   render() {
+    console.log(localStorage.preferences);
     return (
       <div>
         <MessageFragment>

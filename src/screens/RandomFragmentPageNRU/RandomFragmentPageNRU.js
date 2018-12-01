@@ -29,6 +29,7 @@ class RandomFragmentPageNRU extends React.Component {
     const preferences = localStorage.preferences.split(",");
     const randomTopic =
       preferences[Math.floor(Math.random() * preferences.length)];
+    console.log("topico random", randomTopic);
     this.setState(
       {
         randomTopic: randomTopic
