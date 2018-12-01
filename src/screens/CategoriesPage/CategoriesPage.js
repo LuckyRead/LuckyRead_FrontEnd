@@ -38,6 +38,7 @@ export default class CategoriesPage extends React.Component {
       <div>
         <div className="row justify-content-center">
         <div className="col-8">
+          <br/>
           <TabContainer>
             <Nav tabs>
               <NavItem className="itemNav">

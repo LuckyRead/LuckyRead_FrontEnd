@@ -64,6 +64,8 @@ class Sub_topics extends Component {
         headers: {
           Authorization: "Bearer " + localStorage.jwtToken
         }
+      }).then(response=>{
+        console.log(response);
       })
     }else{
       //console.log('not checked')
@@ -74,6 +76,8 @@ class Sub_topics extends Component {
         headers: {
           Authorization: "Bearer " + localStorage.jwtToken
         }
+      }).then(response=>{
+        console.log(response);
       })
     }
 

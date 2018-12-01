@@ -31,29 +31,32 @@ class Category extends Component {
   }
 
   componentWillMount() {
+    this.setState({
+          check: this.props.love
+    })
     ////mirar si le gusta o no el topico al usuario
     //console.log('componentWillMount')
-    axios({
-      method: "get",
-      url:
-        "https://luckyread-backend.herokuapp.com/api/users/preference/topic/"+this.props.id,
-      headers: {
-        Authorization: "Bearer " + localStorage.jwtToken
-      }
-
-    }).then( res =>{
-      //console.log(res)
-      if(res['data']['msj'] === "Topic does like to user"){
-        this.setState({
-          check: true
-        })
-      }else{
-        this.setState({
-          check: false
-        })
-        //console.log(res)
-      }
-    })
+    // axios({
+    //   method: "get",
+    //   url:
+    //     "https://luckyread-backend.herokuapp.com/api/users/preference/topic/"+this.props.id,
+    //   headers: {
+    //     Authorization: "Bearer " + localStorage.jwtToken
+    //   }
+    //
+    // }).then( res =>{
+    //   //console.log(res)
+    //   if(res['data']['msj'] === "Topic does like to user"){
+    //     this.setState({
+    //       check: true
+    //     })
+    //   }else{
+    //     this.setState({
+    //       check: false
+    //     })
+    //     //console.log(res)
+    //   }
+    // })
     // //get subtopics
     // axios({
     //   method: "get",
@@ -86,15 +89,7 @@ class Category extends Component {
           Authorization: "Bearer " + localStorage.jwtToken
         }
       }).then(response =>{
-        axios({
-          method: "get",
-          url:
-            "https://luckyread-backend.herokuapp.com/api/sub_topic/"+this.props.id,
-        }).then(response => {
-          const newsub_topics = response["data"];
-          console.log(response);
-          this.setState({ subtopics: newsub_topics });
-        })
+        console.log(response)
       })
     }else{
       //console.log('not checked')

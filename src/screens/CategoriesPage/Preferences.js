@@ -17,15 +17,6 @@ class Preferences extends Component {
     };
   }
 
-//   componentDidUpdate(prevProps) {
-//   // Typical usage (don't forget to compare props):
-//   if (this.props.topics !== prevProps.topics) {
-//     this.setState({
-//       topics: this.props.topics
-//     })
-//   }
-// }
-
   componentWillMount() {
     axios({
       method: "get",
@@ -42,7 +33,7 @@ class Preferences extends Component {
         });
       })
       .catch(function(error) {
-
+        console.log(error);
       });
   }
 
@@ -55,6 +46,7 @@ class Preferences extends Component {
           name={topic.topic_name}
           id={topic.id}
           subtopics={topic.sub_topics}
+          love={topic.loveTopic}
         />
       );
     });
