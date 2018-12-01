@@ -77,12 +77,12 @@ class RandomFragment extends React.Component {
               </ImageContainer>
               <FragmentButtons>
                 <Link to={"/fragment/" + this.props.randomfragment.id}>
-                  <Button color="success">Leer este fragmento online</Button>{" "}
+                  <Button color="secondary">Leer este fragmento online</Button>{" "}
                 </Link>
-                <Button color="success" onClick={this.toggle}>
+                <Button color="secondary" onClick={this.toggle}>
                   Leer este fragmento en PDF
                 </Button>{" "}
-                <Button color="success" onClick={this.props.request}>
+                <Button color="secondary" onClick={this.props.request}>
                   Ver otro fragmento
                 </Button>{" "}
                 {this.state.showpopup ? <PopUpExample /> : null}

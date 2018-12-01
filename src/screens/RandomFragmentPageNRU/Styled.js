@@ -20,12 +20,12 @@ const MessageFragment = styled.div`
   color: ${Palette.blue};
   border-style: none;
   margin: 10px;
-  font-family: "Dancing Script";
+  font-family: "Playfair Display";
   margin: 0 auto;
   font-size: 4em;
   color: white;
   text-align: center;
-  background-color: #5383a7;
+  background-color: #3e3e3e;
   // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
 
@@ -52,11 +52,10 @@ const Topics = styled.div`
   margin-bottom: 10px;
   display: flex;
   flex-wrap: wrap;
-
   font-weight: bold;
   padding-left: 10px;
   padding-right: 10px;
-
+  width: 100%;
   .cIDpQd {
     background-color: #525252 !important;
   }
@@ -65,9 +64,6 @@ const Topics = styled.div`
 
 const FragmentContent = styled.div`
   background-color: white;
-  // border-style: solid;
-  // border-width: 5px;
-  // border-color: white;
   margin: auto;
   margin-bottom: 10px;
   padding: 20px;
@@ -75,10 +71,10 @@ const FragmentContent = styled.div`
 
 const ImageContainer = styled.div`
   border-style: solid;
-  border-color: #5383a7;
+  border-color: #535353;
   margin-bottom: 10px;
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 350px;
+  max-width: 350px;
   margin: auto;
 `;
 
@@ -98,15 +94,17 @@ const FragmentTitle = styled.div`
 const FragmentText = styled.div`
   color: black;
   margin: 20px;
-  font-family: "PT Sans";
+  font-family: "Playfair Display";
   text-align: justify;
   font-size: 1.4em;
+  align-items: top;
 `;
 
 const FragmentButtons = styled.div`
   text-align: center;
   margin-top: 10px;
   .btn {
+    background-color: #767676;
     border-radius: 0px;
     margin: 5px;
     width: 90%;
@@ -118,8 +116,7 @@ const CategoryTagContainer = styled.div`
   font-size: 80%;
   color: white;
   padding: 10px;
-  text-align: center !important;
-  align-items: center !important;
+
   margin: auto;
   width: 100%;
 `;
