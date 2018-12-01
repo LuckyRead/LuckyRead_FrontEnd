@@ -12,38 +12,40 @@ class Sub_topics extends Component {
       check: false
     };
   }
-  showSubCategories() {
-    //console.log("subcategories");
-  }
 
   componentWillMount(){
-    //mirar si le gusta o no el subtopico al usuario
-    axios({
-      method: "get",
-      url:
-        "https://luckyread-backend.herokuapp.com/api/subtopics/love/"+this.props.id,
-      headers: {
-        Authorization: "Bearer " + localStorage.jwtToken
-      }
-
-    }).then( res =>{
-      //console.log(res)
-      if(res['data']['hurra']){
-        this.setState({
-          check: true
-        })
-      }else{
-        this.setState({
-          check: false
-        })
-        console.log(res)
-      }
+    this.setState({
+      check: this.props.love
     })
   }
+  // componentWillMount(){
+  //   //mirar si le gusta o no el subtopico al usuario
+  //   axios({
+  //     method: "get",
+  //     url:
+  //       "https://luckyread-backend.herokuapp.com/api/subtopics/love/"+this.props.id,
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.jwtToken
+  //     }
+  //
+  //   }).then( res =>{
+  //     //console.log(res)
+  //     if(res['data']['hurra']){
+  //       this.setState({
+  //         check: true
+  //       })
+  //     }else{
+  //       this.setState({
+  //         check: false
+  //       })
+  //       //console.log(res)
+  //     }
+  //   })
+  // }
 
   componentDidUpdate(prevProps) {
   // Typical usage (don't forget to compare props):
-  console.log('componentDidUpdate')
+  //console.log('componentDidUpdate')
   if (this.props.checked !== prevProps.checked) {
     // this.setState({
     //   check: this.props.checked
@@ -62,6 +64,8 @@ class Sub_topics extends Component {
         headers: {
           Authorization: "Bearer " + localStorage.jwtToken
         }
+      }).then(response=>{
+        console.log(response);
       })
     }else{
       //console.log('not checked')
@@ -72,28 +76,27 @@ class Sub_topics extends Component {
         headers: {
           Authorization: "Bearer " + localStorage.jwtToken
         }
+      }).then(response=>{
+        console.log(response);
       })
     }
 
   }
 
   render() {
-    // console.log('render SUBTOPIC: ' + this.props.id)
-    // // const subcategories = this.props.checked ? (
-    // //
-    // // ) : null
-    // console.log(this.state.check)
-    //const subtopic = )
     return (
-      <div className="pretty p-default" id="subcategories">
-        {this.state.check ?
-           (<input type="checkbox" defaultChecked onClick = {this.handleClick} ref="checkbox"/>)
-          :(<input type="checkbox" onClick = {this.handleClick} ref="checkbox"/>)}
-        <div className="state p-success">
-            <label>{this.props.name}</label>
-        </div>
-      </div>
+      <div>
+        <div className="pretty p-default" id="subcategories">
+          {this.state.check ?
+             (<input type="checkbox" defaultChecked onClick = {this.handleClick} ref="checkbox"/>)
+            :(<input type="checkbox" onClick = {this.handleClick} ref="checkbox"/>)}
+          <div className="state p-success">
+              <label ></label>
+          </div>
 
+        </div>
+        <span>{this.props.name}</span>
+      </div>
     );
   }
 }

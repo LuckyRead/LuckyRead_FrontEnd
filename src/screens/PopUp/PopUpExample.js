@@ -6,7 +6,7 @@ class PopUpExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: true
     };
 
     this.toggle = this.toggle.bind(this);
@@ -21,14 +21,13 @@ class PopUpExample extends React.Component {
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>Oprime</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Alerta</ModalHeader>
           <ModalBody>
             Para poder acceder a esta caracterísitca necesitas registrate
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" tag={Link} to ="/RegisterPage" onClick={this.toggle} >Registrarme</Button>{' '}
+            <Button color="primary" tag={Link} to="/RegisterPage" onClick={this.toggle} >Registrarme</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancelar</Button>
           </ModalFooter>
         </Modal>

@@ -12,7 +12,7 @@ const Palette = {
   blueTitleLanding: "#105f78",
   black: "black",
   blackNavbar: "#0009",
-  whiteopacity: "#fff7",
+  whiteopacity: "#fff9",
   blueLinkopacity: "rgba(44, 110, 160, 0.9)",
   gray: "gray",
   whitetransparency: "rgba(255,255,255,0.7)",

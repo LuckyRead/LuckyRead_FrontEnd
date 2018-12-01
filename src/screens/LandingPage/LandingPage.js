@@ -5,6 +5,7 @@ import { LandingPageContainer } from "./Styled";
 import { Row, Col, Jumbotron, Button } from "reactstrap";
 
 const LandingPage = () => {
+  console.log("landing page");
   return (
     <LandingPageContainer>
       <Jumbotron fluid id="Init">
@@ -21,7 +22,7 @@ const LandingPage = () => {
                 otros usuarios y aprender algo nuevo cada día!
               </p>
             </h3>
-            <Link to="/RegisterPage">
+            <Link to="/CategoriesInitPage">
               <Button color="primary" id="Init-button">
                 <h4 id="readyText">
                   <strong>Empezar</strong>

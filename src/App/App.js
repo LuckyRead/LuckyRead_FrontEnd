@@ -12,9 +12,10 @@ import Navbar from "../common/NavBar/NavBar.js";
 import RegisterPage from "../screens/RegisterPage";
 import LandingPage from "../screens/LandingPage";
 import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage";
+import RandomFragmentPageNRU from "../screens/RandomFragmentPageNRU/RandomFragmentPageNRU";
 import FragmentPage from "../screens/FragmentPage/FragmentPage";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
-import Categories_List from "../screens/CategoriesPage/Categories_List";
+import CategoriesPage from "../screens/CategoriesPage/CategoriesPage";
 import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
@@ -22,8 +23,13 @@ import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
 import CommentTest from "../Test/CommentTest";
 import PopUp from "../screens/PopUp/PopUpExample";
 import Test from "../Test/Test";
+<<<<<<< HEAD
 import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage";
 import CommunityPage from "../screens/CommunityPage/CommunityPage";
+=======
+import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage"
+import FragmentsView from "../screens/CategoriesPage/FragmentsView"
+>>>>>>> 5eeeeacfbac7a72e429172f4759ae8b8909722e0
 
 // Styles
 import "./App.css";
@@ -67,7 +73,7 @@ class App extends Component {
               <PrivateRoute
                 exact
                 path="/CategoriesPage"
-                component={Categories_List}
+                component={CategoriesPage}
               />
               <Route exact path="/Comments" component={CommentTest} />
               <Route exact path="/Test" component={Test} />
@@ -76,7 +82,11 @@ class App extends Component {
                 path="/RandomFragmentPage"
                 component={RandomFragmentPage}
               />
-
+              <Route
+                exact
+                path="/Something"
+                component={RandomFragmentPageNRU}
+              />
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
               <Route exact path="/news" component={News} />
               <Route exact path="/Email" component={Email} />
@@ -87,10 +97,18 @@ class App extends Component {
 
               <Route path="/fragment/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+<<<<<<< HEAD
               <Route
                 path="/CategoriesInitPage"
                 component={CategoriesInitPage}
               />
+=======
+              <Route path="/fragmentsview/:topic_id" component={FragmentsView} />
+              <Route path="/CategoriesInitPage" component={CategoriesInitPage} />
+
+
+
+>>>>>>> 5eeeeacfbac7a72e429172f4759ae8b8909722e0
             </Switch>
           </div>
         </Router>
