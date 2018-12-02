@@ -11,10 +11,10 @@ export default class FragmentCard extends PureComponent {
     render() {
         return (
               <Card id="topCard">
-                <CardHeader tag="h3" className="text-center"><strong>{this.props.title}</strong></CardHeader>
+                <CardHeader tag="h4" className="text-center"><strong>{this.props.title}</strong></CardHeader>
                 <CardImg top width="100%" src={"data:image/png;base64, " + this.props.image} alt="Card image cap" />
-                <CardBody id="fragmentcard" className="text-center">
-                  <CardText id="text" className="text-justify"><h5><strong>Introducción: </strong></h5>{this.props.introduction}</CardText>
+                <CardBody id="fragmentcard" className="text-center" >
+                  <CardText  className="text-justify" id="textfragment"><strong>Introducción: </strong>{this.props.introduction}</CardText>
                 </CardBody>
               </Card>
         )

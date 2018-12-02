@@ -2,12 +2,12 @@
   column-count: 5;
 }
 #topCard{
-  height: 500px;
+  width: 100%;
+  height: 520px;
 }
-#text{
-  font-size: 90%;
+#fragmentcard{
   overflow-y: auto;
-  margin: 0;
-  margin-bottom: 10px;
-  height: 200px;
+}
+#textfragment{
+  font-size: 90%;
 }

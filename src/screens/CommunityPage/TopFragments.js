@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Card, Button, CardImg, CardTitle, CardText, CardColumns,
- CardSubtitle, CardBody } from 'reactstrap';
+ CardSubtitle, CardBody, CardDeck } from 'reactstrap';
 import PropTypes from "prop-types";
 import { TopicCard, TopicCardSelect } from "../CategoriesInitPage/Styled";
 import CardTop from "./Card";
@@ -49,9 +49,9 @@ export default class TopFragments extends PureComponent {
         return (
           <div>
             <br/>
-             <CardColumns>
+              <CardDeck>
                {domFragments}
-            </CardColumns>
+             </CardDeck>
           </div>
         )
     }
