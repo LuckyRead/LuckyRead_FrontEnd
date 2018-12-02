@@ -8,21 +8,29 @@ import {
   InputGroupText,
   InputGroupAddon,
   Input,
-  FormText
+  FormText,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter
 } from "reactstrap";
 import { TabContent, TitleContainer } from "./Styled.js";
+import AddImageFragment from './AddImageFragment';
 import axios from 'axios';
 
 export default class FragmentTab extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      modal: "",
       titulo: "",
       introduccion: "",
-      contenido: ""
+      contenido: "",
+      //image_id: null
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
   handleChange = e => {
@@ -58,6 +66,12 @@ export default class FragmentTab extends Component {
     }).then(response =>{
       console.log(response)
     })
+  }
+
+  toggle() {
+    let newState = Object.assign({}, this.state);
+    newState.modal = !newState.modal;
+    this.setState(newState);
   }
 
   render() {
@@ -96,10 +110,26 @@ export default class FragmentTab extends Component {
               value={this.state.contenido}
               onChange={this.handleChange}/>
           </FormGroup>
-          <Button color="info" style={{ marginRight: "1%" }}>
+
+          <Button color="info" style={{ marginRight: "1%" }} onClick={this.toggle}>
             Agregar imagen
-          </Button>
+          </Button >
           <Button color="info" onClick={this.handleClick}>Subir fragmento</Button>
+            <Modal
+              isOpen={this.state.modal}
+              toggle={this.toggle}
+              className={this.props.className}
+            >
+              <ModalHeader toggle={this.toggle}>Agregar imagen</ModalHeader>
+              <ModalBody>
+                <AddImageFragment />
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onClick={this.Reload}>
+                  Cerrar
+                </Button>{" "}
+              </ModalFooter>
+            </Modal>
         </Form>
       </TabContent>
     );
