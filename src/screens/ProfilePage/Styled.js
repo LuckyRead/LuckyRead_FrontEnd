@@ -76,8 +76,9 @@ const InfoContainer = styled.div`
   border: ${props => (props.border ? "1px solid" : "none")};
   border-color :  ${props => (props.border ? Palette.grayoff : "none")}
   border-radius: ${props => (props.border ? "5px" : "none")}
-  margin-top: ${props => (props.marginTop ? props.marginTop : 0)};
-  margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)};
+
+  margin-top: ${props => (props.marginTop ? props.marginTop : 0)};  
+  margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)};  
   background-color: ${props => (props.bgcolor ? props.bgcolor : "none")}
 
   .skinny {
