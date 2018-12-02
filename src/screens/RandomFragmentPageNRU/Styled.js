@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
-
+import paper from "../../resources/paper.png";
 const PageContainer = styled.div`
   text-align: center;
   align-items: top;
@@ -55,14 +55,10 @@ const Topics = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
-  .cIDpQd {
-    background-color: #525252 !important;
-  }
   margin-bottom: 20px;
 `;
 
 const FragmentContent = styled.div`
-  background-color: white;
   margin: auto;
   margin-bottom: 10px;
   padding: 20px;
@@ -130,6 +126,9 @@ const TopicsRow = styled.div`
   align-items: center;
   margin: auto;
 `;
+const RandomFragmentS = styled.div`
+  background-image: url(${paper});
+`;
 
 export {
   Left,
@@ -145,5 +144,6 @@ export {
   CategoryTagContainer,
   Topics,
   TopicsText,
-  TopicsRow
+  TopicsRow,
+  RandomFragmentS
 };

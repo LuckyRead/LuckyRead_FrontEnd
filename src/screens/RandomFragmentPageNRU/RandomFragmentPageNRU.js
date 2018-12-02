@@ -76,9 +76,7 @@ class RandomFragmentPageNRU extends React.Component {
         />
       </PageContainer>
     ) : (
-      <div className="center">
-        <Loading />
-      </div>
+      <div className="center">Cargando</div>
     );
     return <div>{rf}</div>;
   }
