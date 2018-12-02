@@ -5,7 +5,6 @@ const CommentContainer = styled.div`
   background-color: white;
   padding: 1%;
   margin: 1%;
-  border-radius: 10px;
   border: 2px solid ${Palette.grayoff};
   p {
     text-align: justify;
@@ -40,7 +39,6 @@ const ReactionButton = styled.div`
 `;
 
 const MapContainer = styled.div`
-  border-radius: 20px;
   margin: 1%;
   padding: 1%;
   text-align: center;

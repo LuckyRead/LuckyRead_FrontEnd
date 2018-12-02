@@ -11,7 +11,6 @@ const LandingPageContainer = styled.div`
     display: table;
     margin: 0 auto;
     margin-top: 1%;
-    border-radius: 5px;
     border-style: none;
     align-content: center;
   }
@@ -37,7 +36,6 @@ const LandingPageContainer = styled.div`
   }
   #Init-button {
     margin-top: 2%;
-    border-radius: 30px;
     font-size: 20px;
     border: 3px solid ${Palette.bluestrong};
     width: 12%;

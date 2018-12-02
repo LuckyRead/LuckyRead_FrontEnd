@@ -15,7 +15,6 @@ const TabContainer = styled.div`
   .itemNav {
     background-color: ${Palette.whitetransparency};
     border: 1px solid ${Palette.grayoff};
-    border-radius: 5px;
     margin-right: 0.3%;
   }
 
@@ -37,7 +36,6 @@ const TabContainer = styled.div`
     margin-left: 0.025%;
     margin-top: 0.25%;
     border: 2px solid ${Palette.grayoff};
-    border-radius: 10px;
   }
 
   .nav {
@@ -47,7 +45,6 @@ const TabContainer = styled.div`
 
 const ProfileCardDiv = styled.div`
   background-color: ${Palette.white};
-  border-radius: 5px;
   border: 2px solid ${Palette.grayoff};
   a: hover {
     cursor: pointer;
@@ -75,7 +72,6 @@ const InfoContainer = styled.div`
   text-align: center;
   border: ${props => (props.border ? "1px solid" : "none")};
   border-color :  ${props => (props.border ? Palette.grayoff : "none")}
-  border-radius: ${props => (props.border ? "5px" : "none")}
   margin-top: ${props => (props.marginTop ? props.marginTop : 0)};
   margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)};
   background-color: ${props => (props.bgcolor ? props.bgcolor : "none")}
@@ -118,7 +114,6 @@ const TabContent = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${Palette.whitetransparency};
-  border-radius: 5px;
   border: 1px solid ${Palette.grayoff};
   margin-top: 2%;
   margin-bottom: 2%;
@@ -147,7 +142,6 @@ const CollapseContainer = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 2%;
-  border-radius: 5px;
   border: 1px solid ${Palette.grayoff};
 `;
 
