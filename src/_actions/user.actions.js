@@ -53,18 +53,18 @@ function login_social(response) {
   const user = response.data.username;
   localStorage.setItem("jwtToken", token);
   localStorage.setItem("user", user);
-  console.log('user y token agregados')
-  if (response['data']['warning']) {
+  console.log("user y token agregados");
+  if (response["data"]["warning"]) {
     userService.addAllTopics().then(
       response => {
-        console.log("All topics added")
+        console.log("All topics added");
         history.push("/RandomFragmentPage");
         return { type: userConstants.REGISTER_SOCIAL_SUCESS };
       },
       error => {
-        console.log("Error agregando topicos")
+        console.log("Error agregando topicos");
       }
-    )
+    );
   } else {
     history.push("/RandomFragmentPage");
   }
@@ -89,34 +89,42 @@ function register(user, auth) {
         /*         history.push("/"); */
         dispatch(alertActions.success("Registro exitoso"));
         dispatch(request(auth));
-        userService.login(auth).then(
-          response => {
-            console.log("logueado")
-            console.log("Inicio de sesion exitoso");
-            console.log(response);
-            const token = response.data.jwt;
-            const user = response.data.username;
-            localStorage.setItem("jwtToken", token);
-            localStorage.setItem("user", user);
-            console.log(localStorage.jwtToken);
-            dispatch(success());
-            dispatch(alertActions.success("Logueo exitoso"));
-            dispatch(request());
-            userService.addAllTopics().then(
-              response => {
-                console.log("All topics added")
-                history.push("/RandomFragmentPage");
-              },
-              error => {
-                console.log("Error agregando topicos")
-              }
-            )
+        userService.login(auth).then(response => {
+          console.log("logueado");
+          console.log("Inicio de sesion exitoso");
+          console.log(response);
+          const token = response.data.jwt;
+          const user = response.data.username;
+          localStorage.setItem("jwtToken", token);
+          localStorage.setItem("user", user);
+          console.log(localStorage.jwtToken);
+          dispatch(success());
+          dispatch(alertActions.success("Logueo exitoso"));
+          dispatch(request());
+          const preferences = localStorage.preferences.split(",");
+          userService.addPreferences(preferences).then(
+            response => {
+              console.log("Prefereces added");
+              history.push("/RandomFragmentPage");
+              dispatch(success());
+              dispatch(alertActions.success("Preferencias agregadas exitoso"));
+              dispatch(request());
+              userService.followFriends().then(
+                response => {
+                  console.log("friends followed");
+                },
+                error => {
+                  console.log("error siguiendo usuarios");
+                }
+              );
+            },
+            error => {
+              console.log("Error agregando topicos");
+            }
+          );
+        });
 
-          }
-        );
-
-        console.log(user)
-
+        console.log(user);
       },
       error => {
         dispatch(failure(error.toString()));
@@ -204,7 +212,6 @@ function verify_email(email) {
   }
 }
 
-
 function addAllTopics(user) {
   return dispatch => {
     dispatch(request(user));
@@ -232,7 +239,6 @@ function addAllTopics(user) {
     return { type: userConstants.REGISTER_FAILURE, error };
   }
 }
-
 
 /* function getAll() {
     return dispatch => {

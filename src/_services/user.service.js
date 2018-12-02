@@ -9,7 +9,9 @@ export const userService = {
   register,
   verify_username,
   verify_email,
-  addAllTopics
+  addAllTopics,
+  followFriends,
+  addPreferences
 };
 
 function login(auth) {
@@ -18,9 +20,7 @@ function login(auth) {
   return API.post("/api/login", { auth });
 }
 
-function login_social(response) {
-  
-}
+function login_social(response) {}
 
 function logout() {
   console.log("service logout");
@@ -46,14 +46,40 @@ function verify_email(email) {
   return API.post(`/api/users/email_exist`, { email });
 }
 
-
 function addAllTopics() {
-  return axios(
-    {
-      method: 'GET',
-      url: 'https://luckyread-backend.herokuapp.com/api/preference/add_all',
-      headers: {
-        Authorization: "Bearer " + localStorage.jwtToken
-      }
-    })
+  return axios({
+    method: "GET",
+    url: "https://luckyread-backend.herokuapp.com/api/preference/add_all",
+    headers: {
+      Authorization: "Bearer " + localStorage.jwtToken
+    }
+  });
+}
+
+function addPreferences(topics_id) {
+  var postData = {
+    topics_id: topics_id
+  };
+
+  let axiosConfig = {
+    headers: {
+      Authorization: "Bearer " + localStorage.jwtToken
+    }
+  };
+
+  return axios.post(
+    "https://luckyread-backend.herokuapp.com/api/topic/add_many",
+    postData,
+    axiosConfig
+  );
+}
+
+function followFriends() {
+  return axios({
+    method: "GET",
+    url: "https://luckyread-backend.herokuapp.com/api/friend/random",
+    headers: {
+      Authorization: "Bearer " + localStorage.jwtToken
+    }
+  });
 }
