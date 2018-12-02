@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Collapse, Card, Button, CardHeader, CardBody,
- CardTex} from 'reactstrap';
+CardText} from 'reactstrap';
 import Sub_topics from "./Sub_topics";
 import axios from 'axios';
 import "./preferences.css";
@@ -31,43 +31,46 @@ class Category extends Component {
   }
 
   componentWillMount() {
+    this.setState({
+          check: this.props.love
+    })
     ////mirar si le gusta o no el topico al usuario
     //console.log('componentWillMount')
-    axios({
-      method: "get",
-      url:
-        "https://luckyread-backend.herokuapp.com/api/users/preference/topic/"+this.props.id,
-      headers: {
-        Authorization: "Bearer " + localStorage.jwtToken
-      }
-
-    }).then( res =>{
-      //console.log(res)
-      if(res['data']['msj'] === "Topic does like to user"){
-        this.setState({
-          check: true
-        })
-      }else{
-        this.setState({
-          check: false
-        })
-        //console.log(res)
-      }
-    })
-    //get subtopics
-    axios({
-      method: "get",
-      url:
-        "https://luckyread-backend.herokuapp.com/api/sub_topic/"+this.props.id,
-    })
-      .then(response => {
-        const sub_topics = response["data"];
-        //console.log(response);
-        this.setState({ subtopics: sub_topics });
-      })
-      .catch(function(error) {
-        console.log("error");
-      });
+    // axios({
+    //   method: "get",
+    //   url:
+    //     "https://luckyread-backend.herokuapp.com/api/users/preference/topic/"+this.props.id,
+    //   headers: {
+    //     Authorization: "Bearer " + localStorage.jwtToken
+    //   }
+    //
+    // }).then( res =>{
+    //   //console.log(res)
+    //   if(res['data']['msj'] === "Topic does like to user"){
+    //     this.setState({
+    //       check: true
+    //     })
+    //   }else{
+    //     this.setState({
+    //       check: false
+    //     })
+    //     //console.log(res)
+    //   }
+    // })
+    // //get subtopics
+    // axios({
+    //   method: "get",
+    //   url:
+    //     "https://luckyread-backend.herokuapp.com/api/sub_topic/"+this.props.id,
+    // })
+    //   .then(response => {
+    //     const sub_topics = response["data"];
+    //     //console.log(response);
+    //     this.setState({ subtopics: sub_topics });
+    //   })
+    //   .catch(function(error) {
+    //     console.log("error");
+    //   });
 
   }
 
@@ -86,15 +89,7 @@ class Category extends Component {
           Authorization: "Bearer " + localStorage.jwtToken
         }
       }).then(response =>{
-        axios({
-          method: "get",
-          url:
-            "https://luckyread-backend.herokuapp.com/api/sub_topic/"+this.props.id,
-        }).then(response => {
-          const newsub_topics = response["data"];
-          console.log(response);
-          this.setState({ subtopics: newsub_topics });
-        })
+        console.log(response)
       })
     }else{
       //console.log('not checked')
@@ -116,15 +111,16 @@ class Category extends Component {
   }
 
   render() {
-    console.log('render topic: ' + this.props.id)
+    //console.log('render topic: ' + this.props.id)
     //console.log(this.state.subtopics)
-    const domSubTopics = this.state.subtopics.map(subtopic => {
+    const domSubTopics = this.props.subtopics.map(subtopic => {
       return (
         <Sub_topics
           key={subtopic.id}
           name={subtopic.sub_topic_name}
           id={subtopic.id}
           checked = {this.state.check}
+          love = {subtopic.love}
         />
       );
     });
@@ -148,7 +144,9 @@ class Category extends Component {
         </CardHeader>
         <Collapse isOpen={this.state.collapse} id="Collapse">
             <CardBody>
+              <CardText>
                  {domSubTopics}
+              </CardText>
             </CardBody>
         </Collapse>
       </Card>

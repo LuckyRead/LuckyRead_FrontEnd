@@ -19,7 +19,6 @@ const NavbarContainer = styled.div`
   }
   .navbar {
     height: 45px;
-    margin-bottom: 10px;
   }
   .navbar-brand {
     color: ${Palette.white} !important;
