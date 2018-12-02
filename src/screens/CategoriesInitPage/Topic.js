@@ -8,7 +8,7 @@ export default class Topic extends PureComponent {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      selectTopic: false
+      selectTopic: true
     };
   }
 
