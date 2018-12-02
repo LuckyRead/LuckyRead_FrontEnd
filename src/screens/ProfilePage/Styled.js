@@ -138,7 +138,8 @@ const RowInfo = styled.div`
   width: 100%;
   margin-top: 2% !important;
   .FullButton {
-    width: 25% !important;
+    width: 50% !important;
+    margin-left: 25%;
   }
 `;
 
@@ -155,6 +156,17 @@ const TitleContainer = styled.div`
   margin-bottom: 3% !important;
 `;
 
+const InformationContentS = styled.div`
+  width: 100%;
+  border: 1px solid ${Palette.grayoff};
+  background-image: url(${paper});
+  padding: 3%;
+  h6 {
+    text-align: center !important;
+    width: 100%;
+  }
+`;
+
 export {
   Palette,
   ProfileContainer,
@@ -168,5 +180,6 @@ export {
   TabContent,
   RowInfo,
   CollapseContainer,
-  TitleContainer
+  TitleContainer,
+  InformationContentS
 };

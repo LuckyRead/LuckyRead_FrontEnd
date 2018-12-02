@@ -16,8 +16,8 @@ import {
 } from "reactstrap";
 import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
 import { FormErrors } from "../../common/formErrors/FormErrors";
-import axios from 'axios';
-
+import axios from "axios";
+import InformationContent from "./InformationContent";
 export default class InformationTab extends Component {
   constructor(props) {
     super(props);
@@ -132,7 +132,7 @@ export default class InformationTab extends Component {
     this.setState({
       formValid: this.state.passwordValid && this.state.confirmpasswordValid
     });
-    console.log(this.state.formValid)
+    console.log(this.state.formValid);
   }
 
   errorClass(error) {
@@ -146,7 +146,7 @@ export default class InformationTab extends Component {
       loaded: true
     });
     let n_password = this.state.password;
-    console.log(this.state.password)
+    console.log(this.state.password);
     axios({
       method: "PATCH",
       url: "https://luckyread-backend.herokuapp.com/api/user/change_password",
@@ -171,14 +171,16 @@ export default class InformationTab extends Component {
       });
   };
 
-
   render() {
     return (
       <TabContent>
         <Row>
-          <h5 style={{ textAlign: "center", margin: "auto" }}>
-            Aca va a ir el componente de datos del perfil
-          </h5>
+          <InformationContent
+            name="Camilo Alejandro Sanchez Cruz"
+            age="20"
+            email="caasanchezcr@unal.edu.co"
+            city="Bogota"
+          />
         </Row>
         <Row>
           <RowInfo>
@@ -209,15 +211,15 @@ export default class InformationTab extends Component {
                       )}`}
                       id="FormInputs"
                     >
-                    <Label for="Cambiar contraseña">Nueva contraseña</Label>
-                    <Input
-                      type="password"
-                      name="password"
-                      id="password"
-                      placeholder="Nueva contraseña"
-                      onChange={this.handleUserInput}
-                    />
-                  </div>
+                      <Label for="Cambiar contraseña">Nueva contraseña</Label>
+                      <Input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Nueva contraseña"
+                        onChange={this.handleUserInput}
+                      />
+                    </div>
                   </FormGroup>
                   <FormGroup>
                     <Label for="Cambiar contraseña">
@@ -236,10 +238,7 @@ export default class InformationTab extends Component {
                       </p>
                     ) : null}
                   </FormGroup>
-                  <Button
-                    type='submit'
-                    disabled={!this.state.formValid}
-                    >
+                  <Button type="submit" disabled={!this.state.formValid}>
                     {this.state.loaded ? (
                       <Spinner name="circle" fadein="none" color="white" />
                     ) : (
