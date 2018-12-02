@@ -5,6 +5,7 @@ import { LandingPageContainer } from "./Styled";
 import { Row, Col, Jumbotron, Button } from "reactstrap";
 
 const LandingPage = () => {
+  console.log("landing page");
   return (
     <LandingPageContainer>
       <Jumbotron fluid id="Init">
@@ -16,10 +17,9 @@ const LandingPage = () => {
             <hr />
             <h3 className="Init-subtitle">
               <p>
-                ¿Quieres leer algo pero no sabes qué?
-                <br /> Aquí te ofrecemos textos interesantes al azar según tus
-                gustos. ¡Podrás interactuar con otros usuarios y aprender algo
-                nuevo cada día!
+                ¿Quieres leer algo pero no sabes qué? Aquí te ofrecemos textos
+                interesantes al azar según tus gustos. ¡Podrás interactuar con
+                otros usuarios y aprender algo nuevo cada día!
               </p>
             </h3>
             <Link to="/CategoriesInitPage">

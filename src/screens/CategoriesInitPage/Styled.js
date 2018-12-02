@@ -7,8 +7,7 @@ const TopicCard = styled.div`
   background-size: cover;
   border-style: solid;
   border-width: 5px;
-  border-color: white;
-
+  border-color: ${props => (props.select ? "white" : "#4A52B3")}
   margin: auto;
   width: 220px;
   height: 220px;
@@ -32,7 +31,8 @@ const TopicsContainer = styled.div`
 const TopicCardSelect = styled.div`
   display: grid;
   cursor: pointer;
-  background: rgba(0, 0, 0, ${props => (props.select ? 0 : 0.6)});
+  background: rgba(0, 0, 0, ${props => (props.select ? 0.6 : 0)});
+  font-size: ${props => (props.select ? "15px" : "25px")}
   width: 100%;
   height: 100%;
   align-items: center;
@@ -43,10 +43,6 @@ const TopicCardSelect = styled.div`
 
 const NextButton = styled.div`
   margin: auto;
-  button {
-    margin-bottom: 10%;
-    margin-top: 10%;
-  }
 `;
 
 const Title = styled.div`

@@ -18,7 +18,7 @@ const MessageFragment = styled.div`
   color: ${Palette.blue};
   border-style: none;
   margin: 10px;
-  font-family: 'Dancing Script';
+  font-family: "Dancing Script";
   margin: 0 auto;
   font-weight: bold;
   font-size: 4em;
@@ -34,7 +34,6 @@ const Topics = styled.div`
   margin: auto;
   margin-bottom: 10px;
 `;
-
 
 const FragmentContent = styled.div`
   width: 95%;
@@ -86,10 +85,10 @@ const FragmentButtons = styled.div`
 const CategoryTagContainer = styled.div`
   margin-left: 2px;
   margin-right: 2px;
-  background-color: #758;
+  background-color: #757575;
   display: inline-block;
   font-size: 80%;
-  color:white;
+  color: white;
   padding: 10px;
   text-align: center;
 `;

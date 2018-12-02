@@ -15,7 +15,7 @@ import RandomFragmentPage from "../screens/RandomFragmentPage/RandomFragmentPage
 import RandomFragmentPageNRU from "../screens/RandomFragmentPageNRU/RandomFragmentPageNRU";
 import FragmentPage from "../screens/FragmentPage/FragmentPage";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
-import Categories_List from "../screens/CategoriesPage/Categories_List";
+import CategoriesPage from "../screens/CategoriesPage/CategoriesPage";
 import ChangePasswordPage from "../screens/ChangePassword/ChangePasswordPage";
 import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
@@ -24,6 +24,7 @@ import CommentTest from "../Test/CommentTest";
 import PopUp from "../screens/PopUp/PopUpExample"
 import Test from "../Test/Test";
 import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage"
+import FragmentsView from "../screens/CategoriesPage/FragmentsView"
 
 // Styles
 import "./App.css";
@@ -66,7 +67,7 @@ class App extends Component {
               <PrivateRoute
                 exact
                 path="/CategoriesPage"
-                component={Categories_List}
+                component={CategoriesPage}
               />
               <Route exact path="/Comments" component={CommentTest} />
               <Route exact path="/Test" component={Test} />
@@ -90,6 +91,7 @@ class App extends Component {
 
               <Route path="/fragment/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+              <Route path="/fragmentsview/:topic_id" component={FragmentsView} />
               <Route path="/CategoriesInitPage" component={CategoriesInitPage} />
 
 
