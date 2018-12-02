@@ -26,11 +26,13 @@ export default class FragmentTab extends Component {
       titulo: "",
       introduccion: "",
       contenido: "",
+      image_id: null
       //image_id: null
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.imageid = this.imageid.bind(this);
   }
 
   handleChange = e => {
@@ -40,11 +42,16 @@ export default class FragmentTab extends Component {
     console.log(this.state[name])
   }
 
+  imageid(id){
+    this.setState({image_id: id })
+  }
+
   handleClick  = event => {
     event.preventDefault();
     let titulo_f = this.state.titulo;
     let introduccion_f = this.state.introduccion;
     let contenido_f = this.state.contenido;
+    let image_f = this.state.image_id;
     console.log(titulo_f)
     console.log(introduccion_f)
     console.log(contenido_f)
@@ -60,7 +67,7 @@ export default class FragmentTab extends Component {
         introduction: introduccion_f,
         content: contenido_f,
         source: "user",
-        image_id: null,
+        image_id: image_f,
         sub_topics_id: [1,2,3,4]
       }
     }).then(response =>{
@@ -119,10 +126,11 @@ export default class FragmentTab extends Component {
               isOpen={this.state.modal}
               toggle={this.toggle}
               className={this.props.className}
+
             >
               <ModalHeader toggle={this.toggle}>Agregar imagen</ModalHeader>
               <ModalBody>
-                <AddImageFragment />
+                <AddImageFragment imageid = {this.imageid}/>
               </ModalBody>
               <ModalFooter>
                 <Button color="primary" onClick={this.Reload}>

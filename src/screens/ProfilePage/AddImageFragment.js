@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Spinner from "react-spinkit";
 import { ChangeAvatarContainer } from "./Styled";
+import PropTypes from "prop-types";
 
 class AddImageFragment extends Component {
   constructor(props) {
@@ -11,8 +12,7 @@ class AddImageFragment extends Component {
       showImage:
         "https://blog.stylingandroid.com/wp-content/themes/lontano-pro/images/no-image-slide.png",
       loaded: false,
-      finishloaded: false,
-      id: null
+      finishloaded: false
     };
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
   }
@@ -51,10 +51,10 @@ class AddImageFragment extends Component {
         console.log("upload photo");
         console.log(response);
         console.log("el id de la foto es: " + response["data"]["id"]);
+        this.props.imageid(response["data"]["id"])
         this.setState({
               loaded: false,
-              finishloaded: true,
-              id: response["data"]["id"]
+              finishloaded: true
           });
         // axios({
         //   method: "patch",
@@ -130,5 +130,9 @@ class AddImageFragment extends Component {
     );
   }
 }
+
+AddImageFragment.propTypes = {
+  imageid: PropTypes.func.isRequired
+};
 
 export default AddImageFragment;
