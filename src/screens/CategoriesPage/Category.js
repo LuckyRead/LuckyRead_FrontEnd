@@ -34,6 +34,7 @@ class Category extends Component {
     this.setState({
           check: this.props.love
     })
+
     ////mirar si le gusta o no el topico al usuario
     //console.log('componentWillMount')
     // axios({
@@ -111,6 +112,8 @@ class Category extends Component {
   }
 
   render() {
+    console.log('subtopicos del topico' + this.props.id)
+    console.log(this.props.subtopics)
     //console.log('render topic: ' + this.props.id)
     //console.log(this.state.subtopics)
     const domSubTopics = this.props.subtopics.map(subtopic => {

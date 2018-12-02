@@ -15,6 +15,7 @@ import {
 } from "reactstrap";
 import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
 import ProfileLabelMap from "../../common/ProfileLabel/ProfileLabelMap";
+import axios from 'axios';
 
 export default class FollowersTab extends Component {
   constructor(props) {
@@ -65,6 +66,20 @@ export default class FollowersTab extends Component {
         }
       ]
     };
+  }
+
+  componentWillMount(){
+    axios({
+      method: "get",
+      url:
+        "https://luckyread-backend.herokuapp.com/api/follower/",
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    }).then(response => {
+      console.log('FOLLOWERS')
+      console.log(response)
+    })
   }
 
   render() {
