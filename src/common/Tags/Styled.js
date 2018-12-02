@@ -18,11 +18,11 @@ const MessageFragment = styled.div`
   color: ${Palette.blue};
   border-style: none;
   margin: 10px;
-  font-family: 'Dancing Script';
+  font-family: "Dancing Script";
   margin: 0 auto;
   font-weight: bold;
   font-size: 4em;
-  color: #105F78;
+  color: #105f78;
   text-align: center;
   text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
 `;
@@ -34,7 +34,6 @@ const Topics = styled.div`
   margin: auto;
   margin-bottom: 10px;
 `;
-
 
 const FragmentContent = styled.div`
   width: 95%;
@@ -89,7 +88,7 @@ const CategoryTagContainer = styled.div`
   background-color: #758;
   display: inline-block;
   font-size: 80%;
-  color:white;
+  color: white;
   padding: 10px;
   text-align: center;
 `;

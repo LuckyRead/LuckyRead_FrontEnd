@@ -47,9 +47,12 @@ export default class FragmentsView extends PureComponent {
         );
       });
         return (
-           <CardColumns>
-            {domFragments}
-          </CardColumns>
+          <div>
+            <br/>
+             <CardColumns id="TopicsFragments">
+              {domFragments}
+            </CardColumns>
+          </div>
         )
     }
 }

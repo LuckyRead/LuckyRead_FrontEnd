@@ -1,0 +1,13 @@
+.card-columns {
+  column-count: 5;
+}
+#topCard{
+  height: 500px;
+}
+#text{
+  font-size: 90%;
+  overflow-y: auto;
+  margin: 0;
+  margin-bottom: 10px;
+  height: 200px;
+}

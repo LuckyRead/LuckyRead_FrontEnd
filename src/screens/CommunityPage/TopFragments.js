@@ -3,7 +3,8 @@ import { Card, Button, CardImg, CardTitle, CardText, CardColumns,
  CardSubtitle, CardBody } from 'reactstrap';
 import PropTypes from "prop-types";
 import { TopicCard, TopicCardSelect } from "../CategoriesInitPage/Styled";
-//import FragmentCard from "./FragmentCard";
+import CardTop from "./Card";
+import './community.css';
 
 
 import axios from 'axios';
@@ -24,9 +25,9 @@ export default class TopFragments extends PureComponent {
       }).then(response => {
           console.log('FRAGMENTOS');
           console.log(response)
-          // this.setState({
-          //     fragments: response.data.fragments
-          // });
+          this.setState({
+              fragments: response.data
+          });
         })
         .catch(function(error) {
 
@@ -34,21 +35,24 @@ export default class TopFragments extends PureComponent {
     }
 
     render() {
-      // const domFragments = this.state.fragments.map(fragment => {
-      //   return (
-      //     <FragmentCard
-      //       key={fragment.id}
-      //       title={fragment.title}
-      //       introduction={fragment.introduction}
-      //       image={fragment.base64_image}
-      //       id={fragment.id}
-      //     />
-      //   );
-      //});
+      const domFragments = this.state.fragments.map(fragment => {
         return (
-           <CardColumns>
-           HOla
-          </CardColumns>
+          <CardTop
+            key={fragment.Fragment.id}
+            title={fragment.Fragment.title}
+            introduction={fragment.Fragment.introduction}
+            image={fragment.Fragment.base64_image}
+            id={fragment.Fragment.id}
+          />
+        );
+      });
+        return (
+          <div>
+            <br/>
+             <CardColumns>
+               {domFragments}
+            </CardColumns>
+          </div>
         )
     }
 }
