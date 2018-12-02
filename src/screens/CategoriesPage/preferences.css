@@ -58,7 +58,7 @@ h3{
   color: #2B5275;
 }
 
-.card-columns {
+#TopicsFragments.card-columns {
   column-count: 4;
 }
 

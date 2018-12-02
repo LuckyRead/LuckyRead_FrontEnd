@@ -23,13 +23,9 @@ import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
 import CommentTest from "../Test/CommentTest";
 import PopUp from "../screens/PopUp/PopUpExample";
 import Test from "../Test/Test";
-<<<<<<< HEAD
 import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage";
 import CommunityPage from "../screens/CommunityPage/CommunityPage";
-=======
-import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage"
 import FragmentsView from "../screens/CategoriesPage/FragmentsView"
->>>>>>> 5eeeeacfbac7a72e429172f4759ae8b8909722e0
 
 // Styles
 import "./App.css";
@@ -97,18 +93,12 @@ class App extends Component {
 
               <Route path="/fragment/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
-<<<<<<< HEAD
               <Route
                 path="/CategoriesInitPage"
                 component={CategoriesInitPage}
               />
-=======
               <Route path="/fragmentsview/:topic_id" component={FragmentsView} />
               <Route path="/CategoriesInitPage" component={CategoriesInitPage} />
-
-
-
->>>>>>> 5eeeeacfbac7a72e429172f4759ae8b8909722e0
             </Switch>
           </div>
         </Router>
