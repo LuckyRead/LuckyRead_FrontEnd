@@ -76,7 +76,10 @@ const InfoContainer = styled.div`
   border: ${props => (props.border ? "1px solid" : "none")};
   border-color :  ${props => (props.border ? Palette.grayoff : "none")}
   border-radius: ${props => (props.border ? "5px" : "none")}
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 994b13a... Profile page styles updated
   margin-top: ${props => (props.marginTop ? props.marginTop : 0)};  
   margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)};  
 
