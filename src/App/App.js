@@ -21,9 +21,10 @@ import Email from "../screens/ChangePassword/Email";
 import News from "../screens/News/NewsView";
 import FragmentPDF from "../screens/PdfFragment/FragmentPDF";
 import CommentTest from "../Test/CommentTest";
-import PopUp from "../screens/PopUp/PopUpExample"
+import PopUp from "../screens/PopUp/PopUpExample";
 import Test from "../Test/Test";
-import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage"
+import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage";
+import CommunityPage from "../screens/CommunityPage/CommunityPage";
 import FragmentsView from "../screens/CategoriesPage/FragmentsView"
 
 // Styles
@@ -61,6 +62,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/RegisterPage" component={RegisterPage} />
+              <Route exact path="/Community" component={CommunityPage} />
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
               <PrivateRoute exact path="/PopUpExample" component={PopUp} />
               <Route path="/news" component={News} />
@@ -91,11 +93,12 @@ class App extends Component {
 
               <Route path="/fragment/:fragment_id" component={FragmentPage} />
               <Route path="/pdf/:fragment_id" component={FragmentPDF} />
+              <Route
+                path="/CategoriesInitPage"
+                component={CategoriesInitPage}
+              />
               <Route path="/fragmentsview/:topic_id" component={FragmentsView} />
               <Route path="/CategoriesInitPage" component={CategoriesInitPage} />
-
-
-
             </Switch>
           </div>
         </Router>
