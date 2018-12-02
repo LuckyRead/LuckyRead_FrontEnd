@@ -13,6 +13,7 @@ import classnames from "classnames";
 import PersonalActivityTab from "./PersonalActivityTab";
 import GlobalActivityTab from "./GlobalActivityTab";
 import TopFragments from "./TopFragments";
+import TopUsersTab from "./TopUsersTab";
 export default class ProfileTabs extends React.Component {
   constructor(props) {
     super(props);
@@ -62,7 +63,7 @@ export default class ProfileTabs extends React.Component {
                 this.toggle("3");
               }}
             >
-              Top global
+              Top usuarios
             </NavLink>
           </NavItem>
 
@@ -74,17 +75,6 @@ export default class ProfileTabs extends React.Component {
               }}
             >
               Top fragmentos
-            </NavLink>
-          </NavItem>
-
-          <NavItem className="itemNav">
-            <NavLink
-              className={classnames({ active: this.state.activeTab === "5" })}
-              onClick={() => {
-                this.toggle("5");
-              }}
-            >
-              Estadisticas fragmentos
             </NavLink>
           </NavItem>
         </Nav>
@@ -101,17 +91,12 @@ export default class ProfileTabs extends React.Component {
           </TabPane>
           <TabPane tabId="3">
             <Row className="divNav">
-              <h4>Tab 3 Contents</h4>
+              <TopUsersTab />
             </Row>
           </TabPane>
           <TabPane tabId="4">
             <Row className="divNav">
               <TopFragments/>
-            </Row>
-          </TabPane>
-          <TabPane tabId="5">
-            <Row className="divNav">
-              <h4>Tab 5 Contents</h4>
             </Row>
           </TabPane>
         </TabContent>

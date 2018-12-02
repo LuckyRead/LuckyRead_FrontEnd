@@ -12,7 +12,6 @@ const TabContainer = styled.div`
   .itemNav {
     background-color: ${Palette.whitetransparency};
     border: 1px solid ${Palette.grayoff};
-    border-radius: 5px;
     margin-right: 0.3%;
   }
 
@@ -34,7 +33,6 @@ const TabContainer = styled.div`
     margin-left: 0.025%;
     margin-top: 0.25%;
     border: 2px solid ${Palette.grayoff};
-    border-radius: 10px;
   }
 
   .nav {
@@ -57,7 +55,6 @@ const TabContent = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${Palette.whitetransparency};
-  border-radius: 5px;
   border: 1px solid ${Palette.grayoff};
   margin-top: 2%;
   margin-bottom: 2%;
@@ -78,7 +75,6 @@ const StatisticLabelContainer = styled.div`
   border: 5px solid ${props => (props.bcolor ? props.bcolor : "none")};
   width: 200px;
   height: 150px;
-  border-radius: 10px;
   padding: 0.5%;
   display: inline-block;
   margin: 1% 1% 1% 1%;
@@ -97,6 +93,15 @@ const NumberContainer = styled.div`
   font-size: 350%;
 `;
 
+const TrophyS = styled.div`
+  width: 100%;
+  text-align: right;
+  img {
+    width: 150px;
+    height: 300px;
+  }
+`;
+
 export {
   Palette,
   CommunityPageContainer,
@@ -105,5 +110,6 @@ export {
   TabContent,
   StatisticLabelContainer,
   TextContainer,
-  NumberContainer
+  NumberContainer,
+  TrophyS
 };
