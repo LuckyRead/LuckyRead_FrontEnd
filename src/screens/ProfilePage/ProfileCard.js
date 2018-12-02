@@ -106,12 +106,7 @@ export default class ProfileCard extends Component {
           <InfoContainer marginTop="2%">
             <div className="skinny">{this.state.user_data.city}</div>
           </InfoContainer>
-          <InfoContainer
-            border
-            marginTop="5%"
-            marginBottom="10%"
-            bgcolor={Palette.bluesealight}
-          >
+          <InfoContainer border marginTop="5%" marginBottom="10%">
             <div className="about">{talkToUs}</div>
           </InfoContainer>
         </AllInfoContainer>

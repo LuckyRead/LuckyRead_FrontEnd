@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
-
+import img from "../../resources/paper.png";
+import paper from "../../resources/paper2.jpeg";
 const ProfileContainer = styled.div`
   margin-top: 20px;
   margin-left: 20px;
@@ -16,11 +17,13 @@ const TabContainer = styled.div`
     background-color: ${Palette.whitetransparency};
     border: 1px solid ${Palette.grayoff};
     margin-right: 0.3%;
+    background-image: url(${img});
   }
 
   .itemNav:hover {
     background-color: ${Palette.grayoff};
     cursor: pointer;
+    background-image: none;
   }
 
   .itemNav > .active {
@@ -49,6 +52,7 @@ const ProfileCardDiv = styled.div`
   a: hover {
     cursor: pointer;
   }
+  background-image: url(${img}) !important;
 `;
 const ProfilePhotoContainer = styled.div`
   padding-top: 10%;
@@ -67,8 +71,6 @@ const AllInfoContainer = styled.div`
   padding-right: 10%;
 `;
 const InfoContainer = styled.div`
-  padding-left: 2%;
-  padding-right: 2%;
   text-align: center;
   border: ${props => (props.border ? "1px solid" : "none")};
   border-color :  ${props => (props.border ? Palette.grayoff : "none")}
@@ -89,6 +91,10 @@ const InfoContainer = styled.div`
     font-size: 80%;
     font-style: italic;
     padding-bottom: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    background-image: url(${paper});
   }
 
 `;
@@ -114,8 +120,7 @@ const ChangeAvatarContainer = styled.div`
 const TabContent = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${Palette.whitetransparency};
-  border: 1px solid ${Palette.grayoff};
+  background-image: url(${img});
   margin-top: 2%;
   margin-bottom: 2%;
   margin-left: 2%;
