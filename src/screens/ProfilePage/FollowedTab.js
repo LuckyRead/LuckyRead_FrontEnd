@@ -15,6 +15,7 @@ import {
 } from "reactstrap";
 import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
 import ProfileLabelMap from "../../common/ProfileLabel/ProfileLabelMap";
+import axios from 'axios';
 
 export default class FollowedTab extends Component {
   constructor(props) {
@@ -72,6 +73,20 @@ export default class FollowedTab extends Component {
         }
       ]
     };
+  }
+
+  componentWillMount(){
+    axios({
+      method: "get",
+      url:
+        "https://luckyread-backend.herokuapp.com/api/followed/",
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    }).then(response => {
+      console.log('FOLLOWED')
+      console.log(response)
+    })
   }
 
   render() {
