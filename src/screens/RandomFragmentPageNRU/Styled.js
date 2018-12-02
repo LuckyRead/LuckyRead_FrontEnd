@@ -41,7 +41,6 @@ const Right = styled.div`
   display: flex;
   flex: 2;
   flex-wrap: inherit;
-  margin: auto;
   text-align: center;
   align-items: top !important;
 `;
@@ -93,11 +92,12 @@ const FragmentTitle = styled.div`
 
 const FragmentText = styled.div`
   color: black;
-  margin: 20px;
+  margin-right: 20px;
   font-family: "Playfair Display";
   text-align: justify;
   font-size: 1.4em;
   align-items: top;
+  height: 100%;
 `;
 
 const FragmentButtons = styled.div`
