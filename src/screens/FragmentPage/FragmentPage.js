@@ -47,6 +47,7 @@ class FragmentPage extends Component {
           },
           () => {
             console.log("Request done");
+            console.log(this.state.statistic);
           }
         );
       },

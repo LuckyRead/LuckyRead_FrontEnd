@@ -14,7 +14,9 @@ import {
   Topics,
   TopicsText,
   TopicsRow,
-  Left
+  Left,
+  WhiteOpacity,
+  Reaction
 } from "./Styled";
 
 import pdficon from "../../resources/paper_plane.png";
@@ -22,6 +24,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import PopUpExample from "../PopUp/PopUpExample";
 import CategoryTag from "../../common/Tags/CategoryTag";
+import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
 class Fragment extends React.Component {
   constructor(props) {
     super(props);
@@ -38,17 +41,20 @@ class Fragment extends React.Component {
     });
   }
 
-  //   renderCategoryTags() {
-  //     let topicsTags = {};
-  //     topicsTags = [];
-  //     this.props.topics.forEach((topic, index) => {
-  //       topicsTags.push(<CategoryTag name={topic.name} key={index} />);
-  //     });
-  //     return topicsTags;
-  //   }
+  renderTopicsTags() {
+    const topics = Object.keys(this.props.topics);
+    const topicsTags = [];
+    topics.forEach(key => {
+      topicsTags.push(
+        <CategoryTag name={this.props.topics[key].name} key={key} />
+      );
+    });
+
+    return topicsTags;
+  }
 
   render() {
-    return (
+    const statistic = this.props.statistic ? (
       <div>
         <MessageFragment>
           <Row>
@@ -56,15 +62,16 @@ class Fragment extends React.Component {
           </Row>
         </MessageFragment>
         <FragmentContent>
-          {/* <Row>
-            <TopicsRow>
-              <Col>
-                <Topics>{this.renderCategoryTags()}</Topics>
-              </Col>
-            </TopicsRow>
-          </Row>*/}
-          <Row>
-            <Left>
+          <WhiteOpacity>
+            <Row>
+              <TopicsRow>
+                <Col>
+                  <Topics>{this.renderTopicsTags()}</Topics>
+                </Col>
+              </TopicsRow>
+            </Row>
+
+            <Row>
               <ImageContainer>
                 <img
                   src={
@@ -74,25 +81,19 @@ class Fragment extends React.Component {
                   width="100%"
                 />
               </ImageContainer>
-              <FragmentButtons>
-                <Link to={"/fragment/" + this.props.fragment.id}>
-                  <Button color="secondary">Leer este fragmento online</Button>{" "}
-                </Link>
-                <Button color="secondary" onClick={this.toggle}>
-                  Leer este fragmento en PDF
-                </Button>{" "}
-                <Button color="secondary" onClick={this.props.request}>
-                  Ver otro fragmento
-                </Button>{" "}
-                {this.state.showpopup ? <PopUpExample /> : null}
-              </FragmentButtons>
 
-              <FragmentText>{this.props.fragment.introduction}</FragmentText>
-            </Left>
-          </Row>
+              <FragmentText>{this.props.fragment.content}</FragmentText>
+              <Reaction>
+                <ReactionButtons response={this.props.statistic} />
+              </Reaction>
+            </Row>
+          </WhiteOpacity>
         </FragmentContent>
       </div>
+    ) : (
+      <div>Cargando</div>
     );
+    return <div>{statistic}</div>;
   }
 }
 

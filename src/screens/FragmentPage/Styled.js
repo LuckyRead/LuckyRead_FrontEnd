@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
+import paper from "../../resources/newspaper.jpg";
 
 const PageContainer = styled.div`
   text-align: center;
   align-items: top;
-  background-color: ${Palette.whiteopacity};
+  background-image: url('./paper.png');
+  z-index: -1;
   border-style: solid;
   border-width: 5px;
   border-color: ${Palette.whiteopacity};
@@ -14,6 +16,10 @@ const PageContainer = styled.div`
   .eEEWNZ {
     border-radius: 0px;
   }
+  .bg {
+    height: 100%;
+    width: 100%;
+}
 `;
 
 const MessageFragment = styled.div`
@@ -62,7 +68,22 @@ const Topics = styled.div`
 `;
 
 const FragmentContent = styled.div`
-  background-color: white;
+  background-image: url(${paper});
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+  .bg {
+    height: 100%;
+    width: 100%;
+  }
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 20px;
+`;
+
+const WhiteOpacity = styled.div`
+  background-color: rgba(255, 255, 255, 0.8);
+
   margin: auto;
   margin-bottom: 10px;
   padding: 20px;
@@ -92,7 +113,7 @@ const FragmentTitle = styled.div`
 
 const FragmentText = styled.div`
   color: black;
-  margin-right: 20px;
+  margin: 40px;
   font-family: "Playfair Display";
   text-align: justify;
   font-size: 1.4em;
@@ -131,6 +152,16 @@ const TopicsRow = styled.div`
   margin: auto;
 `;
 
+const Reaction = styled.div`
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  .btn {
+    border-radius: 0px;
+    font-size: 0.9em;
+  }
+`;
+
 export {
   Left,
   Right,
@@ -145,5 +176,7 @@ export {
   CategoryTagContainer,
   Topics,
   TopicsText,
-  TopicsRow
+  TopicsRow,
+  WhiteOpacity,
+  Reaction
 };

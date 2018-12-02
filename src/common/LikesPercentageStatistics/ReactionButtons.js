@@ -15,6 +15,7 @@ export default class ReactionButtons extends React.Component {
       percentage: 0,
       typeReaction: "percentagelikes"
     };
+    console.log("response", this.props.response);
   }
 
   setReaction(reaction) {
@@ -88,5 +89,5 @@ export default class ReactionButtons extends React.Component {
   }
 }
 ReactionButtons.propTypes = {
-  response: PropTypes.object
+  response: PropTypes.object.isRequired
 };
