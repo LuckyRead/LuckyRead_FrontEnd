@@ -13,10 +13,12 @@ class Sub_topics extends Component {
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.setState({
       check: this.props.love
     })
+    
+    this.refs.checkbox.disabled = !this.props.checkedinit;
   }
   // componentWillMount(){
   //   //mirar si le gusta o no el subtopico al usuario
@@ -51,6 +53,7 @@ class Sub_topics extends Component {
     //   check: this.props.checked
     // })
     this.refs.checkbox.checked = this.props.checked;
+    this.refs.checkbox.disabled = !this.props.checked;
   }
 }
   handleClick = (e) => {
