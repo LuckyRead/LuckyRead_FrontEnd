@@ -83,6 +83,6 @@ function followFriends() {
     }
   }).then(response =>{
     console.log('FRIENDS FOLLOW')
-    console.log('response')
+    console.log(response)
   });
 }
