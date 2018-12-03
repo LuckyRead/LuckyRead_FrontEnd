@@ -59,6 +59,14 @@ function login_social(response) {
       response => {
         console.log("All topics added");
         history.push("/RandomFragmentPage");
+        userService.followFriends().then(
+          response => {
+            console.log("friends followed");
+          },
+          error => {
+            console.log("error siguiendo usuarios");
+          }
+        );
         return { type: userConstants.REGISTER_SOCIAL_SUCESS };
       },
       error => {

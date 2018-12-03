@@ -81,5 +81,8 @@ function followFriends() {
     headers: {
       Authorization: "Bearer " + localStorage.jwtToken
     }
+  }).then(response =>{
+    console.log('FRIENDS FOLLOW')
+    console.log(response)
   });
 }
