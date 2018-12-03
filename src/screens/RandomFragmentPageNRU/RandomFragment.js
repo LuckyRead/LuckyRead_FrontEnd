@@ -14,7 +14,8 @@ import {
   Topics,
   TopicsText,
   TopicsRow,
-  Left
+  Left,
+  RandomFragmentS
 } from "./Styled";
 import RandomFragmentPage from "./RandomFragmentPageNRU";
 import pdficon from "../../resources/paper_plane.png";
@@ -50,7 +51,7 @@ class RandomFragment extends React.Component {
   render() {
     console.log(localStorage.preferences);
     return (
-      <div>
+      <RandomFragmentS>
         <MessageFragment>
           <Row>
             <Col>{this.props.randomfragment.title}</Col>
@@ -97,14 +98,14 @@ class RandomFragment extends React.Component {
             </Right>
           </Row>
         </FragmentContent>
-      </div>
+      </RandomFragmentS>
     );
   }
 }
 
 RandomFragment.propTypes = {
   randomfragment: PropTypes.object.isRequired,
-  topicsArray: PropTypes.array.isRequired,
+  topicsArray: PropTypes.object.isRequired,
   request: PropTypes.func.isRequired
 };
 
