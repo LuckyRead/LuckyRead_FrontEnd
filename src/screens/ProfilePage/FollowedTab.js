@@ -21,57 +21,7 @@ export default class FollowedTab extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: [
-        {
-          username: "camiela2121",
-          name: "Camilo",
-          lastname: "Sanchez",
-          profile_photo: "asdasd",
-          followed: true
-        },
-        {
-          username: "danicastel2829",
-          name: "Daniela",
-          lastname: "Castellanos",
-          profile_photo: "asdasd",
-          followed: true
-        },
-        {
-          username: "camiela2121",
-          name: "Camiela",
-          lastname: "Castesanchez",
-          profile_photo: "asdasd",
-          followed: true
-        },
-        {
-          username: "cc2951",
-          name: "Cristhian",
-          lastname: "Contreras",
-          profile_photo: "asdasd",
-          followed: true
-        },
-        {
-          username: "lm2315",
-          name: "Laura",
-          lastname: "Molina",
-          profile_photo: "asdasd",
-          followed: true
-        },
-        {
-          username: "laurist6123",
-          name: "Lauristian",
-          lastname: "Montreras",
-          profile_photo: "asdasd",
-          followed: true
-        },
-        {
-          username: "daescobp2135",
-          name: "Daniel",
-          lastname: "Escobar",
-          profile_photo: "asdasd",
-          followed: true
-        }
-      ]
+      response: []
     };
   }
 
@@ -85,7 +35,10 @@ export default class FollowedTab extends Component {
       }
     }).then(response => {
       console.log('FOLLOWED')
-      console.log(response)
+      console.log(response.data.users)
+      this.setState({
+        response: response.data.users
+      })
     })
   }
 
@@ -99,3 +52,53 @@ export default class FollowedTab extends Component {
     );
   }
 }
+/*
+{
+  username: "camiela2121",
+  name: "Camilo",
+  lastname: "Sanchez",
+  profile_photo: "asdasd",
+  followed: true
+},
+{
+  username: "danicastel2829",
+  name: "Daniela",
+  lastname: "Castellanos",
+  profile_photo: "asdasd",
+  followed: true
+},
+{
+  username: "camiela2121",
+  name: "Camiela",
+  lastname: "Castesanchez",
+  profile_photo: "asdasd",
+  followed: true
+},
+{
+  username: "cc2951",
+  name: "Cristhian",
+  lastname: "Contreras",
+  profile_photo: "asdasd",
+  followed: true
+},
+{
+  username: "lm2315",
+  name: "Laura",
+  lastname: "Molina",
+  profile_photo: "asdasd",
+  followed: true
+},
+{
+  username: "laurist6123",
+  name: "Lauristian",
+  lastname: "Montreras",
+  profile_photo: "asdasd",
+  followed: true
+},
+{
+  username: "daescobp2135",
+  name: "Daniel",
+  lastname: "Escobar",
+  profile_photo: "asdasd",
+  followed: true
+}*/

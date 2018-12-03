@@ -14,7 +14,7 @@ export default class ProfileLabelMap extends React.Component {
           username={profile.name + " " + profile.lastname}
           nickname={profile.username}
           photosrc={"data:image/png;base64, " + profile.profile_photo}
-          followed={profile.followed}
+          followed={profile.i_follow_them}
         />
       );
     });

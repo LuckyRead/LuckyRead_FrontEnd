@@ -30,8 +30,7 @@ export default class ProfileLabel extends React.Component {
           <Col xs="4">
             <PhotoContainer>
               <img
-                src={require("../../resources/avatar.png")}
-                //  src={this.props.photosrc}
+                src={this.props.photosrc}
                 alt="Imagen de perfil"
               />
             </PhotoContainer>
