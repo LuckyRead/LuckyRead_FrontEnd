@@ -9,17 +9,15 @@ class Sub_topics extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      check: false
+      check: this.props.love
     };
   }
 
   componentDidMount(){
-    this.setState({
-      check: this.props.love
-    })
-    
-    this.refs.checkbox.disabled = !this.props.checkedinit;
+    this.refs.checkbox.disabled = !this.props.checked;
   }
+
+
   // componentWillMount(){
   //   //mirar si le gusta o no el subtopico al usuario
   //   axios({
@@ -47,11 +45,14 @@ class Sub_topics extends Component {
 
   componentDidUpdate(prevProps) {
   // Typical usage (don't forget to compare props):
-  //console.log('componentDidUpdate')
+  console.log('componentDidUpdate')
+
   if (this.props.checked !== prevProps.checked) {
     // this.setState({
     //   check: this.props.checked
     // })
+    console.log('if')
+    console.log(this.props.checked)
     this.refs.checkbox.checked = this.props.checked;
     this.refs.checkbox.disabled = !this.props.checked;
   }

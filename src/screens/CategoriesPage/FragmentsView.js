@@ -4,6 +4,7 @@ import { Card, Button, CardImg, CardTitle, CardText, CardColumns,
 import PropTypes from "prop-types";
 import { TopicCard, TopicCardSelect } from "../CategoriesInitPage/Styled";
 import FragmentCard from "./FragmentCard";
+import Loading from "../../common/Loading/Loading"
 
 
 import axios from 'axios';
@@ -12,11 +13,11 @@ export default class FragmentsView extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            fragments: []
+            fragments: null
         };
     }
 
-    componentWillMount(){
+    componentDidMount(){
       let id = this.props.match.params.topic_id
       axios({
         method: "get",
@@ -34,7 +35,7 @@ export default class FragmentsView extends PureComponent {
         });
     }
 
-    render() {
+    renderFragmentCard(){
       const domFragments = this.state.fragments.map(fragment => {
         return (
           <FragmentCard
@@ -46,12 +47,22 @@ export default class FragmentsView extends PureComponent {
           />
         );
       });
+      return domFragments;
+    }
+
+    render() {
+
+      const cards = this.state.fragments ? (
+        <CardColumns id="TopicsFragments">
+         {this.renderFragmentCard()}
+       </CardColumns>
+     ): (<Loading/>)
+
+
         return (
           <div>
             <br/>
-             <CardColumns id="TopicsFragments">
-              {domFragments}
-            </CardColumns>
+            {cards}
           </div>
         )
     }

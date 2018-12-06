@@ -5,12 +5,14 @@ import dark from "../../resources/dark.jpeg";
 import { Button, Row, Col } from "reactstrap";
 import { TopicsContainer, NextButton, Title } from "./Styled";
 import { Link } from "react-router-dom";
+import Loading from "../../common/Loading/Loading";
+
 export default class CategoriesInitPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedTopics: [],
-      topics: [],
+      topics: null,
       topicscards: []
     };
     this.selectTopic = this.selectTopic.bind(this);
@@ -103,7 +105,7 @@ export default class CategoriesInitPage extends Component {
         </Row>
       </div>
     ) : (
-      <div>Cargando</div>
+      <Loading/>
     );
     return <div>{topics}</div>;
   }

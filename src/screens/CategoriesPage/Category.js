@@ -15,21 +15,13 @@ class Category extends Component {
     this.state = {
       collapse: false,
       subtopics: [],
-      check_init: false,
-      check: false
+      check: this.props.love
     };
   }
 
   toggle() {
-      //console.log('true')
     this.setState({ collapse: !this.state.collapse });
-
   }
-
-  componentWillMount() {
-    this.setState({
-          check_init: this.props.love
-    })
 
     ////mirar si le gusta o no el topico al usuario
     //console.log('componentWillMount')
@@ -69,10 +61,11 @@ class Category extends Component {
     //     console.log("error");
     //   });
 
-  }
 
   handleClick = (e) => {
     const checked = e.target.checked
+    console.log('topico checked')
+    console.log(checked)
     if(checked === true){
       //console.log('checked')
       this.setState({
@@ -120,7 +113,6 @@ class Category extends Component {
           id={subtopic.id}
           checked = {this.state.check}
           love = {subtopic.love}
-          checkedinit = {this.state.check_init}
         />
       );
     });
@@ -130,7 +122,7 @@ class Category extends Component {
       <Card className= "Item">
         <CardHeader id="Header">
           <div className="pretty p-switch p-fill">
-            {this.state.check_init ?
+            {this.state.check ?
                (<input type="checkbox" id="checkCategory" defaultChecked onClick = {this.handleClick}/>)
               :(<input type="checkbox" id="checkCategory" onClick = {this.handleClick}/>)
             }

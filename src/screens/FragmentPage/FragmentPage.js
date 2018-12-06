@@ -9,6 +9,7 @@ import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButt
 import CategoryTag from "../../common/Tags/CategoryTag";
 import CommentMap from "../../common/Comment/CommentMap";
 import Fragment from "../../screens/FragmentPage/Fragment";
+
 import {
   Left,
   Right,
@@ -28,12 +29,12 @@ import {
 
 class FragmentPage extends Component {
   state = {
-    fragment: {},
+    fragment: null,
     statistic: null,
     topics: {}
   };
 
-  componentWillMount() {
+  componentDidMount() {
     console.log("component did mount");
     let id = this.props.match.params.fragment_id;
     console.log(id);
@@ -57,6 +58,7 @@ class FragmentPage extends Component {
     );
   }
 
+
   render() {
     const statistic = this.state.statistic;
     const fragment = this.state.fragment ? (
@@ -69,7 +71,7 @@ class FragmentPage extends Component {
         />
       </PageContainer>
     ) : (
-      <div className="center">Cargando</div>
+      <Loading/>
     );
 
     return <div>{fragment}</div>;
