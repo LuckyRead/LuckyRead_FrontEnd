@@ -7,6 +7,7 @@ import {
   ReactionButtonsContainer,
   StatisticsContainer
 } from "./Styled";
+import html2canvas from "html2canvas";
 
 export default class ReactionButtons extends React.Component {
   constructor(props) {
@@ -16,6 +17,17 @@ export default class ReactionButtons extends React.Component {
       typeReaction: "percentagelikes"
     };
     console.log("response", this.props.response);
+  }
+  screenshotComponent() {
+    const input = document.getElementById("statistics");
+    html2canvas(input, {
+      allowTaint: true,
+      height: "3000px",
+      width: "3000px"
+    }).then(canvas => {
+      const imgData = canvas.toDataURL("image/png");
+      window.open(imgData);
+    });
   }
 
   setReaction(reaction) {
@@ -55,6 +67,7 @@ export default class ReactionButtons extends React.Component {
               outline
               color="success"
               onClick={() => this.setReaction("like")}
+              //  onClick={() => this.screenshotComponent()}
             >
               Like
             </Button>
@@ -77,12 +90,14 @@ export default class ReactionButtons extends React.Component {
           </ReactionButtonsContainer>
         </Row>
         <Row>
-          <StatisticsContainer>
-            <LikesPercentageStatistics
-              percentage={this.state.percentage}
-              typeReaction={this.state.typeReaction}
-            />
-          </StatisticsContainer>
+          <div id="statistics">
+            <StatisticsContainer>
+              <LikesPercentageStatistics
+                percentage={this.state.percentage}
+                typeReaction={this.state.typeReaction}
+              />
+            </StatisticsContainer>
+          </div>
         </Row>
       </div>
     );
