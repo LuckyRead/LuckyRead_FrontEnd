@@ -37,10 +37,10 @@ class SignedInLinks extends Component {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="news">Noticias</NavLink>
+            <NavLink href="/news">Noticias</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="categoriespage">Categorias</NavLink>
+            <NavLink href="/categoriespage">Categorias</NavLink>
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
