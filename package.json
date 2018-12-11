@@ -7,6 +7,7 @@
     "connected-react-router": "^5.0.1",
     "history": "^4.7.2",
     "pretty-checkbox": "^3.0.3",
+    "html2canvas": "^1.0.0-alpha.12",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
     "react-circular-progressbar": "^1.0.0",

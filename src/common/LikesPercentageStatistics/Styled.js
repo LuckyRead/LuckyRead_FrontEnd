@@ -3,7 +3,12 @@ import { Palette } from "../../themes/colors";
 
 const PercentageContainer = styled.div`
   height: 100%;
+  width: 100%;
   display: block;
+  .html2canvas-container {
+    width: 3000px !important;
+    height: 3000px !important;
+  }
   .CircularProgressbar {
     width: 100%;
     height: 100%;
@@ -106,7 +111,6 @@ const StatisticsContainer = styled.div`
   height: 250px;
   margin-top: 6px;
   margin-bottom: 6px;
-    
 `;
 
 export {

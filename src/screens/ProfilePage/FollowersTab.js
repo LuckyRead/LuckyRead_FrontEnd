@@ -46,7 +46,7 @@ export default class FollowersTab extends Component {
   render() {
     return (
       <TabContent>
-        <div style={{ width: "400px", margin: "auto" }}>
+        <div style={{ width: "400px", margin: "auto" }} className="test">
           <ProfileLabelMap response={this.state.response} />
         </div>
       </TabContent>
