@@ -30,6 +30,7 @@ export default class InformationTab extends Component {
       collapseEmail: false,
       collapseUsername: false,
       password: "",
+      username: "",
       confirmpassword: "",
       loaded: false,
       finishloaded: false,
@@ -171,6 +172,38 @@ export default class InformationTab extends Component {
       });
   };
 
+  handleChangeNick = event => {
+    event.preventDefault();
+    console.log("submit");
+    this.setState({
+      loaded: true
+    });
+    let n_username = this.state.username;
+    console.log(this.state.username);
+    axios({
+      method: "PATCH",
+      url: "https://luckyread-backend.herokuapp.com/api/user/change_username",
+      data: {
+        username: n_username
+      },
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    })
+      .then(response => {
+        console.log(response);
+        this.setState({
+          loaded: false,
+          finishloaded: true
+        });
+        //alert("Contraseña cambiada");
+        //window.location.reload(true);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <TabContent>
@@ -266,9 +299,17 @@ export default class InformationTab extends Component {
                   <FormGroup>
                     <InputGroup>
                       <InputGroupAddon addonType="prepend">@</InputGroupAddon>
-                      <Input placeholder="username" />
+                      <Input
+                        placeholder="username"
+                        onChange={this.handleUserInput}
+                      />
                     </InputGroup>
-                    <Button className="ChangeButton">Cambiar</Button>
+                    <Button
+                      className="ChangeButton"
+                      onClick={this.handleChangeNick}
+                    >
+                      Cambiar
+                    </Button>
                   </FormGroup>
                 </Form>
               </CollapseContainer>
