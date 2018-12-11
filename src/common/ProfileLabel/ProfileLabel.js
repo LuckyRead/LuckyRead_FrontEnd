@@ -8,6 +8,8 @@ import {
 } from "./Styled";
 import { Row, Col, Button } from "reactstrap";
 import StringLabel from "./StringLabel";
+import axios from 'axios';
+
 export default class ProfileLabel extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +22,44 @@ export default class ProfileLabel extends React.Component {
     let newState = Object.assign({}, this.state);
     newState.followed = !newState.followed;
     this.setState(newState);
+    if (newState.followed === true){
+      console.log('entra aquí')
+      axios({
+        method: "POST",
+        url: "https://luckyread-backend.herokuapp.com/api/friend/follow",
+        headers: {
+          Authorization: "Bearer " + localStorage.jwtToken
+        },
+        data: {
+          username: this.props.nickname
+        }
+      }).then(
+        response => {
+          console.log(response)
+        },
+        err => {
+          console.log('no se pudo seguir a la persona')
+        }
+      );
+    }else{
+      axios({
+        method: "POST",
+        url: "https://luckyread-backend.herokuapp.com/api/friend/unfollow",
+        headers: {
+          Authorization: "Bearer " + localStorage.jwtToken
+        },
+        data: {
+          username: this.props.nickname
+        }
+      }).then(
+        response => {
+          console.log(response)
+        },
+        err => {
+          console.log('no se pudo dar unfollow a la persona')
+        }
+      );
+    }
   }
 
   render() {

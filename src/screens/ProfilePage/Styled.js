@@ -55,10 +55,12 @@ const ProfilePhotoContainer = styled.div`
   padding-bottom: 4%;
   img {
     width: 200px;
-    heihgt: 200px;
+    height: 200px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    object-fit: cover;
+    overflow: hidden;
   }
 `;
 

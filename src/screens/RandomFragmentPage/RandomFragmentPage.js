@@ -33,7 +33,7 @@ class RandomFragmentPage extends React.Component {
     console.log(localStorage.jwtToken);
     axios({
       method: "GET",
-      url: "https://luckyread-backend.herokuapp.com/api/fragments/something",
+      url: "https://luckyread-backend.herokuapp.com/api/fragments/something/2",
       headers: {
         Authorization: "Bearer " + localStorage.jwtToken
       }
