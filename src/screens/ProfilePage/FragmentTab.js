@@ -17,6 +17,8 @@ import {
 import { TabContent, TitleContainer } from "./Styled.js";
 import AddImageFragment from './AddImageFragment';
 import axios from 'axios';
+import Spinner from "react-spinkit";
+
 
 export default class FragmentTab extends Component {
   constructor(props) {
@@ -26,7 +28,9 @@ export default class FragmentTab extends Component {
       titulo: "",
       introduccion: "",
       contenido: "",
-      image_id: null
+      image_id: null,
+      loaded: false,
+      finishloaded: false
       //image_id: null
     }
     this.handleChange = this.handleChange.bind(this);
@@ -48,6 +52,9 @@ export default class FragmentTab extends Component {
 
   handleClick  = event => {
     event.preventDefault();
+    this.setState({
+      loaded: true
+    });
     let titulo_f = this.state.titulo;
     let introduccion_f = this.state.introduccion;
     let contenido_f = this.state.contenido;
@@ -72,6 +79,10 @@ export default class FragmentTab extends Component {
       }
     }).then(response =>{
       console.log(response)
+      this.setState({
+        loaded: false,
+        finishloaded: true
+      });
     })
   }
 
@@ -121,7 +132,18 @@ export default class FragmentTab extends Component {
           <Button color="info" style={{ marginRight: "1%" }} onClick={this.toggle}>
             Agregar imagen
           </Button >
-          <Button color="info" onClick={this.handleClick}>Subir fragmento</Button>
+          <Button color="info" onClick={this.handleClick}>
+            {this.state.loaded ? (
+              <Spinner name="circle" fadein="none" color="white" />
+            ) : (
+              "Subir fragmento"
+            )}
+          </Button>
+          {this.state.finishloaded ? (
+            <p className="text-success text-center">
+              <strong>El fragmento ha sido creado exitosamente</strong>
+            </p>
+          ) : null}
             <Modal
               isOpen={this.state.modal}
               toggle={this.toggle}

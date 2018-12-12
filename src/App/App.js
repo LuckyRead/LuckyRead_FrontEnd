@@ -61,11 +61,11 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={LandingPage} />
+              <Route exact path="/News" component={News} />
               <Route exact path="/RegisterPage" component={RegisterPage} />
               <Route exact path="/Community" component={CommunityPage} />
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
               <PrivateRoute exact path="/PopUpExample" component={PopUp} />
-              <Route path="/news" component={News} />
               <PrivateRoute
                 exact
                 path="/CategoriesPage"
@@ -84,7 +84,6 @@ class App extends Component {
                 component={RandomFragmentPageNRU}
               />
               <PrivateRoute exact path="/ProfilePage" component={ProfilePage} />
-              <Route exact path="/news" component={News} />
               <Route exact path="/Email" component={Email} />
               <Route
                 path="/reset_password/:token"
