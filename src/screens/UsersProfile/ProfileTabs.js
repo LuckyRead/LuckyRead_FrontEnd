@@ -13,7 +13,6 @@ import classnames from "classnames";
 import InformationTab from "./InformationTab";
 import FollowedTab from "./FollowedTab";
 import FollowersTab from "./FollowersTab";
-import FragmentTab from "./FragmentTab";
 export default class ProfileTabs extends React.Component {
   constructor(props) {
     super(props);
@@ -52,7 +51,7 @@ export default class ProfileTabs extends React.Component {
                 this.toggle("2");
               }}
             >
-              Fragmentos
+              Seguidores
             </NavLink>
           </NavItem>
 
@@ -61,28 +60,6 @@ export default class ProfileTabs extends React.Component {
               className={classnames({ active: this.state.activeTab === "3" })}
               onClick={() => {
                 this.toggle("3");
-              }}
-            >
-              Favoritos
-            </NavLink>
-          </NavItem>
-
-          <NavItem className="itemNav">
-            <NavLink
-              className={classnames({ active: this.state.activeTab === "4" })}
-              onClick={() => {
-                this.toggle("4");
-              }}
-            >
-              Seguidores
-            </NavLink>
-          </NavItem>
-
-          <NavItem className="itemNav">
-            <NavLink
-              className={classnames({ active: this.state.activeTab === "5" })}
-              onClick={() => {
-                this.toggle("5");
               }}
             >
               Siguiendo
@@ -97,22 +74,10 @@ export default class ProfileTabs extends React.Component {
           </TabPane>
           <TabPane tabId="2">
             <Row className="divNav">
-              <FragmentTab />
-            </Row>
-          </TabPane>
-          <TabPane tabId="3">
-            <Row className="divNav">
-              <Col sm="12">
-                <h4>Tab 3 Contents</h4>
-              </Col>
-            </Row>
-          </TabPane>
-          <TabPane tabId="4">
-            <Row className="divNav">
               <FollowersTab />
             </Row>
           </TabPane>
-          <TabPane tabId="5">
+          <TabPane tabId="3">
             <Row className="divNav">
               <FollowedTab />
             </Row>

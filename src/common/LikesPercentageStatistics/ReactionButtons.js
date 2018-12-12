@@ -7,7 +7,6 @@ import {
   ReactionButtonsContainer,
   StatisticsContainer
 } from "./Styled";
-import html2canvas from "html2canvas";
 
 export default class ReactionButtons extends React.Component {
   constructor(props) {
@@ -18,17 +17,7 @@ export default class ReactionButtons extends React.Component {
     };
     console.log("response", this.props.response);
   }
-  screenshotComponent() {
-    const input = document.getElementById("statistics");
-    html2canvas(input, {
-      allowTaint: true,
-      height: "3000px",
-      width: "3000px"
-    }).then(canvas => {
-      const imgData = canvas.toDataURL("image/png");
-      window.open(imgData);
-    });
-  }
+  screenshotComponent() {}
 
   setReaction(reaction) {
     switch (reaction) {
