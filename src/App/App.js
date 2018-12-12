@@ -26,6 +26,7 @@ import Test from "../Test/Test";
 import CategoriesInitPage from "../screens/CategoriesInitPage/CategoriesInitPage";
 import CommunityPage from "../screens/CommunityPage/CommunityPage";
 import FragmentsView from "../screens/CategoriesPage/FragmentsView"
+import UsersProfile from "../screens/UsersProfile/ProfilePageUser";
 
 // Styles
 import "./App.css";
@@ -98,6 +99,7 @@ class App extends Component {
               />
               <Route path="/fragmentsview/:topic_id" component={FragmentsView} />
               <Route path="/CategoriesInitPage" component={CategoriesInitPage} />
+              <Route path="/ProfilePage/:username" component={UsersProfile} />
             </Switch>
           </div>
         </Router>
