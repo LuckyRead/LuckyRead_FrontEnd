@@ -8,7 +8,7 @@ export default class Topic extends PureComponent {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      selectTopic: true
+      selectTopic: false
     };
   }
 
@@ -18,17 +18,17 @@ export default class Topic extends PureComponent {
       selectTopic: !this.state.selectTopic
     });
 
-    this.props.selectTopic(this.props.topicid, this.state.selectTopic);
-    console.log(this.state.selectTopic);
+    this.props.selectTopic(this.props.topicid, !this.state.selectTopic);
+    console.log(!this.state.selectTopic);
   }
 
   render() {
     return (
       <TopicCard
         topicimage={this.props.topicimage}
-        select={this.state.selectTopic}
+        select={!this.state.selectTopic}
       >
-        <TopicCardSelect onClick={this.toggle} select={this.state.selectTopic}>
+        <TopicCardSelect onClick={this.toggle} select={!this.state.selectTopic}>
           <strong>{this.props.topicname}</strong>
         </TopicCardSelect>
       </TopicCard>

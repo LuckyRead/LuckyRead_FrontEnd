@@ -5,15 +5,11 @@ const TopicCard = styled.div`
   background-image: url(${props => props.topicimage});
   background-repeat: no-repeat;
   background-size: cover;
-  border-style: solid;
-  border-width: 5px;
-  border-color: ${props => (props.select ? "white" : "#4A52B3")}
   margin: auto;
   width: 220px;
   height: 220px;
   text-align: center;
   align-items: center;
-  padding: 5px;
   margin: 5px;
   display: grid;
 `;
@@ -31,14 +27,14 @@ const TopicsContainer = styled.div`
 const TopicCardSelect = styled.div`
   display: grid;
   cursor: pointer;
-  background: rgba(0, 0, 0, ${props => (props.select ? 0.6 : 0)});
-  font-size: ${props => (props.select ? "15px" : "25px")}
+  background: rgba(0, 0, 0, ${props => (props.select ? 0.8 : 0)});
+  font-size: 15px;
   width: 100%;
   height: 100%;
   align-items: center;
   text-align: center;
   color: white;
-  text-shadow: ${props => (props.select ? "2px 2px 2px #000" : "0px")};
+  text-shadow: 2px 2px 2px #000;
 `;
 
 const NextButton = styled.div`
