@@ -30,12 +30,12 @@ class RandomFragment extends React.Component {
       randomfragment: this.props.randomfragment,
       showpopup: false
     };
-    this.toggle = this.toggle.bind(this);
+    this.popUptoggle = this.popUptoggle.bind(this);
   }
 
-  toggle() {
+  popUptoggle() {
     this.setState({
-      showpopup: true
+      showpopup: !this.state.showpopup
     });
   }
 
@@ -47,6 +47,7 @@ class RandomFragment extends React.Component {
     });
     return topicsTags;
   }
+
 
   render() {
     console.log(localStorage.preferences);
@@ -79,15 +80,15 @@ class RandomFragment extends React.Component {
               </ImageContainer>
               <FragmentButtons>
                 <Link to={"/fragment/" + this.props.randomfragment.id}>
-                  <Button color="secondary">Leer este fragmento online</Button>{" "}
+                  <Button color="secondary">Leer este fragmento online</Button>
                 </Link>
-                <Button color="secondary" onClick={this.toggle}>
+                <Button color="secondary" onClick={this.popUptoggle}>
                   Leer este fragmento en PDF
-                </Button>{" "}
+                </Button>
                 <Button color="secondary" onClick={this.props.request}>
                   Ver otro fragmento
-                </Button>{" "}
-                {this.state.showpopup ? <PopUpExample /> : null}
+                </Button>
+                {this.state.showpopup ? <PopUpExample toggle={this.popUptoggle} modal={true} /> : null}
               </FragmentButtons>
             </Left>
 
