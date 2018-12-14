@@ -53,7 +53,6 @@ export default class ReactionButtons extends React.Component {
           <ReactionButtonsContainer>
             <Button
               className="ReactionButton"
-              outline
               color="success"
               onClick={() => this.setReaction("like")}
               //  onClick={() => this.screenshotComponent()}
@@ -62,7 +61,6 @@ export default class ReactionButtons extends React.Component {
             </Button>
             <Button
               className="ReactionButton"
-              outline
               color="warning"
               onClick={() => this.setReaction("noreaction")}
             >
@@ -70,7 +68,6 @@ export default class ReactionButtons extends React.Component {
             </Button>
             <Button
               className="ReactionButton"
-              outline
               color="danger"
               onClick={() => this.setReaction("dislike")}
             >
@@ -79,7 +76,7 @@ export default class ReactionButtons extends React.Component {
           </ReactionButtonsContainer>
         </Row>
         <Row>
-          <div id="statistics">
+          <div id="statistics" style={{ width: "100%" }}>
             <StatisticsContainer>
               <LikesPercentageStatistics
                 percentage={this.state.percentage}

@@ -4,7 +4,9 @@ import { Palette } from "../../themes/colors";
 const PercentageContainer = styled.div`
   height: 100%;
   width: 100%;
-  display: block;
+  display: inline-block;
+  text-align: center;
+  margin: auto;
   .html2canvas-container {
     width: 3000px !important;
     height: 3000px !important;
