@@ -50,8 +50,6 @@ class RandomFragment extends React.Component {
 
   render() {
     return (
-
-
       <RandomFragmentS>
         <MessageFragment>
           <Row>
@@ -80,10 +78,10 @@ class RandomFragment extends React.Component {
               </ImageContainer>
               <FragmentButtons>
                 <Link to={"/fragment/" + this.props.randomfragment.id}>
-                  <Button color="info">Leer este fragmento online</Button>{" "}
+                  <Button color="secondary">Leer este fragmento online</Button>{" "}
                 </Link>
                 <Link to={"/pdf/" + this.props.randomfragment.id}>
-                  <Button color="info">Leer este fragmento en PDF</Button>{" "}
+                  <Button color="secondary">Leer este fragmento en PDF</Button>{" "}
                 </Link>
                 <Button color="secondary" onClick={this.props.request}>
                   Ver otro fragmento

@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { Palette } from "../../themes/colors";
 import paper from "../../resources/paper.png";
 const PageContainer = styled.div`
+  background-color: rgba(23,31,49,0.9);
   text-align: center;
   align-items: top;
-  background-color: ${Palette.whiteopacity};
   border-style: solid;
+  border-color: rgba(23,31,49,0.9);
   border-width: 5px;
-  border-color: ${Palette.whiteopacity};
   margin: auto;
   margin 10px;
   height: 100%;
@@ -25,7 +25,7 @@ const MessageFragment = styled.div`
   font-size: 4em;
   color: white;
   text-align: center;
-  background-color: #1c1c1c;
+  background-color: rgba(0,0,0,0.4)
   // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
 
@@ -66,7 +66,7 @@ const FragmentContent = styled.div`
 
 const ImageContainer = styled.div`
   border-style: solid;
-  border-color: #535353;
+  border-color: rgba(0,0,0,0.4)
   margin-bottom: 10px;
   min-width: 350px;
   max-width: 350px;
@@ -87,7 +87,8 @@ const FragmentTitle = styled.div`
 `;
 
 const FragmentText = styled.div`
-  color: #383838;
+  margin: auto;
+  color: #BBBBBB;
   font-family: "Playfair Display";
   margin-right: 20px;
   text-align: justify;
@@ -99,10 +100,12 @@ const FragmentText = styled.div`
 const FragmentButtons = styled.div`
   text-align: center;
   margin-top: 10px;
+  color: white;
   .btn {
-    background-color: #1c1c1c;
+    background-color: rgba(0,0,0,0.4);
     border-radius: 0px;
     margin: 5px;
+    border-style: none;
     width: 90%;
     font-size: 0.9em;
   }
@@ -127,7 +130,7 @@ const TopicsRow = styled.div`
   margin: auto;
 `;
 const RandomFragmentS = styled.div`
-  background-image: url(${paper});
+ 
 `;
 
 export {
