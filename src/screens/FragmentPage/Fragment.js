@@ -16,7 +16,7 @@ import {
   TopicsText,
   TopicsRow,
   Left,
-  WhiteOpacity,
+  Content,
   Reaction
 } from "./Styled";
 
@@ -64,7 +64,7 @@ class Fragment extends React.Component {
           </Row>
         </MessageFragment>
         <FragmentContent>
-          <WhiteOpacity>
+          <Content>
             <Row>
               <TopicsRow>
                 <Col>
@@ -89,12 +89,12 @@ class Fragment extends React.Component {
                 <ReactionButtons response={this.props.statistic} />
               </Reaction>
             </Row>
-          </WhiteOpacity>
+          </Content>
         </FragmentContent>
       </div>
     ) : (
-      <div>Cargando</div>
-    );
+        <div>Cargando</div>
+      );
     return <div>{statistic}</div>;
   }
 }

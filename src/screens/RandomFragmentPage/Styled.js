@@ -1,19 +1,18 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
-
+import paper from "../../resources/paper.png";
 const PageContainer = styled.div`
+  background-color: rgba(23,31,49,0.9);
   text-align: center;
-  background-color: ${Palette.whiteopacity};
-  border-radius: 10px;
+  align-items: top;
   border-style: solid;
+  border-color: rgba(23,31,49,0.9);
   border-width: 5px;
-  border-color: white;
   margin: auto;
-  margin-top: 10px;
-  padding-bottom: 20px;
+  margin 10px;
   height: 100%;
-  a: hover {
-    border-bottom: none;
+  .eEEWNZ {
+    border-radius: 0px;
   }
 `;
 
@@ -21,45 +20,57 @@ const MessageFragment = styled.div`
   color: ${Palette.blue};
   border-style: none;
   margin: 10px;
-  font-family: "Dancing Script";
+  font-family: "Playfair Display";
   margin: 0 auto;
-  font-weight: bold;
   font-size: 4em;
-  color: black;
+  color: white;
   text-align: center;
-  text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
+  background-color: rgba(0,0,0,0.4)
+  // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+`;
+
+const Left = styled.div`
+  display: flex;
+  flex: 1;
+  flex-wrap: inherit;
+  margin: auto;
+  align-items: center;
+`;
+
+const Right = styled.div`
+  display: flex;
+  flex: 2;
+  flex-wrap: inherit;
+  text-align: center;
+  align-items: top !important;
 `;
 
 const Topics = styled.div`
-  width: 95%;
-  height: 95%;
-  text-align: justify;
+  text-align: center;
   margin: auto;
   margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  margin-bottom: 20px;
 `;
 
 const FragmentContent = styled.div`
-  width: 95%;
-  height: 95%;
-  background-color: white;
-  border-radius: 10px;
-  border-style: solid;
-  border-width: 5px;
-  border-color: white;
   margin: auto;
   margin-bottom: 10px;
   padding: 20px;
-  align-items: center;
-  text-align: center;
-  a: hover {
-    border-bottom: none;
-  }
 `;
 
 const ImageContainer = styled.div`
   border-style: solid;
-  border-color: gray;
+  border-color: rgba(0,0,0,0.4)
   margin-bottom: 10px;
+  min-width: 350px;
+  max-width: 350px;
+  margin: auto;
 `;
 
 const StatisticsContainer = styled.div`
@@ -68,48 +79,63 @@ const StatisticsContainer = styled.div`
 `;
 
 const FragmentTitle = styled.div`
-  color: ${Palette.blue};
+  color: black;
   font-size: 3em;
   font-weight: bold;
   text-align: center;
+  font-family: "PT Sans";
 `;
 
 const FragmentText = styled.div`
-  color: black;
-  margin: 20px;
-  color: #383838;
+  margin: auto;
+  color: #BBBBBB;
   font-family: "Playfair Display";
+  margin-right: 20px;
+  text-align: justify;
+  font-size: 1.4em;
+  align-items: top;
+  height: 100%;
 `;
 
 const FragmentButtons = styled.div`
   text-align: center;
+  margin-top: 10px;
+  color: white;
   .btn {
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 0px;
     margin: 5px;
-    width: 100%;
+    border-style: none;
+    width: 90%;
     font-size: 0.9em;
   }
 `;
 
 const CategoryTagContainer = styled.div`
-  margin-left: 2px;
-  margin-right: 2px;
-  background-color: #757575;
-  display: inline-block;
   font-size: 80%;
   color: white;
   padding: 10px;
-  text-align: center;
+
+  margin: auto;
+  width: 100%;
 `;
 
-const TagsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  align-items: center;
+const TopicsText = styled.div`
+  color: black;
+`;
+
+const TopicsRow = styled.div`
   text-align: center;
+  align-items: center;
+  margin: auto;
+`;
+const RandomFragmentS = styled.div`
+ 
 `;
 
 export {
+  Left,
+  Right,
   PageContainer,
   MessageFragment,
   FragmentContent,
@@ -119,6 +145,8 @@ export {
   StatisticsContainer,
   FragmentButtons,
   CategoryTagContainer,
-  TagsContainer,
-  Topics
+  Topics,
+  TopicsText,
+  TopicsRow,
+  RandomFragmentS
 };

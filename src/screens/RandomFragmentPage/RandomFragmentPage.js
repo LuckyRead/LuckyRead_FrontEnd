@@ -21,10 +21,17 @@ import CategoryTag from "../../common/Tags/CategoryTag";
 import CommentMap from "../../common/Comment/CommentMap";
 
 class RandomFragmentPage extends React.Component {
-  state = {
-    randomfragment: [],
-    topics: []
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      randomfragment: [],
+      topics: [],
+      randomTopic: 0
+    };
+    this.request = this.request.bind(this);
+  }
+
 
   componentDidMount() {
     this.request();
@@ -54,18 +61,6 @@ class RandomFragmentPage extends React.Component {
     return;
   };
 
-  renderCategoryTags(categoryArray) {
-    let categoryTags = {};
-    categoryTags = [];
-    categoryArray.forEach((category, index) => {
-      categoryTags.push(
-        <Link to={"/fragmentsview/" + category.id}>
-          <CategoryTag name={category.name} key={index} />
-        </Link>
-      );
-    });
-    return categoryTags;
-  }
 
   render() {
     console.log(rf);
@@ -73,34 +68,19 @@ class RandomFragmentPage extends React.Component {
     console.log("id");
     console.log(this.state.randomfragment.id);
     console.log(this.state.topics[0]);
-
     const rf = this.state.randomfragment ? (
       <PageContainer>
-        <MessageFragment>
-          <Row>
-            <Col>Tenemos un fragmento para ti</Col>
-          </Row>
-        </MessageFragment>
-        <Row>
-          <Col>
-            <Topics>
-              <TagsContainer>
-                {this.renderCategoryTags(this.state.topics)}
-              </TagsContainer>
-            </Topics>
-          </Col>
-        </Row>
-        <RandomFragment randomfragment={this.state.randomfragment} />
-        <Button color="warning" onClick={this.request}>
-          Ver otro fragmento
-        </Button>{" "}
+        <RandomFragment
+          randomfragment={this.state.randomfragment}
+          topicsArray={this.state.topics}
+          request={this.request}
+        />
       </PageContainer>
     ) : (
-      <div className="center">
-        <Loading />
-      </div>
-    );
-    return <Container>{rf}</Container>;
+        <div className="center">Cargando</div>
+      );
+    return <div>{rf}</div>;
+
   }
 }
 
