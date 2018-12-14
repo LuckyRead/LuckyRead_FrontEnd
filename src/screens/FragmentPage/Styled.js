@@ -9,6 +9,7 @@ const PageContainer = styled.div`
   z-index: -1;
   border-style: solid;
   border-width: 5px;
+  border-color: rgba(0,0,0,0.4);
   background-color: rgba(23,31,49,0.9);
   margin: auto;
   margin 10px;
@@ -108,6 +109,7 @@ const FragmentText = styled.div`
   font-size: 1.4em;
   align-items: top;
   height: 100%;
+  margin-bottom: 20px;
 `;
 
 const FragmentButtons = styled.div`

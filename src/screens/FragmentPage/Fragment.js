@@ -19,10 +19,7 @@ import {
   Content,
   Reaction
 } from "./Styled";
-
-import pdficon from "../../resources/paper_plane.png";
-import axios from "axios";
-import PopUpExample from "../PopUp/PopUpExample";
+import CommentMap from "../../common/Comment/CommentMap";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
 class Fragment extends React.Component {
@@ -91,6 +88,7 @@ class Fragment extends React.Component {
             </Row>
           </Content>
         </FragmentContent>
+        <CommentMap fragmentid={this.state.fragment.id}></CommentMap>
       </div>
     ) : (
         <div>Cargando</div>
