@@ -3,7 +3,12 @@ import { Palette } from "../../themes/colors";
 import paper from "../../resources/paper.png";
 
 const CategoryContainer = styled.div`
-  background-image: url(${paper});
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding-bottom: 0.5%;
+  padding-top: 0.5%;
+`;
+const ButtonContainer = styled.div`
   text-align: center;
   padding-bottom: 0.5%;
   padding-top: 0.5%;
@@ -64,6 +69,7 @@ const CategorieS = styled.div`
   color: white;
 `;*/
 const Title = styled.div`
+  background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   color: ${Palette.blue};
   border-style: none;
@@ -73,7 +79,6 @@ const Title = styled.div`
   font-size: 4em;
   color: white;
   text-align: center;
-  background-color: #1c1c1c;
   // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
 export {
@@ -83,5 +88,6 @@ export {
   NextButton,
   Title,
   CategoryContainer,
-  CategorieS
+  CategorieS,
+  ButtonContainer
 };

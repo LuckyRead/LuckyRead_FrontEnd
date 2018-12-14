@@ -12,6 +12,9 @@ const PageContainer = styled.div`
   margin-top: 10px;
   padding-bottom: 20px;
   height: 100%;
+  a: hover {
+    border-bottom: none;
+  }
 `;
 
 const MessageFragment = styled.div`
@@ -48,6 +51,9 @@ const FragmentContent = styled.div`
   padding: 20px;
   align-items: center;
   text-align: center;
+  a: hover {
+    border-bottom: none;
+  }
 `;
 
 const ImageContainer = styled.div`

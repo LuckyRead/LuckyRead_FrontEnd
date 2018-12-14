@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "reactstrap";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import {
   Right,
   PageContainer,
@@ -20,7 +21,6 @@ import {
 } from "./Styled";
 
 import pdficon from "../../resources/paper_plane.png";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import PopUpExample from "../PopUp/PopUpExample";
 import CategoryTag from "../../common/Tags/CategoryTag";
@@ -46,7 +46,9 @@ class Fragment extends React.Component {
     const topicsTags = [];
     topics.forEach(key => {
       topicsTags.push(
-        <CategoryTag name={this.props.topics[key].name} key={key} />
+        <Link to={"/fragmentsview/" + this.props.topics[key].id}>
+          <CategoryTag name={this.props.topics[key].name} key={key} />
+        </Link>
       );
     });
 

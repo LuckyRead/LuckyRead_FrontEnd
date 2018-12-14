@@ -43,11 +43,14 @@ class RandomFragment extends React.Component {
     let topicsTags = {};
     topicsTags = [];
     this.props.topicsArray.forEach((topic, index) => {
-      topicsTags.push(<CategoryTag name={topic.name} key={index} />);
+      topicsTags.push(
+        <Link to={"/fragmentsview/" + topic.id}>
+          <CategoryTag name={topic.name} key={index} />
+        </Link>
+      );
     });
     return topicsTags;
   }
-
 
   render() {
     console.log(localStorage.preferences);
@@ -88,7 +91,9 @@ class RandomFragment extends React.Component {
                 <Button color="secondary" onClick={this.props.request}>
                   Ver otro fragmento
                 </Button>
-                {this.state.showpopup ? <PopUpExample toggle={this.popUptoggle} modal={true} /> : null}
+                {this.state.showpopup ? (
+                  <PopUpExample toggle={this.popUptoggle} modal={true} />
+                ) : null}
               </FragmentButtons>
             </Left>
 

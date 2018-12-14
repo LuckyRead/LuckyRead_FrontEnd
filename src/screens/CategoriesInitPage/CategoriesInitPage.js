@@ -8,7 +8,8 @@ import {
   NextButton,
   Title,
   CategoryContainer,
-  CategorieS
+  CategorieS,
+  ButtonContainer
 } from "./Styled";
 import { Link } from "react-router-dom";
 import Loading from "../../common/Loading/Loading";
@@ -100,7 +101,7 @@ export default class CategoriesInitPage extends Component {
               <TopicsContainer>{this.renderTopics()}</TopicsContainer>
             </Col>
             <NextButton>
-              <CategoryContainer>
+              <ButtonContainer>
                 <Col>
                   <Link to={"/something"}>
                     <Button color="success" onClick={this.handleSubmit}>
@@ -108,7 +109,7 @@ export default class CategoriesInitPage extends Component {
                     </Button>{" "}
                   </Link>
                 </Col>
-              </CategoryContainer>
+              </ButtonContainer>
             </NextButton>
           </CategoryContainer>
         </Row>

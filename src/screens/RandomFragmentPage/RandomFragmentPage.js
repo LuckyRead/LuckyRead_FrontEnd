@@ -1,5 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "reactstrap";
+import { Link } from "react-router-dom";
+
 import {
   PageContainer,
   MessageFragment,
@@ -18,7 +20,6 @@ import Loading from "../../common/Loading/Loading";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import CommentMap from "../../common/Comment/CommentMap";
 
-
 class RandomFragmentPage extends React.Component {
   state = {
     randomfragment: [],
@@ -26,7 +27,7 @@ class RandomFragmentPage extends React.Component {
   };
 
   componentDidMount() {
-    this.request()
+    this.request();
   }
 
   request = e => {
@@ -50,36 +51,36 @@ class RandomFragmentPage extends React.Component {
         console.log("el error es pidiendo fragmento random");
       }
     );
-    return
-  }
+    return;
+  };
 
   renderCategoryTags(categoryArray) {
     let categoryTags = {};
     categoryTags = [];
     categoryArray.forEach((category, index) => {
-      categoryTags.push(<CategoryTag name={category.name} key={index} />);
+      categoryTags.push(
+        <Link to={"/fragmentsview/" + category.id}>
+          <CategoryTag name={category.name} key={index} />
+        </Link>
+      );
     });
     return categoryTags;
   }
-
-
 
   render() {
     console.log(rf);
     console.log("aqui");
     console.log("id");
-    console.log(this.state.randomfragment.id)
-    console.log(this.state.topics[0])
+    console.log(this.state.randomfragment.id);
+    console.log(this.state.topics[0]);
 
-
-    const rf = this.state.randomfragment ?
-      (<PageContainer>
+    const rf = this.state.randomfragment ? (
+      <PageContainer>
         <MessageFragment>
           <Row>
             <Col>Tenemos un fragmento para ti</Col>
           </Row>
         </MessageFragment>
-
         <Row>
           <Col>
             <Topics>
@@ -88,20 +89,18 @@ class RandomFragmentPage extends React.Component {
               </TagsContainer>
             </Topics>
           </Col>
-
         </Row>
-
         <RandomFragment randomfragment={this.state.randomfragment} />
-        <Button color="warning" onClick={this.request}>Ver otro fragmento</Button>{" "}
+        <Button color="warning" onClick={this.request}>
+          Ver otro fragmento
+        </Button>{" "}
       </PageContainer>
-      ) : <div className="center">
+    ) : (
+      <div className="center">
         <Loading />
       </div>
-    return (
-      <Container>
-        {rf}
-      </Container>
     );
+    return <Container>{rf}</Container>;
   }
 }
 
