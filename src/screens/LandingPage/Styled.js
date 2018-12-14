@@ -19,7 +19,7 @@ const LandingPageContainer = styled.div`
     margin: 0 auto;
   }
   #Init-title {
-    font-family: "Dancing Script";
+    font-family: "Playfair Display";
     margin: 0 auto;
     font-weight: bold;
     font-size: 5em;
@@ -28,7 +28,7 @@ const LandingPageContainer = styled.div`
     text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
   }
   .Init-subtitle {
-    font-family: "Open Sans";
+    font-family: "Playfair Display";
     font-size: 2em;
     color: ${Palette.white};
     text-align: center;
@@ -43,7 +43,7 @@ const LandingPageContainer = styled.div`
 
   #readyText {
     color: ${Palette.white};
-    font-family: "Dancing Script";
+    font-family: "Playfair Display";
     padding-top: 4%;
     padding-bottom: 2%;
     padding-left: 1%;
