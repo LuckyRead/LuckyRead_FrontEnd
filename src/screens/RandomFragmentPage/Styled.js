@@ -71,6 +71,8 @@ const FragmentTitle = styled.div`
 const FragmentText = styled.div`
   color: black;
   margin: 20px;
+  color: #383838;
+  font-family: "Playfair Display";
 `;
 
 const FragmentButtons = styled.div`

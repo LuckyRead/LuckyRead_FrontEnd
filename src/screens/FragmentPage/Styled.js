@@ -82,7 +82,7 @@ const FragmentContent = styled.div`
 `;
 
 const WhiteOpacity = styled.div`
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: ${Palette.white};
 
   margin: auto;
   margin-bottom: 10px;
@@ -112,7 +112,7 @@ const FragmentTitle = styled.div`
 `;
 
 const FragmentText = styled.div`
-  color: black;
+  color: #383838;
   margin: 40px;
   font-family: "Playfair Display";
   text-align: justify;

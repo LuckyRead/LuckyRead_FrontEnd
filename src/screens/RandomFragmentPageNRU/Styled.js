@@ -87,9 +87,9 @@ const FragmentTitle = styled.div`
 `;
 
 const FragmentText = styled.div`
-  color: black;
-  margin-right: 20px;
+  color: #383838;
   font-family: "Playfair Display";
+  margin-right: 20px;
   text-align: justify;
   font-size: 1.4em;
   align-items: top;
