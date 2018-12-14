@@ -25,7 +25,7 @@ const MessageFragment = styled.div`
   font-size: 4em;
   color: white;
   text-align: center;
-  background-color: #3e3e3e;
+  background-color: #1c1c1c;
   // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
 
@@ -100,7 +100,7 @@ const FragmentButtons = styled.div`
   text-align: center;
   margin-top: 10px;
   .btn {
-    background-color: #767676;
+    background-color: #1c1c1c;
     border-radius: 0px;
     margin: 5px;
     width: 90%;

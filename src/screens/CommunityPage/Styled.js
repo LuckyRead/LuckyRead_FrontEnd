@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
+import paper from "../../resources/paper.png";
 
 const CommunityPageContainer = styled.div`
   border-radius: 10px;
@@ -43,7 +44,7 @@ const TabContainer = styled.div`
 const TitleContainer = styled.div`
   color: ${Palette.blue};
   border-style: none;
-  font-family: "Dancing Script";
+  font-family: "Playfair Display";
   font-weight: bold;
   font-size: 4em;
   color: #105f78;
@@ -54,7 +55,7 @@ const TitleContainer = styled.div`
 const TabContent = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${Palette.whitetransparency};
+  background-image: url(${paper});
   border: 1px solid ${Palette.grayoff};
   margin-top: 2%;
   margin-bottom: 2%;

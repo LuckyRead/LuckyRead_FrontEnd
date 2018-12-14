@@ -85,7 +85,7 @@ const FragmentButtons = styled.div`
 const CategoryTagContainer = styled.div`
   margin-left: 2px;
   margin-right: 2px;
-  background-color: #758;
+  background-color: #1c1c1c;
   display: inline-block;
   font-size: 80%;
   color: white;

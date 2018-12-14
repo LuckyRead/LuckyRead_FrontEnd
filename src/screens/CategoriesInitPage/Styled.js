@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
+import paper from "../../resources/paper.png";
 
+const CategoryContainer = styled.div`
+  background-image: url(${paper});
+  text-align: center;
+  padding-bottom: 0.5%;
+  padding-top: 0.5%;
+`;
 const TopicCard = styled.div`
   background-image: url(${props => props.topicimage});
   background-repeat: no-repeat;
@@ -39,12 +46,42 @@ const TopicCardSelect = styled.div`
 
 const NextButton = styled.div`
   margin: auto;
+  button {
+    margin: auto;
+  }
+`;
+const CategorieS = styled.div`
+  margin: 1%;
 `;
 
-const Title = styled.div`
+/*const Title = styled.div`
+  width: 100%;
+  background-color: 
   margin: auto;
   font-size: 3em;
-  font-family: "Dancing Script";
+  font-family: "Playfair Display";
   font-weight: bold;
+  color: white;
+`;*/
+const Title = styled.div`
+  width: 100%;
+  color: ${Palette.blue};
+  border-style: none;
+  margin: 10px;
+  font-family: "Playfair Display";
+  margin: 0 auto;
+  font-size: 4em;
+  color: white;
+  text-align: center;
+  background-color: #1c1c1c;
+  // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
-export { TopicCard, TopicsContainer, TopicCardSelect, NextButton, Title };
+export {
+  TopicCard,
+  TopicsContainer,
+  TopicCardSelect,
+  NextButton,
+  Title,
+  CategoryContainer,
+  CategorieS
+};

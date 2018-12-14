@@ -3,7 +3,13 @@ import API from "../../api";
 import Topic from "./Topic";
 import dark from "../../resources/dark.jpeg";
 import { Button, Row, Col } from "reactstrap";
-import { TopicsContainer, NextButton, Title } from "./Styled";
+import {
+  TopicsContainer,
+  NextButton,
+  Title,
+  CategoryContainer,
+  CategorieS
+} from "./Styled";
 import { Link } from "react-router-dom";
 import Loading from "../../common/Loading/Loading";
 
@@ -81,32 +87,34 @@ export default class CategoriesInitPage extends Component {
 
   render() {
     const topics = this.state.topics ? (
-      <div>
+      <CategorieS>
         <Row>
           <Title>
             <Col>Quiero leer algo de:</Col>
           </Title>
         </Row>
         <Row>
-          <Col>
-            <TopicsContainer>{this.renderTopics()}</TopicsContainer>
-          </Col>
-        </Row>
-        <Row>
-          <NextButton>
+          <CategoryContainer>
             <Col>
-              <Link to={"/something"}>
-                <Button color="success" onClick={this.handleSubmit}>
-                  Siguiente
-                </Button>{" "}
-              </Link>
+              <TopicsContainer>{this.renderTopics()}</TopicsContainer>
             </Col>
-          </NextButton>
+            <NextButton>
+              <CategoryContainer>
+                <Col>
+                  <Link to={"/something"}>
+                    <Button color="success" onClick={this.handleSubmit}>
+                      Siguiente
+                    </Button>{" "}
+                  </Link>
+                </Col>
+              </CategoryContainer>
+            </NextButton>
+          </CategoryContainer>
         </Row>
-      </div>
+      </CategorieS>
     ) : (
-      <Loading/>
+      <Loading />
     );
-    return <div>{topics}</div>;
+    return <CategorieS>{topics}</CategorieS>;
   }
 }

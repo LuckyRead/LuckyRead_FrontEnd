@@ -33,6 +33,7 @@ const LuckyReadHomeContainer = styled.div`
 `;
 
 const SignedOutLinksContainer = styled.div`
+  font-family: "Playfair Display";
   a {
     font-size: 16px !important;
     color: ${Palette.whiteopacity} !important;
@@ -51,6 +52,7 @@ const SignedOutLinksContainer = styled.div`
   }
 `;
 const SignedInLinksContainer = styled.div`
+  font-family: "Playfair Display";
   a {
     font-size: 16px !important;
   }
