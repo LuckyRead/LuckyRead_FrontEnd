@@ -18,6 +18,11 @@ const SignedOutLinks = () => {
         <NavItem>
           <NavLink href="news">Noticias</NavLink>
         </NavItem>
+        {localStorage.preferences == null ? null :
+          <NavItem>
+            <NavLink href="RegisterPage">Registrarme</NavLink>
+          </NavItem>}
+
         <UncontrolledDropdown nav inNavbar>
           <DropdownToggle nav caret>
             Iniciar sesion

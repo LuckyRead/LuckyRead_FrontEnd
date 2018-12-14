@@ -64,11 +64,6 @@ class RandomFragmentPageNRU extends React.Component {
   render() {
     const rf = this.state.randomfragment ? (
       <PageContainer>
-        {/*<MessageFragment>
-          <Row>
-            <Col>Tenemos un fragmento para ti:</Col>
-          </Row>
-        </MessageFragment>*/}
         <RandomFragment
           randomfragment={this.state.randomfragment}
           topicsArray={this.state.topics}
@@ -76,8 +71,8 @@ class RandomFragmentPageNRU extends React.Component {
         />
       </PageContainer>
     ) : (
-      <div className="center">Cargando</div>
-    );
+        <div className="center">Cargando</div>
+      );
     return <div>{rf}</div>;
   }
 }

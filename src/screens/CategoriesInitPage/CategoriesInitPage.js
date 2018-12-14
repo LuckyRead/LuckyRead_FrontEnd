@@ -80,6 +80,7 @@ export default class CategoriesInitPage extends Component {
   }
 
   render() {
+    console.log("preferences", localStorage.preferences)
     const topics = this.state.topics ? (
       <div>
         <Row>
@@ -105,8 +106,8 @@ export default class CategoriesInitPage extends Component {
         </Row>
       </div>
     ) : (
-      <Loading/>
-    );
+        <Loading />
+      );
     return <div>{topics}</div>;
   }
 }

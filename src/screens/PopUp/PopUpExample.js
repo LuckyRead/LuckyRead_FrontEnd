@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Link } from 'react-router-dom'
-
+import PropTypes from "prop-types";
 class PopUpExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: true
+      modal: this.props.modal
     };
 
     this.toggle = this.toggle.bind(this);
@@ -16,6 +16,7 @@ class PopUpExample extends React.Component {
     this.setState({
       modal: !this.state.modal
     });
+    this.props.popUptoggle();
   }
 
   render() {
@@ -35,5 +36,11 @@ class PopUpExample extends React.Component {
     );
   }
 }
+
+PopUpExample.propTypes = {
+  modal: PropTypes.bool.isRequired,
+  popUptoggle: PropTypes.func.isRequired,
+};
+
 
 export default PopUpExample;
