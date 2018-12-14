@@ -54,9 +54,8 @@ export default class TopUsersTab extends React.Component {
       <TabContent>
         <Row
           style={{
-            backgroundColor: "#F6E2B3",
-            padding: "2%",
-            border: "7px solid #D8BD93"
+            backgroundColor: "backgroundColor: rgba(0, 0, 0, 0.4);",
+            padding: "2%"
           }}
         >
           <Col sm="4">

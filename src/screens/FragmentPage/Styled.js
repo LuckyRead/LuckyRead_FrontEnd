@@ -20,7 +20,10 @@ const PageContainer = styled.div`
   .bg {
     height: 100%;
     width: 100%;
-}
+  }
+  a: hover {
+    border-bottom: none;
+  }
 `;
 
 const MessageFragment = styled.div`
@@ -75,6 +78,9 @@ const FragmentContent = styled.div`
   margin: auto;
   margin-bottom: 10px;
   padding: 20px;
+  a: hover {
+    border-bottom: none;
+  }
 `;
 
 
