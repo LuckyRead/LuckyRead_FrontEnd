@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { Palette } from "../../themes/colors";
 import paper from "../../resources/newspaper.jpg";
 
+
 const PageContainer = styled.div`
   text-align: center;
   align-items: top;
-  background-image: url('./paper.png');
   z-index: -1;
   border-style: solid;
   border-width: 5px;
-  border-color: ${Palette.whiteopacity};
+  background-color: rgba(23,31,49,0.9);
   margin: auto;
   margin 10px;
   height: 100%;
@@ -34,10 +34,9 @@ const MessageFragment = styled.div`
   font-size: 4em;
   color: white;
   text-align: center;
-  background-color: #1c1c1c;
+  background-color: rgba(0,0,0,0.4)
   // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
-
 const Left = styled.div`
   display: flex;
   flex: 1;
@@ -64,14 +63,10 @@ const Topics = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
-  .cIDpQd {
-    background-color: #525252 !important;
-  }
   margin-bottom: 20px;
 `;
 
 const FragmentContent = styled.div`
-  background-image: url(${paper});
   background-size: cover; /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
@@ -87,17 +82,10 @@ const FragmentContent = styled.div`
   }
 `;
 
-const WhiteOpacity = styled.div`
-  background-color: ${Palette.white};
-
-  margin: auto;
-  margin-bottom: 10px;
-  padding: 20px;
-`;
 
 const ImageContainer = styled.div`
   border-style: solid;
-  border-color: #535353;
+  border-color: rgba(0,0,0,0.4)
   margin-bottom: 10px;
   min-width: 350px;
   max-width: 350px;
@@ -118,9 +106,10 @@ const FragmentTitle = styled.div`
 `;
 
 const FragmentText = styled.div`
-  color: #383838;
-  margin: 40px;
+  margin: auto;
+  color: #BBBBBB;
   font-family: "Playfair Display";
+  margin-right: 20px;
   text-align: justify;
   font-size: 1.4em;
   align-items: top;
@@ -130,10 +119,12 @@ const FragmentText = styled.div`
 const FragmentButtons = styled.div`
   text-align: center;
   margin-top: 10px;
+  color: white;
   .btn {
-    background-color: #767676;
+    background-color: rgba(0,0,0,0.4);
     border-radius: 0px;
     margin: 5px;
+    border-style: none;
     width: 90%;
     font-size: 0.9em;
   }
@@ -168,6 +159,12 @@ const Reaction = styled.div`
   }
 `;
 
+const Content = styled.div`
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 20px;
+`;
+
 export {
   Left,
   Right,
@@ -183,6 +180,6 @@ export {
   Topics,
   TopicsText,
   TopicsRow,
-  WhiteOpacity,
-  Reaction
+  Content,
+  Reaction,
 };
