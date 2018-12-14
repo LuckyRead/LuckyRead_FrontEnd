@@ -55,7 +55,7 @@ class RandomFragmentPage extends React.Component {
         console.log(this.state.randomfragment);
       },
       err => {
-        console.log("el error es pidiendo fragmento random");
+        console.log("Error solicitando fragmento random");
       }
     );
     return;
