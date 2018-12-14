@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { Container, Row, Col, Button } from "reactstrap";
 import {
   PageContainer,
@@ -21,7 +23,11 @@ import CommentMap from "../../common/Comment/CommentMap";
 class RandomFragmentPageNRU extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { randomfragment: [], topics: [], randomTopic: 0 };
+    this.state = {
+      randomfragment: [],
+      topics: [],
+      randomTopic: 0
+    };
     this.request = this.request.bind(this);
   }
 
@@ -60,6 +66,19 @@ class RandomFragmentPageNRU extends React.Component {
     );
     return;
   };
+
+  renderCategoryTags(categoryArray) {
+    let categoryTags = {};
+    categoryTags = [];
+    categoryArray.forEach((category, index) => {
+      categoryTags.push(
+        <Link to={"/fragmentsview/" + category.id}>
+          <CategoryTag name={category.name} key={index} />
+        </Link>
+      );
+    });
+    return categoryTags;
+  }
 
   render() {
     const rf = this.state.randomfragment ? (
