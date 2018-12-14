@@ -14,6 +14,9 @@ const PageContainer = styled.div`
   .eEEWNZ {
     border-radius: 0px;
   }
+  a: hover {
+    border-bottom: none;
+  }
 `;
 
 const MessageFragment = styled.div`
@@ -62,6 +65,9 @@ const FragmentContent = styled.div`
   margin: auto;
   margin-bottom: 10px;
   padding: 20px;
+  a: hover {
+    border-bottom: none;
+  }
 `;
 
 const ImageContainer = styled.div`

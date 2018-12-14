@@ -154,6 +154,18 @@ const CollapseContainer = styled.div`
 const TitleContainer = styled.div`
   margin-bottom: 3% !important;
 `;
+const Title = styled.div`
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  color: ${Palette.blue};
+  border-style: none;
+  margin: 10px;
+  font-family: "Playfair Display";
+  margin: 0 auto;
+  font-size: 4em;
+  color: white;
+  text-align: center;
+`;
 
 export {
   Palette,
@@ -168,5 +180,6 @@ export {
   TabContent,
   RowInfo,
   CollapseContainer,
-  TitleContainer
+  TitleContainer,
+  Title
 };

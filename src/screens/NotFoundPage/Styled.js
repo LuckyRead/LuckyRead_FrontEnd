@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
-import paper from "../../resources/NotFound.jpg";
 
 const NotFoundS = styled.div`
   width: 100%;
   height: 400px;
   margin: 5%;
-  background-image: url(${paper});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
