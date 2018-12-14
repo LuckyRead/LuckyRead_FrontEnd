@@ -1,13 +1,18 @@
 .card-columns {
   column-count: 5;
 }
-#topCard{
+
+#topCard {
   width: 100%;
   height: 520px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #BBBBBB;
 }
-#fragmentcard{
+
+#fragmentcard {
   overflow-y: auto;
 }
-#textfragment{
+
+#textfragment {
   font-size: 90%;
 }

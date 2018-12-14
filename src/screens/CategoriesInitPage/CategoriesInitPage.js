@@ -104,7 +104,7 @@ export default class CategoriesInitPage extends Component {
               <ButtonContainer>
                 <Col>
                   <Link to={"/something"}>
-                    <Button color="success" onClick={this.handleSubmit}>
+                    <Button color="info" onClick={this.handleSubmit}>
                       Siguiente
                     </Button>{" "}
                   </Link>

@@ -37,7 +37,7 @@ class SignedInLinks extends Component {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/Community">CommunityPage</NavLink>
+            <NavLink href="/Community">Comunidad</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="/news">Noticias</NavLink>
