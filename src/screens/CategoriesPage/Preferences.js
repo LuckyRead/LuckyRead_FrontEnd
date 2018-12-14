@@ -4,9 +4,9 @@ import React, { Component } from "react";
 //Components
 import Category from "./Category";
 
-import { ListGroup, ListGroupItem, Button, TabContent} from 'reactstrap';
+import { ListGroup, ListGroupItem, Button, TabContent } from "reactstrap";
 import "./preferences.css";
-
+import { ContainerS } from "./Styled";
 import axios from "axios";
 
 class Preferences extends Component {
@@ -20,14 +20,14 @@ class Preferences extends Component {
   componentWillMount() {
     axios({
       method: "get",
-      url:
-        "https://luckyread-backend.herokuapp.com/api/topics/get_all_in_one",
+      url: "https://luckyread-backend.herokuapp.com/api/topics/get_all_in_one",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwtToken")
       }
-    }).then(response => {
-        console.log('ALL IN ONE');
-        console.log(response)
+    })
+      .then(response => {
+        console.log("ALL IN ONE");
+        console.log(response);
         this.setState({
           topics: response.data.topics
         });
@@ -37,8 +37,8 @@ class Preferences extends Component {
       });
   }
 
-  render(){
-    console.log("PREFERENCES")
+  render() {
+    console.log("PREFERENCES");
     const domTopics = this.state.topics.map(topic => {
       return (
         <Category
@@ -51,14 +51,15 @@ class Preferences extends Component {
       );
     });
     return (
-      <div className="container">
-        <div className="row justify-content-center " id="mypreferences">
-          <ListGroup>{domTopics}</ListGroup>
+      <ContainerS>
+        <div className="container">
+          <div className="row justify-content-center " id="mypreferences">
+            <ListGroup>{domTopics}</ListGroup>
+          </div>
         </div>
-      </div>
-    )
+      </ContainerS>
+    );
   }
-
 }
 
 export default Preferences;

@@ -13,32 +13,31 @@ const ProfileCardContainer = styled.div`
 `;
 
 const TabContainer = styled.div`
+  color: #bbbbbb;
   .itemNav {
-    background-color: ${Palette.whitetransparency};
-    border: 1px solid ${Palette.grayoff};
     margin-right: 0.3%;
-    background-image: url(${img});
+    background-color: rgba(0, 0, 0, 0.4);
   }
 
   .itemNav:hover {
-    background-color: ${Palette.grayoff};
     cursor: pointer;
     background-image: none;
   }
 
   .itemNav > .active {
-    background-color: ${Palette.bluestrong} !important;
-    color: ${Palette.white} !important;
+    background-color: rgba(0, 0, 0, 0.4);
     font-weight: bold !important;
+    border: none;
+    color: #bbbbbb;
   }
-
+  h4 {
+    color: #bbbbbb;
+  }
   .divNav {
-    background-color: ${Palette.whitetransparency};
     width: 100%;
     height: 100%;
     margin-left: 0.025%;
     margin-top: 0.25%;
-    border: 2px solid ${Palette.grayoff};
   }
 
   .nav {
@@ -47,12 +46,11 @@ const TabContainer = styled.div`
 `;
 
 const ProfileCardDiv = styled.div`
-  background-color: ${Palette.white};
-  border: 2px solid ${Palette.grayoff};
   a: hover {
     cursor: pointer;
   }
-  background-image: url(${img}) !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  padding-bottom: 1%;
 `;
 const ProfilePhotoContainer = styled.div`
   padding-top: 10%;
@@ -71,34 +69,31 @@ const ProfilePhotoContainer = styled.div`
 const AllInfoContainer = styled.div`
   padding-left: 10%;
   padding-right: 10%;
+  color: #bbbbbb;
 `;
 const InfoContainer = styled.div`
   text-align: center;
-  border: ${props => (props.border ? "1px solid" : "none")};
-  border-color :  ${props => (props.border ? Palette.grayoff : "none")}
 
   margin-top: ${props => (props.marginTop ? props.marginTop : 0)};
   margin-bottom: ${props => (props.marginBottom ? props.marginBottom : 0)};
-  background-color: ${props => (props.bgcolor ? props.bgcolor : "none")}
-
-  .skinny {
+  background-color: ${props => (props.bgcolor ? props.bgcolor : "none")} .skinny {
     font-size: 90%;
     color: ${Palette.gray};
     font-style: italic;
   }
   h5 {
     text-align: center;
+    color: #bbbbbb;
   }
-  .about{
+  .about {
     font-size: 80%;
     font-style: italic;
     padding-bottom: 5%;
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 1%;
-    background-image: url(${paper});
+    background-color: rgba(0, 0, 0, 0.4);
   }
-
 `;
 
 const ChangeAvatarContainer = styled.div`
@@ -122,7 +117,7 @@ const ChangeAvatarContainer = styled.div`
 const TabContent = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(${img});
+  background-color: rgba(0, 0, 0, 0.4);
   margin-top: 2%;
   margin-bottom: 2%;
   margin-left: 2%;
@@ -146,12 +141,11 @@ const RowInfo = styled.div`
 `;
 
 const CollapseContainer = styled.div`
-  background-color: ${Palette.white};
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 2%;
   width: 100%;
   height: 100%;
   margin-top: 2%;
-  border: 1px solid ${Palette.grayoff};
 `;
 
 const TitleContainer = styled.div`
@@ -160,8 +154,8 @@ const TitleContainer = styled.div`
 
 const InformationContentS = styled.div`
   width: 100%;
-  border: 1px solid ${Palette.grayoff};
-  background-image: url(${paper});
+  color: #bbbbbb;
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 3%;
   h6 {
     text-align: center !important;

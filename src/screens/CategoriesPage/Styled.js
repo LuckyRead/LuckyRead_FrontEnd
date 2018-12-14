@@ -12,32 +12,33 @@ const ProfileCardContainer = styled.div`
 `;
 
 const TabContainer = styled.div`
+  color: #bbbbbb;
   .itemNav {
-    background-color: ${Palette.whitetransparency};
-    border: 1px solid ${Palette.grayoff};
-    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
     margin-right: 0.3%;
   }
 
   .itemNav:hover {
-    background-color: ${Palette.grayoff};
+    background-color: rgba(0, 0, 0, 0.4);
     cursor: pointer;
   }
 
   .itemNav > .active {
-    background-color: ${Palette.bluestrong} !important;
-    color: ${Palette.white} !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    color: #bbbbbb !important;
     font-weight: bold !important;
+    border: none;
+  }
+  h4 {
+    color: #bbbbbb;
   }
 
   .divNav {
-    background-color: ${Palette.whitetransparency};
+    background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
     margin-left: 0.025%;
     margin-top: 0.25%;
-    border: 2px solid ${Palette.grayoff};
-    border-radius: 10px;
   }
 
   .nav {
@@ -94,6 +95,16 @@ const InfoContainer = styled.div`
     padding-bottom: 5%;
   }
   
+`;
+
+const ContainerS = styled.div`
+  color: white !important;
+  span {
+    color: white !important;
+  }
+  ul {
+    margin-left: 70%;
+  }
 `;
 
 const ChangeAvatarContainer = styled.div`
@@ -181,5 +192,6 @@ export {
   RowInfo,
   CollapseContainer,
   TitleContainer,
-  Title
+  Title,
+  ContainerS
 };

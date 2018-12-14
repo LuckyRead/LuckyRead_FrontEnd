@@ -3,37 +3,41 @@ import { Palette } from "../../themes/colors";
 import paper from "../../resources/paper.png";
 
 const CommunityPageContainer = styled.div`
-  border-radius: 10px;
-  background-color: ${Palette.whitetransparency};
   margin: 2% 1% 1% 1%;
   padding: 1.5%;
+  .tab-content {
+    margin-top: 0px;
+  }
 `;
 
 const TabContainer = styled.div`
+  color: #bbbbbb;
   .itemNav {
-    background-color: ${Palette.whitetransparency};
-    border: 1px solid ${Palette.grayoff};
+    background-color: rgba(0, 0, 0, 0.4);
     margin-right: 0.3%;
   }
 
   .itemNav:hover {
-    background-color: ${Palette.grayoff};
+    background-color: rgba(0, 0, 0, 0.4);
     cursor: pointer;
   }
 
   .itemNav > .active {
-    background-color: ${Palette.bluestrong} !important;
-    color: ${Palette.white} !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    color: #bbbbbb !important;
     font-weight: bold !important;
+    border: none;
+  }
+  h4 {
+    color: #bbbbbb;
   }
 
   .divNav {
-    background-color: ${Palette.whitetransparency};
+    background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
     margin-left: 0.025%;
     margin-top: 0.25%;
-    border: 2px solid ${Palette.grayoff};
   }
 
   .nav {
@@ -42,21 +46,17 @@ const TabContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  color: ${Palette.blue};
+  color: #bbbbbb;
   border-style: none;
   font-family: "Playfair Display";
   font-weight: bold;
   font-size: 4em;
-  color: #105f78;
   text-align: center;
-  text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
 `;
 
 const TabContent = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(${paper});
-  border: 1px solid ${Palette.grayoff};
   margin-top: 2%;
   margin-bottom: 2%;
   margin-left: 2%;
@@ -70,10 +70,14 @@ const TabContent = styled.div`
     margin-top: 1%;
   }
 `;
-
+const Cs = styled.div`  
+  background-color: background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: "#BBBBBB"
+`;
 const StatisticLabelContainer = styled.div`
-  background-color: ${props => (props.bgcolor ? props.bgcolor : "none")};
-  border: 5px solid ${props => (props.bcolor ? props.bcolor : "none")};
+  background-color: background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid ${props => (props.bcolor ? props.bcolor : "none")};
   width: 200px;
   height: 150px;
   padding: 0.5%;
@@ -81,14 +85,14 @@ const StatisticLabelContainer = styled.div`
   margin: 1% 1% 1% 1%;
 `;
 const TextContainer = styled.div`
-  color: white;
+  color: #bbbbbb;
   text-align: center;
   width: 100%;
 `;
 
 const NumberContainer = styled.div`
   font-weight: bold;
-  color: white;
+  color: #bbbbbb;
   text-align: center;
   width: 100%;
   font-size: 350%;
@@ -112,5 +116,6 @@ export {
   StatisticLabelContainer,
   TextContainer,
   NumberContainer,
-  TrophyS
+  TrophyS,
+  Cs
 };
