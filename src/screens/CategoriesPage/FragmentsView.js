@@ -11,7 +11,7 @@ export default class FragmentsView extends PureComponent {
     super(props);
     this.state = {
       fragments: null,
-      name: "Something"
+      name: null
     };
   }
 
@@ -26,7 +26,8 @@ export default class FragmentsView extends PureComponent {
         console.log("FRAGMENTOS");
         console.log(response);
         this.setState({
-          fragments: response.data.fragments
+          fragments: response.data.fragments,
+          name: response.data.topic
         });
       })
       .catch(function(error) {});
