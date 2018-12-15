@@ -10,7 +10,7 @@ import {
   Col
 } from "reactstrap";
 import classnames from "classnames";
-import InformationTab from "./InformationTab";
+import { InformationTab } from "./InformationTab";
 import FollowedTab from "./FollowedTab";
 import FollowersTab from "./FollowersTab";
 import FragmentTab from "./FragmentTab";

@@ -28,6 +28,7 @@ class SignedInLinks extends Component {
   };
 
   render() {
+    const user = localStorage.user
     return (
       <SignedInLinksContainer>
         <Nav className="ml-auto" navbar>
@@ -47,7 +48,7 @@ class SignedInLinks extends Component {
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
-              {this.state.user}
+              {user}
             </DropdownToggle>
             <DropdownMenu right>
               <DropdownItem href="/ProfilePage" id="profile">

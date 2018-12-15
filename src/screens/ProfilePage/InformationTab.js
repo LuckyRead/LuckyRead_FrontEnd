@@ -1,24 +1,22 @@
 import React, { Component } from "react";
 import Spinner from "react-spinkit";
+import { connect } from "react-redux";
+import axios from "axios";
 import {
   Row,
-  Col,
   Collapse,
   Button,
   Form,
   FormGroup,
   Label,
   Input,
-  FormText,
   InputGroup,
   InputGroupAddon,
-  InputGroupText
 } from "reactstrap";
 import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
 import { FormErrors } from "../../common/formErrors/FormErrors";
-import axios from "axios";
-import InformationContent from "./InformationContent";
-export default class InformationTab extends Component {
+import { userActions } from "../../_actions";
+class InformationTab extends Component {
   constructor(props) {
     super(props);
     this.togglePassword = this.togglePassword.bind(this);
@@ -31,12 +29,16 @@ export default class InformationTab extends Component {
       collapseUsername: false,
       password: "",
       username: "",
+      newUsername: "",
+      newUsernameLoaded: false,
       confirmpassword: "",
       loaded: false,
       finishloaded: false,
       formErrors: { password: "", confirmpassword: "" },
       passwordValid: false,
       confirmpasswordValid: false,
+      newUsernameValid: false,
+
       formValid: false
     };
     //this.handleUserInput = this.handleUserInput.bind(this);
@@ -86,9 +88,11 @@ export default class InformationTab extends Component {
   };
 
   validateField(fieldName, value) {
+    const { dispatch } = this.props;
     let fieldValidationErrors = this.state.formErrors;
     let passwordValid = this.state.passwordValid;
     let confirmpasswordValid = this.state.confirmpasswordValid;
+    let newUsernameValid = this.state.newUsernameValid;
 
     switch (fieldName) {
       case "password":
@@ -115,6 +119,17 @@ export default class InformationTab extends Component {
           : "Las contraseñas no coinciden";
         break;
 
+      case "newUsername":
+        newUsernameValid = value.length <= 15 && value.length >= 3;
+        fieldValidationErrors.newUsername = newUsernameValid
+          ? ""
+          : "Tu nombre de usuario no debe exceder los 15 caracteres";
+        if (newUsernameValid) {
+          console.log("dispatch verify_username");
+          dispatch(userActions.verify_username(this.state.newUsername));
+        }
+        break;
+
       default:
         break;
     }
@@ -123,18 +138,15 @@ export default class InformationTab extends Component {
       {
         formErrors: fieldValidationErrors,
         passwordValid: passwordValid,
-        confirmpasswordValid: confirmpasswordValid
+        confirmpasswordValid: confirmpasswordValid,
+        newUsernameValid: newUsernameValid,
       },
-      this.validateForm
+
     );
   }
 
-  validateForm() {
-    this.setState({
-      formValid: this.state.passwordValid && this.state.confirmpasswordValid
-    });
-    console.log(this.state.formValid);
-  }
+
+
 
   errorClass(error) {
     return error.length === 0 ? "" : "has-error";
@@ -167,7 +179,7 @@ export default class InformationTab extends Component {
         //alert("Contraseña cambiada");
         //window.location.reload(true);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -178,7 +190,7 @@ export default class InformationTab extends Component {
     this.setState({
       loaded: true
     });
-    let n_username = this.state.username;
+    let n_username = this.state.newUsername;
     console.log(this.state.username);
     axios({
       method: "PATCH",
@@ -191,15 +203,16 @@ export default class InformationTab extends Component {
       }
     })
       .then(response => {
+        console.log("usuario cambiado")
         console.log(response);
         this.setState({
           loaded: false,
           finishloaded: true
         });
-        //alert("Contraseña cambiada");
-        //window.location.reload(true);
+        localStorage.setItem("user", n_username)
       })
-      .catch(function(error) {
+      .catch(function (error) {
+        console.log("error cambiando usuario")
         console.log(error);
       });
   };
@@ -207,21 +220,6 @@ export default class InformationTab extends Component {
   render() {
     return (
       <TabContent>
-        <Row>
-          <InformationContent
-            name="Camilo Alejandro Sanchez Cruz"
-            age="20"
-            email="caasanchezcr@unal.edu.co"
-            city="Bogota"
-          />
-        </Row>
-        <Row>
-          <RowInfo>
-            <Button color="info" className="FullButton">
-              Descargar mi perfil en PDF
-            </Button>
-          </RowInfo>
-        </Row>
         <Row>
           <RowInfo>
             <Button
@@ -271,12 +269,12 @@ export default class InformationTab extends Component {
                       </p>
                     ) : null}
                   </FormGroup>
-                  <Button type="submit" disabled={!this.state.formValid}>
+                  <Button type="submit" color="info" disabled={!(this.state.passwordValid && this.state.confirmpasswordValid)}>
                     {this.state.loaded ? (
                       <Spinner name="circle" fadein="none" color="white" />
                     ) : (
-                      "Cambiar"
-                    )}
+                        "Cambiar"
+                      )}
                   </Button>
                 </Form>
               </CollapseContainer>
@@ -300,16 +298,30 @@ export default class InformationTab extends Component {
                     <InputGroup>
                       <InputGroupAddon addonType="prepend">@</InputGroupAddon>
                       <Input
-                        placeholder="username"
+                        placeholder="Nombre de usuario"
                         onChange={this.handleUserInput}
+                        type="text"
+                        required
+                        className="form-control"
+                        name="newUsername"
+                        value={this.state.newUsername}
                       />
                     </InputGroup>
                     <Button
                       className="ChangeButton"
                       onClick={this.handleChangeNick}
-                    >
-                      Cambiar
+                      disabled={!this.state.newUsernameValid}>
+                      {this.state.loaded ? (
+                        <Spinner name="circle" fadein="none" color="white" />
+                      ) : (
+                          "Cambiar"
+                        )}
                     </Button>
+                    {this.state.finishloaded ? (
+                      <p className="text-success text-center">
+                        <strong>Usuario cambiado exitosamente</strong>
+                      </p>
+                    ) : null}
                   </FormGroup>
                 </Form>
               </CollapseContainer>
@@ -435,3 +447,18 @@ export default class InformationTab extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+
+  const { validating_email } = state.email_exist;
+  const { validating_username } = state.username_exist;
+
+  return {
+
+    validating_email,
+    validating_username
+  };
+}
+
+const connectedInformationTab = connect(mapStateToProps)(InformationTab);
+export { connectedInformationTab as InformationTab };
