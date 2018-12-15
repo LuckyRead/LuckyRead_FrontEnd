@@ -91,7 +91,7 @@ class Fragment extends React.Component {
             </Row>
           </Content>
           <Row>
-            <MakeComment />
+            <MakeComment type="comment" />
           </Row>
           <Comments>
             <Row>
