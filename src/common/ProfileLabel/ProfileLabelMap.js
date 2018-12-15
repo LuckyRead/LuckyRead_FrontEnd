@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ProfileMapContainer } from "./Styled";
+
+import { ProfilesContainer, Content } from "./Styled";
+import { Row, Col } from "reactstrap";
 import ProfileLabel from "./ProfileLabel";
 
 export default class ProfileLabelMap extends React.Component {
@@ -21,9 +23,15 @@ export default class ProfileLabelMap extends React.Component {
   }
   render() {
     return (
-      <ProfileMapContainer>
-        {this.renderProfileLabels(this.props.response)}
-      </ProfileMapContainer>
+      <Row>
+        <Content>
+          <Col>
+            <ProfilesContainer>
+              {this.renderProfileLabels(this.props.response)}
+            </ProfilesContainer>
+          </Col>
+        </Content>
+      </Row>
     );
   }
 }

@@ -23,6 +23,7 @@ export default class ProfileLabel extends React.Component {
     this.setState(newState);
     if (newState.followed === true) {
       console.log("entra aquí");
+
       axios({
         method: "POST",
         url: "https://luckyread-backend.herokuapp.com/api/friend/follow",

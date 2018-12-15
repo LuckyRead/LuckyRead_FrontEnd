@@ -25,7 +25,7 @@ export default class FollowersTab extends Component {
     };
   }
 
-  componentWillMount(){
+  componentWillMount() {
     axios({
       method: "get",
       url:

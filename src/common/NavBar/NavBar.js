@@ -24,6 +24,7 @@ export default class NavBar extends React.Component {
   }
   render() {
     const token = localStorage.getItem("jwtToken");
+    const user = localStorage.getItem("user");
     const links = token == null ? <SignedOutLinks /> : <SignedInLinks />;
     return (
       <NavbarContainer>
@@ -45,6 +46,7 @@ export default class NavBar extends React.Component {
               </a>
             </LuckyReadHomeContainer>
           )}
+
           <NavbarToggler onClick={this.toggle} />
 
           <Collapse isOpen={this.state.isOpen} navbar>

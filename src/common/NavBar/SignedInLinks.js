@@ -15,7 +15,7 @@ class SignedInLinks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: localStorage.user
+      user: localStorage.getItem("user"),
     };
     this.handleLogout = this.handleLogout.bind(this);
   }
@@ -28,6 +28,7 @@ class SignedInLinks extends Component {
   };
 
   render() {
+    const user = localStorage.getItem("user");
     return (
       <SignedInLinksContainer>
         <Nav className="ml-auto" navbar>
@@ -47,7 +48,7 @@ class SignedInLinks extends Component {
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
-              {this.state.user}
+              {user}
             </DropdownToggle>
             <DropdownMenu right>
               <DropdownItem href="/ProfilePage" id="profile">

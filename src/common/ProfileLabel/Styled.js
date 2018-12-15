@@ -56,11 +56,33 @@ const FollowContainer = styled.div`
     height: 20px;
   }
 `;
+
+const Content = styled.div`
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding-bottom: 0.5%;
+  padding-top: 0.5%;
+`;
+
+const ProfilesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 90%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+`;
+
+
+
 export {
   Palette,
   ProfileLabelContainer,
   PhotoContainer,
   StringContainer,
   ProfileMapContainer,
-  FollowContainer
+  FollowContainer,
+  Content,
+  ProfilesContainer
 };
