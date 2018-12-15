@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
 import { Button } from "reactstrap";
-import img from "../../resources/paper.png";
-import paper from "../../resources/paper2.jpeg";
 
 const ProfileContainer = styled.div`
   margin-top: 20px;
@@ -13,10 +11,6 @@ const ProfileContainer = styled.div`
 const ProfileCardContainer = styled.div`
   width: 100%;
 `;
-
-
-
-
 
 const TabContainer = styled.div`
   color: #bbbbbb;
@@ -195,6 +189,18 @@ const EditButton = styled(Button)`
   display: inline-block;
 `;
 
+const Topics = styled(Button)`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+
+`;
+
+const TopicsText = styled(Button)`
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+`;
 
 
 
@@ -215,5 +221,7 @@ export {
   InformationContentS,
   EditButton,
   TalkToUsS,
-  TalkToUsTextS
+  TalkToUsTextS,
+  Topics,
+  TopicsText
 };

@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import {
-  Form,
   FormGroup,
-  Label,
   Input,
-  Row,
-  Col,
   Button,
   Modal,
   ModalHeader,
@@ -17,7 +13,6 @@ import {
   ProfileCardDiv,
   ProfilePhotoContainer,
   InfoContainer,
-  Palette,
   AllInfoContainer,
   EditButton,
   TalkToUsS,

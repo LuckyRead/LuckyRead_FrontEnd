@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { Row, Col } from "reactstrap";
+import { Row } from "reactstrap";
 import { InformationContentS } from "./Styled.js";
 
 export default class InformationContent extends Component {
