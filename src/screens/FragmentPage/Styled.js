@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Palette } from "../../themes/colors";
 import paper from "../../resources/newspaper.jpg";
 
-
 const PageContainer = styled.div`
   text-align: center;
   align-items: top;
@@ -35,7 +34,7 @@ const MessageFragment = styled.div`
   font-size: 4em;
   color: white;
   text-align: center;
-  background-color: rgba(0,0,0,0.4)
+  background-color: rgba(0, 0, 0, 0.4);
   // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
 const Left = styled.div`
@@ -83,7 +82,6 @@ const FragmentContent = styled.div`
   }
 `;
 
-
 const ImageContainer = styled.div`
   border-style: solid;
   border-color: rgba(0,0,0,0.4)
@@ -108,7 +106,7 @@ const FragmentTitle = styled.div`
 
 const FragmentText = styled.div`
   margin: auto;
-  color: #BBBBBB;
+  color: #bbbbbb;
   font-family: "Playfair Display";
   margin-right: 20px;
   text-align: justify;
@@ -123,7 +121,7 @@ const FragmentButtons = styled.div`
   margin-top: 10px;
   color: white;
   .btn {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 0px;
     margin: 5px;
     border-style: none;
@@ -167,6 +165,11 @@ const Content = styled.div`
   padding: 20px;
 `;
 
+const Comments = styled.div`
+  margin: auto;
+  width: 100%;
+`;
+
 export {
   Left,
   Right,
@@ -184,4 +187,5 @@ export {
   TopicsRow,
   Content,
   Reaction,
+  Comments
 };

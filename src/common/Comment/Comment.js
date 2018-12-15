@@ -1,10 +1,46 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Palette, CommentContainer, ReactionButton } from "./Styled";
+import {
+  Palette,
+  CommentContainer,
+  ReactionButton,
+  ResponsesS
+} from "./Styled";
 import ProfileInfo from "./ProfileInfo";
-import { Row, Col, Button } from "reactstrap";
-
+import { Row, Col, Button, Collapse } from "reactstrap";
+import CommentResponseMap from "./CommentResponseMap";
 export default class Comment extends React.Component {
+  constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      collapse: false,
+      responses: [
+        {
+          username: "Ldcastellanosa",
+          name: "Daniela",
+          text: "Camilo me ama mas",
+          likes: 2,
+          datetime: "2018",
+          liked_by_user: false,
+          profile_photo: "route"
+        },
+        {
+          username: "Caasanchezcr",
+          name: "Camilo",
+          text: "Es verdad",
+          likes: 2,
+          datetime: "2018",
+          liked_by_user: false,
+          profile_photo: "route"
+        }
+      ],
+      numberresponses: 2
+    };
+  }
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
+  }
   render() {
     return (
       <CommentContainer>
@@ -26,10 +62,27 @@ export default class Comment extends React.Component {
                   Like ({this.props.likes})
                 </Button>
               </ReactionButton>
-
             </Row>
           </Col>
         </Row>
+
+        <Row className="responses">
+          <ResponsesS>
+            <Col>
+              <ReactionButton>
+                <Button outline color="secondary" onClick={this.toggle}>
+                  Respuestas ({this.state.numberresponses})
+                </Button>
+              </ReactionButton>
+            </Col>
+          </ResponsesS>
+        </Row>
+        <Collapse isOpen={this.state.collapse}>
+          <CommentResponseMap
+            number={this.state.numberresponses}
+            comments={this.state.responses}
+          />
+        </Collapse>
       </CommentContainer>
     );
   }
@@ -39,6 +92,5 @@ Comment.propTypes = {
   name: PropTypes.string.isRequired,
   nickname: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
-  likes: PropTypes.number.isRequired,
-
+  likes: PropTypes.number.isRequired
 };

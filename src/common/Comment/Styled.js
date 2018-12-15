@@ -2,13 +2,18 @@ import styled from "styled-components";
 import { Palette } from "../../themes/colors";
 
 const CommentContainer = styled.div`
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #bbbbbb;
   padding: 1%;
+  display: block;
+  width: ${props => (props.w ? props.w : "100%")};
   margin: 1%;
-  border: 2px solid ${Palette.grayoff};
   p {
     text-align: justify;
     padding-right: 1%;
+  }
+  .responses {
+    justify-content: end;
   }
 `;
 
@@ -17,6 +22,7 @@ const ProfileInfoContainer = styled.div`
   width: 100%;
   text-align: center;
   border-right: 1px solid ${Palette.grayoff};
+  color: #bbbbbb;
   padding: 2%;
   img {
     width: 100px;
@@ -40,12 +46,42 @@ const ReactionButton = styled.div`
 
 const MapContainer = styled.div`
   margin: 1%;
-  padding: 1%;
+  padding: 2%;
   text-align: center;
-  background-color: ${Palette.blackNavbar};
+  background-color: rgba(0, 0, 0, 0.4);
   h1 {
     color: ${Palette.white};
   }
+`;
+const MapResponseContainer = styled.div`
+  width: 100%;
+  margin: auto;
+  text-align: right;
+`;
+const ResponsesS = styled.div`
+  .responses {
+    justify-content: end;
+  }
+`;
+const Right = styled.div`
+  text-align: left;
+  margin: 10px;
+  padding: 10px;
+`;
+
+const Response = styled.div`
+  text-align: right;
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 80%;
+  display: inline-block;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+`;
+
+const Left = styled.div`
+  text-align: center;
+  width: 100%;
 `;
 
 export {
@@ -53,5 +89,10 @@ export {
   CommentContainer,
   ProfileInfoContainer,
   ReactionButton,
-  MapContainer
+  MapContainer,
+  MapResponseContainer,
+  Right,
+  Response,
+  Left,
+  ResponsesS
 };

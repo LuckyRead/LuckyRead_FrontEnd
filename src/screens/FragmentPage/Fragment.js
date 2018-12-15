@@ -17,11 +17,13 @@ import {
   TopicsRow,
   Left,
   Content,
-  Reaction
+  Reaction,
+  Comments
 } from "./Styled";
 import CommentMap from "../../common/Comment/CommentMap";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
+import CommentResponseMap from "../../common/Comment/CommentResponseMap";
 class Fragment extends React.Component {
   constructor(props) {
     super(props);
@@ -87,12 +89,18 @@ class Fragment extends React.Component {
               </Reaction>
             </Row>
           </Content>
+          <Comments>
+            <Row>
+              <Col>
+                <CommentMap fragmentid={this.state.fragment.id} />
+              </Col>
+            </Row>
+          </Comments>
         </FragmentContent>
-        <CommentMap fragmentid={this.state.fragment.id}></CommentMap>
       </div>
     ) : (
-        <div>Cargando</div>
-      );
+      <div>Cargando</div>
+    );
     return <div>{statistic}</div>;
   }
 }
