@@ -10,13 +10,26 @@ class RandomFragmentPage extends React.Component {
     this.state = {
       randomfragment: [],
       topics: [],
-      randomTopic: 0
+      randomTopic: 0,
+      // 0 de los dos, 1 usuarios, 2 lucky read
+      mode: this.setMode()
     };
     this.request = this.request.bind(this);
+    this.modifyRFType = this.modifyRFType.bind(this);
   }
-
+  setMode() {
+    if (localStorage.getItem("randomfragmenttype") === null) {
+      return 0;
+    } else {
+      return parseInt(localStorage.getItem("randomfragmenttype"));
+    }
+  }
   componentDidMount() {
     this.request();
+  }
+  modifyRFType(number) {
+    localStorage.setItem("randomfragmenttype", number);
+    this.setState({ mode: number });
   }
 
   request = e => {
@@ -34,6 +47,8 @@ class RandomFragmentPage extends React.Component {
           randomfragment: response["data"],
           topics: response["data"].topics
         });
+        console.log("randomfragment");
+
         console.log(this.state.randomfragment);
       },
       err => {
@@ -50,6 +65,8 @@ class RandomFragmentPage extends React.Component {
           randomfragment={this.state.randomfragment}
           topicsArray={this.state.topics}
           request={this.request}
+          mode={this.state.mode}
+          modifyMode={this.modifyRFType}
         />
       </PageContainer>
     ) : (
