@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import {
+  Form,
+  FormGroup,
+  Label,
+  Input,
   Row,
   Col,
   Button,
@@ -14,7 +18,10 @@ import {
   ProfilePhotoContainer,
   InfoContainer,
   Palette,
-  AllInfoContainer
+  AllInfoContainer,
+  EditButton,
+  TalkToUsS,
+  TalkToUsTextS
 } from "./Styled";
 import ChangeAvatar from "./ChangeAvatar";
 
@@ -26,18 +33,68 @@ export default class ProfileCard extends Component {
       //posts: [],
       path: null,
       base_64_image: null,
-      user_data: ""
+      user_data: "",
+      talkToUs: "Escribe algo sobre ti",
+      editingTalkToUs: false,
     };
     this.toggle = this.toggle.bind(this);
+    this.toggleTTU = this.toggleTTU.bind(this);
+    this.handleUserInput = this.handleUserInput.bind(this);
   }
+
+  toggleTTU() {
+    this.setState({
+      editingTalkToUs: true,
+    })
+  }
+
+  handleUserInput = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({ [name]: value });
+  };
+
+
+  changeTalkToUs = event => {
+    event.preventDefault();
+    console.log("Cambiando talk to us");
+    console.log(this.state.talkToUs)
+    axios({
+      method: "PATCH",
+      url: "https://luckyread-backend.herokuapp.com/api/user/change_talk",
+      usuario: {
+        talk_to_us: "nuevo talk to us"
+      },
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    })
+      .then(response => {
+        console.log("Talk to us changed")
+        console.log(response);
+        this.setState({
+          editingTalkToUs: false,
+        })
+
+      })
+      .catch(function (error) {
+        console.log("error cambiando usuario")
+        console.log(error);
+      });
+
+  }
+
+
   toggle() {
     let newState = Object.assign({}, this.state);
     newState.modal = !newState.modal;
     this.setState(newState);
   }
+
   Reload() {
     window.location.reload();
   }
+
   componentWillMount() {
     axios({
       method: "GET",
@@ -47,12 +104,15 @@ export default class ProfileCard extends Component {
       }
     }).then(
       response => {
-        console.log("respuesta back con url");
+        console.log("info del usuario")
         console.log(response);
         let newState = Object.assign({}, this.state);
         newState.user_data = response["data"];
-        this.setState(newState);
 
+        if (newState.user_data.talk_to_us != null) {
+          newState.talkToUs = newState.user_data.talk_to_us
+        }
+        this.setState(newState);
         //console.log(response["data"])
         const path_pp =
           "https://luckyread-backend.herokuapp.com/api/photo/" +
@@ -66,6 +126,7 @@ export default class ProfileCard extends Component {
           method: "GET",
           url: path_pp
         }).then(res => {
+
           console.log(res);
           let newState = Object.assign({}, this.state);
           newState.base_64_image =
@@ -107,7 +168,33 @@ export default class ProfileCard extends Component {
             <div className="skinny">{this.state.user_data.city}</div>
           </InfoContainer>
           <InfoContainer border marginTop="5%" marginBottom="10%">
-            <div className="about">{talkToUs}</div>
+            {this.state.editingTalkToUs ?
+              <FormGroup>
+                <Input
+                  type="textarea"
+                  name="talkToUs"
+                  id="talkToUs"
+                  placeholder="Escribe algo sobre ti"
+                  size="sm"
+                  onChange={this.handleUserInput} />
+                <EditButton onClick={this.changeTalkToUs}>
+                  Guardar
+                </EditButton>
+              </FormGroup> :
+
+              <TalkToUsS>
+                <TalkToUsTextS>
+                  <div className="about">{this.state.talkToUs}</div>
+                </TalkToUsTextS>
+                <EditButton onClick={this.toggleTTU}>
+                  Editar
+                  </EditButton>
+              </TalkToUsS>
+            }
+
+
+
+
           </InfoContainer>
         </AllInfoContainer>
 

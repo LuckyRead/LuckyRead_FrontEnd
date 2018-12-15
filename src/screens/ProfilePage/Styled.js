@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
+import { Button } from "reactstrap";
 import img from "../../resources/paper.png";
 import paper from "../../resources/paper2.jpeg";
+
 const ProfileContainer = styled.div`
   margin-top: 20px;
   margin-left: 20px;
@@ -11,6 +13,10 @@ const ProfileContainer = styled.div`
 const ProfileCardContainer = styled.div`
   width: 100%;
 `;
+
+
+
+
 
 const TabContainer = styled.div`
   color: #bbbbbb;
@@ -134,9 +140,12 @@ const TabContent = styled.div`
 const RowInfo = styled.div`
   width: 100%;
   margin-top: 2% !important;
+  text-align: center;
   .FullButton {
-    width: 50% !important;
-    margin-left: 25%;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+
   }
 `;
 
@@ -163,6 +172,32 @@ const InformationContentS = styled.div`
   }
 `;
 
+
+
+const TalkToUsS = styled.div`
+  text-align: right;
+`;
+
+const TalkToUsTextS = styled.div`
+  text-align: center;
+`;
+
+const EditButton = styled(Button)`
+  align-items: center;
+  border-radius: 0px;
+  font-size: 10px;
+  padding: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #171f31;
+  display: inherit;
+
+  display: inline-block;
+`;
+
+
+
+
 export {
   Palette,
   ProfileContainer,
@@ -177,5 +212,8 @@ export {
   RowInfo,
   CollapseContainer,
   TitleContainer,
-  InformationContentS
+  InformationContentS,
+  EditButton,
+  TalkToUsS,
+  TalkToUsTextS
 };

@@ -358,28 +358,7 @@ class InformationTab extends Component {
             </Collapse>
           </RowInfo>
         </Row>
-        <Row>
-          <RowInfo>
-            <Button
-              color="info"
-              onClick={() => this.toggleAbout()}
-              className="FullButton"
-            >
-              Actualiza tu estado
-            </Button>
-            <Collapse isOpen={this.state.collapseAbout}>
-              <CollapseContainer>
-                <Form>
-                  <FormGroup>
-                    <Label for="aboutText">Cuéntanos sobre ti</Label>
-                    <Input type="textarea" name="about" id="aboutText" />
-                    <Button className="ChangeButton">Cambiar</Button>
-                  </FormGroup>
-                </Form>
-              </CollapseContainer>
-            </Collapse>
-          </RowInfo>
-        </Row>
+
 
         <Row>
           <RowInfo>
