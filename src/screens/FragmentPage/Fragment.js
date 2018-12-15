@@ -17,14 +17,14 @@ import {
   TopicsRow,
   Left,
   Content,
-  Reaction
+  Reaction,
+  Comments
 } from "./Styled";
-
-import pdficon from "../../resources/paper_plane.png";
-import axios from "axios";
-import PopUpExample from "../PopUp/PopUpExample";
+import CommentMap from "../../common/Comment/CommentMap";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
+import CommentResponseMap from "../../common/Comment/CommentResponseMap";
+import MakeComment from "../../common/Comment/MakeComment";
 class Fragment extends React.Component {
   constructor(props) {
     super(props);
@@ -90,11 +90,21 @@ class Fragment extends React.Component {
               </Reaction>
             </Row>
           </Content>
+          <Row>
+            <MakeComment type="comment" />
+          </Row>
+          <Comments>
+            <Row>
+              <Col>
+                <CommentMap fragmentid={this.state.fragment.id} />
+              </Col>
+            </Row>
+          </Comments>
         </FragmentContent>
       </div>
     ) : (
-        <div>Cargando</div>
-      );
+      <div>Cargando</div>
+    );
     return <div>{statistic}</div>;
   }
 }
