@@ -56,16 +56,6 @@ export default class ProfileTabs extends React.Component {
             </NavLink>
           </NavItem>
 
-          <NavItem className="itemNav">
-            <NavLink
-              className={classnames({ active: this.state.activeTab === "3" })}
-              onClick={() => {
-                this.toggle("3");
-              }}
-            >
-              Favoritos
-            </NavLink>
-          </NavItem>
 
           <NavItem className="itemNav">
             <NavLink

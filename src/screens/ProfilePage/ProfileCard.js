@@ -62,8 +62,8 @@ export default class ProfileCard extends Component {
     axios({
       method: "PATCH",
       url: "https://luckyread-backend.herokuapp.com/api/user/change_talk",
-      usuario: {
-        talk_to_us: "nuevo talk to us"
+      data: {
+        talk_to_us: this.state.talkToUs
       },
       headers: {
         Authorization: "Bearer " + localStorage.jwtToken
@@ -176,7 +176,8 @@ export default class ProfileCard extends Component {
                   id="talkToUs"
                   placeholder="Escribe algo sobre ti"
                   size="sm"
-                  onChange={this.handleUserInput} />
+                  onChange={this.handleUserInput}
+                />
                 <EditButton onClick={this.changeTalkToUs}>
                   Guardar
                 </EditButton>
