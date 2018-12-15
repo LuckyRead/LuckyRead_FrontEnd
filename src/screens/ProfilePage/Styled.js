@@ -189,6 +189,18 @@ const EditButton = styled(Button)`
   display: inline-block;
 `;
 
+const Topics = styled(Button)`
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+
+`;
+
+const TopicsText = styled(Button)`
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+`;
 
 
 
@@ -209,5 +221,7 @@ export {
   InformationContentS,
   EditButton,
   TalkToUsS,
-  TalkToUsTextS
+  TalkToUsTextS,
+  Topics,
+  TopicsText
 };
