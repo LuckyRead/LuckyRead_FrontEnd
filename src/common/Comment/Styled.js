@@ -17,6 +17,30 @@ const CommentContainer = styled.div`
   }
 `;
 
+const CommentContainerS = styled.div`
+  margin: auto;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #bbbbbb;
+  padding: 2%;
+  display: block;
+  width: ${props => (props.w ? props.w : "100%")};
+  margin: 1%;
+  h4 {
+    color: #bbbbbb;
+    font-size: 150%;
+    margin-left: 2%;
+  }
+  .responses {
+    justify-content: end;
+  }
+  .position-relative.form-group {
+    width: 100%;
+    padding: 1.5%;
+  }
+`;
+
 const ProfileInfoContainer = styled.div`
   margin: auto;
   width: 100%;
@@ -94,5 +118,6 @@ export {
   Right,
   Response,
   Left,
-  ResponsesS
+  ResponsesS,
+  CommentContainerS
 };

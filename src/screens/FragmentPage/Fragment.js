@@ -24,6 +24,7 @@ import CommentMap from "../../common/Comment/CommentMap";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
 import CommentResponseMap from "../../common/Comment/CommentResponseMap";
+import MakeComment from "../../common/Comment/MakeComment";
 class Fragment extends React.Component {
   constructor(props) {
     super(props);
@@ -89,6 +90,9 @@ class Fragment extends React.Component {
               </Reaction>
             </Row>
           </Content>
+          <Row>
+            <MakeComment />
+          </Row>
           <Comments>
             <Row>
               <Col>
