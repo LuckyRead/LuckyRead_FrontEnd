@@ -15,7 +15,7 @@ class SignedInLinks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: localStorage.user
+      user: localStorage.getItem("user"),
     };
     this.handleLogout = this.handleLogout.bind(this);
   }
@@ -28,7 +28,7 @@ class SignedInLinks extends Component {
   };
 
   render() {
-    const user = localStorage.user
+    const user = localStorage.getItem("user");
     return (
       <SignedInLinksContainer>
         <Nav className="ml-auto" navbar>

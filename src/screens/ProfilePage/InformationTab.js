@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import axios from "axios";
+
 import {
   Row,
   Collapse,
@@ -16,6 +17,7 @@ import {
 import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
 import { FormErrors } from "../../common/formErrors/FormErrors";
 import { userActions } from "../../_actions";
+import { history } from "../../_helpers";
 class InformationTab extends Component {
   constructor(props) {
     super(props);
@@ -176,8 +178,7 @@ class InformationTab extends Component {
           loaded: false,
           finishloaded: true
         });
-        //alert("Contraseña cambiada");
-        //window.location.reload(true);
+
       })
       .catch(function (error) {
         console.log(error);
@@ -210,6 +211,7 @@ class InformationTab extends Component {
           finishloaded: true
         });
         localStorage.setItem("user", n_username)
+        window.location.reload();
       })
       .catch(function (error) {
         console.log("error cambiando usuario")
