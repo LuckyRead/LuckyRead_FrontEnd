@@ -1,21 +1,14 @@
 import React from "react";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
-  Right,
-  PageContainer,
   MessageFragment,
   FragmentContent,
   ImageContainer,
-  FragmentTitle,
   FragmentText,
-  StatisticsContainer,
-  FragmentButtons,
   Topics,
-  TopicsText,
   TopicsRow,
-  Left,
   Content,
   Reaction,
   Comments
@@ -23,7 +16,6 @@ import {
 import CommentMap from "../../common/Comment/CommentMap";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
-import CommentResponseMap from "../../common/Comment/CommentResponseMap";
 import MakeComment from "../../common/Comment/MakeComment";
 class Fragment extends React.Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Palette, LoadingContainer } from "./Styled";
+import { LoadingContainer } from "./Styled";
 
 export default class Loading extends React.Component {
   render() {
@@ -7,7 +7,7 @@ export default class Loading extends React.Component {
       <div>
         <LoadingContainer>
           <div>
-            <img src={require("../../resources/Loading.gif")} />
+            <img src={require("../../resources/Loading.gif")} alt="Loading" />
           </div>
         </LoadingContainer>
       </div>

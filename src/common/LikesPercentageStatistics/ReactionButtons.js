@@ -2,11 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import LikesPercentageStatistics from "./LikesPercentageStatistic";
 import { Button, Row } from "reactstrap";
-import {
-  Palette,
-  ReactionButtonsContainer,
-  StatisticsContainer
-} from "./Styled";
+import { ReactionButtonsContainer, StatisticsContainer } from "./Styled";
 
 export default class ReactionButtons extends React.Component {
   constructor(props) {

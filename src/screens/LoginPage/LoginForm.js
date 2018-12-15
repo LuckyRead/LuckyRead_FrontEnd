@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Button } from "reactstrap";
 import { userActions } from "../../_actions";
@@ -40,15 +39,16 @@ class LoginForm extends React.Component {
     const { dispatch } = this.props;
     if (type === "facebook") {
       console.log("token facebook ");
-      axios.post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
+      axios
+        .post("https://luckyread-backend.herokuapp.com/api/login/fb", res)
         .then(res => {
           console.log(res);
           dispatch(userActions.login_social(res));
-        })
-        // .catch(function(error) {
-        //   console.log("error al tratar de conseguir token del back - facebook");
-        //   console.log(error)
-        // });
+        });
+      // .catch(function(error) {
+      //   console.log("error al tratar de conseguir token del back - facebook");
+      //   console.log(error)
+      // });
     } else {
       console.log("token google");
       axios
@@ -162,33 +162,29 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    const { loggingIn } = this.props;
-    const { username, password, submitted } = this.state;
-
     const responseFacebook = response => {
-        // console.log('response fb: ');
-        // console.log(response);
-        if(response['accessToken'] && !response['error']){
-          this.setState({
-            loadedfb: true
-          });
-          this.signup(response, "facebook");
-        }else{
-          this.setState({
-            loadedfb: false
-          });
-        }
-
-    }
+      // console.log('response fb: ');
+      // console.log(response);
+      if (response["accessToken"] && !response["error"]) {
+        this.setState({
+          loadedfb: true
+        });
+        this.signup(response, "facebook");
+      } else {
+        this.setState({
+          loadedfb: false
+        });
+      }
+    };
     const responseGoogle = response => {
       // console.log('response google: ');
       // console.log(response);
-      if (!response['error']) {
+      if (!response["error"]) {
         this.setState({
           loadedgoogle: true
         });
         this.signup(response, "google");
-      }else{
+      } else {
         this.setState({
           loadedgoogle: false
         });

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import API from "../../api";
 import Topic from "./Topic";
-import dark from "../../resources/dark.jpeg";
-import { Button, Row, Col } from "reactstrap";
-import { TopicsContainer, NextButton, Title } from "../CategoriesInitPage/Styled"
-import { Link } from "react-router-dom";
+import { Row, Col } from "reactstrap";
+import { TopicsContainer } from "../CategoriesInitPage/Styled";
 
 export default class TopicsFragmentsPage extends Component {
   constructor(props) {

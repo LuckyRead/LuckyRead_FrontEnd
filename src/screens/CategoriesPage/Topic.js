@@ -1,12 +1,8 @@
-import React, { PureComponent } from 'react'
-import { Container, Row, Col } from 'reactstrap';
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { TopicCard, TopicCardSelect } from "../CategoriesInitPage/Styled";
-import { Link } from "react-router-dom";
 import "./preferences.css";
-import axios from 'axios';
 import { history } from "../../_helpers";
-
 
 export default class Topic extends PureComponent {
   constructor(props) {

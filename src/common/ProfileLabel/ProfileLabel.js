@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import {
   ProfileLabelContainer,
   PhotoContainer,
-  FollowContainer,
-  Palette
+  FollowContainer
 } from "./Styled";
 import { Row, Col, Button } from "reactstrap";
 import StringLabel from "./StringLabel";
-import axios from 'axios';
+import axios from "axios";
 
 export default class ProfileLabel extends React.Component {
   constructor(props) {
@@ -22,8 +21,8 @@ export default class ProfileLabel extends React.Component {
     let newState = Object.assign({}, this.state);
     newState.followed = !newState.followed;
     this.setState(newState);
-    if (newState.followed === true){
-      console.log('entra aquí')
+    if (newState.followed === true) {
+      console.log("entra aquí");
       axios({
         method: "POST",
         url: "https://luckyread-backend.herokuapp.com/api/friend/follow",
@@ -35,13 +34,13 @@ export default class ProfileLabel extends React.Component {
         }
       }).then(
         response => {
-          console.log(response)
+          console.log(response);
         },
         err => {
-          console.log('no se pudo seguir a la persona')
+          console.log("no se pudo seguir a la persona");
         }
       );
-    }else{
+    } else {
       axios({
         method: "POST",
         url: "https://luckyread-backend.herokuapp.com/api/friend/unfollow",
@@ -53,10 +52,10 @@ export default class ProfileLabel extends React.Component {
         }
       }).then(
         response => {
-          console.log(response)
+          console.log(response);
         },
         err => {
-          console.log('no se pudo dar unfollow a la persona')
+          console.log("no se pudo dar unfollow a la persona");
         }
       );
     }
@@ -69,10 +68,7 @@ export default class ProfileLabel extends React.Component {
         <Row>
           <Col xs="4">
             <PhotoContainer>
-              <img
-                src={this.props.photosrc}
-                alt="Imagen de perfil"
-              />
+              <img src={this.props.photosrc} alt="Imagen de perfil" />
             </PhotoContainer>
           </Col>
           <Col xs="6">

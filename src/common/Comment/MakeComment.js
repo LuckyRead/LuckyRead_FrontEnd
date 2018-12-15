@@ -1,15 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-  Palette,
-  CommentContainer,
   ReactionButton,
   ResponsesS,
   CommentContainerS,
   ResponseContainerS
 } from "./Styled";
-import ProfileInfo from "./ProfileInfo";
-import { Row, Col, Button, Collapse, FormGroup, Input } from "reactstrap";
+import { Row, Col, Button, FormGroup, Input } from "reactstrap";
 export default class MakeComment extends React.Component {
   render() {
     const t =

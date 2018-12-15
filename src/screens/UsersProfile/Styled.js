@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
-import img from "../../resources/paper.png";
-import paper from "../../resources/paper2.jpeg";
 const ProfileContainer = styled.div`
   margin-top: 20px;
   margin-left: 20px;

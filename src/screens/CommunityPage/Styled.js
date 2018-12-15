@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
-import paper from "../../resources/paper.png";
 
 const CommunityPageContainer = styled.div`
   margin: 2% 1% 1% 1%;

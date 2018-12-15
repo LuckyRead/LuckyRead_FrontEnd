@@ -1,13 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Palette,
-  CommentContainer,
-  ReactionButton,
-  Right,
-  Response,
-  Left
-} from "./Styled";
+import { ReactionButton, Right, Response, Left } from "./Styled";
 import ProfileInfo from "./ProfileInfo";
 import { Row, Col, Button } from "reactstrap";
 

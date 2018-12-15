@@ -1,21 +1,8 @@
 import React, { PureComponent } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardImg,
-  CardText,
-  CardBody,
-  Button
-} from "reactstrap";
+import { Card, CardImg, CardText, CardBody } from "reactstrap";
 import { Cs } from "./Styled";
-import { Link } from "react-router-dom";
 
 export default class FragmentCard extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Card

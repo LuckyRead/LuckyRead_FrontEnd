@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
-import paper from "../../resources/paper.png";
 
 const CategoryContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.4);

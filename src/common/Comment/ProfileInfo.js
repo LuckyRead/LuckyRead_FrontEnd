@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Palette, ProfileInfoContainer } from "./Styled";
-import { Row, Col } from "reactstrap";
+import { ProfileInfoContainer } from "./Styled";
 
 export default class ProfileInfo extends React.Component {
   render() {

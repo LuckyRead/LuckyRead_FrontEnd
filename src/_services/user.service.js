@@ -1,7 +1,6 @@
 /* import { authHeader } from "../_helpers"; */
 import API from "../api";
 import axios from "axios";
-import { history } from "../_helpers";
 export const userService = {
   login,
   login_social,
@@ -81,8 +80,8 @@ function followFriends() {
     headers: {
       Authorization: "Bearer " + localStorage.jwtToken
     }
-  }).then(response =>{
-    console.log('FRIENDS FOLLOW')
-    console.log(response)
+  }).then(response => {
+    console.log("FRIENDS FOLLOW");
+    console.log(response);
   });
 }

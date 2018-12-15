@@ -40,9 +40,7 @@ function login(auth) {
   function request(user) {
     return { type: userConstants.LOGIN_REQUEST, user };
   }
-  function success(user) {
-    return { type: userConstants.LOGIN_SUCCESS, user };
-  }
+
   function failure(error) {
     return { type: userConstants.LOGIN_FAILURE, error };
   }
@@ -217,34 +215,6 @@ function verify_email(email) {
   }
   function failure(error) {
     return { type: userConstants.VALIDATE_EMAIL_FAILURE, error };
-  }
-}
-
-function addAllTopics(user) {
-  return dispatch => {
-    dispatch(request(user));
-
-    userService.register(user).then(
-      response => {
-        dispatch(success());
-        /*         history.push("/"); */
-        dispatch(alertActions.success("Registro exitoso"));
-      },
-      error => {
-        dispatch(failure(error.toString()));
-        dispatch(alertActions.error("Oh, algo salio mal"));
-      }
-    );
-  };
-
-  function request(user) {
-    return { type: userConstants.REGISTER_REQUEST, user };
-  }
-  function success(user) {
-    return { type: userConstants.REGISTER_SUCCESS, user };
-  }
-  function failure(error) {
-    return { type: userConstants.REGISTER_FAILURE, error };
   }
 }
 

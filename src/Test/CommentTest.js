@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import CommentMap from "../common/Comment/CommentMap";
 export default class CommentTest extends React.Component {
   constructor(props) {

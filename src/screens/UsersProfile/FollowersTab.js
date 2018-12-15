@@ -1,21 +1,7 @@
 import React, { Component } from "react";
-import {
-  Row,
-  Col,
-  Collapse,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText
-} from "reactstrap";
-import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
+
+import { TabContent } from "./Styled.js";
 import ProfileLabelMap from "../../common/ProfileLabel/ProfileLabelMap";
-import axios from 'axios';
 
 export default class FollowersTab extends Component {
   constructor(props) {
@@ -25,7 +11,7 @@ export default class FollowersTab extends Component {
     };
   }
 
-  componentWillMount(){
+  componentWillMount() {
     // axios({
     //   method: "get",
     //   url:

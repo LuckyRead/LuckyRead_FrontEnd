@@ -1,19 +1,8 @@
 import React, { Component } from "react";
-import Spinner from "react-spinkit";
-import {
-  Row,
-  Col
-} from "reactstrap";
-import { TabContent} from "./Styled.js";
-import { FormErrors } from "../../common/formErrors/FormErrors";
-import axios from "axios";
+import { Row } from "reactstrap";
+import { TabContent } from "./Styled.js";
 import InformationContent from "./InformationContent";
 export default class InformationTab extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   render() {
     return (
       <TabContent>

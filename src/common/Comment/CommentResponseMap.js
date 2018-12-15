@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Palette, MapResponseContainer, Response } from "./Styled";
+import { MapResponseContainer } from "./Styled";
 import CommentResponse from "./CommentResponse";
 import MakeComment from "./MakeComment";
-import { Row, Col, Button } from "reactstrap";
-import axios from "axios";
 
 export default class CommentResponseMap extends React.Component {
   constructor(props) {

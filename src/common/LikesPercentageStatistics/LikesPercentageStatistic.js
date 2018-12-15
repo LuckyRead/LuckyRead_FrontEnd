@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Palette, PercentageContainer } from "./Styled";
+import { PercentageContainer } from "./Styled";
 import CircularProgressbar from "react-circular-progressbar";
 
 export default class LikesPercentageStatistics extends React.Component {
