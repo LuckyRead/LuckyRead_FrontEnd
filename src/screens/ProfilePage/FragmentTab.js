@@ -8,7 +8,6 @@ import {
   InputGroupText,
   InputGroupAddon,
   Input,
-  FormText,
   Modal,
   ModalHeader,
   ModalBody,
@@ -42,15 +41,15 @@ export default class FragmentTab extends Component {
   handleChange = e => {
     const name = e.target.name;
     const value = e.target.value;
-    this.setState({[name]: value })
+    this.setState({ [name]: value })
     console.log(this.state[name])
   }
 
-  imageid(id){
-    this.setState({image_id: id })
+  imageid(id) {
+    this.setState({ image_id: id })
   }
 
-  handleClick  = event => {
+  handleClick = event => {
     event.preventDefault();
     this.setState({
       loaded: true
@@ -75,9 +74,9 @@ export default class FragmentTab extends Component {
         content: contenido_f,
         source: "user",
         image_id: image_f,
-        sub_topics_id: [1,2,3,4]
+        sub_topics_id: [1, 2, 3, 4]
       }
-    }).then(response =>{
+    }).then(response => {
       console.log(response)
       this.setState({
         loaded: false,
@@ -107,7 +106,7 @@ export default class FragmentTab extends Component {
               <Input
                 name="titulo"
                 value={this.state.titulo}
-                onChange={this.handleChange}/>
+                onChange={this.handleChange} />
             </InputGroup>
           </TitleContainer>
           <FormGroup>
@@ -126,7 +125,7 @@ export default class FragmentTab extends Component {
               name="contenido"
               id="contenido"
               value={this.state.contenido}
-              onChange={this.handleChange}/>
+              onChange={this.handleChange} />
           </FormGroup>
 
           <Button color="info" style={{ marginRight: "1%" }} onClick={this.toggle}>
@@ -136,30 +135,30 @@ export default class FragmentTab extends Component {
             {this.state.loaded ? (
               <Spinner name="circle" fadein="none" color="white" />
             ) : (
-              "Subir fragmento"
-            )}
+                "Subir fragmento"
+              )}
           </Button>
           {this.state.finishloaded ? (
             <p className="text-success text-center">
               <strong>El fragmento ha sido creado exitosamente</strong>
             </p>
           ) : null}
-            <Modal
-              isOpen={this.state.modal}
-              toggle={this.toggle}
-              className={this.props.className}
+          <Modal
+            isOpen={this.state.modal}
+            toggle={this.toggle}
+            className={this.props.className}
 
-            >
-              <ModalHeader toggle={this.toggle}>Agregar imagen</ModalHeader>
-              <ModalBody>
-                <AddImageFragment imageid = {this.imageid}/>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="primary" onClick={this.Reload}>
-                  Cerrar
+          >
+            <ModalHeader toggle={this.toggle}>Agregar imagen</ModalHeader>
+            <ModalBody>
+              <AddImageFragment imageid={this.imageid} />
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={this.Reload}>
+                Cerrar
                 </Button>{" "}
-              </ModalFooter>
-            </Modal>
+            </ModalFooter>
+          </Modal>
         </Form>
       </TabContent>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Palette, TabContainer } from "./Styled";
+import { TabContainer } from "./Styled";
 import {
   TabContent,
   TabPane,
@@ -18,15 +18,18 @@ import FragmentTab from "./FragmentTab";
 export default class ProfileTabs extends React.Component {
   constructor(props) {
     super(props);
-
     this.toggle = this.toggle.bind(this);
     this.state = {
-      activeTab: "1"
+      activeTab: "1",
+      citiesList: {},
     };
   }
 
+  componentDidMount() {
+    this.renderCities();
+  }
+
   renderCities() {
-    let citiesList = {};
     axios({
       method: "GET",
       url: "https://luckyread-backend.herokuapp.com/api/cities/get_all",
@@ -35,13 +38,10 @@ export default class ProfileTabs extends React.Component {
       }
     }).then(response => {
       console.log('cities')
-      citiesList = response.data.all_cities;
-      console.log(citiesList)
+      this.setState({
+        citiesList: response.data.all_cities
+      }, () => console.log("nuevo estado cities", this.state.citiesList))
     });
-    console.log("cities queda asi")
-    console.log(citiesList)
-    return citiesList
-
   }
 
   toggle(tab) {
@@ -53,7 +53,7 @@ export default class ProfileTabs extends React.Component {
   }
 
   render() {
-    const citiesList = this.renderCities();
+
     return (
       <TabContainer>
         <Nav tabs>
@@ -104,7 +104,7 @@ export default class ProfileTabs extends React.Component {
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             <Row className="divNav">
-              <InformationTab citiesList={citiesList} />
+              <InformationTab citiesList={this.state.citiesList} />
             </Row>
           </TabPane>
           <TabPane tabId="2">

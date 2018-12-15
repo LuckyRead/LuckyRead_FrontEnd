@@ -18,7 +18,6 @@ import {
 import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
 import { FormErrors } from "../../common/formErrors/FormErrors";
 import { userActions } from "../../_actions";
-import { history } from "../../_helpers";
 class InformationTab extends Component {
   constructor(props) {
     super(props);
@@ -31,10 +30,10 @@ class InformationTab extends Component {
       collapseEmail: false,
       collapseUsername: false,
       password: "",
+      confirmpassword: "",
       username: "",
       newUsername: "",
-      newUsernameLoaded: false,
-      confirmpassword: "",
+      city: 0,
       loaded: false,
       finishloaded: false,
       formErrors: { password: "", confirmpassword: "" },
@@ -43,7 +42,8 @@ class InformationTab extends Component {
       newUsernameValid: false,
       formValid: false
     };
-    //this.handleUserInput = this.handleUserInput.bind(this);
+    this.handleUserInput = this.handleUserInput.bind(this);
+    this.changeCity = this.changeCity.bind(this);
     //this.handleSubmitPassword = this.handleSubmitPassword.bind(this);
   }
 
@@ -86,24 +86,51 @@ class InformationTab extends Component {
 
 
   renderCities() {
-    console.log("render cities", this.props.citiesList)
+    console.log("cities", this.props.citiesList)
+    const citiesKeys = Object.keys(this.props.citiesList);
+    const citiesOptions = []
+    citiesKeys.forEach(key => {
+      citiesOptions.push(
+        <option value={this.props.citiesList[key].id}>{this.props.citiesList[key].name}</option>
+      )
+    });
 
-    return (
-      <div>
-        <option>Ciudad 1</option>
-        <option>Ciudad 2</option>
-        <option>Ciudad 3</option>
-        <option>Ciudad 4</option>
-        <option>Ciudad 5</option>
-      </div>
-    )
+    return citiesOptions
+  }
+
+  changeCity() {
+    console.log("cambiando ciudad a", this.state.city)
+    axios({
+      method: "PATCH",
+      url: "https://luckyread-backend.herokuapp.com/api/users/change_city",
+      data: {
+        city_id: this.state.city
+      },
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    })
+      .then(response => {
+        console.log(response);
+        this.setState({
+          loaded: false,
+          finishloaded: true
+        });
+        window.location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
   }
 
   handleUserInput = e => {
+    console.log("name", e.target.name)
+    console.log("value", e.target.value)
     const name = e.target.name;
     const value = e.target.value;
     this.setState({ [name]: value }, () => {
+      console.log(this.state.city)
       this.validateField(name, value);
     });
   };
@@ -149,6 +176,9 @@ class InformationTab extends Component {
           console.log("dispatch verify_username");
           dispatch(userActions.verify_username(this.state.newUsername));
         }
+        break;
+
+      case "city":
         break;
 
       default:
@@ -363,11 +393,26 @@ class InformationTab extends Component {
                 <Form>
                   <FormGroup>
                     <Label for="selectCity">Selecciona tu ciudad</Label>
-                    <Input type="select" name="select" id="selectCity">
+                    <Input
+                      type="select"
+                      name="city"
+                      id="selectCity"
+                      onChange={this.handleUserInput}
+                    >
                       {this.renderCities()}
-
                     </Input>
-                    <Button className="ChangeButton">Cambiar</Button>
+                    <Button className="ChangeButton" onClick={this.changeCity} >
+                      {this.state.loaded ? (
+                        <Spinner name="circle" fadein="none" color="white" />
+                      ) : (
+                          "Cambiar"
+                        )}
+                    </Button>
+                    {this.state.finishloaded ? (
+                      <p className="text-success text-center">
+                        <strong>Ciudad cambiada exitosamente</strong>
+                      </p>
+                    ) : null}
                   </FormGroup>
                 </Form>
               </CollapseContainer>
