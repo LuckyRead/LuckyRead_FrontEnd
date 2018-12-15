@@ -2,6 +2,8 @@ import React from "react";
 import { Row, Col, Button, FormGroup, Label, CustomInput } from "reactstrap";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSmile, faFrown, faMeh } from "@fortawesome/free-solid-svg-icons";
 import {
   Left,
   Right,
@@ -13,7 +15,9 @@ import {
   Topics,
   TopicsRow,
   RandomFragmentS,
-  FilterContainer
+  FilterContainer,
+  Reaction,
+  ReactionS
 } from "./Styled";
 
 import CategoryTag from "../../common/Tags/CategoryTag";
@@ -89,7 +93,27 @@ class RandomFragment extends React.Component {
       <RandomFragmentS>
         <MessageFragment>
           <Row>
-            <Col>{this.props.randomfragment.title}</Col>
+            <Col lg="12">{this.props.randomfragment.title}</Col>
+            <ReactionS>
+              <Reaction color="#2baf5f">
+                <h6>
+                  <FontAwesomeIcon icon={faSmile} />
+                  {this.props.randomfragment.likes_number}
+                </h6>
+              </Reaction>
+              <Reaction color="#dfdf3a">
+                <h6>
+                  <FontAwesomeIcon icon={faMeh} />
+                  {this.props.randomfragment.meh_number}
+                </h6>
+              </Reaction>
+              <Reaction color="#df993a">
+                <h6>
+                  <FontAwesomeIcon icon={faFrown} />
+                  {this.props.randomfragment.dislikes_number}
+                </h6>
+              </Reaction>
+            </ReactionS>
           </Row>
         </MessageFragment>
         <FragmentContent>
@@ -163,7 +187,7 @@ class RandomFragment extends React.Component {
 }
 
 RandomFragment.propTypes = {
-  randomfragment: PropTypes.array.isRequired,
+  randomfragment: PropTypes.object.isRequired,
   modifyMode: PropTypes.func.isRequired,
   mode: PropTypes.number.isRequired
 };

@@ -47,6 +47,8 @@ class RandomFragmentPage extends React.Component {
           randomfragment: response["data"],
           topics: response["data"].topics
         });
+        console.log("randomfragment");
+
         console.log(this.state.randomfragment);
       },
       err => {

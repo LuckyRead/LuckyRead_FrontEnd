@@ -26,6 +26,23 @@ const MessageFragment = styled.div`
   text-align: center;
   background-color: rgba(0, 0, 0, 0.4);
   // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  h6 {
+    font-size: 20%;
+  }
+`;
+const ReactionS = styled.div`
+  width: 100%;
+  padding-top: 0px;
+  justify-content: center;
+  display: inherit;
+`;
+const Reaction = styled.div`
+  display: inline-block;
+  margin: 1%;
+  h6 {
+    color: ${props => (props.color ? props.color : "white")};
+    font-size: 40%;
+  }
 `;
 
 const Left = styled.div`
@@ -153,5 +170,7 @@ export {
   TopicsText,
   TopicsRow,
   RandomFragmentS,
-  FilterContainer
+  FilterContainer,
+  Reaction,
+  ReactionS
 };
