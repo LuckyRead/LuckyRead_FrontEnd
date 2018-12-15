@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import "./fragmentcontainer.css";
 import API from "../../api";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -71,8 +70,8 @@ class FragmentPage extends Component {
         />
       </PageContainer>
     ) : (
-      <Loading/>
-    );
+        <Loading />
+      );
 
     return <div>{fragment}</div>;
   }
