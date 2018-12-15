@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Palette, TabContainer } from "./Styled";
 import {
   TabContent,
@@ -24,6 +25,25 @@ export default class ProfileTabs extends React.Component {
     };
   }
 
+  renderCities() {
+    let citiesList = {};
+    axios({
+      method: "GET",
+      url: "https://luckyread-backend.herokuapp.com/api/cities/get_all",
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    }).then(response => {
+      console.log('cities')
+      citiesList = response.data.all_cities;
+      console.log(citiesList)
+    });
+    console.log("cities queda asi")
+    console.log(citiesList)
+    return citiesList
+
+  }
+
   toggle(tab) {
     if (this.state.activeTab !== tab) {
       this.setState({
@@ -31,7 +51,9 @@ export default class ProfileTabs extends React.Component {
       });
     }
   }
+
   render() {
+    const citiesList = this.renderCities();
     return (
       <TabContainer>
         <Nav tabs>
@@ -82,7 +104,7 @@ export default class ProfileTabs extends React.Component {
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             <Row className="divNav">
-              <InformationTab />
+              <InformationTab citiesList={citiesList} />
             </Row>
           </TabPane>
           <TabPane tabId="2">

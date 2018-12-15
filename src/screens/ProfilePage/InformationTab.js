@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 import {
@@ -40,12 +41,14 @@ class InformationTab extends Component {
       passwordValid: false,
       confirmpasswordValid: false,
       newUsernameValid: false,
-
       formValid: false
     };
     //this.handleUserInput = this.handleUserInput.bind(this);
     //this.handleSubmitPassword = this.handleSubmitPassword.bind(this);
   }
+
+
+
   togglePassword() {
     let newState = Object.assign({}, this.state);
     newState.collapsePassword = !newState.collapsePassword;
@@ -79,6 +82,22 @@ class InformationTab extends Component {
     let newState = Object.assign({}, this.state);
     newState.collapseUsername = !newState.collapseUsername;
     this.setState(newState);
+  }
+
+
+  renderCities() {
+    console.log("render cities", this.props.citiesList)
+
+    return (
+      <div>
+        <option>Ciudad 1</option>
+        <option>Ciudad 2</option>
+        <option>Ciudad 3</option>
+        <option>Ciudad 4</option>
+        <option>Ciudad 5</option>
+      </div>
+    )
+
   }
 
   handleUserInput = e => {
@@ -345,11 +364,8 @@ class InformationTab extends Component {
                   <FormGroup>
                     <Label for="selectCity">Selecciona tu ciudad</Label>
                     <Input type="select" name="select" id="selectCity">
-                      <option>Ciudad 1</option>
-                      <option>Ciudad 2</option>
-                      <option>Ciudad 3</option>
-                      <option>Ciudad 4</option>
-                      <option>Ciudad 5</option>
+                      {this.renderCities()}
+
                     </Input>
                     <Button className="ChangeButton">Cambiar</Button>
                   </FormGroup>
@@ -428,6 +444,14 @@ class InformationTab extends Component {
     );
   }
 }
+
+
+InformationTab.propTypes = {
+  citiesList: PropTypes.object.isRequired,
+
+};
+
+
 
 function mapStateToProps(state) {
 

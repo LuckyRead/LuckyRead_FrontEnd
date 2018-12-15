@@ -9,7 +9,10 @@ import ProfileCard from "./ProfileCard";
 import ProfileTabs from "./ProfileTabs";
 
 class ProfilePage extends Component {
+
+
   render() {
+
     return (
       <ProfileContainer>
         <Row>
