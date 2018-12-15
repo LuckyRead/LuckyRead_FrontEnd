@@ -1,26 +1,19 @@
 import React from "react";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Row, Col, Button } from "reactstrap";
 import PropTypes from "prop-types";
 import {
   Right,
-  PageContainer,
   MessageFragment,
   FragmentContent,
   ImageContainer,
-  FragmentTitle,
   FragmentText,
-  StatisticsContainer,
   FragmentButtons,
   Topics,
-  TopicsText,
   TopicsRow,
   Left,
   RandomFragmentS
 } from "./Styled";
-import RandomFragmentPage from "./RandomFragmentPageNRU";
-import pdficon from "../../resources/paper_plane.png";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import PopUpExample from "../PopUp/PopUpExample";
 import CategoryTag from "../../common/Tags/CategoryTag";
 class RandomFragment extends React.Component {

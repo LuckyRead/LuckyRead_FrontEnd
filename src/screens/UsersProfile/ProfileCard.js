@@ -1,19 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {
-  Row,
-  Col,
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter
-} from "reactstrap";
+
 import {
   ProfileCardDiv,
   ProfilePhotoContainer,
   InfoContainer,
-  Palette,
   AllInfoContainer
 } from "./Styled";
 
@@ -81,9 +72,7 @@ export default class ProfileCard extends Component {
     return (
       <ProfileCardDiv>
         <ProfilePhotoContainer>
-          <a onClick={this.toggle}>
-            <img alt="Imagen de perfil" src={this.state.base_64_image} />
-          </a>
+          <img alt="Imagen de perfil" src={this.state.base_64_image} />
         </ProfilePhotoContainer>
 
         <AllInfoContainer>

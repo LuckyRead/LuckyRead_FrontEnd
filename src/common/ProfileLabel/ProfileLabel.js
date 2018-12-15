@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import {
   ProfileLabelContainer,
   PhotoContainer,
-  FollowContainer,
-  Palette
+  FollowContainer
 } from "./Styled";
 import { Row, Col, Button } from "reactstrap";
 import StringLabel from "./StringLabel";
-import axios from 'axios';
+import axios from "axios";
 
 export default class ProfileLabel extends React.Component {
   constructor(props) {
@@ -23,7 +22,8 @@ export default class ProfileLabel extends React.Component {
     newState.followed = !newState.followed;
     this.setState(newState);
     if (newState.followed === true) {
-      console.log('entra aquí')
+      console.log("entra aquí");
+
       axios({
         method: "POST",
         url: "https://luckyread-backend.herokuapp.com/api/friend/follow",
@@ -35,10 +35,10 @@ export default class ProfileLabel extends React.Component {
         }
       }).then(
         response => {
-          console.log(response)
+          console.log(response);
         },
         err => {
-          console.log('no se pudo seguir a la persona')
+          console.log("no se pudo seguir a la persona");
         }
       );
     } else {
@@ -53,10 +53,10 @@ export default class ProfileLabel extends React.Component {
         }
       }).then(
         response => {
-          console.log(response)
+          console.log(response);
         },
         err => {
-          console.log('no se pudo dar unfollow a la persona')
+          console.log("no se pudo dar unfollow a la persona");
         }
       );
     }
@@ -69,10 +69,7 @@ export default class ProfileLabel extends React.Component {
         <Row>
           <Col xs="4">
             <PhotoContainer>
-              <img
-                src={this.props.photosrc}
-                alt="Imagen de perfil"
-              />
+              <img src={this.props.photosrc} alt="Imagen de perfil" />
             </PhotoContainer>
           </Col>
           <Col xs="6">
@@ -89,13 +86,13 @@ export default class ProfileLabel extends React.Component {
                   />
                 </Button>
               ) : (
-                  <Button color="secondary" onClick={() => this.changeFollow()}>
-                    <img
-                      src={require("../../resources/Check_gray_icon.png")}
-                      alt="Unfollow button"
-                    />
-                  </Button>
-                )}
+                <Button color="secondary" onClick={() => this.changeFollow()}>
+                  <img
+                    src={require("../../resources/Check_gray_icon.png")}
+                    alt="Unfollow button"
+                  />
+                </Button>
+              )}
             </FollowContainer>
           </Col>
         </Row>

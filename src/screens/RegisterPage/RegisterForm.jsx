@@ -164,8 +164,6 @@ class RegisterForm extends React.Component {
     dispatch(userActions.register({ user }, auth));
   };
 
-
-
   render() {
     const { registering } = this.props;
     const { validating_email } = this.props;

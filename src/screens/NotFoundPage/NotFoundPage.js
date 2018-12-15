@@ -1,7 +1,6 @@
 import React from "react";
 import { NotFoundS } from "./Styled";
 import { Row, Col } from "reactstrap";
-import NotFound from "../../resources/NotFound.jpg";
 
 export default class NotFoundPage extends React.Component {
   render() {

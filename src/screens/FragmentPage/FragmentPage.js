@@ -1,30 +1,11 @@
 import React, { Component } from "react";
 
 import API from "../../api";
-import { Button } from "reactstrap";
-import { Link } from "react-router-dom";
 import Loading from "../../common/Loading/Loading";
-import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
-import CategoryTag from "../../common/Tags/CategoryTag";
-import CommentMap from "../../common/Comment/CommentMap";
+
 import Fragment from "../../screens/FragmentPage/Fragment";
 
-import {
-  Left,
-  Right,
-  PageContainer,
-  MessageFragment,
-  FragmentContent,
-  ImageContainer,
-  FragmentTitle,
-  FragmentText,
-  StatisticsContainer,
-  FragmentButtons,
-  CategoryTagContainer,
-  Topics,
-  TopicsText,
-  TopicsRow
-} from "./Styled";
+import { PageContainer } from "./Styled";
 
 class FragmentPage extends Component {
   state = {
@@ -57,9 +38,7 @@ class FragmentPage extends Component {
     );
   }
 
-
   render() {
-    const statistic = this.state.statistic;
     const fragment = this.state.fragment ? (
       <PageContainer>
         <Fragment
@@ -68,10 +47,11 @@ class FragmentPage extends Component {
           request={this.request}
           statistic={this.state.statistic}
         />
+
       </PageContainer>
     ) : (
-        <Loading />
-      );
+      <Loading />
+    );
 
     return <div>{fragment}</div>;
   }

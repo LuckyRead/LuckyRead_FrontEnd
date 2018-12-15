@@ -1,29 +1,23 @@
 import React from "react";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
-  Right,
-  PageContainer,
   MessageFragment,
   FragmentContent,
   ImageContainer,
-  FragmentTitle,
   FragmentText,
-  StatisticsContainer,
-  FragmentButtons,
   Topics,
-  TopicsText,
   TopicsRow,
-  Left,
   Content,
   Reaction,
   Comments
 } from "./Styled";
+import { Button } from 'reactstrap';
+import { history } from "../../_helpers";
 import CommentMap from "../../common/Comment/CommentMap";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
-import CommentResponseMap from "../../common/Comment/CommentResponseMap";
 import MakeComment from "../../common/Comment/MakeComment";
 class Fragment extends React.Component {
   constructor(props) {
@@ -39,6 +33,10 @@ class Fragment extends React.Component {
     this.setState({
       showpopup: true
     });
+  }
+
+  handleClick() {
+    history.goBack();
   }
 
   renderTopicsTags() {
@@ -89,6 +87,8 @@ class Fragment extends React.Component {
                 <ReactionButtons response={this.props.statistic} />
               </Reaction>
             </Row>
+          <br/>
+            <Button onClick={this.handleClick}>Volver</Button>
           </Content>
           <Row>
             <MakeComment type="comment" />

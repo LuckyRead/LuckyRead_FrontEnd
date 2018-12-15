@@ -1,14 +1,6 @@
 import React from "react";
-import { Palette, TabContainer } from "./Styled";
-import {
-  TabContent,
-  TabPane,
-  Nav,
-  NavItem,
-  NavLink,
-  Row,
-  Col
-} from "reactstrap";
+import { TabContainer } from "./Styled";
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row } from "reactstrap";
 import classnames from "classnames";
 import InformationTab from "./InformationTab";
 import FollowedTab from "./FollowedTab";

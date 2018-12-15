@@ -31,7 +31,6 @@ import NotFoundPage from "../screens/NotFoundPage/NotFoundPage";
 // Styles
 import "./App.css";
 import { Alerts } from "./Styled";
-import { isPrimitive } from "util";
 
 class App extends Component {
   constructor(props) {

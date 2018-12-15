@@ -1,24 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Container, Row, Col, Button } from "reactstrap";
-import {
-  PageContainer,
-  MessageFragment,
-  FragmentContent,
-  ImageContainer,
-  FragmentTitle,
-  FragmentText,
-  StatisticsContainer,
-  TagsContainer,
-  Topics
-} from "./Styled";
-import pdficon from "../../resources/paper_plane.png";
+import { PageContainer } from "./Styled";
 import RandomFragment from "./RandomFragment";
 import axios from "axios";
-import Loading from "../../common/Loading/Loading";
 import CategoryTag from "../../common/Tags/CategoryTag";
-import CommentMap from "../../common/Comment/CommentMap";
 
 class RandomFragmentPageNRU extends React.Component {
   constructor(props) {
@@ -90,8 +76,8 @@ class RandomFragmentPageNRU extends React.Component {
         />
       </PageContainer>
     ) : (
-        <div className="center">Cargando</div>
-      );
+      <div className="center">Cargando</div>
+    );
     return <div>{rf}</div>;
   }
 }

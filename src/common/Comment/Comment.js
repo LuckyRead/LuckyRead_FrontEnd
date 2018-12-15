@@ -1,11 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Palette,
-  CommentContainer,
-  ReactionButton,
-  ResponsesS
-} from "./Styled";
+import { CommentContainer, ReactionButton, ResponsesS } from "./Styled";
 import ProfileInfo from "./ProfileInfo";
 import { Row, Col, Button, Collapse } from "reactstrap";
 import CommentResponseMap from "./CommentResponseMap";

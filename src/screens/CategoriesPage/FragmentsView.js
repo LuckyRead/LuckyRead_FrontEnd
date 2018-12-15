@@ -1,20 +1,6 @@
 import React, { PureComponent } from "react";
-import {
-  Card,
-  Button,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardColumns,
-  CardSubtitle,
-  CardBody
-} from "reactstrap";
-import PropTypes from "prop-types";
-import {
-  TopicCard,
-  TopicCardSelect,
-  Title
-} from "../CategoriesInitPage/Styled";
+import { CardColumns } from "reactstrap";
+import { Title } from "../CategoriesInitPage/Styled";
 import FragmentCard from "./FragmentCard";
 import Loading from "../../common/Loading/Loading";
 
@@ -25,7 +11,7 @@ export default class FragmentsView extends PureComponent {
     super(props);
     this.state = {
       fragments: null,
-      name: "Something"
+      name: null
     };
   }
 
@@ -40,7 +26,8 @@ export default class FragmentsView extends PureComponent {
         console.log("FRAGMENTOS");
         console.log(response);
         this.setState({
-          fragments: response.data.fragments
+          fragments: response.data.fragments,
+          name: response.data.topic
         });
       })
       .catch(function(error) {});

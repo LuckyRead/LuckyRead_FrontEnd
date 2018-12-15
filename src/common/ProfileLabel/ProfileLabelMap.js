@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import { ProfilesContainer, Content } from "./Styled";
 import { Row, Col } from "reactstrap";
 import ProfileLabel from "./ProfileLabel";

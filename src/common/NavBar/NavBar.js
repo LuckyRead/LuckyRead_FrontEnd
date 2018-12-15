@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  NavLink,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from "reactstrap";
 import paperplane from "../../resources/paper_plane.png";
 import SignedOutLinks from "./SignedOutLinks";
 import { SignedInLinks } from "./SignedInLinks";
@@ -47,10 +40,13 @@ export default class NavBar extends React.Component {
               <NavbarBrand href="/">LuckyRead</NavbarBrand>
             </LuckyReadHomeContainer>
           ) : (
-              <LuckyReadHomeContainer>
-                <a className="navbar-brand">LuckyRead</a>
-              </LuckyReadHomeContainer>
-            )}
+            <LuckyReadHomeContainer>
+              <a className="navbar-brand" href="/RandomFragmentPage">
+                LuckyRead
+              </a>
+            </LuckyReadHomeContainer>
+          )}
+
           <NavbarToggler onClick={this.toggle} />
 
           <Collapse isOpen={this.state.isOpen} navbar>
