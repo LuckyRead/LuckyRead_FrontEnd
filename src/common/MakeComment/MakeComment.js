@@ -1,6 +1,6 @@
 import React from "react";
-import { Palette, MakeCommentContainer, TitleContainer } from "./Styled";
-import { Row, Col, Button, FormGroup, Form, Input } from "reactstrap";
+import { MakeCommentContainer, TitleContainer } from "./Styled";
+import { Button, FormGroup, Form, Input } from "reactstrap";
 
 export default class Comment extends React.Component {
   render() {

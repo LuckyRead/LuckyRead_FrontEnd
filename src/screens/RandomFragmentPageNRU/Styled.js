@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
-import paper from "../../resources/paper.png";
 const PageContainer = styled.div`
   background-color: rgba(23,31,49,0.9);
   text-align: center;
@@ -28,7 +27,7 @@ const MessageFragment = styled.div`
   font-size: 4em;
   color: white;
   text-align: center;
-  background-color: rgba(0,0,0,0.4)
+  background-color: rgba(0, 0, 0, 0.4);
   // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 `;
 
@@ -94,7 +93,7 @@ const FragmentTitle = styled.div`
 
 const FragmentText = styled.div`
   margin: auto;
-  color: #BBBBBB;
+  color: #bbbbbb;
   font-family: "Playfair Display";
   margin-right: 20px;
   text-align: justify;
@@ -108,7 +107,7 @@ const FragmentButtons = styled.div`
   margin-top: 10px;
   color: white;
   .btn {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 0px;
     margin: 5px;
     border-style: none;
@@ -135,9 +134,7 @@ const TopicsRow = styled.div`
   align-items: center;
   margin: auto;
 `;
-const RandomFragmentS = styled.div`
- 
-`;
+const RandomFragmentS = styled.div``;
 
 export {
   Left,

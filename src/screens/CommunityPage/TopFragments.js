@@ -1,19 +1,7 @@
 import React, { PureComponent } from "react";
-import {
-  Card,
-  Button,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardColumns,
-  CardSubtitle,
-  CardBody,
-  CardDeck
-} from "reactstrap";
-import PropTypes from "prop-types";
-import { TopicCard, TopicCardSelect } from "../CategoriesInitPage/Styled";
+import { CardDeck } from "reactstrap";
 import CardTop from "./Card";
-import { Palette, TabContent } from "./Styled";
+import { TabContent } from "./Styled";
 import "./community.css";
 
 import axios from "axios";

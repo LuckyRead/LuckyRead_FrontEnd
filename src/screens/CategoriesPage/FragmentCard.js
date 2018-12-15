@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import {
   Card,
   CardHeader,
-  CardTitle,
   CardImg,
   CardText,
   CardBody,
@@ -12,10 +11,6 @@ import { Link } from "react-router-dom";
 import "./preferences.css";
 
 export default class FragmentCard extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Card style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", color: "#BBBBBB" }}>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../../api";
 import Topic from "./Topic";
-import dark from "../../resources/dark.jpeg";
 import { Button, Row, Col } from "reactstrap";
 import {
   TopicsContainer,

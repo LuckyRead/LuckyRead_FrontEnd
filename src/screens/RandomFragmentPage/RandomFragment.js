@@ -5,24 +5,16 @@ import PropTypes from "prop-types";
 import {
   Left,
   Right,
-  PageContainer,
   MessageFragment,
   FragmentContent,
   ImageContainer,
-  FragmentTitle,
   FragmentText,
-  StatisticsContainer,
   FragmentButtons,
-  CategoryTagContainer,
   Topics,
-  TopicsText,
   TopicsRow,
   RandomFragmentS
 } from "./Styled";
-import RandomFragmentPage from "./RandomFragmentPage";
-import pdficon from "../../resources/paper_plane.png";
 
-import axios from "axios";
 import CategoryTag from "../../common/Tags/CategoryTag";
 
 class RandomFragment extends React.Component {
@@ -45,8 +37,6 @@ class RandomFragment extends React.Component {
     });
     return topicsTags;
   }
-
-
 
   render() {
     return (
@@ -85,8 +75,7 @@ class RandomFragment extends React.Component {
                 </Link>
                 <Button color="secondary" onClick={this.props.request}>
                   Ver otro fragmento
-              </Button>
-
+                </Button>
               </FragmentButtons>
             </Left>
 

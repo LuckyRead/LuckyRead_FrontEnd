@@ -4,7 +4,7 @@ import React, { Component } from "react";
 //Components
 import Category from "./Category";
 
-import { ListGroup, ListGroupItem, Button, TabContent } from "reactstrap";
+import { ListGroup } from "reactstrap";
 import "./preferences.css";
 import { ContainerS } from "./Styled";
 import axios from "axios";

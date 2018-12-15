@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Col, Row } from "reactstrap";
-import { Palette, TabContent, TrophyS } from "./Styled";
-import StatisticLabel from "./StatisticLabel";
+import { TabContent, TrophyS } from "./Styled";
 import ProfileLabelMap from "../../common/ProfileLabel/ProfileLabelMap";
 
 //  Nada mas es borrar el state y cambiar el contenido a que lea de props

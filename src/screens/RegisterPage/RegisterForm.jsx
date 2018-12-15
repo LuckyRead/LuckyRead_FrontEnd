@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { userActions } from "../../_actions";
 import { FormErrors } from "../../common/formErrors/FormErrors";
 import "./sign-up.css";
@@ -165,8 +163,6 @@ class RegisterForm extends React.Component {
     console.log("dispatch register");
     dispatch(userActions.register({ user }, auth));
   };
-
-
 
   render() {
     const { registering } = this.props;

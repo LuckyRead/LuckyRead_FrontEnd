@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
-import paper from "../../resources/newspaper.jpg";
 
 const PageContainer = styled.div`
   text-align: center;

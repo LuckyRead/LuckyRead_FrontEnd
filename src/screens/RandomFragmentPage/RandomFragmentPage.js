@@ -1,27 +1,10 @@
 import React from "react";
-import { Container, Row, Col, Button } from "reactstrap";
-import { Link } from "react-router-dom";
 
-import {
-  PageContainer,
-  MessageFragment,
-  FragmentContent,
-  ImageContainer,
-  FragmentTitle,
-  FragmentText,
-  StatisticsContainer,
-  TagsContainer,
-  Topics
-} from "./Styled";
-import pdficon from "../../resources/paper_plane.png";
+import { PageContainer } from "./Styled";
 import RandomFragment from "../RandomFragmentPage/RandomFragment";
 import axios from "axios";
-import Loading from "../../common/Loading/Loading";
-import CategoryTag from "../../common/Tags/CategoryTag";
-import CommentMap from "../../common/Comment/CommentMap";
 
 class RandomFragmentPage extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +14,6 @@ class RandomFragmentPage extends React.Component {
     };
     this.request = this.request.bind(this);
   }
-
 
   componentDidMount() {
     this.request();
@@ -61,13 +43,7 @@ class RandomFragmentPage extends React.Component {
     return;
   };
 
-
   render() {
-    console.log(rf);
-    console.log("aqui");
-    console.log("id");
-    console.log(this.state.randomfragment.id);
-    console.log(this.state.topics[0]);
     const rf = this.state.randomfragment ? (
       <PageContainer>
         <RandomFragment
@@ -77,10 +53,9 @@ class RandomFragmentPage extends React.Component {
         />
       </PageContainer>
     ) : (
-        <div className="center">Cargando</div>
-      );
+      <div className="center">Cargando</div>
+    );
     return <div>{rf}</div>;
-
   }
 }
 

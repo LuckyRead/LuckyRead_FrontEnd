@@ -1,14 +1,6 @@
 import React from "react";
-import { Palette, TabContainer } from "./Styled";
-import {
-  TabContent,
-  TabPane,
-  Nav,
-  NavItem,
-  NavLink,
-  Row,
-  Col
-} from "reactstrap";
+import { TabContainer } from "./Styled";
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row } from "reactstrap";
 import classnames from "classnames";
 import PersonalActivityTab from "./PersonalActivityTab";
 import GlobalActivityTab from "./GlobalActivityTab";
@@ -96,7 +88,7 @@ export default class ProfileTabs extends React.Component {
           </TabPane>
           <TabPane tabId="4">
             <Row className="divNav">
-              <TopFragments/>
+              <TopFragments />
             </Row>
           </TabPane>
         </TabContent>

@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import { Container, Row, Col } from "reactstrap";
 import PropTypes from "prop-types";
 import { TopicCard, TopicCardSelect } from "./Styled";
 

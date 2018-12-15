@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Palette, TabContent } from "./Styled";
+import { TabContent } from "./Styled";
 import StatisticLabel from "./StatisticLabel";
 //  Nada mas es borrar el state y cambiar el contenido a que lea de props
 export default class GlobalActivityTab extends React.Component {

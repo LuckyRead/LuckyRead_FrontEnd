@@ -34,9 +34,13 @@ class News extends Component {
               <p className="text-justify">{this.props.description}</p>
             </CardText>
             <div className="row justify-content-center">
-              <a href={this.props.source} target="_blank"><small>
-                Ver más...
-              </small></a>
+              <a
+                href={this.props.source}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <small>Ver más...</small>
+              </a>
             </div>
           </CardBody>
         </Card>
