@@ -6,7 +6,7 @@ const PageContainer = styled.div`
   text-align: center;
   align-items: top;
   border-style: solid;
-  border-color: rgba(23,31,49,0.9);
+  border-color: rgba(0,0,0,0.4);
   border-width: 5px;
   margin: auto;
   margin 10px;
