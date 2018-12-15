@@ -71,6 +71,13 @@ const ImageContainer = styled.div`
   max-width: 350px;
   margin: auto;
 `;
+const FilterContainer = styled.div`
+  color: #bbbbbb;
+  margin-bottom: 10px;
+  min-width: 350px;
+  max-width: 350px;
+  margin: auto;
+`;
 
 const StatisticsContainer = styled.div`
   border-style: solid;
@@ -145,5 +152,6 @@ export {
   Topics,
   TopicsText,
   TopicsRow,
-  RandomFragmentS
+  RandomFragmentS,
+  FilterContainer
 };

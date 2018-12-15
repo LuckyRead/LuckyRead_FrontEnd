@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Button } from "reactstrap";
+import { Row, Col, Button, FormGroup, Label, CustomInput } from "reactstrap";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
@@ -12,7 +12,8 @@ import {
   FragmentButtons,
   Topics,
   TopicsRow,
-  RandomFragmentS
+  RandomFragmentS,
+  FilterContainer
 } from "./Styled";
 
 import CategoryTag from "../../common/Tags/CategoryTag";
@@ -20,9 +21,26 @@ import CategoryTag from "../../common/Tags/CategoryTag";
 class RandomFragment extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      randomfragment: this.props.randomfragment
+      randomfragment: this.props.randomfragment,
+      checkedBoxes: this.checkedBoxes()
     };
+    this.userClicked = this.userClicked.bind(this);
+    this.lrClicked = this.lrClicked.bind(this);
+  }
+
+  checkedBoxes() {
+    switch (this.props.mode) {
+      case 0:
+        return [true, true];
+      case 1:
+        return [true, false];
+      case 2:
+        return [false, true];
+      default:
+        break;
+    }
   }
 
   renderCategoryTags() {
@@ -38,6 +56,34 @@ class RandomFragment extends React.Component {
     return topicsTags;
   }
 
+  userClicked(e) {
+    const newState = Object.assign({}, this.state);
+    if (e.target.checked) {
+      newState.checkedBoxes[0] = true;
+      this.setState(newState);
+      this.props.modifyMode(0);
+    } else {
+      if (newState.checkedBoxes[1] === true) {
+        newState.checkedBoxes[0] = false;
+        this.setState(newState);
+        this.props.modifyMode(2);
+      }
+    }
+  }
+  lrClicked(e) {
+    const newState = Object.assign({}, this.state);
+    if (e.target.checked) {
+      newState.checkedBoxes[1] = true;
+      this.setState(newState);
+      this.props.modifyMode(0);
+    } else {
+      if (newState.checkedBoxes[0] === true) {
+        newState.checkedBoxes[1] = false;
+        this.setState(newState);
+        this.props.modifyMode(1);
+      }
+    }
+  }
   render() {
     return (
       <RandomFragmentS>
@@ -56,6 +102,31 @@ class RandomFragment extends React.Component {
           </Row>
           <Row>
             <Left>
+              <FilterContainer>
+                <FormGroup>
+                  <Label for="exampleCheckbox">
+                    ¿Qué fragmentos quiero ver?
+                  </Label>
+                  <div>
+                    <CustomInput
+                      type="checkbox"
+                      id="LuckyRead"
+                      label="Usuarios"
+                      checked={this.state.checkedBoxes[0]}
+                      onChange={this.userClicked}
+                      inline
+                    />
+                    <CustomInput
+                      type="checkbox"
+                      id="Users"
+                      label="LuckyRead"
+                      checked={this.state.checkedBoxes[1]}
+                      onChange={this.lrClicked}
+                      inline
+                    />
+                  </div>
+                </FormGroup>
+              </FilterContainer>
               <ImageContainer>
                 <img
                   src={
@@ -92,7 +163,9 @@ class RandomFragment extends React.Component {
 }
 
 RandomFragment.propTypes = {
-  randomfragment: PropTypes.object.isRequired
+  randomfragment: PropTypes.array.isRequired,
+  modifyMode: PropTypes.func.isRequired,
+  mode: PropTypes.number.isRequired
 };
 
 export default RandomFragment;
