@@ -13,6 +13,8 @@ import {
   Reaction,
   Comments
 } from "./Styled";
+import { Button } from 'reactstrap';
+import { history } from "../../_helpers";
 import CommentMap from "../../common/Comment/CommentMap";
 import CategoryTag from "../../common/Tags/CategoryTag";
 import ReactionButtons from "../../common/LikesPercentageStatistics/ReactionButtons";
@@ -31,6 +33,10 @@ class Fragment extends React.Component {
     this.setState({
       showpopup: true
     });
+  }
+
+  handleClick() {
+    history.goBack();
   }
 
   renderTopicsTags() {
@@ -81,6 +87,8 @@ class Fragment extends React.Component {
                 <ReactionButtons response={this.props.statistic} />
               </Reaction>
             </Row>
+          <br/>
+            <Button onClick={this.handleClick}>Volver</Button>
           </Content>
           <Row>
             <MakeComment type="comment" />

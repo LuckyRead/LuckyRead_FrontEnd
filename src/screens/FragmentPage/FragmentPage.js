@@ -47,6 +47,7 @@ class FragmentPage extends Component {
           request={this.request}
           statistic={this.state.statistic}
         />
+
       </PageContainer>
     ) : (
       <Loading />
