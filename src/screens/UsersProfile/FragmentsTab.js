@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Row } from "reactstrap";
 import { TabContent } from "./Styled.js";
 import axios from 'axios';
-import { CardDeck } from "reactstrap";
-import CardTop from "../CommunityPage/Card";
+import { CardColumns, CardDeck } from "reactstrap";
+import CardTop from "./Card";
 
 export default class FragmentsTab extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ export default class FragmentsTab extends Component {
     return (
       <TabContent>
         <br />
-        <CardDeck>{domFragments}</CardDeck>
+        <CardColumns id="UsersFragment">{domFragments}</CardColumns>
       </TabContent>
     );
   }
