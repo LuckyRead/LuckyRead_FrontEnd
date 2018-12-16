@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Row } from "reactstrap";
+
 import { TabContent } from "./Styled.js";
 import axios from 'axios';
-import { CardColumns, CardDeck } from "reactstrap";
+import { CardColumns } from "reactstrap";
 import CardTop from "./Card";
 
 export default class FragmentsTab extends Component {

@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Card, CardImg, CardText, CardBody, Button, CardFooter } from "reactstrap";
+import { Card, CardImg, CardText, CardBody, Button } from "reactstrap";
 import { Cs } from "./Styled";
 import { Link } from "react-router-dom";
 

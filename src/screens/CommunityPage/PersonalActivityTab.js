@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import { TabContent } from "./Styled";
 import StatisticLabel from "./StatisticLabel";
-//  Nada mas es borrar el state y cambiar el contenido a que lea de props
+import axios from "axios";
 export default class PersonalActivityTab extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +14,33 @@ export default class PersonalActivityTab extends React.Component {
       votos_positivos_comentario: 1000
     };
   }
+
+  componentDidMount() {
+    console.log("personal comments")
+    axios({
+      method: "POST",
+      url:
+        "https://luckyread-backend.herokuapp.com/api/user/stat/user _activityDate&ID",
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      },
+      data: {
+        "Date": "2018-01-01",
+        "id": "1"
+      }
+
+    }).then(response => {
+      console.log("personal comentarios mensual ")
+      console.log(response)
+      this.setState({
+        total_comentarios: response.data
+      })
+    })
+  }
+
+
+
+
   render() {
     return (
       <TabContent>
@@ -53,9 +80,5 @@ export default class PersonalActivityTab extends React.Component {
 }
 
 PersonalActivityTab.propTypes = {
-  total_comentarios: PropTypes.number.isRequired,
-  seguidores_mensual: PropTypes.number.isRequired,
-  seguidos_mensual: PropTypes.number.isRequired,
-  total_reacciones: PropTypes.number.isRequired,
-  votos_positivos_comentario: PropTypes.number.isRequired
+
 };

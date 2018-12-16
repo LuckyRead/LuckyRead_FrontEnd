@@ -24,7 +24,6 @@ export default class NavBar extends React.Component {
   }
   render() {
     const token = localStorage.getItem("jwtToken");
-    const user = localStorage.getItem("user");
     const links = token == null ? <SignedOutLinks /> : <SignedInLinks />;
     return (
       <NavbarContainer>
@@ -40,12 +39,12 @@ export default class NavBar extends React.Component {
               <NavbarBrand href="/">LuckyRead</NavbarBrand>
             </LuckyReadHomeContainer>
           ) : (
-            <LuckyReadHomeContainer>
-              <a className="navbar-brand" href="/RandomFragmentPage">
-                LuckyRead
+              <LuckyReadHomeContainer>
+                <a className="navbar-brand" href="/RandomFragmentPage">
+                  LuckyRead
               </a>
-            </LuckyReadHomeContainer>
-          )}
+              </LuckyReadHomeContainer>
+            )}
 
           <NavbarToggler onClick={this.toggle} />
 

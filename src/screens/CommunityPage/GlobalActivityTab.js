@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import { TabContent } from "./Styled";
 import StatisticLabel from "./StatisticLabel";
 import axios from "axios";
-//  Nada mas es borrar el state y cambiar el contenido a que lea de props
+
 export default class GlobalActivityTab extends React.Component {
   constructor(props) {
     super(props);
@@ -18,12 +18,16 @@ export default class GlobalActivityTab extends React.Component {
 
 
   componentDidMount() {
+    console.log("solicitando al back")
     axios({
       method: "get",
       url:
-        "https://luckyread-backend.herokuapp.com/api/user/stat/user_activity"
+        "https://luckyread-backend.herokuapp.com/api/user/stat/user_activity",
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
     }).then(response => {
-
+      console.log("comentarios mensual")
       this.setState({
         total_comentarios_mensual: response.data
       })
@@ -32,6 +36,8 @@ export default class GlobalActivityTab extends React.Component {
 
 
   render() {
+    const token = localStorage.getItem("jwtToken");
+    console.log(token)
     return (
       <TabContent>
         <StatisticLabel
@@ -69,10 +75,3 @@ export default class GlobalActivityTab extends React.Component {
   }
 }
 
-GlobalActivityTab.propTypes = {
-  total_usuarios_logueados: PropTypes.number.isRequired,
-  total_comentarios_mensual: PropTypes.number.isRequired,
-  total_fragmentos_mensual: PropTypes.number.isRequired,
-  total_likes_fragmentos: PropTypes.number.isRequired,
-  total_usuarios_registrados: PropTypes.number.isRequired
-};

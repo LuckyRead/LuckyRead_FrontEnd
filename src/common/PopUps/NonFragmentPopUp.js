@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { Link } from 'react-router-dom'
 import PropTypes from "prop-types";
 import wolf from "../../resources/pony.gif"
 import { ImgS } from "./Styled";
