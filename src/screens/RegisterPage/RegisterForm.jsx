@@ -66,7 +66,6 @@ class RegisterForm extends React.Component {
           ? ""
           : "Tu nombre de usuario no debe exceder los 15 caracteres";
         if (usernameValid) {
-          console.log("dispatch verify_username");
           dispatch(userActions.verify_username(this.state.username));
         }
         break;
@@ -81,7 +80,6 @@ class RegisterForm extends React.Component {
         fieldValidationErrors.email = emailValid ? "" : "Email inválido";
 
         if (emailValid) {
-          console.log("dispatch verify_username");
           dispatch(userActions.verify_email(this.state.email));
         }
         break;
@@ -160,7 +158,7 @@ class RegisterForm extends React.Component {
       password: this.state.password
     };
     const { dispatch } = this.props;
-    console.log("dispatch register");
+
     dispatch(userActions.register({ user }, auth));
   };
 

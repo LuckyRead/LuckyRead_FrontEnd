@@ -5,7 +5,7 @@ import { LandingPageContainer } from "./Styled";
 import { Row, Col, Jumbotron, Button } from "reactstrap";
 
 const LandingPage = () => {
-  console.log("landing page");
+
   return (
     <LandingPageContainer>
       <Jumbotron fluid id="Init">

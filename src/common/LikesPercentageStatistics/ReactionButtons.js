@@ -11,7 +11,6 @@ export default class ReactionButtons extends React.Component {
       percentage: 0,
       typeReaction: "percentagelikes"
     };
-    console.log("response", this.props.response);
   }
   screenshotComponent() {}
 

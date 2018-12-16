@@ -23,7 +23,6 @@ class SignedInLinks extends Component {
   handleLogout = event => {
     event.preventDefault();
     const { dispatch } = this.props;
-    console.log("dispatch logout");
     dispatch(userActions.logout());
   };
 

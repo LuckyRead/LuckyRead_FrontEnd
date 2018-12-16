@@ -12,7 +12,8 @@ class RandomFragmentPageNRU extends React.Component {
     this.state = {
       randomfragment: [],
       topics: [],
-      randomTopic: 0
+      randomTopic: 0,
+      fragmentIsValid: false,
     };
     this.request = this.request.bind(this);
   }
@@ -21,7 +22,6 @@ class RandomFragmentPageNRU extends React.Component {
     const preferences = localStorage.preferences.split(",");
     const randomTopic =
       preferences[Math.floor(Math.random() * preferences.length)];
-    console.log("topico random", randomTopic);
     this.setState(
       {
         randomTopic: randomTopic
@@ -33,7 +33,6 @@ class RandomFragmentPageNRU extends React.Component {
   }
 
   request = e => {
-    console.log(localStorage.jwtToken);
     axios({
       method: "GET",
       url:
@@ -47,7 +46,6 @@ class RandomFragmentPageNRU extends React.Component {
         });
       },
       err => {
-        console.log("el error es pidiendo fragmento random");
       }
     );
     return;
@@ -76,8 +74,8 @@ class RandomFragmentPageNRU extends React.Component {
         />
       </PageContainer>
     ) : (
-      <div className="center">Cargando</div>
-    );
+        <div className="center">Cargando</div>
+      );
     return <div>{rf}</div>;
   }
 }

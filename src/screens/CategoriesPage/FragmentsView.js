@@ -23,14 +23,13 @@ export default class FragmentsView extends PureComponent {
         "https://luckyread-backend.herokuapp.com/api/fragments/by_topic/" + id
     })
       .then(response => {
-        console.log("FRAGMENTOS");
-        console.log(response);
+
         this.setState({
           fragments: response.data.fragments,
           name: response.data.topic
         });
       })
-      .catch(function(error) {});
+      .catch(function (error) { });
   }
 
   renderFragmentCard() {
@@ -54,8 +53,8 @@ export default class FragmentsView extends PureComponent {
         {this.renderFragmentCard()}
       </CardColumns>
     ) : (
-      <Loading />
-    );
+        <Loading />
+      );
 
     return (
       <div>

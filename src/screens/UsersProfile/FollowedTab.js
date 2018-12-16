@@ -22,9 +22,6 @@ export default class FollowedTab extends Component {
         Authorization: "Bearer " + localStorage.jwtToken
       }
     }).then(response => {
-      //console.log('FOLLOWED')
-      console.log('api/follower')
-      console.log(response.data.users)
       this.setState({
         response: response.data.users
       })

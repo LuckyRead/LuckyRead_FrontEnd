@@ -14,13 +14,12 @@ export default class Topic extends PureComponent {
   }
 
   toggle() {
-    console.log("on toggle");
     this.setState({
       selectTopic: !this.state.selectTopic
     });
 
     this.props.selectTopic(this.props.topicid, this.state.selectTopic);
-    console.log(this.state.selectTopic);
+
     history.push("/fragmentsview/" + this.props.topicid);
   }
 

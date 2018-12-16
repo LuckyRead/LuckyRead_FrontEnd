@@ -12,11 +12,9 @@ export default class Topic extends PureComponent {
   }
 
   toggle() {
-    console.log("on toggle");
     this.setState({
       selectTopic: !this.state.selectTopic
     });
-    console.log(this.state.selectTopic);
   }
 
   render() {

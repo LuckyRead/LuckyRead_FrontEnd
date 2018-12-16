@@ -22,8 +22,6 @@ export default class ProfileLabel extends React.Component {
     newState.followed = !newState.followed;
     this.setState(newState);
     if (newState.followed === true) {
-      console.log("entra aquí");
-
       axios({
         method: "POST",
         url: "https://luckyread-backend.herokuapp.com/api/friend/follow",
@@ -35,10 +33,9 @@ export default class ProfileLabel extends React.Component {
         }
       }).then(
         response => {
-          console.log(response);
+
         },
         err => {
-          console.log("no se pudo seguir a la persona");
         }
       );
     } else {
@@ -53,17 +50,15 @@ export default class ProfileLabel extends React.Component {
         }
       }).then(
         response => {
-          console.log(response);
         },
         err => {
-          console.log("no se pudo dar unfollow a la persona");
         }
       );
     }
   }
 
   render() {
-    console.log(this.state.followed);
+
     return (
       <ProfileLabelContainer>
         <Row>
@@ -86,13 +81,13 @@ export default class ProfileLabel extends React.Component {
                   />
                 </Button>
               ) : (
-                <Button color="secondary" onClick={() => this.changeFollow()}>
-                  <img
-                    src={require("../../resources/Check_gray_icon.png")}
-                    alt="Unfollow button"
-                  />
-                </Button>
-              )}
+                  <Button color="secondary" onClick={() => this.changeFollow()}>
+                    <img
+                      src={require("../../resources/Check_gray_icon.png")}
+                      alt="Unfollow button"
+                    />
+                  </Button>
+                )}
             </FollowContainer>
           </Col>
         </Row>

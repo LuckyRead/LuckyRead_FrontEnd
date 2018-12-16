@@ -30,7 +30,7 @@ class Email extends Component {
         email: email_v
       }
     }).then(response => {
-      console.log(response["data"]["email"]);
+
       if (response["data"]["email"] === "Taken") {
         this.setState({
           emailExists: true
@@ -51,9 +51,9 @@ class Email extends Component {
     this.setState({
       loaded: true
     });
-    console.log("submit");
+
     let email_s = this.state.email;
-    console.log(email_s);
+
     axios({
       method: "POST",
       url:
@@ -63,7 +63,7 @@ class Email extends Component {
       }
     })
       .then(response => {
-        console.log(response["data"]["jwt"]);
+
         localStorage.setItem("jwtChangePassword", response["data"]["jwt"]);
         this.setState({
           loaded: false,
@@ -72,8 +72,8 @@ class Email extends Component {
         //alert("Mensaje enviado, revisa tu correo");
         //window.location.reload(true);
       })
-      .catch(function(error) {
-        console.log(error);
+      .catch(function (error) {
+
       });
   };
 
@@ -154,8 +154,8 @@ class Email extends Component {
                   {this.state.loaded ? (
                     <Spinner name="circle" fadein="none" color="white" />
                   ) : (
-                    "Enviar"
-                  )}
+                      "Enviar"
+                    )}
                 </button>
               </div>
             </form>

@@ -21,13 +21,12 @@ export default class TopFragments extends PureComponent {
         "https://luckyread-backend.herokuapp.com/api/fragments/stat/five_fragments_more_percentage_likes"
     })
       .then(response => {
-        console.log("FRAGMENTOS");
-        console.log(response);
+
         this.setState({
           fragments: response.data
         });
       })
-      .catch(function(error) {});
+      .catch(function (error) { });
   }
 
   render() {

@@ -18,12 +18,12 @@ export default class TopicsFragmentsPage extends Component {
 
   componentDidMount() {
     API.get("/api/topic/alltopics").then(res => {
-      console.log(res.data);
+
       this.setState({
         topics: res.data
       });
 
-      console.log("topicos recibidos", res.data);
+
       const allTopics = [];
       this.state.topics.forEach(item => {
         allTopics.push(false);
@@ -32,14 +32,12 @@ export default class TopicsFragmentsPage extends Component {
       this.setState(
         {
           selectedTopics: allTopics
-        },
-        () => console.log(this.state)
+        }
       );
     });
   }
 
   selectTopic(topicid, selected) {
-    console.log("heeyyy topico ", topicid, selected);
     const index = topicid - 1;
     const select = this.state.selectedTopics;
     select[index] = selected;
@@ -57,12 +55,11 @@ export default class TopicsFragmentsPage extends Component {
       }
     });
     localStorage.setItem("preferences", preferencesids);
-    console.log(localStorage);
+
   }
   // localStorage.setItem("jwtToken", token);
 
   renderTopics() {
-    console.log("en render topics");
 
     const topicsList = this.state.topics.map((item, index) => (
       <Topic
@@ -86,8 +83,8 @@ export default class TopicsFragmentsPage extends Component {
         </Row>
       </div>
     ) : (
-      <div>Cargando</div>
-    );
+        <div>Cargando</div>
+      );
     return <div>{topics}</div>;
   }
 }

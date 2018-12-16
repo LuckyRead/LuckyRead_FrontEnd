@@ -47,7 +47,7 @@ class RandomFragment extends React.Component {
   }
 
   render() {
-    console.log(localStorage.preferences);
+
     return (
       <RandomFragmentS>
         <MessageFragment>
@@ -86,7 +86,7 @@ class RandomFragment extends React.Component {
                   Ver otro fragmento
                 </Button>
                 {this.state.showpopup ? (
-                  <PopUpExample toggle={this.popUptoggle} modal={true} />
+                  <PopUpExample popUptoggle={this.popUptoggle} modal={true} />
                 ) : null}
               </FragmentButtons>
             </Left>
