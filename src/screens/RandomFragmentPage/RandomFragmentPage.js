@@ -24,19 +24,24 @@ class RandomFragmentPage extends React.Component {
       return parseInt(localStorage.getItem("randomfragmenttype"));
     }
   }
+
   componentDidMount() {
     this.request();
   }
+
   modifyRFType(number) {
     localStorage.setItem("randomfragmenttype", number);
-    this.setState({ mode: number });
+    this.setState({ mode: number }, () => this.request());
+
   }
 
   request = e => {
     console.log(localStorage.jwtToken);
+    const requesturl = "https://luckyread-backend.herokuapp.com/api/fragments/something/" + this.state.mode
+    console.log(requesturl)
     axios({
       method: "GET",
-      url: "https://luckyread-backend.herokuapp.com/api/fragments/something/2",
+      url: ("https://luckyread-backend.herokuapp.com/api/fragments/something/" + this.state.mode),
       headers: {
         Authorization: "Bearer " + localStorage.jwtToken
       }
@@ -70,8 +75,8 @@ class RandomFragmentPage extends React.Component {
         />
       </PageContainer>
     ) : (
-      <div className="center">Cargando</div>
-    );
+        <div className="center">Cargando</div>
+      );
     return <div>{rf}</div>;
   }
 }

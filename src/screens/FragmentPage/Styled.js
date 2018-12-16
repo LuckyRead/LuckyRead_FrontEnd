@@ -6,7 +6,6 @@ const PageContainer = styled.div`
   align-items: top;
   z-index: -1;
   border: none !important;
-  background-color: rgba(23,31,49,0.9);
   margin: auto;
   margin 10px;
   height: 100%;
