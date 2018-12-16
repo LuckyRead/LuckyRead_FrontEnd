@@ -36,6 +36,10 @@ export default class Comment extends React.Component {
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
+
+  likesComment(id_comment) {
+    console.log("Le diste like al comentario ", id_comment);
+  }
   render() {
     return (
       <CommentContainer>
@@ -53,7 +57,11 @@ export default class Comment extends React.Component {
             </Row>
             <Row>
               <ReactionButton>
-                <Button outline color="success">
+                <Button
+                  outline
+                  color="success"
+                  onClick={() => this.likesComment(this.props.id_comment)}
+                >
                   Like ({this.props.likes})
                 </Button>
               </ReactionButton>
@@ -87,5 +95,6 @@ Comment.propTypes = {
   name: PropTypes.string.isRequired,
   nickname: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
+  // AUN NO ESTA id_comment: PropTypes.number.isRequired,
   likes: PropTypes.number.isRequired
 };

@@ -118,7 +118,7 @@ class Fragment extends React.Component {
             <Button onClick={this.handleClick}>Volver</Button>
           </Content>
           <Row>
-            <MakeComment type="comment" />
+            <MakeComment type="comment" id_fragment={this.props.fragment.id} />
           </Row>
           <Comments>
             <Row>

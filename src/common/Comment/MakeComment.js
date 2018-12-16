@@ -8,6 +8,13 @@ import {
 } from "./Styled";
 import { Row, Col, Button, FormGroup, Input } from "reactstrap";
 export default class MakeComment extends React.Component {
+  comment(number) {
+    console.log("Hiciste un comentario en el fragmento ", number);
+  }
+  response(commentid) {
+    console.log("Hiciste una respuesta al comentario ", commentid);
+  }
+
   render() {
     const t =
       this.props.type === "comment"
@@ -29,7 +36,11 @@ export default class MakeComment extends React.Component {
             <ResponsesS>
               <Col>
                 <ReactionButton>
-                  <Button outline color="info">
+                  <Button
+                    outline
+                    color="info"
+                    onClick={() => this.comment(this.props.id)}
+                  >
                     {a}
                   </Button>
                 </ReactionButton>
@@ -53,7 +64,11 @@ export default class MakeComment extends React.Component {
             <ResponsesS>
               <Col>
                 <ReactionButton>
-                  <Button outline color="info">
+                  <Button
+                    outline
+                    color="info"
+                    onClicl={() => this.response(this.props.id)}
+                  >
                     {a}
                   </Button>
                 </ReactionButton>
@@ -67,5 +82,7 @@ export default class MakeComment extends React.Component {
 }
 
 MakeComment.propTypes = {
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  // Puede ser id de fragmento o id de comentario
+  id: PropTypes.number.isRequired
 };
