@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TabContent, RowInfo, CollapseContainer } from "./Styled.js";
+import { TabContent } from "./Styled.js";
 import ProfileLabelMap from "../../common/ProfileLabel/ProfileLabelMap";
 import axios from 'axios';
 

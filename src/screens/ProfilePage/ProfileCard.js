@@ -138,16 +138,13 @@ export default class ProfileCard extends Component {
   }
 
   render() {
-    const talkToUs = this.state.user_data.talk_to_us
-      ? this.state.user_data.talk_to_us
-      : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.";
 
     return (
       <ProfileCardDiv>
         <ProfilePhotoContainer>
-          <a onClick={this.toggle}>
+          <div onClick={this.toggle}>
             <img alt="Imagen de perfil" src={this.state.base_64_image} />
-          </a>
+          </div>
         </ProfilePhotoContainer>
 
         <AllInfoContainer>

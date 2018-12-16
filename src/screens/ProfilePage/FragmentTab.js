@@ -17,8 +17,7 @@ import {
 import 'antd/dist/antd.css';
 import 'antd/lib/select/style/css';
 import {
-  TabContent, TitleContainer, Topics,
-  TopicsText
+  TabContent, TitleContainer, Topics
 } from "./Styled.js";
 import AddImageFragment from './AddImageFragment';
 import axios from 'axios';
@@ -65,7 +64,7 @@ export default class FragmentTab extends Component {
         console.log("error al pedir topicos");
       });
 
-      
+
   }
 
 
