@@ -12,7 +12,8 @@ class RandomFragmentPageNRU extends React.Component {
     this.state = {
       randomfragment: [],
       topics: [],
-      randomTopic: 0
+      randomTopic: 0,
+      fragmentIsValid: false,
     };
     this.request = this.request.bind(this);
   }
@@ -41,6 +42,7 @@ class RandomFragmentPageNRU extends React.Component {
         this.state.randomTopic
     }).then(
       response => {
+        console.log(response)
         this.setState({
           randomfragment: response.data.Fragment,
           topics: response.data.Fragment.topics
@@ -76,8 +78,8 @@ class RandomFragmentPageNRU extends React.Component {
         />
       </PageContainer>
     ) : (
-      <div className="center">Cargando</div>
-    );
+        <div className="center">Cargando</div>
+      );
     return <div>{rf}</div>;
   }
 }

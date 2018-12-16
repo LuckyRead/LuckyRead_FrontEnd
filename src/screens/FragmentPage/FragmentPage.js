@@ -20,6 +20,8 @@ class FragmentPage extends Component {
     console.log(id);
     API.get("/api/fragments/" + id).then(
       res => {
+        console.log("fragmento especifico")
+        console.log(res)
         this.setState(
           {
             fragment: res["data"][1],
@@ -50,8 +52,8 @@ class FragmentPage extends Component {
 
       </PageContainer>
     ) : (
-      <Loading />
-    );
+        <Loading />
+      );
 
     return <div>{fragment}</div>;
   }
