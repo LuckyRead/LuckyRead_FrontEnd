@@ -29,7 +29,7 @@ export default class FragmentTab extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: "",
+      modal: false,
       titulo: "",
       introduccion: "",
       contenido: "",
@@ -220,9 +220,9 @@ export default class FragmentTab extends Component {
             <AddImageFragment imageid={this.imageid} />
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.Reload}>
+            <Button color="primary" onClick={this.toggle}>
               Cerrar
-            </Button>{" "}
+            </Button>
           </ModalFooter>
         </Modal>
 
