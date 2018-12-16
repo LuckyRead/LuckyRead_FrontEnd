@@ -30,9 +30,12 @@ export default class CommentMap extends React.Component {
       response => {
         console.log("aqui respuesta del back");
         console.log(response.data.comments);
-        this.setState({
-          comments: response.data.comments
-        });
+        if (response.data.comments !== undefined) {
+          this.setState({
+            comments: response.data.comments
+          });
+        }
+
       },
       err => {
         console.log("error mostrando comentarios");
