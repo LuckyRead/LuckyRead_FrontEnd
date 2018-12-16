@@ -2,7 +2,7 @@ import React from "react";
 import { TabContainer } from "./Styled";
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row } from "reactstrap";
 import classnames from "classnames";
-import InformationTab from "./InformationTab";
+import FragmentsTab from "./FragmentsTab";
 import FollowedTab from "./FollowedTab";
 import FollowersTab from "./FollowersTab";
 export default class ProfileTabs extends React.Component {
@@ -61,7 +61,7 @@ export default class ProfileTabs extends React.Component {
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
             <Row className="divNav">
-              <InformationTab />
+              <FragmentsTab username = {this.props.username}/>
             </Row>
           </TabPane>
           <TabPane tabId="2">

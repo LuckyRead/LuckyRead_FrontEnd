@@ -64,6 +64,8 @@ export default class FragmentTab extends Component {
       .catch(function (error) {
         console.log("error al pedir topicos");
       });
+
+      
   }
 
 
