@@ -1,6 +1,8 @@
 import React, { PureComponent } from "react";
-import { Card, CardImg, CardText, CardBody } from "reactstrap";
+import { Card, CardImg, CardText, CardBody, Button, CardFooter } from "reactstrap";
 import { Cs } from "./Styled";
+import { Link } from "react-router-dom";
+
 
 export default class FragmentCard extends PureComponent {
   render() {
@@ -26,6 +28,9 @@ export default class FragmentCard extends PureComponent {
             <strong>Introducción: </strong>
             {this.props.introduction}
           </CardText>
+          <Button color="primary" tag={Link} to={"/fragment/" + this.props.id} size="sm">
+            Leer
+          </Button>
         </CardBody>
       </Card>
     );
