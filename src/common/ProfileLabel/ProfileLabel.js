@@ -8,7 +8,7 @@ import {
 import { Row, Col, Button } from "reactstrap";
 import StringLabel from "./StringLabel";
 import axios from "axios";
-
+import { Link } from 'react-router-dom'
 export default class ProfileLabel extends React.Component {
   constructor(props) {
     super(props);
@@ -59,13 +59,17 @@ export default class ProfileLabel extends React.Component {
 
   render() {
 
+    const url = "/ProfilePage/" + this.props.nickname
     return (
       <ProfileLabelContainer>
         <Row>
           <Col xs="4">
-            <PhotoContainer>
-              <img src={this.props.photosrc} alt="Imagen de perfil" />
-            </PhotoContainer>
+            <Link to={url}>
+
+              <PhotoContainer>
+                <img src={this.props.photosrc} alt="Imagen de perfil" />
+              </PhotoContainer>
+            </Link>
           </Col>
           <Col xs="6">
             <StringLabel content={this.props.username} username={true} />
