@@ -84,6 +84,7 @@ export default class Comment extends React.Component {
           <CommentResponseMap
             number={this.state.numberresponses}
             comments={this.state.responses}
+            // AUN NO ESTA id = {this.props.id_comment}
           />
         </Collapse>
       </CommentContainer>

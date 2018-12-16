@@ -8,8 +8,8 @@ import {
 } from "./Styled";
 import { Row, Col, Button, FormGroup, Input } from "reactstrap";
 export default class MakeComment extends React.Component {
-  comment(number) {
-    console.log("Hiciste un comentario en el fragmento ", number);
+  comment(fragmentid) {
+    console.log("Hiciste un comentario en el fragmento ", fragmentid);
   }
   response(commentid) {
     console.log("Hiciste una respuesta al comentario ", commentid);

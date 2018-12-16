@@ -36,12 +36,16 @@ export default class CommentResponseMap extends React.Component {
     return (
       <MapResponseContainer>
         {this.renderCommentMap(this.state.comments)}
-        <MakeComment type="response" />
+        <MakeComment
+          type="response"
+          // AUN NO ESTA id={this.props.id_comment}
+        />
       </MapResponseContainer>
     );
   }
 }
 CommentResponseMap.propTypes = {
   comments: PropTypes.array.isRequired,
+  // AUN NO ESTA id_comment: PropTypes.number.isRequired,
   number: PropTypes.number.isRequired
 };
