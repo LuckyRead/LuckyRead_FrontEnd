@@ -12,51 +12,25 @@ export default class ProfileCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
-      //posts: [],
-      path: null,
-      base_64_image: null,
       user_data: ""
     };
-    this.toggle = this.toggle.bind(this);
-  }
-  toggle() {
-    let newState = Object.assign({}, this.state);
-    newState.modal = !newState.modal;
-    this.setState(newState);
   }
 
-  Reload() {
-    window.location.reload();
-  }
 
   componentWillMount() {
     axios({
       method: "GET",
-      url: "https://luckyread-backend.herokuapp.com/api/users/all_info_user",
+      url: "https://luckyread-backend.herokuapp.com/api/user/all_info_user/" + this.props.username,
       headers: {
         Authorization: "Bearer " + localStorage.jwtToken
       }
     }).then(
       response => {
         console.log("respuesta back con url");
-        console.log(response);
+        console.log(response["data"][0]);
         let newState = Object.assign({}, this.state);
-        newState.user_data = response["data"]["attributes"];
+        newState.user_data = response["data"][0];
         this.setState(newState);
-        // const path_pp =
-        //   "https://luckyread-backend.herokuapp.com/api/photo/" +
-        //   response["data"]["profile_photo_id"];
-        // axios({
-        //   method: "GET",
-        //   url: path_pp
-        // }).then(res => {
-        //   console.log(res);
-        //   let newState = Object.assign({}, this.state);
-        //   newState.base_64_image =
-        //     "data:image/png;base64, " + res["data"]["base64_image"];
-        //   this.setState(newState);
-        // });
       },
       err => {
         console.log("el error es pidiendo la información usuario");
@@ -72,7 +46,7 @@ export default class ProfileCard extends Component {
     return (
       <ProfileCardDiv>
         <ProfilePhotoContainer>
-          <img alt="Imagen de perfil" src={this.state.base_64_image} />
+          <img alt="Imagen de perfil" src={"data:image/png;base64, " + this.state.user_data.photo} />
         </ProfilePhotoContainer>
 
         <AllInfoContainer>

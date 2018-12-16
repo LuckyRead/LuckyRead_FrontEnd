@@ -33,7 +33,7 @@ export default class ProfileTabs extends React.Component {
                 this.toggle("1");
               }}
             >
-              Informacion
+              Fragmentos
             </NavLink>
           </NavItem>
           <NavItem className="itemNav">
@@ -66,12 +66,12 @@ export default class ProfileTabs extends React.Component {
           </TabPane>
           <TabPane tabId="2">
             <Row className="divNav">
-              <FollowersTab />
+              <FollowersTab username = {this.props.username}/>
             </Row>
           </TabPane>
           <TabPane tabId="3">
             <Row className="divNav">
-              <FollowedTab />
+              <FollowedTab username = {this.props.username}/>
             </Row>
           </TabPane>
         </TabContent>

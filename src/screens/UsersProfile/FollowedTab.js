@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { TabContent } from "./Styled.js";
 import ProfileLabelMap from "../../common/ProfileLabel/ProfileLabelMap";
+import axios from 'axios';
+
 
 export default class FollowedTab extends Component {
   constructor(props) {
@@ -12,21 +14,21 @@ export default class FollowedTab extends Component {
   }
 
   componentWillMount() {
-    // axios({
-    //   method: "get",
-    //   url:
-    //     "https://luckyread-backend.herokuapp.com/api/follower",
-    //   headers: {
-    //     Authorization: "Bearer " + localStorage.jwtToken
-    //   }
-    // }).then(response => {
-    //   //console.log('FOLLOWED')
-    //   console.log('api/follower')
-    //   console.log(response.data.users)
-    //   this.setState({
-    //     response: response.data.users
-    //   })
-    // })
+    axios({
+      method: "get",
+      url:
+        "https://luckyread-backend.herokuapp.com/api/user/all_info_user_follower/" + this.props.username,
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    }).then(response => {
+      //console.log('FOLLOWED')
+      console.log('api/follower')
+      console.log(response.data.users)
+      this.setState({
+        response: response.data.users
+      })
+    })
   }
 
   render() {

@@ -8,19 +8,34 @@ import {
 import ProfileCard from "./ProfileCard";
 import ProfileTabs from "./ProfileTabs";
 
+
 class ProfilePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: ""
+    };
+  }
+
+  componentWillMount() {
+    let username_n = this.props.match.params.username;
+    console.log(username_n)
+    this.setState({
+      username: username_n
+    })
+  }
   render() {
     return (
       <ProfileContainer>
         <Row>
           <Col xs="3">
             <ProfileCardContainer>
-              <ProfileCard />
+              <ProfileCard username = {this.state.username}/>
             </ProfileCardContainer>
           </Col>
           <Col xs="9">
             <TabContainer>
-              <ProfileTabs />
+              <ProfileTabs username = {this.state.username}/>
             </TabContainer>
           </Col>
         </Row>
