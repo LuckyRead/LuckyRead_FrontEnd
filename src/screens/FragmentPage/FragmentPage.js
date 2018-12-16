@@ -26,9 +26,6 @@ class FragmentPage extends Component {
             fragment: res["data"][1],
             topics: res["data"][1]["topics"],
             statistic: res["data"][0]
-          },
-          () => {
-
           }
         );
       },

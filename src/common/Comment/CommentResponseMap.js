@@ -16,6 +16,7 @@ export default class CommentResponseMap extends React.Component {
   renderCommentMap(data) {
     let commentaries = {};
     commentaries = [];
+    console.log("comentarios", data)
     data.forEach(comment => {
       const base_64_image = "data:image/png;base64, " + comment.profile_photo;
       commentaries.push(
@@ -25,7 +26,7 @@ export default class CommentResponseMap extends React.Component {
           nickname={comment.username}
           comment={comment.text}
           likes={comment.likes}
-          // AUN NO ESTA id_response={comment.id}
+        // AUN NO ESTA id_response={comment.id}
         />
       );
     });
@@ -38,7 +39,7 @@ export default class CommentResponseMap extends React.Component {
         {this.renderCommentMap(this.state.comments)}
         <MakeComment
           type="response"
-          // AUN NO ESTA id={this.props.id_comment}
+        // AUN NO ESTA id={this.props.id_comment}
         />
       </MapResponseContainer>
     );
