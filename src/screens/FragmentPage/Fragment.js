@@ -108,7 +108,10 @@ class Fragment extends React.Component {
 
               <FragmentText>{this.props.fragment.content}</FragmentText>
               <Reaction>
-                <ReactionButtons response={this.props.statistic} />
+                <ReactionButtons
+                  response={this.props.statistic}
+                  id_fragment={this.state.fragment.id}
+                />
               </Reaction>
             </Row>
             <br />

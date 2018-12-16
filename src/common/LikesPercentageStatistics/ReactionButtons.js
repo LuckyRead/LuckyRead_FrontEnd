@@ -42,6 +42,29 @@ export default class ReactionButtons extends React.Component {
     }
   }
 
+  react(number, id_fragment) {
+    switch (number) {
+      case -1:
+        console.log("Clickeaste dislike al fragmento ", id_fragment);
+        break;
+
+      case 0:
+        console.log("Clickeaste meh al fragmento ", id_fragment);
+        break;
+
+      case 1:
+        console.log("Clickeaste like al fragmento ", id_fragment);
+        break;
+      default:
+        break;
+    }
+  }
+
+  clickedReaction(reaction, number, id_fragment) {
+    this.setReaction(reaction);
+    this.react(number, id_fragment);
+  }
+
   render() {
     return (
       <div>
@@ -50,22 +73,27 @@ export default class ReactionButtons extends React.Component {
             <Button
               className="ReactionButton"
               color="success"
-              onClick={() => this.setReaction("like")}
-              //  onClick={() => this.screenshotComponent()}
+              onClick={() =>
+                this.clickedReaction("like", 1, this.props.id_fragment)
+              }
             >
               Like
             </Button>
             <Button
               className="ReactionButton"
               color="warning"
-              onClick={() => this.setReaction("noreaction")}
+              onClick={() =>
+                this.clickedReaction("noreaction", 0, this.props.id_fragment)
+              }
             >
               Meh
             </Button>
             <Button
               className="ReactionButton"
               color="danger"
-              onClick={() => this.setReaction("dislike")}
+              onClick={() =>
+                this.clickedReaction("dislike", -1, this.props.id_fragment)
+              }
             >
               Dislike
             </Button>
@@ -86,5 +114,6 @@ export default class ReactionButtons extends React.Component {
   }
 }
 ReactionButtons.propTypes = {
-  response: PropTypes.object.isRequired
+  response: PropTypes.object.isRequired,
+  id_fragment: PropTypes.number.isRequired
 };
