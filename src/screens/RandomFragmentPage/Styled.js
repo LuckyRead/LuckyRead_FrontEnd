@@ -1,17 +1,18 @@
 import styled from "styled-components";
 import { Palette } from "../../themes/colors";
 const PageContainer = styled.div`
-  background-color: rgba(23,31,49,0.9);
   text-align: center;
   align-items: top;
   border-style: solid;
-  border-color: rgba(0,0,0,0.4);
-  border-width: 5px;
+  border: none !important;
   margin: auto;
   margin 10px;
   height: 100%;
   .eEEWNZ {
     border-radius: 0px;
+  }
+  a: hover{
+    border-bottom: none;
   }
 `;
 
@@ -78,6 +79,10 @@ const FragmentContent = styled.div`
   margin: auto;
   margin-bottom: 10px;
   padding: 20px;
+  background-color: rgba(23, 31, 49, 0.6);
+  a: hover {
+    border-bottom: none;
+  }
 `;
 
 const ImageContainer = styled.div`

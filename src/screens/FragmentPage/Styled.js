@@ -5,9 +5,7 @@ const PageContainer = styled.div`
   text-align: center;
   align-items: top;
   z-index: -1;
-  border-style: solid;
-  border-width: 5px;
-  border-color: rgba(0,0,0,0.4);
+  border: none !important;
   background-color: rgba(23,31,49,0.9);
   margin: auto;
   margin 10px;
@@ -79,6 +77,7 @@ const FragmentContent = styled.div`
   a: hover {
     border-bottom: none;
   }
+  background-color: rgba(23, 31, 49, 0.6);
 `;
 
 const ImageContainer = styled.div`
