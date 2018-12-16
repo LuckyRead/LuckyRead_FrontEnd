@@ -3,7 +3,7 @@ import React from "react";
 import { TabContent } from "./Styled";
 import StatisticLabel from "./StatisticLabel";
 import axios from "axios";
-//  Nada mas es borrar el state y cambiar el contenido a que lea de props
+
 export default class GlobalActivityTab extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +18,7 @@ export default class GlobalActivityTab extends React.Component {
 
 
   componentDidMount() {
+    console.log("solicitando al back")
     axios({
       method: "get",
       url:
