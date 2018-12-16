@@ -5,6 +5,9 @@ import ProfileInfo from "./ProfileInfo";
 import { Row, Col, Button } from "reactstrap";
 
 export default class CommentResponse extends React.Component {
+  likesResponse(id_response) {
+    console.log("Le diste like a la respuesta ", id_response);
+  }
   render() {
     return (
       <Response>
@@ -24,7 +27,11 @@ export default class CommentResponse extends React.Component {
                 <Right>
                   <p>{this.props.comment}</p>
                   <ReactionButton>
-                    <Button outline color="success">
+                    <Button
+                      outline
+                      color="success"
+                      onClick={() => this.likesResponse(this.props.id_response)}
+                    >
                       Like ({this.props.likes})
                     </Button>
                   </ReactionButton>
@@ -42,5 +49,6 @@ Comment.propTypes = {
   name: PropTypes.string.isRequired,
   nickname: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
+  // NO ESTA AUN id_response: PropTypes.number.isRequired,
   likes: PropTypes.number.isRequired
 };

@@ -15,7 +15,20 @@ const PageContainer = styled.div`
     border-bottom: none;
   }
 `;
-
+const ReactionS = styled.div`
+  width: 100%;
+  padding-top: 0px;
+  justify-content: center;
+  display: inherit;
+`;
+const Reaction = styled.div`
+  display: inline-block;
+  margin: 1%;
+  h6 {
+    color: ${props => (props.color ? props.color : "white")};
+    font-size: 40%;
+  }
+`;
 const MessageFragment = styled.div`
   color: ${Palette.blue};
   border-style: none;
@@ -150,5 +163,7 @@ export {
   Topics,
   TopicsText,
   TopicsRow,
-  RandomFragmentS
+  RandomFragmentS,
+  ReactionS,
+  Reaction
 };

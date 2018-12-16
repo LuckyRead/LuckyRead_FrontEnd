@@ -2,6 +2,8 @@ import React from "react";
 import { Row, Col } from "reactstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSmile, faFrown, faMeh } from "@fortawesome/free-solid-svg-icons";
 import {
   MessageFragment,
   FragmentContent,
@@ -11,9 +13,11 @@ import {
   TopicsRow,
   Content,
   Reaction,
-  Comments
+  Comments,
+  Reactionc,
+  ReactionS
 } from "./Styled";
-import { Button } from 'reactstrap';
+import { Button } from "reactstrap";
 import { history } from "../../_helpers";
 import CommentMap from "../../common/Comment/CommentMap";
 import CategoryTag from "../../common/Tags/CategoryTag";
@@ -59,6 +63,26 @@ class Fragment extends React.Component {
         <MessageFragment>
           <Row>
             <Col>{this.props.fragment.title}</Col>
+            <ReactionS>
+              <Reactionc color="#2baf5f">
+                <h6>
+                  <FontAwesomeIcon icon={faSmile} />
+                  {this.props.fragment.likes_number}
+                </h6>
+              </Reactionc>
+              <Reactionc color="#dfdf3a">
+                <h6>
+                  <FontAwesomeIcon icon={faMeh} />
+                  {this.props.fragment.meh_number}
+                </h6>
+              </Reactionc>
+              <Reactionc color="#df993a">
+                <h6>
+                  <FontAwesomeIcon icon={faFrown} />
+                  {this.props.fragment.dislikes_number}
+                </h6>
+              </Reactionc>
+            </ReactionS>
           </Row>
         </MessageFragment>
         <FragmentContent>
@@ -84,14 +108,17 @@ class Fragment extends React.Component {
 
               <FragmentText>{this.props.fragment.content}</FragmentText>
               <Reaction>
-                <ReactionButtons response={this.props.statistic} />
+                <ReactionButtons
+                  response={this.props.statistic}
+                  id_fragment={this.state.fragment.id}
+                />
               </Reaction>
             </Row>
-          <br/>
+            <br />
             <Button onClick={this.handleClick}>Volver</Button>
           </Content>
           <Row>
-            <MakeComment type="comment" />
+            <MakeComment type="comment" id_fragment={this.props.fragment.id} />
           </Row>
           <Comments>
             <Row>

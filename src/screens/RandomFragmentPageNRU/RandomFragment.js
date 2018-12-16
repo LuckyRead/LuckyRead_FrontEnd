@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Button } from "reactstrap";
 import PropTypes from "prop-types";
+
 import {
   Right,
   MessageFragment,
