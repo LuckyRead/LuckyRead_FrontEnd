@@ -6,7 +6,6 @@ const PageContainer = styled.div`
   align-items: top;
   z-index: -1;
   border: none !important;
-  background-color: rgba(23,31,49,0.9);
   margin: auto;
   margin 10px;
   height: 100%;
@@ -156,6 +155,20 @@ const Reaction = styled.div`
     font-size: 0.9em;
   }
 `;
+const ReactionS = styled.div`
+  width: 100%;
+  padding-top: 0px;
+  justify-content: center;
+  display: inherit;
+`;
+const Reactionc = styled.div`
+  display: inline-block;
+  margin: 1%;
+  h6 {
+    color: ${props => (props.color ? props.color : "white")};
+    font-size: 40%;
+  }
+`;
 
 const Content = styled.div`
   margin: auto;
@@ -185,5 +198,7 @@ export {
   TopicsRow,
   Content,
   Reaction,
-  Comments
+  Comments,
+  ReactionS,
+  Reactionc
 };
