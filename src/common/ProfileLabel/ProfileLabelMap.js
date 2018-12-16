@@ -12,6 +12,7 @@ export default class ProfileLabelMap extends React.Component {
     data.forEach(profile => {
       profiles.push(
         <ProfileLabel
+          key={profile.username}
           username={profile.name + " " + profile.lastname}
           nickname={profile.username}
           photosrc={"data:image/png;base64, " + profile.profile_photo}

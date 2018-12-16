@@ -3,50 +3,33 @@ import PropTypes from "prop-types";
 import { Col, Row } from "reactstrap";
 import { TabContent, TrophyS } from "./Styled";
 import ProfileLabelMap from "../../common/ProfileLabel/ProfileLabelMap";
+import axios from "axios";
 
 //  Nada mas es borrar el state y cambiar el contenido a que lea de props
 export default class TopUsersTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: [
-        {
-          username: "camiela2121",
-          name: "Camilo",
-          lastname: "Sanchez",
-          profile_photo: "asdasd",
-          followed: true
-        },
-        {
-          username: "danicastel2829",
-          name: "Daniela",
-          lastname: "Castellanos",
-          profile_photo: "asdasd",
-          followed: true
-        },
-        {
-          username: "gdgarcia1235",
-          name: "German",
-          lastname: "Garcia",
-          profile_photo: "asdasd",
-          followed: false
-        },
-        {
-          username: "salcq2135",
-          name: "Samael",
-          lastname: "Sacedo",
-          profile_photo: "asdasd",
-          followed: false
-        },
-        {
-          username: "lm2315",
-          name: "Laura",
-          lastname: "Molina",
-          profile_photo: "asdasd",
-          followed: true
-        }
-      ]
+      response: []
     };
+  }
+
+  componentDidMount() {
+
+    axios({
+      method: "get",
+      url:
+        "https://luckyread-backend.herokuapp.com/api/users/best",
+      headers: {
+        Authorization: "Bearer " + localStorage.jwtToken
+      }
+    }).then(response => {
+
+      this.setState({
+        response: response.data
+      })
+    })
+
   }
   render() {
     return (

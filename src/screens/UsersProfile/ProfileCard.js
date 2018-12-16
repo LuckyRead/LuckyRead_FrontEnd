@@ -26,14 +26,12 @@ export default class ProfileCard extends Component {
       }
     }).then(
       response => {
-        console.log("respuesta back con url");
-        console.log(response["data"][0]);
+
         let newState = Object.assign({}, this.state);
         newState.user_data = response["data"][0];
         this.setState(newState);
       },
       err => {
-        console.log("el error es pidiendo la información usuario");
       }
     );
   }

@@ -11,9 +11,8 @@ export default class ReactionButtons extends React.Component {
       percentage: 0,
       typeReaction: "percentagelikes"
     };
-    console.log("response", this.props.response);
   }
-  screenshotComponent() {}
+  screenshotComponent() { }
 
   setReaction(reaction) {
     switch (reaction) {
@@ -51,7 +50,7 @@ export default class ReactionButtons extends React.Component {
               className="ReactionButton"
               color="success"
               onClick={() => this.setReaction("like")}
-              //  onClick={() => this.screenshotComponent()}
+            //  onClick={() => this.screenshotComponent()}
             >
               Like
             </Button>

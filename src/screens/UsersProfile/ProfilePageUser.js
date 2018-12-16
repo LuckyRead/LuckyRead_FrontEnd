@@ -19,7 +19,6 @@ class ProfilePage extends Component {
 
   componentWillMount() {
     let username_n = this.props.match.params.username;
-    console.log(username_n)
     this.setState({
       username: username_n
     })
@@ -30,12 +29,12 @@ class ProfilePage extends Component {
         <Row>
           <Col xs="3">
             <ProfileCardContainer>
-              <ProfileCard username = {this.state.username}/>
+              <ProfileCard username={this.state.username} />
             </ProfileCardContainer>
           </Col>
           <Col xs="9">
             <TabContainer>
-              <ProfileTabs username = {this.state.username}/>
+              <ProfileTabs username={this.state.username} />
             </TabContainer>
           </Col>
         </Row>

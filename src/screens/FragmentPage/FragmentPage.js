@@ -15,13 +15,12 @@ class FragmentPage extends Component {
   };
 
   componentDidMount() {
-    console.log("component did mount");
+
     let id = this.props.match.params.fragment_id;
-    console.log(id);
+
     API.get("/api/fragments/" + id).then(
       res => {
-        console.log("fragmento especifico")
-        console.log(res)
+
         this.setState(
           {
             fragment: res["data"][1],
@@ -29,13 +28,11 @@ class FragmentPage extends Component {
             statistic: res["data"][0]
           },
           () => {
-            console.log("Request done");
-            console.log(this.state.statistic);
+
           }
         );
       },
       err => {
-        console.log("error");
       }
     );
   }

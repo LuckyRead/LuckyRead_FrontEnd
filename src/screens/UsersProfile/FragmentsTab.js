@@ -13,7 +13,7 @@ export default class FragmentsTab extends Component {
     };
   }
 
-  componentWillMount(){
+  componentWillMount() {
     axios({
       method: "get",
       url:
@@ -22,15 +22,13 @@ export default class FragmentsTab extends Component {
         Authorization: "Bearer " + localStorage.jwtToken
       }
     }).then(response => {
-        console.log("MIS FRAGMENTOS")
-        console.log(response);
-        this.setState({
-          fragments: response.data.fragments
-        });
 
-      })
+      this.setState({
+        fragments: response.data.fragments
+      });
+
+    })
       .catch(function (error) {
-        console.log("error al pedir fragmentos");
       });
   }
 

@@ -21,7 +21,7 @@ class NewsView extends Component {
       method: "GET",
       url: url
     }).then(res => {
-      console.log(res["data"]["articles"]);
+
       const articles = res["data"]["articles"];
       this.setState({ articles });
     });

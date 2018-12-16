@@ -37,10 +37,10 @@ export default class ProfileTabs extends React.Component {
         Authorization: "Bearer " + localStorage.jwtToken
       }
     }).then(response => {
-      console.log('cities')
+
       this.setState({
         citiesList: response.data.all_cities
-      }, () => console.log("nuevo estado cities", this.state.citiesList))
+      })
     });
   }
 

@@ -26,19 +26,16 @@ class Preferences extends Component {
       }
     })
       .then(response => {
-        console.log("ALL IN ONE");
-        console.log(response);
+
         this.setState({
           topics: response.data.topics
         });
       })
-      .catch(function(error) {
-        console.log(error);
+      .catch(function (error) {
       });
   }
 
   render() {
-    console.log("PREFERENCES");
     const domTopics = this.state.topics.map(topic => {
       return (
         <Category

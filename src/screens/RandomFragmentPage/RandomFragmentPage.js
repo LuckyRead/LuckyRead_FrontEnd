@@ -57,10 +57,7 @@ class RandomFragmentPage extends React.Component {
       }
     }).then(
       response => {
-        console.log("responde", response);
-
         if (response.data.error === "Can't show any fragments writed by user with your preferences") {
-          console.log("Fragmento no valido")
           this.popUptoggle();
           this.setState({
             mode: 2,
@@ -73,19 +70,16 @@ class RandomFragmentPage extends React.Component {
             topics: response["data"].topics,
             fragmentValid: true
           });
-          console.log("randomfragment");
-          console.log(this.state.randomfragment);
+
         }
       },
       err => {
-        console.log("Error solicitando fragmento random");
       }
     );
     return;
   };
 
   render() {
-    console.log(this.state.randomfragment)
     const rf = this.state.randomfragment && this.state.fragmentValid ? (
       <PageContainer>
         <RandomFragment

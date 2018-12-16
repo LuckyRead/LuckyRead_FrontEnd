@@ -87,7 +87,6 @@ class ChangePasswordForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("submit");
     this.setState({
       loaded: true
     });
@@ -103,7 +102,7 @@ class ChangePasswordForm extends Component {
       }
     })
       .then(response => {
-        console.log(response);
+
         localStorage.removeItem("jwtChangePassword");
         this.setState({
           loaded: false,
@@ -112,8 +111,8 @@ class ChangePasswordForm extends Component {
         //alert("Contraseña cambiada");
         //window.location.reload(true);
       })
-      .catch(function(error) {
-        console.log(error);
+      .catch(function (error) {
+
       });
   };
 
@@ -176,8 +175,8 @@ class ChangePasswordForm extends Component {
               {this.state.loaded ? (
                 <Spinner name="circle" fadein="none" color="white" />
               ) : (
-                "Cambiar"
-              )}
+                  "Cambiar"
+                )}
             </button>
           </div>
         </form>

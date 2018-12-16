@@ -17,7 +17,6 @@ export default class CommentMap extends React.Component {
   }
 
   request = e => {
-    console.log(localStorage.jwtToken);
     axios({
       method: "GET",
       url:
@@ -28,8 +27,6 @@ export default class CommentMap extends React.Component {
       }
     }).then(
       response => {
-        console.log("aqui respuesta del back");
-        console.log(response.data.comments);
         if (response.data.comments !== undefined) {
           this.setState({
             comments: response.data.comments
@@ -38,7 +35,6 @@ export default class CommentMap extends React.Component {
 
       },
       err => {
-        console.log("error mostrando comentarios");
       }
     );
     return;

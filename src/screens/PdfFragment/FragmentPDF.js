@@ -10,7 +10,6 @@ class FragmentPDF extends Component {
   };
 
   componentDidMount() {
-    console.log("pdf page");
     let id = this.props.match.params.fragment_id;
     const link =
       "https://luckyread-backend.herokuapp.com/api/fragments_pdf/" +
@@ -19,16 +18,7 @@ class FragmentPDF extends Component {
     this.setState({
       pdf_link: link
     });
-    console.log(link);
-    /*API.get('/api/fragments_pdf/'+id+'.pdf')
-      .then(res => {
-        console.log('pdf')
-        console.log(res)
-        this.setState({
-          pdf_url: res['config']['headers']['url']
-        });
-        console.log(res['config']['headers']['url'])
-      });*/
+
   }
 
   render() {
