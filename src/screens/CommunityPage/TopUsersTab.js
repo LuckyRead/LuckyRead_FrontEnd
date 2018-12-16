@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import { Col, Row } from "reactstrap";
 import { TabContent, TrophyS } from "./Styled";
 import ProfileLabelMap from "../../common/ProfileLabel/ProfileLabelMap";
@@ -57,5 +57,5 @@ export default class TopUsersTab extends React.Component {
 }
 
 TopUsersTab.propTypes = {
-  response: PropTypes.array.isRequired
+
 };

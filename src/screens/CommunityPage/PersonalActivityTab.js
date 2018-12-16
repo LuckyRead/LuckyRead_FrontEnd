@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import { TabContent } from "./Styled";
 import StatisticLabel from "./StatisticLabel";
 //  Nada mas es borrar el state y cambiar el contenido a que lea de props
@@ -53,9 +53,5 @@ export default class PersonalActivityTab extends React.Component {
 }
 
 PersonalActivityTab.propTypes = {
-  total_comentarios: PropTypes.number.isRequired,
-  seguidores_mensual: PropTypes.number.isRequired,
-  seguidos_mensual: PropTypes.number.isRequired,
-  total_reacciones: PropTypes.number.isRequired,
-  votos_positivos_comentario: PropTypes.number.isRequired
+
 };

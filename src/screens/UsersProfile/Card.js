@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
-import { Card, CardImg, CardText, CardBody, Button, CardFooter, CardHeader } from "reactstrap";
+import { Card, CardImg, CardText, CardBody, Button, CardHeader } from "reactstrap";
 // import { Cs } from "./Styled";
 import { Link } from "react-router-dom";
-import  "./UserCard.css";
+import "./UserCard.css";
 
 export default class FragmentCard extends PureComponent {
   render() {
@@ -21,7 +21,7 @@ export default class FragmentCard extends PureComponent {
           src={"data:image/png;base64, " + this.props.image}
           alt="Card image cap"
         />
-      <CardBody className="text-center">
+        <CardBody className="text-center">
           <CardText className="text-justify" id="textfragment">
             <strong>Introducción: </strong>
             {this.props.introduction}
