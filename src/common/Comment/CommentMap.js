@@ -53,7 +53,6 @@ export default class CommentMap extends React.Component {
           nickname={comment.username}
           comment={comment.text}
           likes={comment.likes}
-        // AUN NO ESTA: id_comment = {comment.id}
         />
       );
     });

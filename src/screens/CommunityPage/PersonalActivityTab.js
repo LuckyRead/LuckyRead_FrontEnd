@@ -7,11 +7,11 @@ export default class PersonalActivityTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      total_comentarios: 100,
-      seguidores_mensual: 50,
-      seguidos_mensual: 20,
-      total_reacciones: 500,
-      votos_positivos_comentario: 1000
+      total_comentarios: 2,
+      seguidores_mensual: 3,
+      seguidos_mensual: 5,
+      total_reacciones: 9,
+      votos_positivos_comentario: 0
     };
   }
 

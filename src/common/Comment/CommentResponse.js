@@ -49,6 +49,5 @@ Comment.propTypes = {
   name: PropTypes.string.isRequired,
   nickname: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
-  // NO ESTA AUN id_response: PropTypes.number.isRequired,
   likes: PropTypes.number.isRequired
 };

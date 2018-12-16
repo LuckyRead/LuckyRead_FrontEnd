@@ -10,26 +10,26 @@ export default class Comment extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       collapse: false,
-      responses: [
-        {
-          username: "Ldcastellanosa",
-          name: "Daniela",
-          text: "Camilo me ama mas",
-          likes: 2,
-          datetime: "2018",
-          liked_by_user: false,
-          profile_photo: "route"
-        },
-        {
-          username: "Caasanchezcr",
-          name: "Camilo",
-          text: "Es verdad",
-          likes: 2,
-          datetime: "2018",
-          liked_by_user: false,
-          profile_photo: "route"
-        }
-      ],
+      /*       responses: [
+              {
+                username: "Ldcastellanosa",
+                name: "Daniela",
+                text: "Camilo me ama mas",
+                likes: 2,
+                datetime: "2018",
+                liked_by_user: false,
+                profile_photo: "route"
+              },
+              {
+                username: "Caasanchezcr",
+                name: "Camilo",
+                text: "Es verdad",
+                likes: 2,
+                datetime: "2018",
+                liked_by_user: false,
+                profile_photo: "route"
+              }
+            ], */
       numberresponses: 2
     };
   }
@@ -69,7 +69,7 @@ export default class Comment extends React.Component {
           </Col>
         </Row>
 
-        <Row className="responses">
+        { /*  <Row className="responses">
           <ResponsesS>
             <Col>
               <ReactionButton>
@@ -86,7 +86,7 @@ export default class Comment extends React.Component {
             comments={this.state.responses}
             // AUN NO ESTA id = {this.props.id_comment}
           />
-        </Collapse>
+    </Collapse> */}
       </CommentContainer>
     );
   }

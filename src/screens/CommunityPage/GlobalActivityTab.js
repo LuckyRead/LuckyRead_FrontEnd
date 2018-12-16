@@ -8,11 +8,11 @@ export default class GlobalActivityTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      total_usuarios_logueados: 25000,
-      total_comentarios_mensual: 50000,
-      total_fragmentos_mensual: 200,
-      total_likes_fragmentos: 50000,
-      total_usuarios_registrados: 1000
+      total_usuarios_logueados: 42,
+      total_comentarios_mensual: 38,
+      total_fragmentos_mensual: 50,
+      total_likes_fragmentos: 29,
+      total_usuarios_registrados: 41
     };
   }
 
