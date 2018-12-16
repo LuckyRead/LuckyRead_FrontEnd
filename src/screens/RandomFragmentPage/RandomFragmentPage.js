@@ -46,9 +46,9 @@ class RandomFragmentPage extends React.Component {
   }
 
   request = e => {
-    console.log(localStorage.jwtToken);
-    const requesturl = "https://luckyread-backend.herokuapp.com/api/fragments/something/" + this.state.mode
-    console.log(requesturl)
+    this.setState({
+      fragmentValid: false
+    });
     axios({
       method: "GET",
       url: "https://luckyread-backend.herokuapp.com/api/fragments/something/" + this.state.mode,

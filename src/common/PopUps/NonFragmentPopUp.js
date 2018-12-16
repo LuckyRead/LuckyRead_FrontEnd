@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import PropTypes from "prop-types";
+import wolf from "../../resources/pony.gif"
+import { ImgS } from "./Styled";
 class NonFragmentPopUp extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +30,7 @@ class NonFragmentPopUp extends React.Component {
           <ModalBody>
             Parece que no hay fragmentos de usuarios que se adecuen a tus preferencias, por favor intenta mas tarde
           </ModalBody>
+          <ImgS><img src={wolf} alt="Loading" /></ImgS>
           <ModalFooter>
             <Button color="info" onClick={this.toggle}>OK!</Button>
           </ModalFooter>
